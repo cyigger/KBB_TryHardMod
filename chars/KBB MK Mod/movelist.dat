@@ -1,0 +1,41 @@
+
+<#f0f000>:EX ATTACKS:</>
+
+Shuriken Toss (1/4 Bar)								^C
+_!
+	"Fly throws an arcing shuriken upwards
+	Depletes health slightly"
+
+Aerial Shuriken Toss (1/4 Bar)							^C
+_!
+	"Fly throws an arcing shuriken downward
+	Depletes health slightly"
+
+<#f0f000>:SPECIAL MOVES!:</>
+
+Kickety kicks!  (1/2 Bar)						_D_DF_F^A
+_! 
+	 "Fly whips out a flurry of kicks
+	ends with a powerful blow"
+	(Aerial Only)
+
+"Try and keep up!": 5 Piece Combo w/ Fries  (1 Bar			_D_DB_B^A
+_! 
+	 "Fly attacks 5 times with swift 
+	kicks and a slap!"
+
+"Goin' Up!": Upwards Cutter (1/2 Bar) 					_D_DF_F^B
+_!
+	"Fly Dashes forward and cut his opponent
+	launching them upwards"
+ 
+"Pay Attention!"  (1 Bar)						_D_DB_B^B
+_!				
+	"Fly dashes behind his opponent and
+	returns with a hefty kick"
+
+"This is gonna hurt..." (2 Bars)					_D_DF_F^C
+_! 				
+	"Fly grabs his opponent and bursts
+	with a heavy electric charge!
+	This move hurts him and his opponent"

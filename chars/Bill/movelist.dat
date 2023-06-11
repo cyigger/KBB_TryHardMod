@@ -1,0 +1,65 @@
+<#f0f000>:PASSIVE ABILLITY:</>
+Bill has the abillity to plant up to 8 bombs
+on the opponent! These bombs can be activated
+from any moment as long as you have meter.
+
+<#f0f000>:UNIQUE NORMALS:</>
+_B^B
+
+<#f0f000>:EX ATTACKS:</>
+
+Sticky Bomb: Affix (1/4 Bar)				^C
+	"Bill lunges and sticks a bomb 
+	on the opponent."
+
+Sticky Bomb: Plant (1/4 Bar)				_B^C
+	"Bill plants a bomb on the ground!
+	If the opponent walks over it, it
+	sticks onto the opponent. Otherwise,
+	can also be ignited by doing
+	Sticky Bomb: Explosion."
+
+
+Sticky Bomb: Explosion (1/4 Bar, _AIR OK)		_D^C
+	"Bill blows up a sticky bomb that's on
+	the opponent or on the ground."
+	
+Bouncing Grenade (1/4 Bar)					_AIR^C
+	"Bill chucks a grenade that bounces along
+	the floor!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Blam Bomba (1 Bar)					_D_DF_F^A
+	 "Bill chucks a grenade upwards!
+	 Explodes on contact with the opponent
+	 or the ground."
+
+Pyromaniac (1 Bar)					_D_DB_B^A
+	 "Bill becomes a literal terrorist and 
+	 covers his body in gasoline, 
+	 allowing for all of his hits to explode,
+	 in exchange for less defense.
+	 Expires 15 seconds after Activation."
+
+Spicy Shatter Step (1 Bar) 			_D_DF_F^B
+	"Bill plants a C4 on the ground!
+	Use another explosive near it for
+	a chain reaction!"
+ 
+"My Eyes!!" (1 Bar)					_D_DB_B^B		
+	"Bill plants a flashbang C4 on the
+	ground! Stuns an opponent that isn't
+	careful."
+
+"LOL Boobytrap." (1 1/2 Bars)		_D_DF_F^C			
+	"Bill dashes forward. If near an 
+	opponent, he plants a bomb that unleashes
+	a gigantic explosion!"
+	
+"The One's" (2 Bars)				_D_DB_B^C
+	"Bill sticks bombs on the opponent
+	repeatedly! Timing is important for
+	getting 8 bombs on the opponent in
+	one go!"
+	

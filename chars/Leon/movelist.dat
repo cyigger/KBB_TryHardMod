@@ -1,0 +1,76 @@
+<#f0f000>:Passive Abillity:</>
+Leon's grounded backdash with a forward input makes him 
+manuver forward. A vast majority of Leon's normals can be 
+backdash cancelled for 1/4 bar of meter.
+
+<#f0f000>:Unique Normals:</>
+_B_B_F
+_B^A
+_DF^B
+_B^B
+_AIR^Y 
+
+<#f0f000>:EX ATTACKS:</>
+
+Star Platinum: Flurry Rush (1/4 Bar)			^C
+	"Star Platinum does a flurry of
+	machinegun punches! Press C again
+	to send the opponent flying!"
+
+Star Platinum: Aerial Flurry Rush (1/4 Bar)		_AIR_F^C
+	"Star Platinum rapidly punches in the air!"
+
+Quick Uppercut (1/4 Bar)						_D^C
+	"Leon Rises into the air with an uppercut!"
+	
+Star Finger (1/4 Bar)							_F^C
+	"Star Platinum does a low poke then swipes up."
+
+Tactical Roll (1/4 Bar)						_F_F^C
+	"Leon curls into an ball and rolls
+	forward."
+
+Leo-Lectric Evasion (1/2 Bar)					_B^C
+	"Leon disappears in a dash and
+	reappears shortly after.
+	Can potentially cross up the opponent."
+	
+Leo-Lectric Uppercut (1/2 Bar)					_D_D^C
+	"Leon rises into the air
+	with a more shocking uppercut!"
+
+
+<#f0f000>:STAR STRIKES!:</>
+
+Flurry Kicks (1/2 Bar)					_D_DF_F^A
+	 "Leon Rapid Kicks while jumping. If done from
+	 the ground, it can cancel into itself once."
+	 
+_!  Shock Cracker							_D_DF_F^A
+	"Leon kicks over your head, then kicks your toes.
+	Can be cancelled into other supers, provided
+	the meter is there!"
+
+Triple Shock Uppercuts (1 Bar)			_D_DB_B^A
+	"Leon punches his enemy twice, then does a
+	great uppercut, and dives back down."
+
+Tandem Rush (1 Bar)					_D_DF_F^B	
+	"Leon thinks and makes Star Platinum do
+	various attacks. Star Platinum has three 
+	normals to choose from."
+
+Star Breaker (1+1/2 Bars)		_D_DB_B^B
+	 "Star Platinum peforms a massive
+	 attack! Hold down B or C to charge
+	 the attack!"
+
+Leon Barrage (2 Bars)					_D_DF_F^C				
+	"Leon and Star Platinum do 
+	a rush of attacks on the opponent!"
+
+Star Platinum: The World (2 Bars)		_D_DB_B^C
+	 "Leon waits for an attack. If he gets hit,
+	 he jukes the opponent multiple times, then
+	 summons Star Platinum to knock the opponent
+	 dizzy!"

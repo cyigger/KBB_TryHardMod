@@ -1,0 +1,49 @@
+<#f0f000>:Passive Abilities:</>
+
+Glide								_AIR_F~F or _AIR_B~B
+	"Saito slowly descends while moving forward or
+	backwards. Hold if you want to keep moving."
+
+Fastfall								_AIR_D_D
+	"Saito drops quickly to the ground like 
+	a brick."
+	
+<#f0f000>:UNIQUE NORMALS:</>
+_AIR_D^A
+_AIR_D^B
+
+
+<#f0f000>:EX ATTACKS:</>
+
+"I... don't have a plan" (1/4 Bar, _AIR OK)		^C
+	"Saito rushes into his opponent...
+	headfirst. On the ground, this wallbounces,
+	in the air it knocks away."
+
+Rising Wind (1/4 Bar)							_D^C
+	"Saito sends a spiral of air upwards
+	bringing his opponent up with it"
+
+"That way!" (1/4 Bar)							_AIR_D^C
+	"Saito grabs his opponent
+	and tosses them backwards into the wall!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Light Sirocco (1 Bar, _AIR OK)					_D_DF_F^A
+	"Saito throws down a whirlwind of air
+	that bursts on contact with the ground"
+
+"Burst Off!" (1 Bar, _AIR OK)					_D_DB_B^A
+	"Saito jumps up with a vortex of air
+	it's quick but leaves him open to attack"
+
+Wind Cutter (1/2 Bar, _AIR OK) 					_D_DF_F^B
+	"Saito sends a quick slash of wind towards
+	his opponent."
+
+WOOO WHIRLWIND (1 Bar, _AIR OK) 				_D_DB_B^B
+	"Saito spins into a controllable whirlwind"
+
+Wind Buster (2 Bars) 						_D_DF_F^C
+	"Saito sends a burst of wind at his opponent"

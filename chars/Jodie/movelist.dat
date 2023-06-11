@@ -1,0 +1,91 @@
+<#f0f000>:UNIQUE NORMALS:</>
+_F_F^B
+
+<#f0f000>:EX ATTACKS:</>
+Normal Jodie:
+
+Spin Dash! (1/4 Bar)							^C
+	"Jodie does a spindash!
+	Press a button to choose how he'll follow up!"
+	
+_! Launch!									^A
+	" Jodie kicks his opponent upward!"
+_! Flip Kick!								^B
+	" Jodie jumps and slams his opponent 
+	downward with a kick!"
+_! Spin Jump!								^C
+	"Jodie jumps and does a spindash 
+	in the air!"
+
+Boost Dash! (1/4 Bar)						_F^C
+	"Jodie boosts towards his opponent,
+	launching them into the air!"
+
+Air Spin Dash! (1/4 Bar)				_AIR^C
+	"Jodie jumps forward with a multihit spin!
+	
+_!Spinning Flip Kick!					_AIR^C
+	"Jodie follows up with a slamming kick!"
+
+Sword Mode Switch							_D^C
+	"Jodie equips or unequips his Saber!"
+
+Sword Jodie:
+
+Rush Tornado! (1/4 Bar)							^C
+	"Jodie spins into his opponent
+	landing multiple hits"
+
+Falling Whirlwind (1/4 Bar)					_AIR^C
+	"Jodie spins down with his saber."
+	
+Tornado Strike! (1/4 Bar)					_AIR_D^C
+	"Jodie spins around with his saber."
+_!Saber Throw! (1/4 Bar)				    _AIR^C
+	"Hold C before the move ends to make 
+	Jodie throw his saber towards the ground!"
+	
+Sword Mode Switch							_D^C
+	"Jodie Equips or unequips his Saber!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Speed Blitz! (1/2 Bar)							_D_DF_F^A
+	 "Jodie blitzes forward faster than the eye
+	can see! Can switch sides if close enough!"
+
+Quick Slash (1 Bar, _AIR OK)					_D_DB_B^A
+	 "Jodie jumps up with a rising sword slash"
+	(Activates Sword Mode)
+
+Swordplay Finale (1 Bar) 						_D_DF_F^B
+	"Jodie slashes his opponent 3 times
+	On the third slash, his sword detonates!"
+	(Sword Mode Only)
+
+Quick Time Event (1/2 Bar)						_D_DB_B^B
+	 "Jodie runs forward with no time for a plan!
+	Choose between A, B, and C to attack!"
+
+_!"Wait for a counterattack!"						^A
+	"Jodie waits for the opponent's attack! If 
+	successful he will launch them away!"
+_!"Space 'em!"										^B
+	"Jodie switches to sword mode and 
+	does an upward slash!"
+_!"Grab 'em!"										^C
+	"Jodie grabs the opponent, and if successful,
+	throws them away!"
+
+Jodie Combo Roller (1 Bar, _AIR OK)			_D_DF_F^C
+	 "Jodie grabs and spins on his opponent!
+	Finish them off with a kick or continue with
+	a breakspin!
+
+_!"Jodie Spinner"						^A
+	"Jodie does a breakspin, kicking his opponent 
+	repeatedly! In the air he delivers a spinning
+	kick and slams the opponent into the ground!"
+_!"Jodie Kicker"										^B
+	"Jodie does a massive kick, doing huge damage
+	while sending the opponent flying!"

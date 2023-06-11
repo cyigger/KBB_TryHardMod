@@ -1,0 +1,43 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+_B^A
+^A^A^A_-^B
+^A^A^A_-^C
+^A^A^A_-^C_-^A
+
+<#f0f000>:EX ATTACKS:</>
+
+Cannon Fodder (1/5 Bar, _AIR OK)					^C
+	"Max summons a cannon! 
+	Fires a hard hitting cannon ball 
+	after a bit of time."
+
+"Here's a present!" (1/5 Bar, _AIR OK)				_D^C
+	"Max throws out a grenade!
+	Detonates after a bit of time."
+
+
+<#f0f000>:STAR STRIKES!:</>
+
+"Bring Out the Big Gun!" (1 Bar, _AIR OK)			_D_DF_F^A
+	"Max calls his crew to drop 
+	in a Mounted Gatling Gun!"
+
+"Get to work Boys!": MoBomba (1 Bar)				_D_DB_B^A
+	"Max alerts MoBomba!
+	MoBomba walks up and throws a bomb 
+	in an arc at Max's adversary"
+
+"Get to work Boys!": Yeetus (1 Bar) 				_D_DF_F^B
+	"Max beckons Yeetus and Yeets him...
+	huh. So that's where his name comes 
+	from..."
+ 
+"Get to work Boys!": Grabby (1 Bar)					_D_DB_B^B		
+	"Max calls Grabby!
+	Grabby jumps behind the opponent
+	and holds them down briefly."
+
+"Try this on for 'Size'!" (2 Bars)					_D_DF_F^C
+	"Max whips out the proton cannon and
+	Unleashs a monster of a blast"

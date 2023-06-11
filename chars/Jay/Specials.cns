@@ -1,0 +1,2128 @@
+;===============================================================================
+;----------------------Specials-------------------------------------------------
+;===============================================================================
+; Special 1 (236A)
+;-------------------------------------------------------------------------------
+[Statedef 21000]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 21000
+poweradd = -1000
+sprpriority = 2
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = AnimElem = 2
+trigger1 = map(heat) < 200
+trigger2 = command = "s" || command = "hold_s"; Holding S prevents this from consuming heat
+helpertype = normal ;player
+name = "Blam"
+ID = 21500
+stateno = 21500
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Helper] ; Activates with 100 Heat
+type = Helper
+trigger1 = map(heat) >= 100
+trigger1 = AnimElem = 2
+trigger1 = command != "s" && command != "hold_s"; Holding S prevents this from consuming heat
+helpertype = normal ;player
+name = "Boosted Blam"
+ID = 21501
+stateno = 21501
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Consume Heat]
+type = MapAdd
+trigger1 = AnimElem = 2
+trigger1 = command != "s" && command != "hold_s"; Holding S prevents this from consuming heat
+trigger1 = map(heat) >= 100
+map = "heat"
+value = -100
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;===============================================================================
+; Special 1 Blammer Spawner
+;-------------------------------------------------------------------------------
+[Statedef 21500]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 9999
+poweradd = 0
+sprpriority = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 50,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+inheritjuggle = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 30
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 150,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 60
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 250,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 70
+trigger2 = root,movetype = H && root,stateno != [120,160]
+
+;===============================================================================
+; Special 1 Boosted Blammer Spawner
+;-------------------------------------------------------------------------------
+[Statedef 21501]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 9999
+poweradd = 0
+sprpriority = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 0
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 50,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+inheritjuggle = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 30
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 100,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 60
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 150,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 90
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 200,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+[State 0, Helper] ;Activates at 200 heat
+type = Helper
+trigger1 = Time = 120
+trigger1 = root,map(heat) >= 100
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 250,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+[State 0, Consume Heat]
+type = RootMapAdd
+trigger1 = Time = 120
+trigger1 = root,map(heat) >= 100
+map = "heat"
+value = -100
+
+[State 0, Helper] ;Activates at 300 heat
+type = Helper
+trigger1 = Time = 150
+trigger1 = root,map(heat) >= 100
+helpertype = normal ;player
+name = "Blam"
+ID = 21550
+stateno = 21550
+pos = 250,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+InheritJuggle = 2
+
+[State 0, Consume Heat]
+type = RootMapAdd
+trigger1 = Time = 150
+trigger1 = root,map(heat) >= 100
+map = "heat"
+value = -100
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 130
+trigger2 = root,movetype = H && root,stateno != [120,160]
+
+;===============================================================================
+; Special 1 Blam
+;-------------------------------------------------------------------------------
+[Statedef 21550]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 21500
+poweradd = 0
+sprpriority = 2
+
+[State 0, Busterable]
+type = RootMapSet
+trigger1 = movehit
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+
+[State 0, Counterhit Text Display]
+type = LifebarAction
+trigger1 = MoveCountered = 1 && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+spr = Const(MsgCounterHit), 0
+snd = 25,0
+persistent = 0
+
+[State 0, Counterhit Map Modify]
+type = RootMapSet
+trigger1 = (MoveCountered = 1 && root,MoveCountered = 1) && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 1
+
+[State 0, Counterhit Map Reset]
+type = RootMapSet
+trigger1 = (MoveCountered = 0 && root,MoveCountered = 0) && root, map(_kbbsys_actionMoveCounteredFlag) = 1
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movehit && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = RootMapAdd
+trigger1 = movehit && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S99,0
+volumescale = 300
+ignorehitpause = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1
+time = 15
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SP
+animtype  = Hard
+damage    = 15
+hitflag = MAFD
+guardflag = MA
+pausetime = 18,18
+guard.pausetime = 12, 10
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -3,-3
+air.velocity = -3,-3
+Fall = 1
+Envshake.time = 15
+Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+;===============================================================================
+; Special 2 (214A)
+;-------------------------------------------------------------------------------
+[Statedef 22000]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 22000
+poweradd = -1000
+sprpriority = 2
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 650, ChangeState] ; At level 1 heat plus, has a chance to go to "Backfire" state, chance is based on heat level
+type = ChangeState
+triggerall = time = 1
+trigger1 = map(heat) >= 100
+trigger1 = random <= map(heat)*2 + map(burn)*10
+value = 22001
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S99,0
+volumescale = 300
+ignorehitpause = 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 22000, VelSet]
+type = Velset
+trigger1 = 1
+x = 0
+y = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 2
+time = 15
+ampl = -8
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 626
+ID = 626
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, SA
+animtype  = Medium
+damage    = 75
+hitflag = MAFD
+guardflag = MAF
+pausetime = 22,22
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2, -8
+air.velocity = -2,-8
+Fall = 1
+fall.recover = 0
+Envshake.time = 15
+Envshake.ampl = -8
+Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; Special 2 (214A) Backfire
+;-------------------------------------------------------------------------------
+[Statedef 22001]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 22001
+sprpriority = 2
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 100
+persistent = 0
+
+[State 0, Burning MapAdd]
+type = MapSet
+trigger1 = movecontact && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = MapSet
+trigger1 = movecontact && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S99,0
+volumescale = 300
+ignorehitpause = 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 2
+time = 30
+ampl = -10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = -5
+y = -5
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 2
+statetype = A       ;S,A,C,L
+movetype = A       ;I,A,H
+physics = A         ;A,C,S,N
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = AnimElem = 2
+value = -(map(heat) / 3)
+kill = 0
+absolute = 0
+
+[State 0, Explod]	
+type = Explod
+trigger1 = AnimElem = 2
+anim = 626
+ID = 626
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1.5,1.5
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, SA
+animtype  = Medium
+damage    = 100 + (map(heat) /2)
+hitflag = MAFD
+guardflag = MAF
+pausetime = 44,44
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -5 - (map(heat)/50), -5 - (map(heat)/50)
+air.velocity = -5- (map(heat)/50),-5 - (map(heat)/50)
+Fall = 1
+fall.recover = 0
+Envshake.time = 15
+Envshake.ampl = -8
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 0, Reset Heat]
+type = MapSet
+trigger1 = Animelem = 2
+map = "heat"
+value = 0
+ignorehitpause = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 5050
+ctrl = 0
+
+;===============================================================================
+; Special 3 (236B) Normal
+;-------------------------------------------------------------------------------
+[Statedef 23000]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 23000
+poweradd = -1000
+sprpriority = 2
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 650, ChangeState] ; At level 1 heat plus, will go to the boosted form instead
+type = ChangeState
+triggerall = time = 1
+trigger1 = map(heat) >= 100
+trigger1 = command != "s" && command != "hold_s"; Holding S prevents this from consuming heat
+value = 23001
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 5
+time = 15
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 22
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = -9
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 6
+helpertype = normal ;player
+name = "BlamBeam"
+ID = 23500
+stateno = 23500
+pos = -20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Light
+damage    = 40
+hitflag = MAFD
+guardflag = MA
+pausetime = 22,22
+guard.pausetime = 12, 10
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -5,-2
+air.velocity = -5,-5
+Fall = 1
+fall.recover = 0
+Envshake.time = 15
+Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; Special 3 (236B) Boosted
+;-------------------------------------------------------------------------------
+[Statedef 23001]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 23000
+poweradd = 0
+sprpriority = 2
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 5
+time = 15
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 22
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = -9
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 0, Helper] ;Activates at 300 heat
+type = Helper
+trigger1 = AnimElem = 6
+trigger1 = map(heat) = 300
+helpertype = normal ;player
+name = "SuperBlamBeam"
+ID = 23501
+stateno = 23501
+pos = -20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Consume Heat]
+type = MapSet
+trigger1 = AnimElem = 6
+trigger1 = map(heat) = 300
+map = "heat"
+value = 0
+
+[State 0, Helper] ;Activates at 200 heat
+type = Helper
+trigger1 = AnimElem = 6
+trigger1 = map(heat) >= 200
+helpertype = normal ;player
+name = "BlamBeam"
+ID = 23500
+stateno = 23500
+pos = -20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Helper] ;Activates at 200 heat
+type = Helper
+trigger1 = AnimElemtime(6) = 5
+trigger1 = numhelper(23500) > 0
+helpertype = normal ;player
+name = "BlamBeam"
+ID = 23500
+stateno = 23500
+pos = -20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Helper] ;Activates at 200 heat
+type = Helper
+trigger1 = AnimElemtime(6) = 10
+trigger1 = numhelper(23500) > 0
+helpertype = normal ;player
+name = "BlamBeam"
+ID = 23500
+stateno = 23500
+pos = -20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Consume Heat]
+type = MapSet
+trigger1 = AnimElem = 6
+trigger1 = map(heat) >= 200
+map = "heat"
+value = 0
+
+[State 0, Helper] ;Activates at 100 heat
+type = Helper
+trigger1 = AnimElem = 4
+trigger1 = map(heat) >= 100 && map(heat) < 200
+helpertype = normal ;player
+name = "Flare Boom"
+ID = 23550
+stateno = 23550
+pos = 20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Helper] ;Activates at 100 heat
+type = Helper
+trigger1 = AnimElemTime(4) = 5
+trigger1 = map(heat) >= 100 && map(heat) < 200
+helpertype = normal ;player
+name = "Flare Boom"
+ID = 23550
+stateno = 23550
+pos = 40,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Helper] ;Activates at 100 heat
+type = Helper
+trigger1 = AnimElemTime(4) = 5
+trigger1 = map(heat) >= 100 && map(heat) < 200
+helpertype = normal ;player
+name = "Flare Boom"
+ID = 23550
+stateno = 23550
+pos = 60,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritjuggle = 2
+
+[State 0, Consume Heat]
+type = MapAdd
+trigger1 = AnimElem = 6
+map = "heat"
+value = -100
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Light
+damage    = 40
+hitflag = MAFD
+guardflag = MA
+pausetime = 22,22
+guard.pausetime = 12, 10
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -5,-2
+air.velocity = -5,-5
+Fall = 1
+fall.recover = 0
+Envshake.time = 15
+Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; Special 3 Helper (Blam Beam)
+;-------------------------------------------------------------------------------
+[Statedef 23500]
+type    = S
+movetype= A
+physics = N
+ctrl = 0
+anim = 23500
+poweradd = 0
+sprpriority = 2
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = movehit
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+
+[State 0, Counterhit Text Display]
+type = LifebarAction
+trigger1 = MoveCountered = 1 && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+spr = Const(MsgCounterHit), 0
+snd = 25,0
+persistent = 0
+
+[State 0, Counterhit Map Modify]
+type = RootMapSet
+trigger1 = (MoveCountered = 1 && root,MoveCountered = 1) && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 1
+
+[State 0, Counterhit Map Reset]
+type = RootMapSet
+trigger1 = (MoveCountered = 0 && root,MoveCountered = 0) && root, map(_kbbsys_actionMoveCounteredFlag) = 1
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S99,2
+volumescale = 200
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 22
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time%2 = 0
+anim = F23550
+ID = 23550
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.75,0.75
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SP
+animtype  = Hard
+damage    = 10
+hitflag = MAFD
+guardflag = MAF
+pausetime = 0,0
+guard.pausetime = 12, 10
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,3
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -5,-5
+air.velocity = -4,-5
+Fall = 1
+fall.recover = 0
+Envshake.time = 15
+Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 200, End]
+type = ChangeState
+trigger1 = movecontact 
+trigger2 = frontedgedist <= 0
+value = 23550
+
+;===============================================================================
+; Special 3 Boosted Helper (Super Blam Beam)
+;-------------------------------------------------------------------------------
+[Statedef 23501]
+type    = S
+movetype= A
+physics = N
+ctrl = 0
+anim = 23501
+poweradd = 0
+sprpriority = 2
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = movehit
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+
+[State 0, Counterhit Text Display]
+type = LifebarAction
+trigger1 = MoveCountered = 1 && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+spr = Const(MsgCounterHit), 0
+snd = 25,0
+persistent = 0
+
+[State 0, Counterhit Map Modify]
+type = RootMapSet
+trigger1 = (MoveCountered = 1 && root,MoveCountered = 1) && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 1
+
+[State 0, Counterhit Map Reset]
+type = RootMapSet
+trigger1 = (MoveCountered = 0 && root,MoveCountered = 0) && root, map(_kbbsys_actionMoveCounteredFlag) = 1
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S99,2
+volumescale = 200
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = 1
+x = 22
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time%2 = 0
+anim = F23550
+ID = 23550
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.75,0.75
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movehit && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = RootMapAdd
+trigger1 = movehit && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = (time% 3) = 0
+trigger1 = 1
+attr = S, SP
+animtype  = Hard
+damage    = 10
+hitflag = MAFD
+guardflag = MA
+pausetime = 10,10
+guard.pausetime = 12, 10
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,3
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -8,-0.7
+air.velocity = -8,-0.7
+Fall = 1
+fall.recover = 0
+Envshake.time = 15
+Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 200, End]
+type = ChangeState
+trigger1 = frontedgedist <= 0
+value = 23551
+
+;-------------------------------------------------------------------------------
+; 236b Flare Boom
+[Statedef 23550]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+ctrl = 0
+anim = 626
+poweradd = 0
+sprpriority = 2
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = movehit
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+
+[State 0, Counterhit Text Display]
+type = LifebarAction
+trigger1 = MoveCountered = 1 && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+spr = Const(MsgCounterHit), 0
+snd = 25,0
+persistent = 0
+
+[State 0, Counterhit Map Modify]
+type = RootMapSet
+trigger1 = (MoveCountered = 1 && root,MoveCountered = 1) && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 1
+
+[State 0, Counterhit Map Reset]
+type = RootMapSet
+trigger1 = (MoveCountered = 0 && root,MoveCountered = 0) && root, map(_kbbsys_actionMoveCounteredFlag) = 1
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1
+time = 15
+ampl = -8
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S99,1
+volumescale = 200
+ignorehitpause = 1
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movehit && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = RootMapAdd
+trigger1 = movehit && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 0
+y = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Medium
+damage    = 10
+hitflag = MAFD
+guardflag = MAF
+pausetime = 0,5
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -5, -5
+air.velocity = -5,-5
+Fall = 1
+Envshake.time = 15
+Envshake.ampl = -8
+Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+;-------------------------------------------------------------------------------
+; 236b Boosted Flare Boom
+[Statedef 23551]
+type    = A
+movetype= A
+physics = N
+juggle  = 0
+ctrl = 0
+anim = 23550
+poweradd = 0
+sprpriority = 2
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = movehit
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+
+[State 0, Counterhit Text Display]
+type = LifebarAction
+trigger1 = MoveCountered = 1 && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+spr = Const(MsgCounterHit), 0
+snd = 25,0
+persistent = 0
+
+[State 0, Counterhit Map Modify]
+type = RootMapSet
+trigger1 = (MoveCountered = 1 && root,MoveCountered = 1) && root, map(_kbbsys_actionMoveCounteredFlag) = 0
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 1
+
+[State 0, Counterhit Map Reset]
+type = RootMapSet
+trigger1 = (MoveCountered = 0 && root,MoveCountered = 0) && root, map(_kbbsys_actionMoveCounteredFlag) = 1
+map = "_kbbsys_actionMoveCounteredFlag"
+value = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1
+time = 15
+ampl = -8
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 0
+y = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S99,1
+volumescale = 200
+ignorehitpause = 1
+
+[State 0, Burning MapAdd]
+type = RootMapAdd
+trigger1 = movehit
+map = "burn"
+value = 3
+persistent = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Medium
+damage    = 35
+hitflag = MAFD
+guardflag = MAF
+pausetime = 0,5
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = 5, -8
+air.velocity = 5,-8
+Fall = 1
+Envshake.time = 15
+Envshake.ampl = -8
+Fall.recover = 0
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+;===============================================================================
+; Special 4 (214B) Normal
+;-------------------------------------------------------------------------------
+[Statedef 24000]
+type    = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 24000
+poweradd = -1000
+sprpriority = 2
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 650, ChangeState] ; At level 1 heat plus, will go to the boosted form instead
+type = ChangeState
+triggerall = time = 1
+trigger1 = map(heat) >= 100
+trigger1 = command != "s" && command != "hold_s"; Holding S prevents this from consuming heat
+value = 24001
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 6
+y = -6
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1
+y = .3
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 1
+id = -1
+pos = 10,-10
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = time%4 = 0
+trigger1 = 1
+attr = A, NA
+animtype  = Medium
+damage    = 6
+hitflag = MAFD
+guardflag = MAF
+pausetime = 2,2
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,1
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2,-2
+air.velocity = -2,-2
+Fall = 1
+Envshake.time = 15
+Envshake.ampl = -8
+Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y >= 0
+y = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time > 6
+trigger1 = pos y >= 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; Special 4 (214B) Boosted
+;-------------------------------------------------------------------------------
+[Statedef 24001]
+type    = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 24000
+sprpriority = 2
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper] ; Activates with Heat, more heat = more explosions
+type = Helper
+triggerall = map(heat) >= 50
+triggerall = time > 5
+trigger1 = (time%10) = 0
+helpertype = normal ;player
+name = "Flare Boom"
+ID = 626
+stateno = 626
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+inherentjuggle = 2
+
+[State 0, Consume Heat]
+type = MapAdd
+triggerall = time > 5
+trigger1 = (time%15) = 0
+map = "heat"
+value = -50
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, VelSet] ; Jumps at the start of the super, higher heat = bigger jump
+type = VelSet
+trigger1 = AnimElem = 2
+x = 6
+y = -7 - (map(heat) / 100)
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1
+y = .3
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 1
+id = -1
+pos = 10,-10
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, Burning MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burn"
+value = 1
+persistent = 0
+redirectid = enemynear,id
+
+[State 0, BurnStack MapAdd]
+type = MapAdd
+trigger1 = movecontact && !movecountered
+map = "burnStack"
+value = 1
+persistent = 0
+
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = time%4 = 0
+trigger1 = 5
+attr = A, NA
+animtype  = Medium
+damage    = 1
+hitflag = MAFD
+guardflag = MAF
+pausetime = 2,2
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,1
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2,-2
+air.velocity = -2,-2
+Fall = 1
+Envshake.time = 15
+Envshake.ampl = -8
+Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y >= 0
+y = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time > 6
+trigger1 = pos y >= 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; Special 5 (236C)
+;-------------------------------------------------------------------------------
+[Statedef 25000]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 25000
+poweradd = -2000
+sprpriority = 2
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 24
+sound = 20,0
+pos = 0,-20
+movetime = 24
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 3
+time = 15
+ampl = -8
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 13
+anim = 25550
+ID = 25550
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 13
+helpertype = normal ;player
+name = "Fired Up!"
+ID = 25500
+stateno = 25500
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; Fired Up!
+;-------------------------------------------------------------------------------
+[Statedef 25500]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 9999
+poweradd = 0
+sprpriority = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S99,1
+volumescale = 300
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 1000
+
+;===============================================================================
+[Statedef -3]
+
+[State 0, Explod]
+type = Explod
+trigger1 = numhelper(25500) = 1
+trigger1 = numexplod(25500) = 0
+anim = 25500
+ID = 25500
+pos = -10,20
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 2.5,2.5
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = numhelper(25500) = 1
+trigger1 = numexplod(25555) = 0
+trigger1 = movehit = 1
+anim = 25555
+ID = 25555
+pos = 0,0
+postype = p2  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = 16
+pausemovetime = 0
+scale = 1,1
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numhelper(25500) = 0
+id = 25500
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = numhelper(25500) = 0
+id = 25555
+
+
+
+[State 0, Burning MapAdd] ;When Fired Up! is active, all hits inflict burn
+type = MapAdd
+triggerall = map(firedUpStateTracker) != stateno
+triggerall = numhelper(25500) > 0
+trigger1 = movehit && !movecountered
+map = "burn"
+value = 1
+redirectid = enemynear,id
+
+[State 0, Burn Stack MapAdd]
+type = MapAdd
+triggerall = map(firedUpStateTracker) != stateno
+triggerall = numhelper(25500) > 0
+trigger1 = movehit && !movecountered
+map = "burnStack"
+value = 1
+
+[State 0, StateTracker]
+type = MapSet
+triggerall = map(firedUpStateTracker) != stateno
+trigger1 = movehit && !movecountered
+map = "firedUpStateTracker"
+value = stateno
+
+[State 0, LifeAdd]
+type = LifeAdd
+triggerall = numhelper(25500) = 1
+trigger1 = time%10 = 0
+value = -1
+kill = 0

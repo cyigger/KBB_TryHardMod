@@ -1,0 +1,54 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+_B^A
+_B^B
+_AIR_D^A
+_AIR_B^B
+
+<#f0f000>:EX ATTACKS:</>
+
+Charge Shot (1/4 Bar)									^C
+	"Clutch shoots a different projectile based
+	on charge level!"
+
+	"All of Clutch's Charge Shot Attacks can be dash 
+	canceled 3 times in a row maximum to allow for 
+	following up! It recharges automatically if not 
+	used for a while."
+
+_!Level 0:
+	"Clutch fires a very tiny projectile!"
+_!Level 1:
+	"Clutch emits a big blast that wallbounces!
+_!Level 2:
+	"Clutch fires a multihit energy launcher!"
+_!Level 3:
+	"Clutch fires a beam!"
+
+Charge (1/4 Bar)							 _D^C
+	"Clutch charges up his 'Charge Shot' level!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Gigantic Blast (1 Bar, _AIR OK)					_D_DF_F^A
+	 "Clutch lets loose a large beam 
+	on his opponent"
+
+"Get him.": Energy Ball (1 Bar)				_D_DB_B^A
+	 "Clutch shoots a slow moving ball of energy
+	in front of him. You can fire up to two of
+	these at once."
+
+Teleport (1 Bar, _AIR OK) 						_D_DF_F^B
+	"Clutch teleports behind the opponent, 
+	or hold backwards to fake them out!"
+
+MAX Burst! (1 Bar, _AIR OK) 					_D_DB_B^B
+	"Clutch bursts! 
+	Powers up his Charge Shot to the MAX!"
+
+Stun Lock (1 Bar)						_D_DF_F^C			
+	"Clutch sets up a C4-like energy lock!
+	If inputted again, a pillar erupts from it
+	shocking the opponent in place for a short time!
+	The activation can be done in the air!"

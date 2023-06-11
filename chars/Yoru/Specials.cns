@@ -1,0 +1,1902 @@
+;-------------------------------------------------------------------------------
+;Special 1 - RapidSlash
+[Statedef 26000]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26000
+velset = -5,0
+sprpriority = 2
+poweradd = -1000
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = TIME = 0
+time = 0
+facing = 0
+pos = 10,0
+[State 0, PosSet]
+type = PosSet
+trigger1 = TIME = 0
+y = 0
+
+
+[State 0, Helper]
+type = Helper
+triggerall = numhelper(300) = 0
+trigger1 = Time = 1
+helpertype = normal ;player
+name = "Metastar Rush"
+ID = 300
+stateno = 26001
+pos = 10,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 9999
+pausemovetime = 0
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = S5,0
+volumescale = 100
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 26500
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Special 1 - Metastar
+[Statedef 26001]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26001
+velset = 0,0
+sprpriority = 2
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+ignorehitpause =  1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 1
+x = 15
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = Time = [1,500]
+value = 1
+movecamera = 0,0
+
+[State 315, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AA,AT,AP
+slot = 0
+stateno = 425
+time = -1
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,stateno = 26500
+value = 26501
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 54
+value = 420
+ctrl = 1
+;-------------------------------------------------------------------------------
+;Special 1 - Swing 01
+[Statedef 26500]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26500
+velset = 7,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Swing Sound]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S1,11
+volumescale = 120
+
+[State 0, Voice - Grunt 9!]
+type = PlaySnd
+triggerall = var(2)  >=0
+triggerall = var(2)  <=25
+trigger1 = AnimElem = 1
+value = S10,30
+volumescale = 200
+[State 0, Voice - Grunt 10!]
+type = PlaySnd
+triggerall = var(2)  >=26
+triggerall = var(2)  <=50
+trigger1 = AnimElem = 1
+value = S10,31
+volumescale = 200
+[State 0, Voice - Grunt 11!]
+type = PlaySnd
+triggerall = var(2)  >=61
+triggerall = var(2)  <=75
+trigger1 = AnimElem = 1
+value = S10,32
+volumescale = 200
+[State 0, Voice - Grunt 12!]
+type = PlaySnd
+triggerall = var(2)  >=76
+triggerall = var(2)  <=100
+trigger1 = AnimElem = 1
+value = S10,33
+volumescale = 200
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+Triggerall = !movecontact
+trigger1 = 1
+attr = S, SP
+animtype  = Medium 
+damage    = 10
+Hitflag = MAFD
+guardflag = MAF
+pausetime = 0,25
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,0
+hitsound   = S0,13
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,-0.5
+air.velocity = -2,-0.5
+Fall = 0
+Envshake.time = 5
+
+[State 200, End]
+type = ChangeState
+triggerall = Time = 23
+trigger1 = movecontact
+value = 26510
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+;Special 1 - Swing 01 - Metastar
+ [Statedef 26501]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26501
+velset = 0,0
+sprpriority = 2
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [3,12]
+x = 3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 12
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [16,23]
+x = -3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 23
+x = 0
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = Time = [1,500]
+value = 1
+movecamera = 0,0
+
+[State 315, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AA,AT,AP
+slot = 0
+stateno = 425
+time = -1
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+Triggerall = !movecontact
+trigger1 = 1
+attr = S, SP
+animtype  = Medium 
+damage    = 10
+Hitflag = MAFD
+guardflag = MAF
+pausetime = 0,25
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,0
+hitsound   = S4,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,-0.5
+air.velocity = -2,-.5
+Fall = 0
+Envshake.time = 5
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,stateno = 26510
+value = 26511
+
+[State 200, End]
+type = ChangeState
+triggerall = Time = 23
+trigger1 = movecontact
+value = 26511
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 23
+value = 420
+ctrl = 1
+;-------------------------------------------------------------------------------
+;Special 1 - RapidSlash
+[Statedef 26510]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26510
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S26510,0
+volumescale = 100
+
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 20005
+ID = 20005
+pos = 0,-15
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 2,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
+[State 0, Voice - DUAL RUSH! 01]
+type = PlaySnd
+triggerall = var(2)  >=0
+triggerall = var(2)  <=50
+trigger1 = Time = 0
+value = S26510,0
+volumescale = 999
+[State 0, Voice - DUAL RUSH! 02]
+type = PlaySnd
+triggerall = var(2)  >=51
+triggerall = var(2)  <=100
+trigger1 = Time = 0
+value = S26510,1
+volumescale = 999
+[State 0, Voice - DUAL RUSH! 03]
+type = PlaySnd
+triggerall = var(2)  >=101
+triggerall = var(2)  <=125
+trigger1 = Time = 0
+value = S26510,2
+volumescale = 999
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time =[1,70]
+x = 2
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 70
+x = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = timemod = 5,1
+trigger1 = 1
+attr = S,SP
+animtype  = Medium
+damage    = 7
+guardflag = MAF
+Hitflag = MAFD
+pausetime = 0,2
+sparkno = s15001
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,11
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,-0.5
+air.velocity = -2,-0.5
+Fall = 0
+envshake.time = 5
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 70
+value = 26515
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Special 1 - RapidSlash - Metastar
+[Statedef 26511]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26511
+velset = 0,0
+sprpriority = 3
+poweradd = 0
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, Voice - DUAL RUSH!]
+type = PlaySnd
+triggerall = root,var(2)  >=0
+triggerall = root,var(2)  <=75
+trigger1 = Time = 1
+value = S8,0
+volumescale = 100
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time =[1,70]
+x = 1.6
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 70
+x = 0
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = Time = [1,500]
+value = 1
+movecamera = 0,0
+
+[State 315, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AA,AT,AP
+slot = 0
+stateno = 425
+time = -1
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = timemod = 5,1
+trigger1 = 1
+attr = S,SP
+animtype  = Medium
+damage    = 3
+guardflag = MAF
+Hitflag = MAFD
+pausetime = 0,2
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,-0.5
+air.velocity = -2.5,-0.5
+Fall = 0
+envshake.time = 5
+
+[State 200, End]
+type = ChangeState
+trigger1 = root,stateno = 26515
+value = 26516
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 70
+value = 26516
+ctrl = 1
+
+[State 200, 5B]
+type = ChangeState
+triggerall = prevstateno !=310
+trigger1 = root,stateno = 300
+value = 305
+[State 200, 5BB]
+type = ChangeState
+triggerall = prevstateno !=315
+trigger1 = root,stateno = 310
+value = 315
+[State 200, 2C - RUSH]
+type = ChangeState
+triggerall = prevstateno !=440
+trigger1 = root,stateno = 430
+value = 440
+;-------------------------------------------------------------------------------
+;Special 1 - Final Slash
+[Statedef 26515]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26515
+velset = 5,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = movecontact
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Spam Deny"
+ID = 421
+stateno = 421
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 40
+Hitflag = MAF
+guardflag = MAF
+pausetime = 40,40
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,14
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 18,5
+guard.velocity = -3
+air.velocity = 18,5
+Envshake.time = 20
+fall = 1
+p2stateno = 1025    ;Make p2 go to state 1025 on hit
+p2facing = 1        ;Force to face p1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Special 1 - Final Slash - Metastar
+[Statedef 26516]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 26516
+velset = 5,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = Time = [1,500]
+value = 1
+movecamera = 0,0
+
+[State 315, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AA,AT,AP
+slot = 0
+stateno = 425
+time = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time =[18,27]
+x = 4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [27,30]
+x = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 30
+x = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 20
+Hitflag = MAFD
+guardflag = MAF
+pausetime = 40,40
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S4,0
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 18,5
+guard.velocity = -3
+air.velocity = 18,5
+Envshake.time = 30
+fall = 1
+p2stateno = 1025    ;Make p2 go to state 1025 on hit
+p2facing = 1        ;Force to face p1
+
+
+[State 200, Fall]
+type = ChangeState
+trigger1 = animelem = 2
+triggerall = pos y <= 0
+value = 422
+ctrl = 0
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 420
+ctrl = 1
+;-------------------------------------------------------------------------------
+; Spam Deny
+[Statedef 421]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 421
+sprpriority = 5
+
+[State 200, End]
+type = Changestate
+trigger1 = time = 200
+trigger2 = p2movetype !=H
+value = 470
+;-------------------------------------------------------------------------------
+; Spam Allow
+[Statedef 470]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 9999
+velset = 0,0
+sprpriority = -1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 0
+;-------------------------------------------------------------------------------
+;Rising Slash
+[Statedef 21000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 21000
+velset = 5,0
+sprpriority = 2
+poweradd = -1000
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, COMMIN' THROUGH]
+type = PlaySnd
+triggerall = var(2)  >=0
+triggerall = var(2)  <=25
+trigger1 = time = 1
+value = S21001,0
+volumescale = 999 
+[State 0, uP YOU GO!]
+type = PlaySnd
+triggerall = var(2)  >=26
+triggerall = var(2)  <=50
+trigger1 = time = 1
+value = S21001,1
+volumescale = 999 
+[State 0, going up!]
+type = PlaySnd
+triggerall = var(2)  >=51
+triggerall = var(2)  <=75
+trigger1 = time = 1
+value = S21001,2
+volumescale = 999 
+[State 0, going up!]
+type = PlaySnd
+triggerall = var(2)  >=76
+triggerall = var(2)  <=115
+trigger1 = time = 1
+value = S21001,3
+volumescale = 999 
+
+[State 0, Swing Sound]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S1,10
+volumescale = 120
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 21001
+ID = 21001
+pos = 50,20
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 5
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause = 0
+
+[State 21000, NotHitBy]
+type = NotHitBy
+trigger1 = time = 1
+value = SCA
+time = 5
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+y = ifelse(moveguarded,-4,-8)
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 5
+statetype = A 
+movetype = A
+physics = N
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = AnimElem = 2
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 35,17
+guard.kill = 0
+fall.kill = 0
+Hitflag = MAF
+guardflag = MAF
+pausetime = 16,32
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,11
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 30
+ground.velocity = -2,-7
+air.velocity = -2,-6
+Envshake.time = 30
+fall = 1
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = AnimElem = 5
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 35,17
+guard.kill = 0
+Hitflag = MAF
+guardflag = MAF
+pausetime = 14,6
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,13
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 30
+ground.velocity = 0,-8
+air.velocity = 0,-7
+Envshake.time = 30
+fall = 1
+fall.recover = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = AnimElem = 6
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 35,17
+guard.kill = 0
+Hitflag = MAF
+guardflag = MA
+pausetime = 16,16
+guard.pausetime = 16,6
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,14
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,-9
+air.velocity = -2,-8
+Envshake.time = 30
+fall = 1
+fall.recover = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; "I won't let you hurt him!"
+[Statedef 22000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 22000
+velset = 0,0
+sprpriority = 1
+poweradd = -500
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+
+
+[State 22000, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = ,NA,SA,HA,NP,SP,HP
+time = 47
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, Helper]
+type = Helper
+triggerall = numhelper(300) < 1
+trigger1 = Time = 5
+helpertype = normal ;player
+name = "MetaStar Counter"
+ID = 300
+stateno = 22001 
+sprpriority = 5
+pos = -50,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 999
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = helper(22001), movecontact 
+value = 22002
+
+;-------------------------------------------------------------------------------
+;Yoru Reaction
+[Statedef 22002]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 22002
+velset = 0,0
+sprpriority = 3
+poweradd = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = -5
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+;-------------------------------------------------------------------------------
+; "I won't let you hurt him!" - Meta Spawn
+[Statedef 22001]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 22001
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+triggerall= time = 0
+trigger1 = prevstateno = 305
+trigger2 = prevstateno = 315
+trigger3 = prevstateno = 440
+trigger3 = prevstateno = 441
+value = 22001
+elem = 3
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = animelem = 1
+statetype = S
+movetype = I
+physics = N
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 10
+y = 0
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 3
+statetype = S
+movetype = I
+physics = S
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 7
+y = 0
+
+[State 0, ReversalDef]
+type = ReversalDef
+trigger1 = 1
+reversal.attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+p1stateno = 22003
+pausetime = 0,20
+hitsound   = 5,1
+sparkno = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 420
+;-------------------------------------------------------------------------------
+;Meta Screm
+[Statedef 22003]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 22003
+velset = 0,0
+sprpriority = 0
+poweradd = 0
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+;ignorehitpause = 
+;persistent = 
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 440, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AA,AT,AP
+slot = 0
+stateno = 425
+time = -1
+
+[State 0, HitOverrideCheck]
+type = MapSet
+trigger1 = 1
+map = "hitOverride"
+value = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S10,101
+volumescale = 999
+
+[State 0, Pause]
+type = Pause
+trigger1 = Time = 1
+time = 5
+movetime = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+trigger1 = AnimElem = 2
+attr = S, SA
+animtype  = Up
+damage    = 90
+hitflag = MAFD
+guardflag =
+pausetime = 0,70
+sparkno = 9999
+sparkxy = -8,-25
+hitsound   = S9,9999
+guardsound = S9,999
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = 0,0
+Fall = 1
+fall.recover = 0
+Envshake.time = 50
+[State 0, SprPriority]
+type = SprPriority
+trigger1 = AnimElem = 2
+value = 2
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 420
+ctrl = 1
+
+
+[State 200, 5B]
+type = ChangeState
+triggerall = prevstateno !=310
+trigger1 = root,stateno = 300
+value = 305
+[State 200, 5BB]
+type = ChangeState
+triggerall = prevstateno !=315
+trigger1 = root,stateno = 310
+value = 315
+[State 200, 2C - RUSH]
+type = ChangeState
+triggerall = prevstateno !=440
+trigger1 = root,stateno = 430
+value = 440
+;-------------------------------------------------------------------------------
+; Falling Slash
+[Statedef 23000]
+type    = A
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 23000
+velset = 0,0
+sprpriority = 2
+poweradd = -1000
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, Voice - Grunt 9!]
+type = PlaySnd
+triggerall = var(2)  >=0
+triggerall = var(2)  <=25
+trigger1 = AnimElem = 1
+value = S10,30
+volumescale = 200
+[State 0, Voice - Grunt 10!]
+type = PlaySnd
+triggerall = var(2)  >=26
+triggerall = var(2)  <=50
+trigger1 = AnimElem = 1
+value = S10,31
+volumescale = 200
+[State 0, Voice - Grunt 11!]
+type = PlaySnd
+triggerall = var(2)  >=61
+triggerall = var(2)  <=75
+trigger1 = AnimElem = 1
+value = S10,32
+volumescale = 200
+[State 0, Going DOWN]
+type = PlaySnd
+triggerall = var(2)  >=76
+triggerall = var(2)  <=150
+trigger1 = time = 1
+value = S23001,0
+volumescale = 999 
+
+[State 0, Swing Sound]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S1,14
+volumescale = 120
+[State 0, Swing Sound 2]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S23000,0
+volumescale = 120
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (4,12)
+x = 1
+y = 15
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 23002
+ID = 23002
+pos = 0,-50
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = movecontact
+trigger2 = pos y >= -5
+trigger3 = frontedgebodydist < 0
+trigger4 = time = 500
+id = 23002
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = !movecontact
+triggerall = enemy,movetype = A
+trigger1 = 1
+attr = A, SA
+animtype  = Heavy
+damage    = 150, 25
+guard.kill = 0
+fall.kill = 0
+Hitflag = MAFD
+guardflag = MAF
+pausetime = 35,35
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,15
+air.velocity = -2,15
+Fall = 1
+fall.xvelocity = -1.5
+fall.yvelocity  = -7
+down.velocity = 0,-8
+down.bounce = 1
+fall.recover = 0
+fall.Envshake.time = 10
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = !movecontact
+triggerall = enemy,movetype != A
+trigger1 = 1
+attr = A, SA
+animtype  = Heavy
+damage    = 50, 25
+guard.kill = 0
+fall.kill = 0
+Hitflag = MAFD
+guardflag = MAF
+pausetime = 15,15
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,13
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,15
+air.velocity = -2,15
+Fall = 1
+fall.xvelocity = -1.5
+fall.yvelocity  = -7
+down.velocity = 0,-8
+down.bounce = 1
+fall.recover = 0
+fall.Envshake.time = 10
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 100
+trigger2 = pos y >= -15
+id = 23002
+
+[State 200, End]
+type = Changestate
+trigger1 = pos y >= -15 && time >= 8
+trigger2 = time = 150
+value = 23004
+
+;-------------------------------------------------------------------------------
+;Falling Slash Land
+[Statedef 23004]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 23004
+velset = 2,0
+sprpriority = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 23005
+ID = 23005
+pos = 0,-50
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+ignorehitpause = 0
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 50
+id = 23005
+
+
+[State 200, 1]
+type = HitDef
+getpower = 0,0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 80,40
+guard.kill = 0
+fall.kill = 0
+Hitflag = MAFD
+guardflag = MAF
+pausetime = 15,15
+guard.pausetime = 15,10
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,14
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -3,-8
+air.velocity = -2,-7
+guard.velocity = -8
+Fall = 1
+fall.recover = 0
+fall.Envshake.time = 9
+
+[State 200, If wiffed]
+type = Changestate
+triggerall = !movecontact
+trigger1 = time = 14
+value = 0
+ctrl = 1
+
+
+[State 200, If hit, change when p2 is no longer Hurt]
+type = Changestate
+triggerall = movecontact
+trigger1 = animtime = 0
+trigger2 = p2movetype != H
+value = 0
+ctrl = 1
+
+
+;-------------------------------------------------------------------------------
+; Love Deluxe
+[Statedef 25000]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 25000
+velset = 0,0
+sprpriority = 2
+poweradd = -2000
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = numhelper(300) < 1
+trigger1 = AnimElem = 2
+helpertype = normal ;player
+name = "Metastar Kiss"
+ID = 300
+stateno = 25001
+pos = 30,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 9999
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 25002
+ID = 25002
+pos = -500,50
+postype = front  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 5,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 9999
+scale = .5,.5
+sprpriority = -2
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+ignorehitpause =1
+supermove = 9999
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = AnimElem = 1
+v = 17    ;fv = 
+value = 1
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+anim = 92006
+time = 130
+sound = S10,0
+pos = 0,-20
+movetime = 130
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+endcmdbuftime = 7
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+time = 40
+pos = 9999,-9999
+movetime = 40
+darken = 1
+p2defmul = 1
+poweradd = 0
+unhittable = 1
+endcmdbuftime = 7
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = S5,0
+volumescale = 100
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = AnimElem = 3
+value = 300 * map(initialDefence) ; Scales life healed by initial defense (More defense = less life)
+absolute = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [66,74]
+x = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 74
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [96,104]
+x = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 104
+x = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Love Deluxe - MetaStar
+[Statedef 25001]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 25001
+velset = 0,0
+sprpriority = 3
+poweradd = 0
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+x = ifelse(facing = 1,(parent,pos x + 30),parent,pos x -30)
+ignorehitpause =  1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,3
+volumescale = 100
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [31,40]
+x = -1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 40
+x = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = [61,70]
+x = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 70
+x = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 420
+ctrl = 1

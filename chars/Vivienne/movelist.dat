@@ -1,0 +1,88 @@
+<#f0f000>:Passive Abillities:</>
+	"Vivienne can charge plasma and meter
+	by mashing down, left or right.
+
+<#f0f000>:UNIQUE NORMALS:</>
+
+_B^Y
+_F^Y
+_D^Y
+_AIR^Y
+
+_D^A_-^A
+_D^A_-^B
+_D^A_-^C
+
+<#f0f000>:EX ATTACKS:</>
+
+Plasma Shot (1/4 Bar)						^C or _D^C
+	"Vivienne throws a plasma projectile.
+	Can be aimed diagnoally upwards if you press
+	down before pressing C.
+	(Varies based on level of Charge)"
+	
+_!Level 1:
+	"Vivienne fires a short ranged dart of plasma. Can
+	be chained into itself."
+_!Level 2:
+	"Vivienne fires a mid ranged, stronger dart of plasma."
+_!Level 3:
+	"Vivienne fires a small ball of plasma. Stuns the
+	opponent on hit."
+_!Level 4:
+	"Vivienne fires a large, long arrow of plasma.
+	Knocks the opponent away on hit."
+_!Level 5:
+	"Vivienne fires a gigantic ball of plasma. 
+	Wallbounces on hit."
+
+Royal Grapple (1/4 Bar, _AIR OK)			  _F^C
+	"Vivienne Lunges Forward with a GRAB!"
+	
+_!Royal Slam									^A
+	"Vivienne slams her body into the opponent,
+	knocking both of them forward."
+_!Royal Throw									^B
+	"Vivienne throws her opponent at the opposite
+	wall, causing a wallbounce."
+_!Royal Burst 									^C
+	"Vivienne erupts a burst of plasma around her!
+_!Unruly Ender
+	"If no option is done after a while, Vivienne
+	chucks the opponent downwards.
+
+<#f0f000>:STAR STRIKES!:</>
+
+Burst Stomp! (1 Bar)						_D_DF_F^A
+	 "Vivienne stomps three times, unleashing
+	gigantic Geysers of Plasma on each stomp!"
+
+Unholy Scream! (1 Bar)						_D_DB_B^A
+	"Vivienne launches a Massive Blast!"
+
+Flipping Slam Kick (1 Bar, _AIR OK) 		_D_DF_F^B
+	"Vivienne flips and slam kicks
+	her opponent!"
+ 
+Hellish Haymaker (1 Bar)					_D_DB_B^B		
+	"Vivienne Slams the ground, erupting
+	plasma geysers in both directions!"
+
+Unhinged (1 Bar)							_D_DB_B^C			
+	"Vivienne scares her opponent 
+	with a yell if she gets hurt during this move."
+
+"Say That Again." (1 Bar)					_D_DF_F^C
+	"Vivienne powers up her plasma charge
+	to the MAX"
+	
+Royal Piledriver (1 Bar)					_D_DF_F^Y
+	"Vivienne grabs her opponent, jumps,
+	and slams them down to the ground with extreme
+	royal violence!"
+
+The Plasma Princess (3 Bars)					_D_DF_F^A^B
+	"Vivienne creates a HUGE pillar of plasma
+	around herself! Getting hit by this eradicates 
+	a ton of health."
+	(Requires Level 5 Plasma)

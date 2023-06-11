@@ -1,0 +1,367 @@
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.9 Changes:                    /
+|---------------------------------------------------/
+
+Metaknight:
+1. New Pallete
+2. Airdash No longer infinitely Active (inf => 9 frames)
+
+There are other changes, but I wanna play now
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.8 Changes:                    /
+|---------------------------------------------------/
+Making some quality of life changes based on my experience and others' experiences with the mod's last version. Underused Custom Moves shall be buffed
+
+
+General:
+1. Bug Fix: Jumping while opponent is behind you will no longer reverse your jump velocity.
+
+
+Metaknight: Gonna shorten his comboes while trying to keep his damage the same. But then again, I'm also lowering damage.
+1. J.A:
+	* Adjusted Hitboxes to be cleaner (and have better priority)
+	* Reduced Hurtboxes on certain frames (made it consistent and smaller)
+	* Increased Damage (increased how often the move multihits)
+	* Increased Juggle (5 -> 10)
+2. J.B
+	* Increased Damage (15 -> 25)
+	* Increased Juggle (5 -> 10)
+3. J.8A
+	* Increased Damage (5 -> 10)
+	* Reduced Active Frames (2 -> 1)
+	* Increased Range horizontally and slightly downwards
+5. 236A: Increased Damage (100 -> 110)
+6. 236B: Decreased Damage on normal hit (200 -> 175)
+7. Palletes Added.
+8. Button Remap: J.8A is now J.8B
+9. Move Reworks - 5B:
+	* Old 5B = 4B. It's hitbox has been changed to be weak to low profile. It is exclusively an anti-air.
+	* New Move - 5B: Looks like 5B a little bit. Meant to be be a strong swing with extra range compared to 5A.
+	* There are no cancels into new 5B
+	* New 5B has delayed wavedash cancel on block and an normal cancel wavedash cancel on hit.
+10. Voice Added
+
+
+Fly:
+1. Wavedash C: Projectile Trajectory Modified
+
+
+Glitch:
+1. Wavedash A: 
+	* Reduced Startup Slightly (7 -> 6)
+	* Adjusted Animation
+1. Wavedash B: 
+	* Reduced Startup Slightly (8 -> 7)
+	* Increased Moving Speed
+	* Increased Damage (30 -> 40)
+	* Added Invulnerability to Lows and Projectiles
+3. Wavedash C:
+	* Increased Movement Speed
+
+Stray:
+1. Wavedash B:
+	* Reduced Startup (14 -> 12)
+2. Wavedash C:
+	* Reduced Startup (12 -> 10)
+
+Yoru:
+1. Wavedash A: Multihit timing adjusted
+2. Wavedash B: Minimum Startup Decreased (9 -> 7)
+
+
+Clutch:
+1. Wavedash A: Reworked Slightly
+	* Now Holdable. Release A to detonate the geiser
+	* Redused Minimum Startup (20 -> 8)
+
+Sareo:
+1. Backsway: 
+	* Reduced Total Length (-5 frames)
+	* Reduced Dash/Jump Cancel Startup (7 -> 5)
+	* Reduced Other Cancel Startups (10 -> 7)
+2. Backsway A: Reduced Startup (8 -> 6)
+
+
+Bill:
+1. 4a: Now Has Upper Body Intangibility.
+
+Hyrio:
+1. Wavedash B: Increased Movement Speed
+
+
+Noll:
+1. Button Remap: 
+	* Wavedash S is now replacing Wavedash A again
+	* Noll No longer has anything mapped to Wavedash S.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.7 Changes:                    /
+|---------------------------------------------------/
+More normals?! also new mechanics for certain pair
+
+
+General:
+
+1. Hyperhop Buffer Window Made Normal (5 -> 3)
+2. You can no longer dash out of wavedash in the first 5 frames.
+3. Added Unique Color Scheme to Main Menu. Now you'll know you're in the mod.
+
+
+Metaknight:
+
+1. 5A: Slightly increased range
+2. 5B: Now Air Unblockable. This is a scary change, but until now he had no such move.
+3. 236A, 236B: Now have a delay before you can powercharge again.
+4. Standardized His Buffer Window to be normal
+5. New Move: Wavedash C Held
+	* Performs an attack out of the teleport if C is held.
+6. Airdash: Startup Reverted to 3 Frames.
+
+
+Glitch:
+
+1. New Move: J.2A
+
+
+Stray: This character had some really sick wavedash comboes, but they were too inconsistent to be worth it, or they just didn't work in practice. I've made those comboes more consistent and opened up some new routes.
+
+1. Wavedash A, 5AA: Adjusted Launch Angles
+2. Wavedash A: 
+	* Animation Adjusted Again
+	* Removed The Lowest Hitboxes (weaker to low profile)
+
+
+Jodie:
+
+1. 5BB, 66B: Removed Wavedash Cancel on Hit
+
+
+Saito:
+
+1. New Mechanic: Instant Wavedash = Pressing Down + Fwd after performing a hard fastfall will input a wavedash as soon as you land
+
+
+Hyrio:
+
+1. New Mechanic: Instant Wavedash = Pressing Down + Fwd after performing a hard fastfall will input a wavedash as soon as you land
+
+
+Jay:
+
+1. 6C Animation Adjusted
+
+
+Clutch: 	This character had some potential, but he didn't a good way to go into wavedash in side of common comboes. In addition, his wavedash moves need to be more useful in general. I addressed one of those moves atleast. 
+
+1. 2A: Added Wavedash Cancel on hit.
+2. Wavedash C: Startup Reduced (5 frames -> 3 frames)
+
+
+Fly: 	I just wanted his comboes to be more consistent
+
+1. 5AAA: No longer requires all hits to connect to be cancellable. If any of the kicks hits, it is cancellable.
+
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.6 Changes:                    /
+|---------------------------------------------------/
+The new normals continue to appear.
+
+Jodie:
+1. New Move: Dash B/Wavedash B (they are the same move)
+
+Max:
+1. New Move: new j.5B
+2. Remapping: Old j.5B is now j.2B
+
+Stray:
+1. 2C Stance: Wavedash Cancel Added
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.5 Changes:                    /
+|---------------------------------------------------/
+This Version Aims to Rework some of the lesser quality wavedash movesets of some characters, as well as starting to add normals to the whole cast. Every new normal will come with new cancels into those normals. Those cancels should all feel pretty normal.
+
+Jay:
+1. Fixed Bug Where Jay could no longer charge heat after starburst.
+2. New Move: j.2B
+
+Jodie:
+1. New Move: j.6B
+1. Wavedash B Completely Reworked.
+2. 5C: Reduced All Cancel Times by 4 frames
+3. 5BBB: Reduced Blockstun by 4 frames
+4. 5B: Reduced Blockstun by 4 frames
+
+Leon:
+1. New Move: j.2A
+
+MetaKnight:
+1. j.5A: 
+	* Decreased Hitbox Size
+	* Decreased Total Active Frames (-2)
+	* Decreased Startup (-2)
+2. j.5A:
+	* Startup Decreased (-2)
+	* Active Frames Decreased (-1 per swing)
+3. General: Damage of most normals.
+4. General: Range Reduced on all normals.
+5. New Move: j.8A
+
+Yoru:
+1. New Move: j.6B
+	* This is now your fastest move in the air. Cherish it.
+
+Fly:
+1. New Move: Wavedash C
+	* here have an anti air.
+2. New Move: j.2a
+	* enjoy your crossups and slightly more flashy comboes
+
+
+
+ 
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.4 Changes:                    /
+|---------------------------------------------------/
+General:
+1. Fixed Bug: Cancelling the startup into a dash would result in becoming unactionable untill hit.
+
+Bill:
+1. 4A: Reduced Endlag (-5)
+
+Jay:
+1. Fixed Bug: Power Charge was capped by the meter when it should not have been.
+
+Metaknight
+1. Size Increased: 0.78 -> 0.8
+2. New Move: Wavedash B
+3. 236C: Removed Invul
+4. 214A: 
+	* Removed Invul
+	* Startup Reduced (10 frames -> 4 frames)
+5. J.A: 
+	* Reduced Active Frames drastically
+	* Now multi-hits more; Hit box shape and behaviour adjusted.
+	* Hurtbox also extended.
+6. Airdash: Startup Increased: 2 frames -> 5 frames
+7. j.B: reverted to it's 2 hit version
+8. 5B: launch height reduced.
+9. 236B: 
+	* Startup Reduced
+	* Wallsplat has been replaced with a hard knockdown. This move is now a finisher rather than a combo extender.
+	* Damage Scales Less Than Normal Now.
+10. Grab: 
+	* Startup Increased (12 -> 16)
+	* Raw Range Reduced
+	* Forward Velocity Added
+11. 6C: 
+	* Animation Adjusted to look more natural, but...
+	* Range Reduced but no longer misses low profile.
+	* Startup Reduced Slightly (-2)
+12. 5AAA: Frame Data Adjusted (-2 on block now)
+
+Yoru:
+1. Remapped Some Moves Back:
+	* Wavedash 2B = Long Jump 2B
+	* Wavedash 5B = Charge Swing
+2. Wavedash 5B: Damage Now increases the longer it is held.
+3. Wavedash 5B: Now Forward Dash Cancellable earlier
+
+
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.3 Changes:                    /
+|---------------------------------------------------/
+General:
+1. Removed Universal Back Dash Macro
+
+Metaknight
+1. Back + C now cost meter
+2. Increased Startup of 236C
+3. Increased Damaged of 236C 300 -> 350
+4. Decreased Size Scale: 0.9 -> 0.78
+5. 5B Now Launches slightly higher: easier to confirm out of.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.1.2 Changes:                    /
+|---------------------------------------------------/
+
+Legend
+S = Powercharge Button and IAD button
+
+General:
+1. Added Universal Dash Macros
+	* Forwards or Back + S will result in a dash forward or back.
+	* IAD is now specifically performed as Neutral + S
+2. Reduced the Buffer Time of the Wavedash Input from 5 -> 3 frames.
+	* Buffer Time refers to how many frames the game will re-attempt the input you have done.
+
+
+Aege:
+1. Wavedash S is now Wavedash 2S to accomodate for Dash Macro
+
+
+Bill:
+1. Old Wavedash C is now the new Wavedash A, and it will no longer cost any meter
+2. Increased the damage of New Wavedash A
+	* 15 -> 20 for normal hit
+	* 45 -> 60 for Counter hit
+3. Adjusted the timing of Wavedash B's bomb plant to look more natural.
+4. Adjusted the animation of Wavedash B to appear more like an overhead.
+5. New Wavedash C = Low Bomb Throw.
+	* This is a new way to throw bombs. These bombs stay low to the ground.
+
+
+Jay:
+1. Removed Wavedash S to accomodate the Dash Macro
+2. 6C's startup can now be cancelled into Sword Run by either inputting a dash, or inputting S
+
+
+KBB MK Modded
+1. Various animations have been adjusted slightly
+2. J.A startup increased to 10 frames (4 or 5 frames slower)
+3. Tag DHC Suppers Adjusted
+	* DHC A is 214A
+	* DHC B is 236B
+	* DHC C is 236C
+4. 5B velocity adjusted to send closer but a bit higher
+5. 5B will no longer cause Soft Knockdown.
+
+
+Leon:
+1. New Wavedash B has been added.
+
+
+Noll:
+1. Wavedash S has been moved to Wavedash 2S to accomodate the Dash Macros
+
+
+Saito:
+1. New Wavedash B added. This move is pretty slow, but bluff if correctly and you'll extend your advantage.
+
+
+Yoru:
+1. New Wavedash B added. Enjoy your chargable massive swing.
+2. Hitpause of first hit Wavedash A has been reduced drastically.
+
+
+
+

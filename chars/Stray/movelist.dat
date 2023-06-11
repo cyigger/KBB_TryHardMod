@@ -1,0 +1,61 @@
+<#f0f000>:UNIQUE NORMALS:</>
+_D^A_F^A
+
+<#f0f000>:EX ATTACKS:</>
+
+Spear Beam  (1/4 Bar)						^C
+	"Stray swings his spear for a delayed projectile.
+	Can be charged to send out more projectiles."
+
+Spear Helicopter  (1/4 Bar)					_AIR^C
+	"Stray spins his spear to hover forwards
+	a small distance."
+
+_!Aerial Spear Sweeper						_AIR^C
+	"Stray slams his spear down after 
+	spinning his spear."
+
+Spear Dance (1/5 Bar)							_D^C
+	"Stray prepares his combination attack!
+	From here, four options are avaliable."
+
+_!Spear Sweep 									^A
+	"Stray takes a step and 
+	sweeps his spear low to the ground."
+
+_!Spear Stab									^B
+	"Stray Stabs with his spear and drills."
+
+_!Spear Swing 									_D^B
+	"Stray swings his spear around 
+	in a circular motion."
+
+_!Spear Slam    			                    ^C
+    	"Stray Slams his spear down 
+	on the opponent's body."
+
+_!Spear Poledance (1/5 Bar)								_D^C
+	"Stray swings his body right round
+	when he goes down, then he goes down, down"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Spear Play: Hurricane (1 Bar)					_D_DF_F^A
+	 "Stray spins his blade and blows his
+	opponent away with an energy whirlwind."
+
+Spear Play: Tornado (1 Bar)						_D_DB_B^A
+	 "Stray Spins his spear and creates a
+	rising energy tornado."
+
+Blow Torch (1 Bar)							_D_DF_F^B
+	 "Stray blows his energy forward and
+	swings back his enemy."
+
+Slam Blast! (1 Bar)							_AIR_D_DB_B^B
+	 "Stray slams down with an energy
+	buster!"
+
+"Evisceration Punch" (2 Bars)				_D_DF_F^C		
+	"Stray dashes forward with a grab
+	and follows up with a wallbouncing punch."

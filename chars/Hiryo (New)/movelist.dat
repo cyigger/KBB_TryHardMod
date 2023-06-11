@@ -1,0 +1,59 @@
+<#f0f000>:PASSIVE ABILLITIES:</>
+
+Run												_F or _B
+	"Hiryo's walk is as fast as a run, 
+	since he is a ninja."
+	
+Dash										_F_F or _B_B
+	"Hiryo's Run is a Dash that 
+	phases through opponents."
+	
+Fast Fall										_AIR_D_D
+	"Hiryo has the abillity to get to the
+	ground as quick as possible in the air,
+	whether it be in neutral or off a successful
+	aerial hit."
+
+"Hiryo's Quick Slash A and Quick Slash C have tipper
+hitboxes that make the move even stronger to use!
+
+
+<#f0f000>:UNIQUE NORMALS:</>
+
+_F_F^A
+_AIR_D^B
+
+<#f0f000>:EX ATTACKS:</>
+
+Quick Slash (1/5 Bar)								^C
+	"Hiryo Slashes once into a stance!"
+
+_! Sword Whip										^A
+	"Hiryo whips his blade forward!"
+_! Slash Dash										^B
+	"Hiryo dashes forward with a slash"
+_! Air Slash										^C
+	"Hiryo Slashes the air!"
+		
+Rapid Slash (1/4 Bar, _AIR OK)					_D^C
+	"Hiryo Slashes a ton! Goes into Quick Slash
+	Stance at the end! Hold down C to keep slashing!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Spinning Drop (1 Bar)		_AIR_D_DF_F^A
+	"Hiryo Spin Slashes with a final cut!"
+
+Finale Slasher (1 Bar)						_D_DB_B^A
+	"Hiryo Cuts all around his opponent!"
+
+Lai Burst (1 Bar) 							_D_DF_F^B
+	"Hiryo Slashes his opponent
+	Ends with a Dash Slash!"
+
+ Quick Grab (1 Bar)							_D_DB_B^B			
+	"Hiryo grabs and knees his opponent!"
+
+Lai Blast (2 Bar)							_D_DF_F^C			
+	"Hiryo cuts twice unleashing a 
+	MEGA BLAST!"

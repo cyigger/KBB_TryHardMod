@@ -1,0 +1,52 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+^B^B_-_B^B
+_F_F^A
+
+<#f0f000>:EX ATTACKS:</>
+
+Boomerang Blade Toss (1/4 Bar, _AIR OK)			^C
+	"Yoru tosses his sword forward as a
+	boomerang."
+
+Metastar Rush (1/3 Bar)							_D^C
+	"Yoru sends Metastar out to attack
+	in a rushing barrage!"
+	
+_!Metastar Finale								_D^C
+	"Metastar follows up on hit 
+	with a wallbounce launcher!"
+	
+Metastar Tackle (1/4 Bar)						_AIR_D^C
+	"Yoru sends Metastar to come crashing down
+	from the heavens! She will go into a stance after
+	landing!"
+
+_!Metastar Fury Toss (Follow Up, _AIR OK)		^B
+	"Metastar launches the opponent upwards with
+	her own two fists!
+
+  _!Metastar Finale Air (_AIR OK)              _D^B
+	 "As a followup to the fury toss, Metastar
+     sends the opponent crashing down!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+"Dual Rush!" (1 Bar)							_D_DF_F^A
+	"Yoru and Metastar attack with a multislash
+	They end this rush with a launcher.
+	And a dab, for good measure."
+
+Rising Slash (1 Bar)							_D_DB_B^A
+	 "Yoru rises with a upwards slash!"
+
+Falling Slash (1 Bar) 						_AIR_D_DF_F^B
+	"Yoru falls with a gigantic slash!"
+ 
+"Don't Hurt Him!" (1/2 Bar)						_D_DB_B^B	
+	"Metastar takes a hit for Yoru,
+	On contact she counters with a stunning shriek!"
+
+Love Deluxe (2 Bars)							_D_DF_F^C			
+	"Metastar moves in for a quick smooch!
+	restores 300 health to Yoru!"

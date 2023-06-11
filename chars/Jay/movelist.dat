@@ -1,0 +1,48 @@
+<#f0f000>:PASSIVE!:</>
+Burn Levels
+	"Jay's fire applies burn which does damage over time!
+	Stacks to 3!"
+
+Heat Charge
+	"Jay powers up his moves with more flame!"
+
+<#f0f000>:UNIQUE NORMALS:</>
+_B^A
+
+<#f0f000>:EX ATTACKS!:</>
+
+Flame Tosser (1/4 Bar)								^C
+	"Jay fires a slow moving fireball!
+	Applies Burn"
+
+Fire Slide (1/4 Bar)				_D^C
+	"Jay slides in with a stab from his sword!
+	Applies Burn"
+
+Flare Gun (1/4 Bar)				_AIR^C
+	"Jay tosses a flare ball through the air!
+	Applies Burn"
+	
+Flare Fall (1/4 Bar)				_AIR_D^C
+	"Jay slashes downwards with his fire sword 
+	Applies Burn"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Heat Streak (1 Bar)						_D_DF_F^A
+	"Jay erupts flares from the ground!"
+
+"I'm the bomba" (1 Bar,_AIR OK)			_D_DB_B^A
+	"Jay blows up lol"
+
+Slash Blaster (1 Bar) 					_D_DF_F^B
+	"Jay shoots a fireball with a swing
+	of his sword"
+
+Dizzy Devil! (1/2 Bar, _AIR OK)			_D_DB_B^B
+	"Jay spins through the air 
+	with his sword drawn"
+
+"Spicy Surpise" (2 Bars)				_D_DF_F^C
+	"Jay heats up and every attack for
+	the next short while Applies Burn"

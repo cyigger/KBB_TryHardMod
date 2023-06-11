@@ -1,0 +1,44 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+_B^A
+_F^A
+_B^B
+_F^B^B
+^B>_B^B
+
+<#f0f000>:EX ATTACKS:</>
+
+"Phantom Spiral" (1/3 Bar)					^C
+	"Noll spins his blade above his head"
+
+Phantom Stall (1/3 Bar)						_AIR^C
+	"Noll Sends down a sword with a stab!"
+
+Phantom Blitz									^C
+	"Noll activats the sword 
+	left by Phantom Stab"
+
+Phantom Switch (1/5 Bar)						_D^C
+	"Noll teleports to the 
+	Phantom Stab sword"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Triple Slash (1 Bar)							_D_DF_F^A
+	"Noll slices 3 times with his katana!"
+
+"Rapid Cutter" (1 Bar)							_D_DB_B^A
+	 "Noll jumps up with a flurry of Chops and
+	Slashes! Follows up with a Phantom Stab or 
+	Phantom Blitz."
+
+Spinner Cutters (1 Bar,) 					_AIR_D_DF_F^B
+	"Noll Jumps with a spinning saw blade of
+	slashes"
+
+Sleeper Move (1 Bar) 							_D_DB_B^B
+	"Noll puts his adversary in a stun state!"
+
+Counter Cutter! (2 Bar) 							_D_DF_F^C
+	"Noll counters the opponent's attack with
+	his phantom blades!"

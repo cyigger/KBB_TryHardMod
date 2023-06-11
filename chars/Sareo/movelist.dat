@@ -1,0 +1,52 @@
+<#f0f000>:PASSIVE ABILLITY:</>
+	"Sareo has a unique multi-cast system when
+	using booster attacks while on a different 
+	element, allowing him to combine two 
+	elements for devestating attacks!
+
+<#f0f000>:EX ATTACKS:</>
+
+Elemental Magic (1/4 Bar)				^C
+	"Sareo casts magic based on
+	his current element."
+
+Flame Booster (1/4 Bar)					_D^C
+	"Launches the enemy into the air
+	and boosts his next fireball!"
+
+Ice Booster (1/4 Bar, _AIR OK)		_B^C
+	"Sareo makes the air around him colder
+	then propels himself into the air. 	
+	Switches him to ice element"
+	
+Aerial Fire Shot (1/4 Bar)			_AIR^C
+	"Sareo Shoots a fireball from the sky!"
+
+Lightning Booster (1/4 Bar)			_AIR_D^C
+	"Sareo does a shocking flip jump,
+	switching to lightning element!"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Blizzaga (2 Bars, _AIR OK)			_D_DF_F^A
+	 "Sareo fills the screen 
+	with an ice storm!"
+
+Firaga Cyclone (1 Bar, _AIR OK)		_D_DB_B^A
+	"Sareo spinslashes with a 
+	fiery finisher!"
+
+Thundaga! (1 Bar) 					_D_DF_F^B
+	"Sareo unleashes a barrage of 
+	Thunder Strikes!"
+ 
+Curaga (1 Bar)						_D_DB_B^B			
+	"Sareo heals himself slightly!"
+
+"Cosmic Speed!" (2 Bars)			_D_DF_F^C	
+	"Sareo increases his speed for a while!"
+
+Reflega (1 Bar)					_D_DB_B^C		
+	"Sareo puts up an energy 
+	barrier which explodes. 
+	Gains strength as it takes damage!"

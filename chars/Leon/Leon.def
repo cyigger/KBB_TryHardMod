@@ -1,0 +1,46 @@
+; Definition file for Leon
+; Contains all the filenames needed for the character
+
+; Leon information
+[Info]
+name = "Leon"        ;Name of character
+displayname = "Leon" ;Name of character to display
+versiondate = 5/22/2021    ;Version date of character
+mugenversion =  1.1 ;Version of M.U.G.E.N character works on
+ikemenVersion = 0.98 ;Version of I.K.E.M.E.N character works on
+author = "KBB Dev Team"      ;Character author name
+
+;char owner: Kasai/Taku
+;char designer: Kubo
+;main coder: Kokorz
+;coding assist: Ibui + Triea + JalenBrah + ZackAttack27 + Kamekaze
+;lead spriter: SwordGrayFire
+;additional spriters: SkytheStarHero + TriforceRiku + Eden-Soul + JrTheSpriter + ZackAttack27 
+;guest spriter: DJW-1198 + Skep the Gray
+;additional beta testers: Anomaletix, D.A.C, Umbra
+
+pal.defaults = 1,2,3,4,5,6,7,8  ;Default palettes in order of preference
+
+; Files for Leon
+[Files]
+cmd     = Leon.cmd   ;Command set
+cns     = Leon.cns   ;Constants
+st      = Leon.cns   ;States
+st1     = Specials.cns
+;st2     = StarBurst.cns
+;st3     = Power Delay.cns
+;st4     = StarStrike.cns
+;st5     = HurtStates.cns
+stcommon = common1.cns ;Common states
+sprite  = Leon.sff   ;Sprite
+anim    = Leon.air   ;Animation
+sound  = Leon.snd   ;Sound
+movelist = movelist.dat
+
+[Palette Keymap]
+a = 1
+b = 1
+c = 1
+x = 1
+y = 1
+z = 1

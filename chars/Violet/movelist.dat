@@ -1,0 +1,63 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+_F_F^A
+_D[^B]
+_F^C
+
+<#f0f000>:Passive Ability:</>
+
+Shotgun Gauntlet Ammo
+	"Violet has a total of 16 Bullets
+	to use within her combos"
+
+Reload								_D^C
+	"Violet reloads one of her gauntlets."
+	(Adds an additional 8 bullets per reload,
+	but can be acted out of after the first 4 reloaded.)
+
+
+<#f0f000>:EX ATTACKS:</>
+
+Shotgun Blasts (1/10 Bar, _AIR OK)				^C
+	"Violet shoots a gauntlet shot! She can continue
+	to shoot with repeated inputs!"
+	(Costs 1 Bullet per Shot)
+
+_!"Going Down!" (1/10 Bar, Followup)			_AIR_D^C
+	"Violet shoots a gauntlet shot downwards
+	sends her opponent down to the ground!"				
+	(After 'Shotgun Blasts', Costs 1 Bullet)
+
+"Coming Down!" (1/10 Bar)						_AIR_D^C
+	"Violet shoots a gauntlet shot and
+	recoils herself downwards!"
+	(Costs 1 Bullet)
+
+<#f0f000>:STAR STRIKES!:</>
+
+Rejection Kick (1 Bar)						_D_DF_F^A
+	 "Violet rushes forward with a kick and a punch!"
+
+Dunk Slam (1 Bar)							_AIR_D_DB_B^A
+	"Violet grabs her opponent 
+	and slams them into the ground"
+	(Costs 1 Bullet per Shot)
+
+_!Follow Up 1: "Jump Slam" - (1/4 Bar)				^C
+_!Follow Up 2: "Final Shot" - (1/4 bar)				^C
+
+Multi Shot Flurry! (1 Bar) 						_D_DF_F^B
+	"Violet rushes into her opponent with a
+	flurry of gunshots"
+	(Works on Ground and Air)
+	(Costs 8 Bullets)
+ 
+Quintuple Geyser (1 Bar)						_D_DB_B^B			
+	"Violet fires 5 low hitting shots
+	that blow out of the ground"
+	(Costs 3 Bullets)
+
+Heavy Shot (1 + 1/2 Bars)							_D_DF_F^C			
+	"Violet fires an unblockable
+	wall bouncing shot"
+	(Costs 1 Bullet)

@@ -1,0 +1,47 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+_B^A
+_AIR_B^A
+
+<#f0f000>:EX ATTACKS:</>
+
+Shuriken Toss (1/4 Bar, _AIR OK)			^C
+	"Fly throws an arcing shuriken!
+	Depletes health slightly."
+
+Shockdodge (1/4 Bar, _AIR OK)				_D^C
+	"Fly dodges incoming attacks in style!"
+
+_!Shock Reversal (Followup, _AIR OK)		^C
+	"Fly Kicks the opponent away!"
+
+
+	
+
+<#f0f000>:STAR STRIKES!:</>
+
+Kickety Kicky! (1/2 Bar)				_AIR_D_DF_F^A
+	"Fly whips out a flurry of kicks! 
+	Ends with a powerful blow!"
+
+5 Piece Combo w/ Fries  (1 Bar)			_D_DB_B^A
+	"Fly attacks 5 times with swift 
+	kicks and ends with a slap!"
+
+Slash Dash (1/2 Bar, _AIR OK) 				_D_DF_F^B
+	"Fly Dashes forward and cuts his 
+	opponent, launching them upwards!"
+ 
+"Pay Attention."  (1 Bar)					_D_DB_B^B
+	"Fly dashes behind his opponent and
+	returns with a hefty kick!"
+
+"This is gonna hurt..." (2 Bars)			_D_DF_F^C
+	"Fly grabs his opponent and bursts
+	with a heavy electric charge!
+	Landing this will lessen Fly's
+	Self-Damage for the rest of the round!"
+
+"60 Seconds." (3 Bars)						_D_DB_B^C
+	"Fly supercharges all of his EX Attacks
+	and Star Strikes with his electricity!"

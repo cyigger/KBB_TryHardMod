@@ -1,0 +1,1203 @@
+;===============================================================================
+;----------------------Specials-------------------------------------------------
+;===============================================================================
+
+;===============================================================================
+; Glitch Clone Evade:
+;-------------------------------------------------------------------------------
+[Statedef 20000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 20000
+velset = 0,0
+sprpriority = 2
+poweradd = -1000
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S200,17
+volumescale = 200
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 23
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (16,27)
+x = -8
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = Time = 1
+time = 20
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = S1,2
+volumescale = 50
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 16
+helpertype = normal ;player
+name = "Glone Clone BOOM"
+ID = 20005
+stateno = 20005
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+
+[State 1000, 6]
+type = ChangeState
+triggerall = helper(20005),movecontact
+trigger1 = power >= 500
+trigger1 = command = "SPECIAL 4"
+value = 22000
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Glitch Clone Evade: Helper
+[Statedef 20005]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 20005
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = movecontact
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (1,8) && !movecontact
+x = 8
+
+[State 0, VelSet]
+type = VelSet
+triggerall = Movecontact = 1
+trigger1 = Time = (1,10)
+x = -4
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = Time = 1
+time = 10
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = S3,0
+volumescale = 50
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SP
+animtype  = Light
+damage    = 40,5
+guard.kill = 0
+hitflag = MAFD
+guardflag = MAF
+pausetime = 10,50
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,1
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5
+air.velocity = -2,-1
+Fall = 0
+envshake.time = 10
+kill = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = Time = 30
+value = 302
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Glitch Clone Explosion
+[Statedef 302]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 302
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = ParentMapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S5,1
+volumescale = 999
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 1
+y = -30
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 120+ parent,var(11),30
+guard.kill = 0
+hitflag = MAFD
+guardflag = MAF
+pausetime = 12,12
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5,-3
+air.velocity = -5,-3
+Fall = 1
+Envshake.time = 30
+fall.recover = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 303
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Glitch Clone Explosion End
+[Statedef 303]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 9999
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 6
+;===============================================================================
+; Glitch Smash:
+;-------------------------------------------------------------------------------
+[Statedef 21000]
+type    = A
+movetype= A
+physics = A
+juggle  = 0
+ctrl = 0
+anim = 21000
+velset = 5,-7
+sprpriority = 2
+poweradd = -500
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = movehit
+v = 42    ;If this is hit, glitch will turn based on p2dist in 21005.
+value = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = moveguarded
+v = 42    ;If this is blocked, glitch will turn based on player direction in 21005.
+value = 2
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 21000, Attack]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, SA
+animtype  = Up
+damage    = 25
+hitflag = MAF
+guardflag = HA
+pausetime = 6,18
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-30
+hitsound   = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -3,-8.5
+air.velocity = -3,-8.5
+guard.velocity = ifelse(command = "holdback", 12, -12)
+Fall = 1
+Envshake.time = 20
+fall.recover = 0
+kill = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = movecontact 
+value = 21005
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Glitch Smash 2
+[Statedef 21005]
+type    = A
+movetype= A
+physics = A
+juggle  = 0
+ctrl = 0
+anim = 21005
+velset = 0,-2
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 8
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, Turn - First State Movehit]
+type = Turn
+triggerall = var(42) = 1
+trigger1 = P2dist x < 0
+
+[State 0, Turn - First State MoveGuarded - Direction is Back]
+type = Turn
+triggerall = var(42) = 2
+triggerall = time > 12
+trigger1 = command = "holdback"
+persistent = 0
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Time = 6
+x = 20
+y = p2bodydist y - 130
+
+;[State 0, Turn]
+;type = Turn
+;trigger1 = P2dist x < 0
+
+;[State 0, Turn - First State Movehit]
+;type = Turn
+;triggerall = var(42) = 1
+;trigger1 = P2dist x < 0
+
+;[State 0, Turn - First State MoveGuarded - Direction is Back]
+;type = Turn
+;;triggerall = var(42) = 2
+;triggerall = time > 12
+;triggerall = !movecontact
+;trigger1 = command = "holdback" && !StageFrontEdge <= 90
+;persistent = 0
+;
+;[State 0, PosAdd]
+;type = PosAdd
+;trigger1 = Time = 6
+;x = 20  + (cond(command = "holdback" && !StageFrontEdge <= 90,80,0))
+;y = p2bodydist y - 130
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (17,53)
+x = 7
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, SA
+animtype  = Heavy
+damage    = 30
+hitflag = MAF
+guardflag = HA
+pausetime = 18,18
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,8
+air.velocity = -2,8
+Fall = 1
+Envshake.time = 20
+fall.recover = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = movecontact
+triggerall = var(41) = 0
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 620
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;===============================================================================
+; Glitch Out CrossUp:
+;-------------------------------------------------------------------------------
+[Statedef 22000]
+type    = S
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 22000
+velset = 0,0
+sprpriority = 2
+poweradd = -500
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = SCA
+time = 24
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = AnimElem = 1
+v = 19     ;fv = 
+value = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2dist x < 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = S5,0
+pos = 0,0
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = Time = 20
+trigger1 = pos y < 0
+value = 22000
+elem = 7
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 18
+pos = 0,-20
+movetime = 18
+darken = 1
+p2defmul = 1
+endcmdbuftime = 7
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 20
+length = 20
+trans = add
+
+[State 0, VelSet]
+type = VelSet
+triggerall = pos y < 0
+trigger1 = Time = (13,16)
+x = -3
+
+[State 0, VelSet]
+type = VelSet
+triggerall = pos y = 0
+trigger1 = Time = (13,16)
+x = -7
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 3
+x = p2dist x + 30
+y = p2bodydist y
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 7
+triggerall = pos y < 0
+y = 10
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0
+y = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = pos y = 0
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = pos y < 0
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+; Glitch Clone Approach:
+;-------------------------------------------------------------------------------
+[Statedef 23000]
+type    = A
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 23000
+velset = 0,0
+sprpriority = 2
+poweradd = -1000
+
+[State 0, FatalCounter]
+type = MapSet
+triggerall = time = (36,52)
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = movecontact
+map = "enableDHC"
+value = 1
+
+[State 0, reversalMove]
+type = MapSet
+trigger1 = 1
+map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 5
+value = SCA
+time = 30
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (1,7)
+x = 2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time =(34,48)
+x = 12
+y = -0.7
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+Triggerall = AnimElem = 2
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 0
+hitflag = MAF
+guardflag = MAFD
+pausetime = 0,40
+sparkno = 9999
+guard.sparkno = 9999
+sparkxy = -8,-25
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+Fall = 0
+getpower = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+Triggerall = AnimElem = 4
+trigger1 = enemy,movetype != A
+attr = S, SA
+animtype  = Heavy
+damage    = 110,25
+guard.kill = 0
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 20,20
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -5,-6
+air.velocity = -5,-6
+Fall = 1
+getpower = 0
+Envshake.time = 30
+fall.recover = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+Triggerall = AnimElem = 4
+trigger1 = enemy,movetype = A
+attr = S, SA
+animtype  = Heavy
+damage    = 220,25
+guard.kill = 0
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 40,40
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,0
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 18,5
+air.velocity = 18,5
+Fall = 1
+getpower = 0
+Envshake.time = 30
+fall.recover = 0
+p2stateno = 1025    ;Make p2 go to state 1025 on hit
+p2facing = 1        ;Force to face p1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 1
+helpertype = normal ;player
+name = "Glitch Clone"
+ID = 23001
+stateno = 23001
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+;Glitch Clone Approach: Helper
+[Statedef 23001]
+type    = A
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 23001
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = S5,1
+volumescale = 999
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 20
+trans = add
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (1,5)
+x = -5
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 23002
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Glitch Clone Approach: Helper Fin
+[Statedef 23002]
+type    = A
+movetype= I
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 9999
+velset = 0,0
+sprpriority = -1
+
+[State 200, End]
+type = Destroyself
+trigger1 = time = 0
+
+;===============================================================================
+; "No more of that annoying ability!":
+;-------------------------------------------------------------------------------
+[Statedef 24000]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 24000
+velset = 0,0
+sprpriority = 2
+poweradd = -1500
+
+[State 200, Damage Proration] ; Sets player proration to 200 to prevent the Glitched state + infinite protection from breaking
+type = Varset
+trigger1 = movehit
+trigger1 = var(11) >= 250
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 200
+
+[State 0, I'm gonna do an unblockable attack!]
+type = Explod
+trigger1 = time = 1
+anim = F30000
+id = 30000
+pos = -30 + (cond(BackEdgeBodyDist <= 30 || FrontEdgeBodyDist <= 30, 60, 0)),-50
+postype = p1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+pausemovetime = 999
+supermovetime = 999
+ontop = 0
+shadow = 0,0,0
+removeongethit = 0
+ignorehitpause = 1
+facing = facing
+vfacing = 1
+scale = 0.6,0.6
+sprpriority = 5
+removetime = -2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = movecontact = 1
+value = S200,12+(random<500)*1
+volumescale = 200
+channel = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 40
+length = 20
+trans = add
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+trigger2 = movehit
+value = SCA
+time = 33
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = -9
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 17
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 10
+x = 13
+y = 0
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 1
+anim = 92006
+time = 10
+sound = 20,0
+pos = 0,-20
+movetime = 0
+darken = 1
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movecontact
+time = 1
+id = -1
+pos = 40,0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+triggerall = enemy,stateno != [150,156]
+trigger1 = enemy,anim != 40 && (AnimElem = 8 || AnimElem = 9 || AnimElem = 10) && P2statetype != A
+trigger2 = P2MoveType = H
+attr = S, HT
+animtype  = Heavy
+damage    = 30
+hitflag = MFD
+pausetime = 0,100
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S4,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = 0,0
+air.velocity = -0,0
+Fall = 1
+Envshake.time = 20
+fall.recover = 0
+p2stateno = 5020
+p2getp1state = 0
+kill = 0
+p2facing = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = movecontact
+trigger1 = AnimTime = 0
+value = 24500
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;===============================================================================
+; "No more of that annoying ability!":
+;-------------------------------------------------------------------------------
+[Statedef 24500]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+ctrl = 0
+anim = 24500
+velset = 0,0
+sprpriority = 2
+poweradd = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+
+[State 0, enableDHC] ; Enables DHC and disables tag
+type = MapSet
+triggerall = teammode = tag
+trigger1 = 1
+map = "enableDHC"
+value = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal ;player
+name = "Power Delay"
+ID = 56000
+stateno = 56000
+pos = 9999,9999
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = !movecontact
+time = 1
+id = -1
+pos = 40,0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = movecontact = 1
+x = -5
+
+[State 0, Explod]
+type = Explod
+triggerall = numexplod(16000) = 0
+trigger1 = time = 6
+anim = F16000
+ID = 16000
+pos = 20,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+ignorehitpause = 1
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, SA
+animtype  = Heavy
+damage    = 200 * 1.01**var(11)
+kill = 0 
+hitflag = MAFD
+pausetime = 14,30
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -10,0
+air.velocity = 0,0
+Fall = 1
+Envshake.time = 20
+fall.recover = 0
+p2stateno = 3000
+p2getp1state = 0
+
+[State 200, Neutral Reset]
+type = ChangeState
+Triggerall = time >=44 && enemy, life >= 1
+trigger1 = p2movetype !=H 
+value = 0
+ctrl = 1
+
+[State 200, Is he dead?]
+type = ChangeState
+Trigger1 = time >=44 && enemy, life <= 0
+value = 0
+ctrl = 1
