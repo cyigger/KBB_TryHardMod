@@ -2147,19 +2147,19 @@ trigger1 = command = "holdback" && command = "holddown"
 trigger1 = command = "c"
 value = 494
 
-[State 200, wdC6a]
-type = ChangeState
-Triggerall = movecontact || time >= 15
-trigger1 = command = "holdfwd"
-trigger1 = command = "c"
-value = 491
-
 [State 200, wdC2a]
 type = ChangeState
 Triggerall = movecontact || time >= 15
 trigger1 = command = "holddown"
 trigger1 = command = "c"
 value = 492
+
+[State 200, wdC6a]
+type = ChangeState
+Triggerall = movecontact || time >= 15
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+value = 491
 
 [State 200, wdC4a]
 type = ChangeState

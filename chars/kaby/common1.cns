@@ -175,6 +175,8 @@ triggerall = vel x < 0
 trigger1 = Anim != 21 && Anim != 5 && Anim!= 2021
 trigger2 = Anim = 5 && AnimTime = 0
 value = ifelse(var(10)=0,21,2021)
+
+
 ;---------------------------------------------------------------------------
 ;Wavedash
 [Statedef 30]
@@ -184,8 +186,6 @@ physics = S
 anim = 30
 ctrl = 0
 sprpriority = 1
-
-
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -270,7 +270,7 @@ ctrl = 0
 type = ChangeState
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
-value = 490
+value = 80000
 
 ;[State 200, C]
 ;type = ChangeState
@@ -365,6 +365,11 @@ trigger1 = AnimTime = 0
 trigger1 = prevstateno = 100 ;RUN_FWD
 trigger1 = sysvar(1) = 1
 x = const(velocity.runjump.fwd.x)
+
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = AnimTime = 0
 
 [State 40, 6]
 type = ChangeState
@@ -848,6 +853,11 @@ trigger1 = AnimTime = 0
 x = ifelse(sysvar(1)=0, 0, ifelse(sysvar(1)=1, 4.8, -4.7))
 y = const(velocity.jump.y) * 0.75
 
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = AnimTime = 0
+
 [State 40, 6]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -860,6 +870,7 @@ type    = S
 physics = S
 anim = ifelse(var(10)=0,100,2100)
 sprpriority = 1
+ctrl = 1
 
 [State 0, PlaySnd]
 type = PlaySnd

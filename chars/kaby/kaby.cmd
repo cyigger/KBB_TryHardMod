@@ -721,6 +721,34 @@ value = 60
 trigger1 = statetype != A
 trigger1 = command = "hyperhop"
 trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Power Charge JAY
+[State -1, Power Charge]
+type = ChangeState
+Triggerall =  var(19) = 11
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(55002) = 0
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(56000) = 0
+value = 500
+triggerall = command = "s" && (command != "holdfwd" || command = "holddown")
+Triggerall = statetype != A
+trigger1 = ctrl
+; Power Charge
+[State -1, Power Charge]
+type = ChangeState
+Triggerall = power < 3000 && var(19) != 11
+triggerall = var(10) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(55002) = 0
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(56000) = 0
+value = 500
+triggerall = command = "s" && (command != "holdfwd" || command = "holddown")
+Triggerall = statetype != A
+trigger1 = ctrl
+
 ;---------------------------------------------------------------------------
 ; Wavedash
 [State -1, Wavedash]
@@ -760,6 +788,16 @@ trigger1 = statetype = S
 trigger1 = ctrl
 ;===========================================================================
 ;---------------------------Basics-----------------------------------------
+
+;---------------------------------------------------------------------------
+; Instant Airdash
+[State -1, Instant Airdash]
+type = ChangeState
+value = 66
+triggerall = var(4) = 0 
+triggerall = command = "s" && (command != "holdfwd" || command = "holddown")
+Triggerall = statetype = A
+trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Air Dash - Forward
 [State -1, Air Dash - Forward]
@@ -825,27 +863,6 @@ triggerall = command = "a"
 Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; B
-[State -1, B]
-type = ChangeState
-value = 300
-triggerall = var(10) = 0
-triggerall = command != "holddown"
-triggerall = command != "holdback"
-triggerall = command = "b"
-Triggerall = statetype != A
-trigger1 = ctrl
-;----------------------------------------------------------------------------
-; Sword B
-[State -1, B]
-type = ChangeState
-value = 2600
-triggerall = var(10) = 1
-triggerall = command != "holddown"
-triggerall = command = "b"
-Triggerall = statetype != A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
 ; Down + B - Overhead
 [State -1, Overhead]
 type = ChangeState
@@ -875,6 +892,25 @@ triggerall = command = "holdback"
 triggerall = command = "b"
 Triggerall = statetype != A
 trigger1 = ctrl
+;---------------------------------------------------------------------------
+; B
+[State -1, B]
+type = ChangeState
+value = 300
+triggerall = var(10) = 0
+triggerall = command = "b"
+Triggerall = statetype != A
+trigger1 = ctrl
+;----------------------------------------------------------------------------
+; Sword B
+[State -1, B]
+type = ChangeState
+value = 2600
+triggerall = var(10) = 1
+triggerall = command = "b"
+Triggerall = statetype != A
+trigger1 = ctrl
+
 ;-----------------------------------------------------------------------------
 ;---------------------------------------------------------------------------
 ; Down + C
@@ -983,19 +1019,6 @@ triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; C - Air
-[State -1, C Air]
-type = ChangeState
-value = 620
-triggerall = numhelper(3500) = 0
-Triggerall = statetype = A
-triggerall = command = "c"
-triggerall = command != "holddown"
-;triggerall = command != "holdfwd" && map(Has6C) = 1
-;triggerall = command != "holdback" && map(Has4C) = 1
-Triggerall = power >= 250
-trigger1 = ctrl
-;---------------------------------------------------------------------------
 ; Down + C Air
 [State -1, Down + C - Air]
 type = ChangeState
@@ -1018,6 +1041,20 @@ Triggerall = statetype = A
 triggerall = command = "c"
 Triggerall = power >= 250
 trigger1 = ctrl
+;---------------------------------------------------------------------------
+; C - Air
+[State -1, C Air]
+type = ChangeState
+value = 620
+triggerall = numhelper(3500) = 0
+Triggerall = statetype = A
+triggerall = command = "c"
+triggerall = command != "holddown"
+;triggerall = command != "holdfwd" && map(Has6C) = 1
+;triggerall = command != "holdback" && map(Has4C) = 1
+Triggerall = power >= 250
+trigger1 = ctrl
+
 
 ;--------------------------------------------------------------------------
 ;Starburst in Neutral
@@ -1099,15 +1136,7 @@ triggerall = ailevel = 0
 triggerall = command = "hold_x"
 Triggerall = statetype != A
 trigger1 = ctrl
-;---------------------------------------------------------------------------
-; Instant Airdash
-[State -1, Instant Airdash]
-type = ChangeState
-value = 66
-triggerall = var(4) = 0 
-triggerall = command = "s"
-Triggerall = statetype = A
-trigger1 = ctrl
+
 ;---------------------------------------------------------------------------
 ; Health Charge
 [State -1, Health Charge]
@@ -1119,32 +1148,7 @@ value = 53000
 triggerall = command = "s"
 Triggerall = statetype != A
 trigger1 = ctrl
-;---------------------------------------------------------------------------
-; Power Charge JAY
-[State -1, Power Charge]
-type = ChangeState
-Triggerall =  var(19) = 11
-triggerall = numhelper(55000) = 0
-triggerall = numhelper(55002) = 0
-triggerall = numhelper(51000) = 0
-triggerall = numhelper(56000) = 0
-value = 500
-triggerall = command = "s"
-Triggerall = statetype != A
-trigger1 = ctrl
-; Power Charge
-[State -1, Power Charge]
-type = ChangeState
-Triggerall = power < 3000 && var(19) != 11
-triggerall = var(10) = 0
-triggerall = numhelper(55000) = 0
-triggerall = numhelper(55002) = 0
-triggerall = numhelper(51000) = 0
-triggerall = numhelper(56000) = 0
-value = 500
-triggerall = command = "s"
-Triggerall = statetype != A
-trigger1 = ctrl
+
 
 
 
