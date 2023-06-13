@@ -246,7 +246,6 @@ ctrl = 0
 type = ChangeState
 triggerall = numhelper(3500) = 0
 triggerall = power >=200
-triggerall = numhelper(621) < 2
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "c"
 value = 490

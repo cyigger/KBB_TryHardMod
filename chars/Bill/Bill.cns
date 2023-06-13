@@ -2478,49 +2478,6 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
-; Wavedash C Boosted
-;-------------------------------------------------------------------------------
-[Statedef 491]
-type    = S
-movetype= A
-physics = S
-juggle  = 0
-ctrl = 0
-anim = 490
-poweradd = 0
-sprpriority = 2
-
-[State 491, ChangeAnimTo]
-type = ChangeAnim2
-trigger1 = time = 0
-value = 490
-elem = 4
-
-[State 490, Launch VelSet]
-type = VelSet
-trigger1 = AnimElem = 5
-x = 7
-y = -6.5
-
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = AnimElem = 5
-statetype = A
-movetype = A
-physics = A
-
-[State 0, CtrlSet]
-type = CtrlSet
-trigger1 = AnimElem = 7
-value = 1
-
-[State 200, End]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-
 ;===============================================================================
 ; Power Charge:
 ;-------------------------------------------------------------------------------

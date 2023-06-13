@@ -2878,7 +2878,7 @@ animtype  = Light
 damage    = ifelse(enemy,movetype = A, 50, 10)
 hitflag = MAF
 guardflag = MA
-pausetime = ifelse(enemy,movetype = A, 25, 5),ifelse(enemy,movetype = A, 30, 5)
+pausetime = ifelse(enemy,movetype = A, 25, 5),ifelse(enemy,movetype = A, 30, 8)
 guard.pausetime = 5,5
 sparkno = s623
 guard.sparkno = 13000

@@ -2432,6 +2432,11 @@ triggerall = vel x > const(velocity.run.fwd.x)
 trigger1 = prevstateno = 30 && time = 0
 x = const(velocity.run.fwd.x)
 
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 4
+time = 5
+
 [State 0, RELOAD]
 type = Explod
 trigger1 = AnimElem = 4
@@ -2459,7 +2464,7 @@ type = Explod
 trigger1 = AnimElem = 4
 anim = 491
 ID = 491
-pos = 45,15
+pos = 45,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -2469,7 +2474,29 @@ accel = 0,0
 random = 0,0
 removetime = -2
 pausemovetime = 0
-scale = 0.55,0.55
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 491
+ID = 491
+pos = -45,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
 sprpriority = 0
 ontop = 1
 shadow = 0,0,0
@@ -2497,11 +2524,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 15
 ground.hittime  = 15
-ground.velocity = -1.5,-5
-air.velocity = ifelse(enemy,movetype = A, -7, -4),ifelse(enemy,movetype = A, -7, -4)
+ground.velocity = -1,ifelse(enemy,movetype = A, -9, -5)
+air.velocity = -1,ifelse(enemy,movetype = A, -9, -5)
+guard.velocity = -4
 Fall = 1
 Envshake.time = 20
-down.bounce = 1
 fall.recover = ifelse(enemy,movetype = A, 0, 1)
 fall.recovertime = 40 + ifelse(enemy,movetype = A, 7, 0)
 
