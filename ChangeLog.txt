@@ -1,5 +1,38 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.0 Changes:                    /
+|---------------------------------------------------/
+
+This silly fella called korby has now been properly added to the try-hard mod. Enjoy being a copycat.
+
+Korby:
+1. First version to be intended to be balanced
+2. All previously implementd modes now include wavedash C
+
+
+Clutch:
+1. Wavedash C: now +2 on hit instead of -1
+
+
+Bill:
+2. Launches out of Boosted Wavedash C faster now.
+
+
+Violet:
+1. New Wavedash C
+
+
+Noll:
+1. Wavedash C
+	* Increased Juggle
+	* Increased Proration
+2. j.2c
+	* Increased Juggle
+	* Increased Proration
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.1.9 Changes:                    /
 |---------------------------------------------------/
 

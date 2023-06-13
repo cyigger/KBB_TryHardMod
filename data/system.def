@@ -166,7 +166,7 @@ cancel.snd = 100,2
 	footer3.font = 10,0,0
 	footer3.scale = 1.5, 1.5
 	footer3.font.height = -1
-	footer3.text = "v0.1.9"
+	footer3.text = "v0.2.0"
 	
 	footer.overlay.col = 0, 0, 64
 	footer.overlay.alpha = 0, 0
@@ -391,7 +391,7 @@ WELCOME TO KIRBY BATTLE BLITZ!
 
 * More than anything... ENJOY YOURSELF!
 
-* This build is version Try-Hard 0.1.2!
+* This build is version Try-Hard 0.2.0!
 
 * It includes new patches...
 * And our next character, coming from literally nowhere to bring
