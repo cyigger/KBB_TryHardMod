@@ -897,7 +897,7 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1,-4
-air.velocity = -1,-3
+air.velocity = -1,-3.2
 guard.velocity = -6
 Fall = 1
 fall.recovertime = 50

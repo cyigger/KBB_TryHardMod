@@ -2147,7 +2147,7 @@ ctrl = 1
 
 [State 200, Dash cancel Forward]
 type = ChangeState
-Triggerall = command = "WD"
+Triggerall = command = "WD" && command != "NotWD"
 trigger1 = movecontact
 value = 30
 ctrl = 1

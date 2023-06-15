@@ -1,13 +1,54 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.1 Changes:                    /
+|---------------------------------------------------/
+
+Made some balance changes. Korby felt pretty weak on the damage side, so we made some adjustments
+
+Korby:
+1. All Copied Moves:
+	* Increased Damage
+2. Jodie 6C and j.6C are now fully functional.
+3. 4B: Damage Increased (35 -> 45)
+4. j.4B: Damage Increased ( -> 50)
+5. Inhale > Spit: Damage Reduced (75 -> 50)
+6. 5aa: Fixed hittime bug. Should now allow grabbing in a reasonable amount of time. (buff)
+7. Entire 5B String: Reduced Plus Frames Slightly.
+8. 5b - 1: Added Wavedash Cancel
+9. Fixed Delayed Wavedash Cancel on Wiff/Block Not Working
+
+Metaknight:
+1. 6C:
+	* Reduced Startup (30 frames -> 25 frames)
+	* Increased Range Slightly
+	* Reduced Downwards Range. Now Weak to low profile.
+2. Adjusted Hitpause of some moves.
+3. New Move: j.2B (replaces old j.2B)
+4. 4B: Added Jump Cancel on hit
+5. j.2B: Added Restriction: Cannot be done within 5 frames of ground jumping.
+6. Added New Move: j.5bb. 
+
+Aege:
+1. Experimental Grab Animation Made
+
+Bill:
+2. Experimental Grab Animation Made
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.0 Changes:                    /
 |---------------------------------------------------/
 
 This silly fella called korby has now been properly added to the try-hard mod. Enjoy being a copycat.
 
 Korby:
-1. First version to be intended to be balanced
-2. All previously implementd modes now include wavedash C
+1. 4B:
+	* No longer an overhead
+	* Startup Increased
+2. Made Actually functionable in many areas
+3. All previously implementd modes now include wavedash C
+4. New Move: 5b - 3
 
 
 Clutch:

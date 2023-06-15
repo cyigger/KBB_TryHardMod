@@ -942,6 +942,7 @@ type = ChangeState
 value = 615
 triggerall = command = "holddown"
 triggerall = command = "b"
+triggerall = prevstateno != 40 || time >= 5
 Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------

@@ -346,6 +346,7 @@ physics = S
 [State 1000, 6]
 type = ChangeState
 trigger1 = var(19) = 7 && var(10) = 0
+triggerall = numhelper(6678) = 0
 value = 526
 ctrl = 1
 
@@ -376,6 +377,7 @@ physics = A
 [State 1000, 6]
 type = ChangeState
 trigger1 = var(19) = 7 && var(10) = 0
+triggerall = numhelper(6823) = 0
 value = 5322
 ctrl = 1
 
@@ -1281,7 +1283,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, HA
 animtype  = Light
-damage    = 75
+damage    = 50
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,0
@@ -1635,7 +1637,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = !movecontact && !movereversed
 animtype  = Heavy
 attr = S, NP
-damage = ifelse(enemy,movetype = A,80,40),20
+damage = ifelse(enemy,movetype = A,80,40)*1.2,20*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MA
@@ -1775,7 +1777,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = !movecontact && !movereversed
 animtype  = Heavy
 attr = S, NP
-damage = ifelse(enemy,movetype = A,80,40),40
+damage = ifelse(enemy,movetype = A,80,40)*1.2,40*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MA
@@ -1829,7 +1831,7 @@ type = HitDef
 trigger1 = animelem = 3
 animtype  = Heavy
 attr = S, NP
-damage = 40
+damage = 40*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MA
@@ -1920,7 +1922,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = ifelse(enemy,movetype = A,60,30)
+damage    = ifelse(enemy,movetype = A,60,30) * 1.2
 hitflag = MAF
 guardflag = HAF
 pausetime = ifelse(enemy,movetype = A,24,12),ifelse(enemy,movetype = A,24,12)
@@ -2054,7 +2056,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = ifelse(enemy,movetype = A,120,60),15
+damage    = ifelse(enemy,movetype = A,120,60)*1.2,15*1.2
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -2222,7 +2224,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = ifelse(enemy,movetype = A,80,40),5
+damage    = ifelse(enemy,movetype = A,80,40)*1.2,5*1.2
 guard.kill = 0
 hitflag = MAFD
 guardflag = MA
@@ -2307,7 +2309,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 40,5
+damage    = 40*1.2,5*1.2
 guard.kill = 0
 guardflag = HA
 pausetime = 18,24
@@ -2622,7 +2624,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 1
 attr = A, NP
 animtype  = Heavy 
-damage    = 10
+damage    = 10*1.2
 Hitflag = MAF
 guardflag = MAF
 getpower = 25
@@ -2646,7 +2648,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 6
 attr = A, NP
 animtype  = Heavy 
-damage    = 10
+damage    = 10*1.2
 Hitflag = MAF
 guardflag = MAF
 getpower = 25
@@ -2671,7 +2673,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 12
 attr = S, NP
 animtype  = Heavy 
-damage    = 20
+damage    = 20*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = 4,2
@@ -2811,7 +2813,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = A, 20,10)
+damage    = ifelse(enemy,movetype = A, 20,10)*1.2
 guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,20,10),ifelse(enemy,movetype = A, 40,10)
 guard.pausetime = 10,7
@@ -2923,7 +2925,7 @@ triggerall = root,map(juggle) < 100
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 20
+damage    = 20*1.2
 guardflag = MAF
 pausetime = 12,12
 guard.pausetime = 12,12
@@ -3039,7 +3041,7 @@ triggerall = root,map(juggle) < 100
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 guardflag = MAF
 pausetime = 12,12
 guard.pausetime = 12,10
@@ -3160,7 +3162,7 @@ triggerall = root,map(juggle) < 100
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = ifelse(enemy,movetype = A,100,50)
+damage    = ifelse(enemy,movetype = A,100,50)*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,30,4),ifelse(enemy,movetype = A,30,6)
@@ -3196,7 +3198,7 @@ triggerall = !movecontact
 trigger1 = enemy,map(hitOverride) = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 50
+damage    = 50*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = 4,2
@@ -3351,7 +3353,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = A,50,25)
+damage    = ifelse(enemy,movetype = A,50,25)*1.2
 guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,26,13),ifelse(enemy,movetype = A,30,15)
 guard.pausetime = 10,7
@@ -3468,7 +3470,7 @@ getpower = 0
 trigger1 = !movecontact
 attr = A, NA
 animtype  = Heavy 
-damage    = ifelse(enemy,movetype = A,60,30)
+damage    = ifelse(enemy,movetype = A,60,30)*1.2
 Hitflag = MAF
 guardflag = HAF
 pausetime = ifelse(enemy,movetype = A,24,12),ifelse(enemy,movetype = A,24,6)
@@ -3721,7 +3723,7 @@ triggerall = hitcount < 4
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 17, 5
+damage    = 17*1.2, 5*1.2
 guard.kill = 0
 Hitflag = MAF
 guardflag = MAF
@@ -3998,7 +4000,7 @@ triggerall = hitcount < 8
 trigger1 = 1
 attr = A, NP
 animtype  = Heavy 
-damage    = 17, 5
+damage    = 17*1.2, 5*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -4028,7 +4030,7 @@ triggerall = hitcount < 4
 trigger1 = 1
 attr = A, NP
 animtype  = Heavy 
-damage    = 17, 5
+damage    = 17*1.2, 5*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -4554,7 +4556,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype = A
 attr = A, NA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = HAF
 pausetime = 40,40
@@ -4586,7 +4588,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype != A
 attr = A, NA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = HAF
 pausetime = 20,20
@@ -4807,7 +4809,7 @@ attr = S, NP
 givepower = 0
 getpower = 0
 animtype  = Heavy
-damage    = 90
+damage    = 90*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 10,25
@@ -4982,7 +4984,7 @@ trigger1 = 1
 attr = A, NP
 givepower = 0
 getpower = 0
-damage    = 13
+damage    = 13*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,16
@@ -5049,7 +5051,7 @@ trigger1 = 1
 attr = S, NA
 givepower = 0
 getpower = 0
-damage    = 7
+damage    = 7*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 5,5
@@ -5209,7 +5211,7 @@ x = 15
 type = HitDef
 trigger1 = !movecontact
 attr = S, NP
-damage = 5
+damage = 5*1.2
 hitflag = MAFD 
 guardflag = MA
 pausetime = 1,5
@@ -5385,7 +5387,7 @@ ampl = 2
 type = HitDef
 trigger1 = AnimElem = 1		
 attr = S, NP
-damage = ifelse(enemy,movetype = A,130,65)
+damage = ifelse(enemy,movetype = A,130,65)*1.2
 guardflag = MAFD
 hitflag = MAFD 
 pausetime = ifelse(enemy,movetype = A,20,10),ifelse(enemy,movetype = A,30,15)
@@ -5477,7 +5479,7 @@ ampl = 2
 type = HitDef
 trigger1 = AnimElem = 1		
 attr = S, NP
-damage = 65
+damage = 65*1.2
 guardflag = MAFD
 hitflag = MAFD 
 pausetime = 10,15
@@ -5581,7 +5583,7 @@ movecamera = 0,0
 type = HitDef
 trigger1 = !movecontact
 attr = A, NP
-damage = 5
+damage = 5*1.2
 guardflag = MA
 hitflag = MAFD 
 pausetime = 1,5
@@ -5803,7 +5805,7 @@ trigger1 = anim = 502 && (map(guardCount) + hitcount) <= 5
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 5
+damage    = 5*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 5,6
@@ -5915,7 +5917,7 @@ triggerall = AnimElem = 1
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 20
+damage    = 20*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 10,10
@@ -6370,7 +6372,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 25
+damage    = 25*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 6,8
@@ -6402,7 +6404,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 30
+damage    = 30*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 2,24
@@ -6627,7 +6629,7 @@ triggerall = AnimElem = 3 || AnimElem = 4 || AnimElem = 5 || AnimElem = 6 || Ani
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 5
+damage    = 5*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 4,5
@@ -6903,7 +6905,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = A, NP
 animtype  = Hard
-damage    = 50,5
+damage    = 50*1.2,5*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 21,23
@@ -6935,7 +6937,7 @@ triggerall = enemy,map(hitOverride) = 1
 trigger1 = 1
 attr = A, NP
 animtype  = Hard
-damage    = 50,5
+damage    = 50*1.2,5*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 21,23
@@ -7160,7 +7162,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = A, NP
 animtype  = Hard
-damage    = 50,5
+damage    = 50*1.2,5*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 30,36
@@ -7379,7 +7381,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = A, NP
 animtype  = Hard
-damage    = 50,5
+damage    = 50*1.2,5*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 30,36
@@ -7521,7 +7523,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 25
+damage    = 25*1.2
 hitflag = MAFD
 guardflag = HA
 pausetime = 6,8
@@ -7549,7 +7551,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 25
+damage    = 25*1.2
 hitflag = MAFD
 guardflag = HA
 pausetime = 12,12
@@ -7701,7 +7703,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = ifelse(enemy,movetype = A,90,30)
+damage    = ifelse(enemy,movetype = A,90,30)*1.2
 hitflag = MAFD
 guardflag = MAFD
 pausetime = ifelse(enemy,movetype = A,30,15),ifelse(enemy,movetype = A,30,15)
@@ -7762,7 +7764,7 @@ triggerall = AnimElem = 3
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 13
+damage    = 13*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
@@ -7810,7 +7812,7 @@ triggerall = AnimElem = 4
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 13
+damage    = 13*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 4,4
@@ -7838,7 +7840,7 @@ triggerall = AnimElem = 5
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 13
+damage    = 13*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
@@ -7865,7 +7867,7 @@ triggerall = AnimElem = 6
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 20
+damage    = 20*1.2
 air.juggle = 1
 hitflag = MAF
 guardflag = MA
@@ -8040,7 +8042,7 @@ triggerall = numhelper(6678) <= 1
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = ifelse(enemy,movetype = A,60,30)
+damage    = ifelse(enemy,movetype = A,60,30)*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,48,24),ifelse(enemy,movetype = A,48,24)
@@ -8070,7 +8072,7 @@ triggerall = numhelper(6678) <= 1
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 24,24
@@ -8176,7 +8178,7 @@ triggerall = numhelper(669) = 0
 trigger1 = numhelper(669) = 0
 attr = A, HA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 hitflag = AFD
 guardflag = 
 pausetime = 0,70
@@ -8286,7 +8288,7 @@ triggerall = AnimElem = 2
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = 10
+damage    = 10*1.2
 hitflag = AFD
 guardflag = 
 pausetime = 0,0
@@ -8471,7 +8473,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 20
+damage    = 20*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,16
@@ -8634,7 +8636,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = A,50,25)
+damage    = ifelse(enemy,movetype = A,50,25)*1.2
 hitflag = MAF
 guardflag = HAF
 pausetime = ifelse(enemy,movetype = A,20,10),ifelse(enemy,movetype = A,50,10)
@@ -8790,7 +8792,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = A,80,40)
+damage    = ifelse(enemy,movetype = A,80,40)*1.2
 guardflag = MAFD
 hitflag = MAFD
 pausetime = ifelse(enemy,movetype = A,24,12),ifelse(enemy,movetype = A,32,16)
@@ -8833,7 +8835,7 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 triggerall = movecontact
-triggerall = numhelper(6623) = 0
+triggerall = numhelper(6823) = 0
 triggerall = power >= 300
 trigger1 = command = "holdfwd"
 trigger1 = command = "c"
@@ -8882,8 +8884,8 @@ type = Helper
 trigger1 = movecontact
 helpertype = normal ;player
 name = "Spam Deny"
-ID = 6623
-stateno = 6623
+ID = 6823
+stateno = 6823
 pos = 9999,9999
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -8894,12 +8896,12 @@ pausemovetime = 0
 
 [State 0, Add X and Y coordinates if linked with s.6C]
 type = PosAdd
-trigger1 = prevstateno = 402 && time = 0
+trigger1 = prevstateno = 526 && time = 0
 x = 2
 y = -15
 [State 0, No Physics if linked with s.6C]
 type = StateTypeSet
-trigger1 = prevstateno = 402 && time = 0
+trigger1 = prevstateno = 526 && time = 0
 statetype = A
 movetype = A
 physics = N
@@ -8980,7 +8982,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = A,80,40)
+damage    = ifelse(enemy,movetype = A,80,40)*1.2
 guardflag = MAFD
 hitflag = MAFD
 pausetime = ifelse(enemy,movetype = A,24,12),ifelse(enemy,movetype = A,32,16)
@@ -9024,7 +9026,7 @@ ctrl = 0
 [State 200, Fwd+C]
 type = ChangeState
 Triggerall = movecontact
-Triggerall = numhelper(6678) < 1
+Triggerall = numhelper(6678) = 0
 triggerall = power >= 300
 trigger1 = command = "holdfwd"
 trigger1 = command = "c"
@@ -9148,7 +9150,7 @@ trigger7 = AnimElem = 10
 trigger8 = AnimElem = 11
 attr = A, NA
 animtype  = Up
-damage    = 3
+damage    = 3*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
@@ -9501,7 +9503,7 @@ Triggerall = anim = 528 && (map(guardCount) + hitcount) <= 3
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -9528,7 +9530,7 @@ Triggerall = anim = 528 && (map(guardCount) + hitcount) <= 3
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -9556,7 +9558,7 @@ Triggerall = anim = 528 && (map(guardCount) + hitcount) <= 4
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -9793,7 +9795,7 @@ Triggerall = anim = 529 && (map(guardCount) + hitcount) <= 3
 trigger1 = 1
 attr = A, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -9822,7 +9824,7 @@ Triggerall = anim = 529 && (map(guardCount) + hitcount) <= 3
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -10194,7 +10196,7 @@ triggerall = AnimElem = 1
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 12,1
+damage    = 12*1.2,1*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MAF
@@ -10218,7 +10220,7 @@ triggerall = AnimElem = 3||AnimElem = 4||AnimElem = 5||AnimElem = 6
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 12,1
+damage    = 12*1.2,1*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MAF
@@ -10242,7 +10244,7 @@ triggerall = AnimElem = 7
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 12,1
+damage    = 12*1.2,1*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MAF
@@ -10266,7 +10268,7 @@ triggerall = AnimElem = 8
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 12,1
+damage    = 12*1.2,1*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MAF
@@ -10296,7 +10298,7 @@ triggerall = AnimElem = 9
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 12,1
+damage    = 12*1.2,1*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MAF
@@ -10321,7 +10323,7 @@ triggerall = AnimElem = 11
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 12,2
+damage    = 12*1.2,2*1.2
 guard.kill = 0
 hitflag = MAF
 guardflag = MAF
@@ -10458,7 +10460,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy
-damage    = 50,10
+damage    = 50*1.2,10*1.2
 guard.kill = 0
 Hitflag = MAFDP
 guardflag = MAFD
@@ -10487,7 +10489,7 @@ triggerall = !movecontact
 trigger1 = enemy,map(hitOverride) = 1
 attr = S, NP
 animtype  = Heavy
-damage    = 50,10
+damage    = 50*1.2,10*1.2
 guard.kill = 0
 Hitflag = MAFDP
 guardflag = MAFD
@@ -10732,7 +10734,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Heavy
-damage    = 25
+damage    = 25*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -10917,7 +10919,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Heavy
-damage    = 25
+damage    = 25*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -11037,7 +11039,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Heavy
-damage    = 50
+damage    = 50*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -11167,7 +11169,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = A, NA
 animtype  = Heavy
-damage    = 40
+damage    = 40*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -11193,7 +11195,7 @@ triggerall = enemy,map(hitOverride) = 1
 trigger1 = 1
 attr = A, NA
 animtype  = Heavy
-damage    = 40
+damage    = 40*1.2
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
@@ -11342,7 +11344,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 30
+damage    = 30*1.2 
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,13
@@ -11463,7 +11465,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 30
+damage    = 30*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -11590,7 +11592,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 30
+damage    = 30*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -11728,7 +11730,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 25
+damage    = 25*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -11845,7 +11847,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 25
+damage    = 25*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -12012,7 +12014,7 @@ triggerall = enemy,movetype = A
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 70
+damage    = 70*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 28,40
@@ -12039,7 +12041,7 @@ trigger1 = enemy,movetype != A
 trigger2 = enemy,map(hitOverride) = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 35
+damage    = 35*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 14,20
@@ -12187,7 +12189,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = ifelse(enemy,movetype = A,80,40)
+damage    = ifelse(enemy,movetype = A,80,40)*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = ifelse(enemy,movetype = A,30,14),ifelse(enemy,movetype = A,30,14)
@@ -12320,7 +12322,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 25
+damage    = 25*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 36,36
@@ -12351,7 +12353,7 @@ trigger1 = enemy, movetype != A
 trigger2 = enemy,map(hitOverride) = 1
 attr = S, NA
 animtype  = Medium
-damage    = 25
+damage    = 25*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
@@ -12616,7 +12618,7 @@ triggerall = AnimElem = 1
 trigger1 = 1
 attr = A, NP 
 animtype  = Heavy
-damage    = ifelse(prevstateno = 621 && root,var(22) = 1,50,70) ; Grenades do reduced damage in pyromaniac mode (To reduce pyromaniac's damage boost) 
+damage    = ifelse(prevstateno = 621 && root,var(22) = 1,50,70)*1.2 ; Grenades do reduced damage in pyromaniac mode (To reduce pyromaniac's damage boost) 
 hitflag = MAFD
 guardflag = MAF
 pausetime = 12,ifelse(prevstateno = 621,1,12) ;Reduced blockstun if from j.5c
@@ -13084,7 +13086,7 @@ triggerall = enemy,movetype != A
 trigger1 = map(heat) < 100
 attr = C, NA
 animtype  = hard
-damage    = 30
+damage    = 30*1.2
 hitflag = MAFD
 guardflag = LAFD
 pausetime = 15,15
@@ -13115,7 +13117,7 @@ triggerall = enemy,movetype = A
 trigger1 = map(heat) < 100
 attr = C, NA
 animtype  = hard
-damage    = 60
+damage    = 60*1.2
 hitflag = MAFD
 guardflag = LAFD
 pausetime = 30,30
@@ -13252,7 +13254,7 @@ triggerall = enemy,movetype != A
 trigger1 = !movecontact
 attr = C, NA
 animtype  = hard
-damage    = 40
+damage    = 40*1.2
 hitflag = MAFD
 guardflag = LAFD
 pausetime = 0,18
@@ -13283,7 +13285,7 @@ triggerall = enemy,movetype = A
 trigger1 = !movecontact
 attr = C, NA
 animtype  = hard
-damage    = 80
+damage    = 80*1.2
 hitflag = MAFD
 guardflag = LAFD
 pausetime = 10,36
@@ -13430,7 +13432,7 @@ triggerall = enemy,movetype != A
 trigger1 = !movecontact
 attr = C, NA
 animtype  = hard
-damage    = 50
+damage    = 50*1.2
 hitflag = MAFD
 guardflag = LAFD
 pausetime = 0,18
@@ -13461,7 +13463,7 @@ triggerall = enemy,movetype = A
 trigger1 = !movecontact
 attr = C, NA
 animtype  = hard
-damage    = 100
+damage    = 100*1.2
 hitflag = MAFD
 guardflag = LAFD
 pausetime = 10,36
@@ -13566,7 +13568,7 @@ triggerall = root,map(juggle) < 100 || root,stateno = 677
 trigger1 = 1
 attr = A, NP
 animtype  = Medium
-damage    = ifelse(root,stateno != 664,15,5) ; Does less damage if spawned from 214b or 2c (2x)
+damage    = ifelse(root,stateno != 664,15,5)*1.2 ; Does less damage if spawned from 214b or 2c (2x)
 hitflag = MAF
 guardflag = MA
 pausetime = 4,4
@@ -13750,7 +13752,7 @@ triggerall = root,map(juggle) < 100
 trigger1 = 1
 attr = A, NP
 animtype  = Medium
-damage    = 10
+damage    = 10*1.2
 hitflag = MAF
 guardflag = MA
 pausetime = 12,12
@@ -13840,7 +13842,7 @@ triggerall = root,map(juggle) < 100 || root,stateno = 674
 trigger1 = 1
 attr = A, NP
 animtype  = Medium
-damage    = 15
+damage    = 15*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 4,7
@@ -13992,7 +13994,7 @@ triggerall = root,map(juggle) < 100
 trigger1 = 1
 attr = A, NP
 animtype  = Medium
-damage    = 10
+damage    = 10*1.2
 hitflag = MAF
 guardflag = MA
 pausetime = 12,12
@@ -14492,7 +14494,7 @@ triggerall = !movecontact
 triggerall = root,map(juggle) < 100
 trigger1 = 1
 attr = S, NP
-damage = 35
+damage = 35*1.2
 hitflag = MAFD
 guardflag = MAF
 hitsound = S3,1
@@ -14608,7 +14610,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = A,130,65)
+damage    = ifelse(enemy,movetype = A,130,65)*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,48,24),ifelse(enemy,movetype = A,48,24)
@@ -14640,7 +14642,7 @@ triggerall = root,map(juggle) < 100
 trigger1 = enemy,map(hitOverride) = 1
 attr = S, NP
 animtype  = Heavy
-damage    = 55
+damage    = 55*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = 24,24
@@ -14745,7 +14747,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = anim = 699 && (var(20) + hitcount) <= 5
 trigger1 = 1
 attr = S, NP
-damage = 25
+damage = 25*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 7,8
@@ -14880,7 +14882,7 @@ triggerall = AnimElem = 7||AnimElem = 8||AnimElem = 9||AnimElem = 10||AnimElem =
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 2,24
@@ -14906,7 +14908,7 @@ triggerall = AnimElem = 14
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 65
+damage    = 65*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 10,10
@@ -15097,7 +15099,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NP
 animtype  = Medium
-damage    = 9
+damage    = 9*1.2
 numhits = 0
 hitflag = MAF
 guardflag = MAF
@@ -15201,7 +15203,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NP
 animtype  = Medium
-damage    = 20
+damage    = 20*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 10,10
@@ -15300,7 +15302,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 15
+damage    = 15*1.2
 hitflag = MAF
 guardflag = MAF
 
@@ -15447,7 +15449,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 25
+damage    = 25*1.2
 hitflag = MAF
 guardflag = MAF
 
@@ -15590,7 +15592,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype = A
 attr = S, NA
 animtype  = Medium
-damage    = 50
+damage    = 50*1.2
 hitflag = MAF
 guardflag = M
 pausetime = 24,50
@@ -15618,7 +15620,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype != A
 attr = S, NA
 animtype  = Medium
-damage    = 25
+damage    = 25*1.2
 hitflag = MAF
 guardflag = M
 
@@ -15752,7 +15754,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype = A
 attr = S, NA
 animtype  = Heavy
-damage    = 60
+damage    = 60*1.2
 hitflag = MAF
 guardflag = MAF
 
@@ -15783,7 +15785,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype != A
 attr = S, NA
 animtype  = Heavy
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = MAF
 
@@ -15973,7 +15975,7 @@ triggerall = map(juggle) < 100
 trigger1 = 1
 attr = S, SP
 animtype  = Light
-damage    = 5
+damage    = 5*1.2
 hitflag = MAF
 guardflag = M
 pausetime = 0,15
@@ -16052,7 +16054,7 @@ triggerall = map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 4
 attr = C, NA
 animtype  = Heavy
-damage    = 35
+damage    = 35*1.2
 hitflag = MAFD
 guardflag = LAF
 pausetime = 16,16
@@ -16160,7 +16162,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 10
+damage    = 10*1.2
 hitflag = MAF
 guardflag = HAFD
 pausetime = 12,18
@@ -16244,7 +16246,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Light
-damage    = 15
+damage    = 15*1.2
 guardflag = HAF
 pausetime = 12,12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
@@ -16374,7 +16376,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype = A
 attr = A, NA
 animtype  = Light
-damage    = 30
+damage    = 30*1.2
 guardflag = HA
 
 pausetime = 36,36
@@ -16406,7 +16408,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype != A
 attr = A, NA
 animtype  = Light
-damage    = 15
+damage    = 15*1.2
 guardflag = HA
 
 pausetime = 12,12
@@ -16532,7 +16534,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype = A
 attr = A, NA
 animtype  = Up
-damage    = 40
+damage    = 40*1.2
 hitflag = MAF
 guardflag = HAF
 
@@ -16566,7 +16568,7 @@ triggerall = !movecontact
 trigger1 = enemy,movetype != A
 attr = A, NA
 animtype  = Up
-damage    = 20
+damage    = 20*1.2
 hitflag = MAF
 guardflag = HAF
 
@@ -16731,7 +16733,7 @@ trigger12 = AnimElem = 15
 trigger13 = AnimElem = 16
 attr = A, NA
 animtype  = Medium
-damage    = ifelse(prevstateno = 625 || prevstateno = 402, 4,3)
+damage    = ifelse((prevstateno = 526 || prevstateno = 5322), 4,3)*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
@@ -16827,7 +16829,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = HA
 pausetime = 12,12
@@ -16858,7 +16860,7 @@ triggerall = enemy,map(hitOverride) = 1
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = HA
 pausetime = 12,12
@@ -16914,7 +16916,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 25
+damage    = 25*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,14
@@ -17044,7 +17046,7 @@ getpower = 0
 trigger1 = AnimElem = 4
 attr = S, SA
 animtype  = Light
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,30
@@ -17067,7 +17069,7 @@ getpower = 0
 trigger1 = AnimElem = 10
 attr = S, SA
 animtype  = Light
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,20
@@ -17099,7 +17101,7 @@ triggerall = hitcount < 2
 trigger1 = AnimElem = 15
 attr = S, SA
 animtype  = Light
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 10,10
@@ -17130,7 +17132,7 @@ triggerall = hitcount = 2
 trigger1 = AnimElem = 15
 attr = S, SA
 animtype  = Light
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MAF
 pausetime = 10,100
@@ -17363,7 +17365,7 @@ triggerall = hitcount < 15
 trigger1 = 1
 attr = S, SP
 animtype  = Heavy 
-damage    = 4
+damage    = 4*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 2,4
@@ -17388,7 +17390,7 @@ getpower = 0
 trigger1 = AnimElem = 14
 attr = S, SP
 animtype  = Heavy
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
@@ -17528,7 +17530,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, SA
 animtype  = Heavy
-damage    = 70
+damage    = 70*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 18,18
@@ -17645,7 +17647,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = HA
 pausetime = 12,12
@@ -17806,7 +17808,7 @@ triggerall = var(31) <= 0
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = ifelse(enemy,movetype = A,100,50)
+damage    = ifelse(enemy,movetype = A,100,50)*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,30,4),ifelse(enemy,movetype = A,30,6)
@@ -17846,7 +17848,7 @@ trigger2 = enemy,map(hitOverride) = 1
 trigger3 = var(43) = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 50
+damage    = 50*1.2
 Hitflag = MAF
 guardflag = MAF
 pausetime = 4,2
@@ -18165,7 +18167,7 @@ triggerall = time < 40
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 17, 5
+damage    = 17*1.2, 5*1.2
 guard.kill = 0
 Hitflag = MAF
 guardflag = MAF
@@ -18306,7 +18308,7 @@ type = HitDef
 triggerall = vel y <= 0
 trigger1 = !movecontact
 attr = A, NP
-damage = 5
+damage = 5*1.2
 guardflag = MA
 hitflag = MAFD 
 pausetime = 1,5
@@ -18326,7 +18328,7 @@ type = HitDef
 triggerall = vel y > 0
 trigger1 = !movecontact
 attr = A, NP
-damage = 5
+damage = 5*1.2
 guardflag = HA
 hitflag = MAFD 
 pausetime = 1,5
@@ -18668,7 +18670,7 @@ triggerall = AnimElem = 1 || AnimElem = 2 || AnimElem = 3 || AnimElem = 4
 trigger1 = 1
 attr = S, SP
 animtype  = Medium
-damage    = 5
+damage    = 5*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 5,6
@@ -18918,7 +18920,7 @@ triggerall = AnimElem = 1 || AnimElem = 2 || AnimElem = 3 || AnimElem = 4
 trigger1 = 1
 attr = S, SP
 animtype  = Medium
-damage    = 4
+damage    = 4*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 5,6
@@ -19072,7 +19074,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 20
+damage    = 20*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -19246,7 +19248,7 @@ triggerall = map(juggle) < 100 || hitcount != 0
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = ifelse(enemy,movetype = A,60,40)
+damage    = ifelse(enemy,movetype = A,60,40)*1.2
 hitflag = MAFD
 guardflag = HA
 pausetime = ifelse(enemy,movetype = A,48,24),ifelse(enemy,movetype = A,48,24)
@@ -19372,7 +19374,7 @@ triggerall = map(juggle) < 100 || hitcount != 0
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = ifelse(enemy,movetype = A,60,40)
+damage    = ifelse(enemy,movetype = A,60,40)*1.2
 hitflag = MAF
 guardflag = HA
 pausetime = ifelse(enemy,movetype = A,48,12),ifelse(enemy,movetype = A,48,12)
@@ -19505,7 +19507,7 @@ triggerall = map(juggle) < 100 || hitcount != 0
 trigger1 = 1
 attr = A, NA
 animtype  = Up
-damage    = ifelse(enemy,movetype = A,80,45)
+damage    = ifelse(enemy,movetype = A,80,45)*1.2
 hitflag = MAF
 guardflag = HA
 pausetime = ifelse(enemy,movetype = A,48,12),ifelse(enemy,movetype = A,48,12)
@@ -19613,7 +19615,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 45
+damage    = 45*1.2
 hitflag = MAF
 guardflag = HA
 pausetime = 10,10
@@ -19717,7 +19719,7 @@ trigger1 = AnimElem = 3 || AnimElem = 4 || AnimElem = 5 || AnimElem = 6
 trigger2 = AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10
 attr = S, NA
 animtype  = Medium
-damage    = 4
+damage    = 4*1.2
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
@@ -20015,7 +20017,7 @@ Triggerall = anim = 80081 && (map(guardCount) + hitcount) <= 3
 trigger1 = time > 5
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -20044,7 +20046,7 @@ Triggerall = anim = 80081 && (map(guardCount) + hitcount) <= 3
 trigger1 = time > 5
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MAF
 pausetime = 4,4
@@ -20074,7 +20076,7 @@ Triggerall = anim = 491 && (map(guardCount) + hitcount) <= 4
 trigger1 = time > 5
 attr = S, NP
 animtype  = Heavy 
-damage    = 5
+damage    = 5*1.2
 Hitflag = MAFD
 guardflag = MA
 pausetime = 4,4
@@ -20219,7 +20221,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = ifelse(enemy,movetype = A,80,40)
+damage    = ifelse(enemy,movetype = A,80,40)*1.2
 hitflag = MAFD
 guardflag = MA
 pausetime = ifelse(enemy,movetype = A,30,12),ifelse(enemy,movetype = A,30,12)
@@ -20244,7 +20246,7 @@ fall.recovertime = 40 + ifelse(enemy,movetype = A, 7, 0)
 type = VarAdd
 trigger1 = AnimElem = 4
 v = 47    ;fv = 
-value = -1
+value = -2 ;two shots
 
 [State 200, 2C]
 type = ChangeState
@@ -20445,7 +20447,7 @@ triggerall = map(juggle) < 100
 trigger1 = AnimElem = 5 || AnimElem = 6
 attr = C, NA
 animtype  = Medium
-damage    = 10
+damage    = 10*1.2
 hitflag = MAF
 guardflag = MAFD
 pausetime = 10,10
@@ -20474,7 +20476,7 @@ triggerall = map(juggle) < 100
 trigger1 = AnimElem = 7
 attr = C, NA
 animtype  = Medium
-damage    = 30
+damage    = 30*1.2
 hitflag = MAF
 guardflag = MAFD
 pausetime = 15,15
@@ -20623,7 +20625,7 @@ triggerall = map(juggle) < 100
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = ifelse(enemy,movetype = A, 50, 10)
+damage    = ifelse(enemy,movetype = A, 50, 10)*1.2
 hitflag = MAF
 guardflag = MA
 pausetime = ifelse(enemy,movetype = A, 25, 5),ifelse(enemy,movetype = A, 30, 8)
@@ -20653,6 +20655,9 @@ ctrl = 1
 
 
 [Statedef -2]
+
+
+
 ;Gauge
 ;===============================
 [State 0, Ability]

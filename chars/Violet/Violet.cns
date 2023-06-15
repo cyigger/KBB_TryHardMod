@@ -1619,7 +1619,7 @@ value = 410
 [State 200, Wavedash]
 type = ChangeState
 triggerall = time > 15 || movehit
-trigger1 = command = "WD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 
@@ -1817,7 +1817,7 @@ value = 420
 [State 200, Wavedash]
 type = ChangeState
 triggerall = time > 15 || movehit
-trigger1 = command = "WD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 
@@ -2024,7 +2024,7 @@ value = 410
 [State 200, Wavedash]
 type = ChangeState
 triggerall = time > 15 || movehit
-trigger1 = command = "WD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 
