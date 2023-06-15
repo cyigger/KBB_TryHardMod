@@ -1153,7 +1153,7 @@ air.hittime  = 30
 air.velocity = -.5, -4
 guard.velocity = -2
 fall = ifelse(enemy,movetype = A, 1, 0)
-fall.recover = ifelse(enemy,movetype = A, 1, 0)
+fall.recover = ifelse(enemy,movetype = A, 0, 1)
 Envshake.time = 5
 
 [State 200, Special 1 - Smash Baby]
