@@ -1071,7 +1071,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Slide Low
+; Low Sweap
 [Statedef 290]
 type    = C
 movetype= A
@@ -1119,40 +1119,42 @@ volumescale = 150
 [State 0, VelSet if coming from wavedash]
 type = VelSet
 triggerall = vel x < const(velocity.run.fwd.x)
-trigger1 = prevstateno = 30 && time = 0
+trigger1 = prevstateno = 30 && time = 6
 x = const(velocity.run.fwd.x)
 
 [State 0, VelSet Slide Start]
 type = VelSet
-trigger1 = time = [6,12]
+trigger1 = time = 0
 x = 5.5
 
 [State 200, 1]
 type = HitDef
 getpower = 0
+givepower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
-attr = C, NA
-animtype  = Medium
-damage    = 20
+attr = S, NA
+animtype  = Heavy
+damage    = 30
 hitflag = MAFD
-guardflag = LAF
-pausetime = 12,12
-guard.pausetime = 12,12
-guard.hittime  = 8
-sparkno = 0
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = S0,1
-guardsound = 6,10
-ground.type = Low
+guardflag = MAF
+pausetime = 8,9
+sparkno = s11000
+guard.sparkno = s13000
+sparkxy = -8,-55
+hitsound   = S0,0
+guardsound = S2,0
+ground.type = High
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-2
-air.velocity = -2,-1
-Fall = 0
-fall.recover = 25 + ifelse(enemy,movetype = A, 7,0)
+ground.hittime  = 25
+ground.velocity = .85, -5
+air.hittime  = 30
+air.velocity = -.5, -4
+guard.velocity = -2
+fall = ifelse(enemy,movetype = A, 1, 0)
+fall.recover = ifelse(enemy,movetype = A, 1, 0)
+Envshake.time = 5
 
 [State 200, Special 1 - Smash Baby]
 type = ChangeState
@@ -1178,13 +1180,6 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 5"
 Trigger1 = power >= 2000
 value = 21000
-
-[State 200, LOW ]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holddown"
-trigger1 = command = "a"
-value = 950
 
 [State 200, 5AA]
 type = ChangeState
@@ -3014,30 +3009,30 @@ value = 1
 [State 200, 1]
 type = HitDef
 getpower = 0
-givepower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
-attr = S, NA
-animtype  = Heavy
+attr = C, NA
+animtype  = Medium
 damage    = 15
 hitflag = MAFD
-guardflag = MAF
-pausetime = 8,9
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
-hitsound   = S0,0
-guardsound = S2,0
-ground.type = High
+guardflag = LAF
+pausetime = 8,8
+guard.pausetime = 6,8
+guard.hittime  = 10
+guard.slidetime = 10
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,1
+guardsound = 6,10
+ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 25
-ground.velocity = .85, -6
-air.hittime  = 30
-air.velocity = -.5, -5
-guard.velocity = -2
-fall = 0
-Envshake.time = 5
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2,-2
+air.velocity = -2,-1
+Fall = 0
+fall.recover = 25 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, Special 1 - Smash Baby]
 type = ChangeState
@@ -4059,7 +4054,7 @@ ctrl = 1
 [State 0, End]
 type = ChangeState
 trigger1 = pos y >= 0
-value = ifelse(movehit || time < 3,50,612)
+value = 50
 
 [State 0, End]
 type = ChangeState

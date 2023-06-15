@@ -237,20 +237,13 @@ triggerall = numhelper(496) = 0
 triggerall = numhelper(498) = 0 
 value = 495
 ctrl = 1
-;Noll
+;noll
 [State 1000, 6]
 type = ChangeState
 trigger1 = var(19) = 5
-triggerall = !numhelper(506) = 0
 triggerall = numhelper(506) > 0
 triggerall = helper(506),stateno != 684 && helper(506),prevstateno != 684 ; Disables use after switching
 value = 509
-ctrl = 1
-[State 1000, 6]
-type = ChangeState
-trigger1 = var(19) = 5
-triggerall = numhelper(502) = 0
-value = 499
 ctrl = 1
 ;Saito
 [State 1000, 6]
@@ -1002,11 +995,40 @@ stateno = 20010
 [State 210, 2]
 type = HitDef
 triggerall = !movecontact
+triggerall = ((enemy,prevstateno = 40 || enemy,prevstateno = 60 || enemy,stateno = 105) && enemy,time >= 5)
 trigger1 = enemy,anim != 40
 attr = S, NT
 animtype  = Hard
 damage    = 0
 hitflag = MAFD
+pausetime = 0,0
+numhits = 0
+sparkno = -1
+sparkxy = -2,-30
+guardsound = S6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 20
+guard.velocity = 4
+airguard.velocity = 4,-.5
+p2facing = 1
+p2stateno = 902
+p1stateno = 402
+p2getp1state = 1
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+kill = 0
+p2facing = 1
+
+[State 210, 2]
+type = HitDef
+triggerall = !movecontact
+triggerall = !((enemy,prevstateno = 40 || enemy,prevstateno = 60 || enemy,stateno = 105) && enemy,time >= 5)
+trigger1 = enemy,anim != 40
+attr = S, NT
+animtype  = Hard
+damage    = 0
+hitflag = MFD
 pausetime = 0,0
 numhits = 0
 sparkno = -1
@@ -1078,7 +1100,7 @@ channel = 0
 type = HitOverride
 trigger1 =  time >= 18
 trigger1 = prevstateno = 409
-attr = SCA,NP
+attr = SCA,NP,SP,HP ; since it is slower now
 stateno = 20010
 
 
@@ -1102,8 +1124,9 @@ persistent = 0
 [State 210, 2]
 type = HitDef
 triggerall = !movecontact
-trigger1 = 1
-attr = S, ST
+triggerall = ((enemy,prevstateno = 40 || enemy,prevstateno = 60 || enemy,stateno = 105) && enemy,time >= 5)
+trigger1 = enemy,anim != 40
+attr = S, NT
 animtype  = Hard
 damage    = 0
 hitflag = MAFD
@@ -1120,6 +1143,35 @@ airguard.velocity = 4,-.5
 p2facing = 1
 p2stateno = 902
 p1stateno = 402
+p2getp1state = 1
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+kill = 0
+p2facing = 1
+
+[State 210, 2]
+type = HitDef
+triggerall = !movecontact
+triggerall = !((enemy,prevstateno = 40 || enemy,prevstateno = 60 || enemy,stateno = 105) && enemy,time >= 5)
+trigger1 = enemy,anim != 40
+attr = S, NT
+animtype  = Hard
+damage    = 0
+hitflag = MFD
+pausetime = 0,0
+numhits = 0
+sparkno = -1
+sparkxy = -2,-30
+guardsound = S6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 20
+guard.velocity = 4
+airguard.velocity = 4,-.5
+p2facing = 1
+p2stateno = 902
+p1stateno = 402
+p2getp1state = 1
 ground.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
 kill = 0
@@ -1149,25 +1201,41 @@ physics = N
 ctrl = 0
 anim = 5001
 sprpriority = -1
-velset = 7,0
+velset = 0,0
 
+[State 0, Turn]
+type = Turn
+trigger1 = p2dist x < 0
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = p2dist y < 0
+y = -.4
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = p2dist y > 0
+y = .4
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1
+x = .5
 
 [State 0, VelSet]
 type = VelSet
-trigger1 =  time >= 10
+trigger1 =  p2dist x <= 10
 x = 0
 y = 0
 
-
-
 [State 2125, ]
 type = AssertSpecial
-trigger1 = time >= 10
+trigger1 = p2dist x <= 10
 flag = invisible
 
 [state 591, AssertSpecial]
 type = AssertSpecial
-trigger1 = time >= 10
+trigger1 = p2dist x <= 10
 flag = noshadow
 
 [State 2125,]
@@ -1194,6 +1262,11 @@ ctrl = 0
 anim = 401
 sprpriority = 2
 
+[State 214, y]
+type = removeexplod
+trigger1 = p2dist x <= 10
+id = 143
+
 [State 210, 1]
 type = stopSnd
 trigger1 = animelem = 6
@@ -1211,12 +1284,6 @@ time = 1
 pos = 0,0
 
 [State 0, VelAdd]
-type = VelSet
-trigger1 = time = 0
-x = 0
-y = 0
-
-[State 0, VelAdd]
 type = VelAdd
 triggerall = time >= 22
 trigger1 = pos y < -1 || vel y < 0
@@ -1231,33 +1298,39 @@ physics = N
 
 [State 0, VelSet]
 type = VelSet
-triggerall = time >= 22
+;triggerall = time >= 22
 trigger1 = pos y >= -1 && vel y >= 0
 y = 0
 
 [State 0, PosSet]
 type = PosSet
-triggerall = time >= 22
+;triggerall = time >= 22
 trigger1 = pos y >= -1 && vel y >= 0
 y = 0
 
 [State 0, StateTypeSet]
 type = StateTypeSet
-triggerall = time >= 22
+;triggerall = time >= 22
 trigger1 = pos y >= -1 && vel y >= 0
 statetype = S
 physics = S
 
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 =  p2dist x <=! 10 && animelem = 5
+value = 401
+elem = 5
+
 [State 200,p]
 type = ChangeState
-triggerall = time >= 23
+triggerall = p2dist x <= 10
 Trigger1 = command = "holddown" 
 value = 404
 ctrl = 1
 
 [State 200,p]
 type = ChangeState
-triggerall = time >= 23
+triggerall = p2dist x <= 10
 Trigger1 = command = "a"
 trigger2 = time = 100
 value = 408
@@ -1283,7 +1356,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = A, HA
 animtype  = Light
-damage    = 50
+damage    = 110
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,0
@@ -1295,8 +1368,8 @@ guardsound = 6,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 25
-ground.velocity = 5,-2
-air.velocity = 5 -2
+ground.velocity = 10,-2
+air.velocity = 10 -2
 guard.velocity = 5
 Fall = 1
 p2stateno = 1025
@@ -5710,51 +5783,24 @@ map = "helperHit"
 value = movehit
 
 
-[State -2, Counterhit Proration Scale - Helper] ;Whenever the player counterhits, give them negative proration, only works for first hit in combo
+[State -2, Counterhit TSP]
 type = Helper
-Triggerall = numhelper(1020) = 0
+Triggerall = numhelper(4020) = 0
 trigger1 = movecountered
 helpertype = normal 
-name = "Counterhit Proration Scale"
-ID = 1020
-stateno = 1020
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-
-[State -2, Counterhit Bass Drop Sound - Helper]
-type = Helper
-Triggerall = numhelper(1021) = 0 && stateno != 700
-trigger1 = movecountered
-helpertype = normal 
-name = "Counterhit Sound"
-ID = 1021
-stateno = 1021
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
 ownpal = 1
 ignorehitpause = 1
-
-[State 0, Counterhit Text Display]
-type = LifebarAction
-trigger1 = MoveCountered = 1 && root, map(_kbbsys_actionMoveCounteredFlag) = 0
-spr = Const(MsgCounterHit), 0
-snd = 25,0
 persistent = 0
-
-[State 0, Counterhit Map Modify]
-type = RootMapSet
-trigger1 = (MoveCountered = 1 && root,MoveCountered = 1) && root, map(_kbbsys_actionMoveCounteredFlag) = 0
-map = "_kbbsys_actionMoveCounteredFlag"
-value = 1
-
-[State 0, Counterhit Map Reset]
-type = RootMapSet
-trigger1 = (MoveCountered = 0 && root,MoveCountered = 0) && root, map(_kbbsys_actionMoveCounteredFlag) = 1
-map = "_kbbsys_actionMoveCounteredFlag"
-value = 0
 
 
 [State 1010, Helper Attack Scale]
@@ -5971,12 +6017,35 @@ anim = 509
 poweradd = -200
 velset = 0,0
 sprpriority = 1
+ctrl = 0
 
 [State 0, Pause]
 type = Pause
 trigger1 = AnimElem = 3
 time = 7
 movetime = 7
+
+[State 0, Turn]
+type = Turn
+trigger1 = p2dist x < 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Animelem = 3
+x = 3
+y = -3
+
+[State 470, MapSet] ; Saves Noll's X position
+type = MapSet
+trigger1 = time = 0
+map = "switchX"
+value = pos x
+
+[State 470, MapSet] ; Saves Noll's Y position
+type = MapSet
+trigger1 = time = 0
+map = "switchY"
+value = pos y
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -6002,23 +6071,17 @@ trigger1 = Animelem = 3
 x = 3
 y = -3
 
-[State 470, MapSet] ; Saves Noll's X position
-type = MapSet
-trigger1 = time = 0
-map = "switchX"
-value = pos x
-
-[State 470, MapSet] ; Saves Noll's Y position
-type = MapSet
-trigger1 = time = 0
-map = "switchy"
-value = pos y
-
 [State 0, PosSet]
 type = PosSet
 trigger1 = AnimElem = 3
 x = helper(506),pos x
 y = helper(506),pos y + 35
+
+[State 470, Stance var reset] ; On Switch, resets Noll's blade stance uses
+type = VarSet
+trigger1 = time = 1
+v = 35
+value = 0
 
 [State 0, Explod]
 type = Explod
@@ -6664,8 +6727,9 @@ ctrl = 0
 
 [State 0, ChangeState Switch] ; Used when Noll switches
 type = ChangeState
-trigger1 = root,prevstateno = 509 && root,movetype != H
+trigger1 = root,stateno = 509 && root,animelem = 3
 value = 684
+
 
 [State 0, Helper Die]
 type = DestroySelf
@@ -6967,8 +7031,9 @@ ctrl = 1
 
 [State 0, ChangeState Switch] ; Used when Noll switches
 type = ChangeState
-trigger1 = root,prevstateno = 509 && root,movetype != H
+trigger1 = root,stateno = 509 && root,animelem = 3
 value = 684
+
 
 [State 0, Helper Die]
 type = DestroySelf
@@ -7197,8 +7262,9 @@ ctrl = 1
 
 [State 0, ChangeState Switch] ; Used when Noll switches
 type = ChangeState
-trigger1 = root,prevstateno = 509 && root,movetype != H
+trigger1 = root,stateno = 509 && root,animelem = 3
 value = 684
+
 [State 0, Helper Die]
 type = DestroySelf
 trigger1 = time = 700
@@ -7414,8 +7480,9 @@ ctrl = 1
 
 [State 0, ChangeState Switch] ; Used when Noll switches
 type = ChangeState
-trigger1 = root,prevstateno = 509 && root,movetype != H
+trigger1 = root,stateno = 509 && root,animelem = 3
 value = 684
+
 
 [State 0, Helper Die]
 type = DestroySelf
@@ -8374,6 +8441,7 @@ trigger1 = command = "back"
 trigger2 = command = "holdback"
 value = 105
 ctrl = 0
+
 [State 200, SPRINT]
 type = ChangeState
 triggerall = time = [26,36]
@@ -21013,6 +21081,12 @@ ignorehitpause = 1
 
 ;---------------------------------------------------------------------
 [Statedef -3]
+
+[State 214, y]
+type = removeexplod
+trigger1 = stateno != 401 && stateno != 409 && stateno != 402
+trigger2 = movetype = H
+id = 143
 
 ; ------- Heat Mechanic ------------
 

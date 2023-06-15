@@ -1,5 +1,24 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.2 Changes:                    /
+|---------------------------------------------------/
+
+Some more balance changes
+
+Korby:
+1. Prevented inhale from hitting in the first 5 frames of jumping.
+2. 5b - 3: Reduced Blockstun drastically. Increased Damage (35 -> 40)
+3. 236A.C Adjusted
+4. Wavedash A: Recovery Increased
+5. Fixed Noll Switch
+6. Various Miscellaneous Bug Fixes
+
+Metaknight:
+1. Swapped and adjusted 2a and wavedash A
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.1 Changes:                    /
 |---------------------------------------------------/
 
