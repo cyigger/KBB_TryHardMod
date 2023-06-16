@@ -15,6 +15,11 @@ Korby:
 
 Metaknight:
 1. Swapped and adjusted 2a and wavedash A
+2. Up Air: Your Free Trial Has Expired. The move never felt useful enough any where and it never felt nice to use in this game. It has removed and archived.
+3. 236A > Dash: Reduced Speed Multiplier (1.5 run speed -> 1.25 run speed)
+4. j.5C: Allowed fastfalling the move when it's making contact.
+5. 236B: Counterhit now wall splats.
+6. Animation Adjustments Made to make them smoother and slightly more exagerated.
 
 
 ===================================================================================================================================

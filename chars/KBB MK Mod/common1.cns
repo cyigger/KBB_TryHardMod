@@ -596,7 +596,7 @@ physics = A
 
 [State 200, End]
 type = ChangeState
-triggerall = prevstateno = 50||prevstateno = 80
+triggerall = prevstateno = 50||prevstateno = 80||prevstateno = 65
 trigger1 = time = 15
 value = 50
 ctrl = 1
@@ -791,7 +791,7 @@ x = const(velocity.run.fwd.x)
 [State 100, 1]
 type = VelSet
 trigger1 = prevstateno = 21005
-x = const(velocity.run.fwd.x) * 1.5
+x = const(velocity.run.fwd.x) * 1.25
 
 [State 0, Explod]
 type = Explod

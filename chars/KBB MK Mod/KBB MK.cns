@@ -3027,9 +3027,9 @@ hitsound   = S0,1
 guardsound = 6,10
 ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-2
-air.velocity = -2,-1
+ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2,-3
+air.velocity = -2,-2
 fall = ifelse(enemy,movetype = A, 1, 0)
 fall.recover = ifelse(enemy,movetype = A, 0, 1)
 fall.recover = 25 + ifelse(enemy,movetype = A, 7,0)
@@ -3055,7 +3055,7 @@ type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 200
+value = 210
 
 [State 200, End]
 type = ChangeState
@@ -3357,12 +3357,12 @@ trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) =
 value = 45
 ctrl = 1
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-triggerall = prevstateno != 618
-trigger1 = command = "b" && command = "holdup"
-value = 618
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;triggerall = prevstateno != 618
+;trigger1 = command = "b" && command = "holdup"
+;value = 618
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3745,12 +3745,18 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 2"
 value = 22000
 
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;triggerall = prevstateno != 618
+;trigger1 = command = "b" && command = "holdup"
+;value = 618
+
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-triggerall = prevstateno != 618
-trigger1 = command = "b" && command = "holdup"
-value = 618
+trigger1 = command = "b" && command = "holddown"
+value = 615
 
 [State 0, ChangeState]
 type = ChangeState
@@ -4368,7 +4374,7 @@ physics = A
 
 [State 0, VelSet]	;Hitting the opponent changes velocity
 type = VelSet
-trigger1 = movehit = 1
+trigger1 = movehit = 1 && command != "holddown"
 y = -.5
 
 [State -1, SPECIAL 2 - DP]
@@ -4392,6 +4398,174 @@ trigger2 = AnimTime = 0
 trigger1 = vel y > 0 && pos y >= 0	; Dies in contact with the floor
 value = 50
 ctrl = 1	
+
+;-------------------------------------------------------------------------------
+; Forward C - Air
+[Statedef 625]
+type    = A
+movetype= A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 625
+poweradd = -200
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 1
+id = -1
+pos = 25,-5
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, Moving Down]
+type = VelAdd
+triggerall = time > 10
+triggerall = vel y < 2
+trigger1 = command = "holddown"
+y = 0.22
+
+[State 0, Speed Cap Down]
+type = VelSet
+triggerall = time > 10
+trigger1 = vel y > 2
+y = 2
+
+[State 0, Moving Up]
+type = VelAdd
+triggerall = time > 10
+triggerall = vel x > -2
+trigger1 = command = "holdup"
+y = -0.22
+
+[State 0, Speed Cap Back]
+type = VelSet
+triggerall = time > 10
+trigger1 = vel y < -2
+y = -2
+
+[State 0, VelSet 1]
+type = VelSet
+trigger1 = time = 0
+y = -0.5
+x = -0.5
+
+[State 0, VelSet 2]
+type = VelSet
+trigger1 = AnimElem = 4
+y = 0
+x = 4
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+givepower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+Triggerall = movecontact != 1
+trigger1 = 1
+attr = S, NA
+animtype  = Up
+damage    = 2
+hitflag = MAF
+guardflag = MAF
+pausetime = 2,2
+guard.pausetime = 2,2
+sparkno = s12000
+guard.sparkno = s13000
+sparkxy = -8,-25
+hitsound   = S0,0
+guardsound = S2,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 35
+ground.velocity = 0,-1
+air.hittime = 45
+air.velocity = 0,-1
+Fall = 1
+fall.recovertime = 30
+
+[State 200, Land]
+type = ChangeState
+trigger1 = vel y > 0 && pos y >= 0	; Dies in contact with the floor
+value = 50
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = time > 30
+value = 626
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Forward C - Air End
+[Statedef 626]
+type    = A
+movetype= A
+physics = A
+juggle  = 0
+ctrl = 0
+anim = 626
+poweradd = 0
+sprpriority = 2
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+givepower = 0
+Triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Up
+damage    = 10
+hitflag = MAF
+guardflag = MAF
+pausetime = 10,10
+guard.pausetime = 0,0
+sparkno = s12000
+guard.sparkno = s13000
+sparkxy = -8,-25
+hitsound   = S0,3
+guardsound = S2,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 35
+ground.velocity = -4,-2
+air.hittime = 45
+air.velocity = -4,-2
+Fall = 1
+fall.recover = 30
+Envshake.time = 10
+
+[State 200, Land]
+type = ChangeState
+trigger2 = AnimTime = 0
+trigger1 = vel y > 0 && pos y >= 0	; Dies in contact with the floor
+value = 50
+ctrl = 1
+
 ;-------------------------------------------------------------------------------
 ; Spam Deny
 [Statedef 9999]

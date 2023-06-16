@@ -709,7 +709,9 @@ trigger1 = ctrl
 [State -1, Air Dash - Forward]
 type = ChangeState
 triggerall = var(5) = 0
+triggerall = stateno != 60
 triggerall = stateno != 65
+triggerall = stateno != 70
 value = 65
 triggerall = Statetype = A
 trigger1 = command = "FF"
@@ -719,8 +721,9 @@ trigger1 = ctrl
 [State -1, Air Dash - Backwards]
 type = ChangeState
 triggerall = var(5) = 0
+triggerall = stateno != 60
 triggerall = stateno != 65 || time >= 15
-triggerall = stateno != 70 || time >= 10
+triggerall = stateno != 70
 value = 70
 triggerall = Statetype = A
 trigger1 = command = "BB"
@@ -928,13 +931,13 @@ Triggerall = statetype = A
 trigger1 = ctrl
 ;--------------------------------------------------------------------------
 ; Up B Aire
-[State -1, A Aire]
-type = ChangeState
-value = 618
-triggerall = command = "holdup"
-triggerall = command = "b"
-Triggerall = statetype = A
-trigger1 = ctrl
+;[State -1, A Aire]
+;type = ChangeState
+;value = 618
+;triggerall = command = "holdup"
+;triggerall = command = "b"
+;Triggerall = statetype = A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Down + B Aire
 [State -1, Down + B]
@@ -953,6 +956,19 @@ value = 610
 triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; C Aire
+;[State -1, C Aire]
+;type = ChangeState
+;value = 625
+;;Triggerall = numhelper(9999) = 0
+;triggerall = numhelper(3500) = 0
+;Triggerall = power >= 200
+;triggerall = command = "holdfwd"
+;triggerall = command = "c"
+;Triggerall = statetype = A
+;trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; C Aire

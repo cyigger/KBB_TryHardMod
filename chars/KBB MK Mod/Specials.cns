@@ -879,10 +879,11 @@ removeongethit = 0
 type = HitDef
 getpower = 0
 triggerall = !movecontact
+triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, SA
 animtype  = Hard
-damage    = ifelse(enemy,movetype = A, 350, 175) + var(11) * 2, 10
+damage    = 175 + var(11) * 2, 10
 guard.kill = 0	
 hitflag = MAFD
 guardflag = MAFD
@@ -895,7 +896,7 @@ hitsound   = S5,7
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.hittime  = 15
 ground.velocity = -1,-4
 air.velocity = -1,-3.2
 guard.velocity = -6
@@ -905,6 +906,39 @@ Fall.Recover = 0
 p2stateno = 1000
 p2getp1state = 0
 Envshake.time = 30
+
+[State 200, 1 Fatal]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+triggerall = enemy,movetype = A
+trigger1 = 1
+attr = S, SA
+animtype  = Hard
+damage    = 350 + var(11) * 2, 10
+guard.kill = 0	
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 0, 30
+guard.pausetime = 16, 24
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S5,7
+guardsound = S2,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 30
+ground.velocity = 16, 4
+air.velocity = 16, 3.2
+guard.velocity = -6
+Fall = 1
+fall.recovertime = 50
+Fall.Recover = 0
+Envshake.time = 30
+p2stateno = 1025    ;Make p2 go to state 1025 on hit
+p2getp1state = 0
+p2facing = 1        ;Force to face p1
 
 [State 0, SuperPause]
 type = SuperPause
