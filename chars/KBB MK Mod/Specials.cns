@@ -312,10 +312,10 @@ guard.sparkno = 9999
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity  = -5,-7
-air.velocity  = -5,-4
+ground.velocity  = -4.5,-7
+air.velocity  = -4.5,-6
 Fall = 1
-Fall.recovertime = 55 + ifelse(enemy,movetype = A, 7, 0)
+Fall.recovertime = 50 + ifelse(enemy,movetype = A, 7, 0)
 
 [State 0, EnvShake]
 type = EnvShake

@@ -843,7 +843,7 @@ value = 0
 [Statedef 105]
 type    = A
 physics = A
-ctrl = 1
+ctrl = 0
 anim = 105
 sprpriority = 1
 

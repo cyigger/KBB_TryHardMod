@@ -663,7 +663,6 @@ triggerall = stateno != 100
 trigger1 = command = "FF" && command != "holddown"
 trigger1 = statetype = S
 trigger1 = ctrl || (stateno = 500 && time < 5)
-ctrl = 1
 
 ;---------------------------------------------------------------------------
 ; Run Back
@@ -673,7 +672,6 @@ value = 105
 trigger1 = command = "BB" && command != "holddown"
 trigger1 = statetype = S
 trigger1 = ctrl || (stateno = 500 && time < 5)
-ctrl = 1
 ;---------------------------------------------------------------------------
 ; Run Fwd
 [State -1, Run Fwd]
@@ -708,7 +706,7 @@ trigger1 = ctrl
 ; Air Dash - Forward
 [State -1, Air Dash - Forward]
 type = ChangeState
-triggerall = var(5) = 0
+;triggerall = var(5) = 0
 triggerall = stateno != 60
 triggerall = stateno != 65
 triggerall = stateno != 70
@@ -720,7 +718,7 @@ trigger1 = ctrl
 ; Air Dash - Backwards
 [State -1, Air Dash - Backwards]
 type = ChangeState
-triggerall = var(5) = 0
+;triggerall = var(5) = 0
 triggerall = stateno != 60
 triggerall = stateno != 65 || time >= 15
 triggerall = stateno != 70
