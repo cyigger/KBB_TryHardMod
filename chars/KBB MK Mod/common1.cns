@@ -440,7 +440,7 @@ y = -1.5
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1
-y = .33
+y = .22
 
 [State HITDEF]
 type = HitDef
@@ -450,16 +450,16 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 15
+damage    = 25
 hitflag = MAFD
 guardflag = MAF
-pausetime = 12,12
-guard.pausetime = 12,10
+pausetime = 10,10
+guard.pausetime = 10,8
 guard.dist = 60
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
-hitsound   = S0,3
+hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
