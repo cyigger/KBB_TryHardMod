@@ -522,6 +522,13 @@ trigger1 = command = "SPECIAL 5"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 25000 
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
+
 
 [State 200, End] ; LOW ATTACK
 type = ChangeState
@@ -661,7 +668,12 @@ Triggerall = power >= 2000
 trigger1 = command = "SPECIAL 5"
 value = 25000 
 
-
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, End] ; LOW ATTACK
 type = ChangeState
@@ -808,7 +820,12 @@ Triggerall = power >= 2000
 trigger1 = command = "SPECIAL 5"
 value = 25000 
 
-
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, End] ; LOW ATTACK
 type = ChangeState
@@ -3617,7 +3634,7 @@ volumescale = 80
 
 [State 0, Velset]
 type = Velset
-Trigger1 = movehit = 1 && (command != "holddown" || moveguarded)
+Trigger1 = movehit = 1
 x = 2
 y = -2
 
@@ -3748,7 +3765,7 @@ volumescale = 80
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -2
 x = 2
 

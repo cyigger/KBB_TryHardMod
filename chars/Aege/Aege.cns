@@ -741,6 +741,13 @@ Triggerall = power >= 500
 trigger1 = command = "SPECIAL 4"
 value = 24000
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
+
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
@@ -945,6 +952,13 @@ triggerall = numhelper(3500) = 0
 Triggerall = power >= 500
 trigger1 = command = "SPECIAL 4"
 value = 24000
+
+[State 200, Dash cancel Forward]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, 2C]
 type = ChangeState
@@ -3774,7 +3788,7 @@ volumescale = 50
 [State 0, VelSet]
 type = VelSet
 triggerall = !moveguarded
-trigger1 = movecontact = 1 && command != "holddown"
+trigger1 = movecontact = 1
 y = -2
 x = 2
 [State 0, VelSet]
@@ -3921,7 +3935,7 @@ volumescale = 50
 [State 0, VelSet]
 type = VelSet
 triggerall = !moveguarded
-trigger1 = movecontact = 1 && command != "holddown"
+trigger1 = movecontact = 1
 y = -2
 x = 2
 

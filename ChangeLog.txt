@@ -5,6 +5,12 @@
 
 Some more balance changes
 
+General:
+1. Removed the ability to hold down to prevent a move's natural velocity on hit or block.
+2. Universally Added Wavedash Cancels on Jabs
+	* Delayed Wavedash Cancel on block
+	* Normal Wavedash Cancel on hit
+
 Korby:
 1. Prevented inhale from hitting in the first 5 frames of jumping.
 2. 5b - 3: Reduced Blockstun drastically. Increased Damage (35 -> 40)
@@ -20,6 +26,13 @@ Metaknight:
 4. j.5C: Allowed fastfalling the move when it's making contact.
 5. 236B: Counterhit now wall splats.
 6. Animation Adjustments Made to make them smoother and slightly more exagerated.
+
+Saito:
+1. Added Hover Cancel with a "66" input to 5a - 2, 5a - 3, 5b, 5b - 2, and 2b.
+	* Hover Cancel gives temporary access to WD.c stance moves.
+2. Wavedash A: Removed Cancel into 2a
+3. 2a: Added Wavedash Cancel on hit
+4. 5a: Added Wavedash Cancel on hit
 
 
 ===================================================================================================================================

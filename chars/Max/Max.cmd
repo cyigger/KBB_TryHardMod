@@ -937,19 +937,19 @@ trigger1 = ctrl
 [State -1, B Aire]
 type = ChangeState
 value = 610
-triggerall = command = "holddown"
+;triggerall = command = "holddown"
 triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; B Aire
-[State -1, B Aire]
-type = ChangeState
-value = 615
-triggerall = command = "b"
-Triggerall = statetype = A
-trigger1 = ctrl
+;[State -1, B Aire]
+;type = ChangeState
+;value = 615
+;triggerall = command = "b"
+;Triggerall = statetype = A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Down + C
 [State -1, C]

@@ -5930,7 +5930,7 @@ volumescale = 50
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = movehit = 1 && (command != "holddown" || moveguarded)
+trigger1 = movehit = 1
 y = -2
 x = 2
 
@@ -6056,7 +6056,7 @@ y = -5.5
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -2
 x = 2
 
@@ -6174,7 +6174,7 @@ volumescale = 150
 type = VelSet
 triggerall = prevstateno = 105	; Back Dash
 triggerall = prevstateno = 70		; Back Airdash
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -2
 x = 2
 
@@ -6277,7 +6277,7 @@ x = 0
 [State 0, VelSet]
 type = VelSet
 triggerall = prevstateno = 350
-trigger1 = time = 1 && (command != "holddown" || moveguarded)
+trigger1 = time = 1
 y = -2
 x = 2
 

@@ -737,6 +737,13 @@ triggerall = numhelper(3500) = 0
 Trigger1 = power >= 1000
 value = 24000
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
+
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
@@ -866,6 +873,12 @@ type = ChangeState
 Triggerall = movehit
 trigger1 = command = "DD"
 value = 55
+
+[State 300, Hover Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "FF"
+value = 590
 
 [State 200, Special 1 - windball]
 type = ChangeState
@@ -1010,6 +1023,12 @@ type = ChangeState
 Triggerall = movehit
 trigger1 = command = "up"
 value = 40
+
+[State 300, Hover Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "FF"
+value = 590
 
 [State 200, Special 1 - windball]
 type = ChangeState
@@ -1200,13 +1219,6 @@ triggerall = numhelper(3500) = 0
 Trigger1 = power >= 1000
 value = 24000
 
-[State 200, LOW ]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holddown"
-trigger1 = command = "a"
-value = 950
-
 [State 200, 5AA]
 type = ChangeState
 triggerall = movecontact
@@ -1325,6 +1337,12 @@ type = ChangeState
 Triggerall = movehit
 trigger1 = command = "s"
 value = 66
+
+[State 300, Hover Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "FF"
+value = 590
 
 [State 200, Special 1 - windball]
 type = ChangeState
@@ -1508,6 +1526,12 @@ triggerall = numhelper(423) < 1
 triggerall = numhelper(3500) = 0
 Trigger1 = power >= 1000
 value = 24000
+
+[State 300, Hover Cancel]
+type = ChangeState
+triggerall = hitcount >= 2
+trigger1 = command = "FF"
+value = 590
 
 [State 200, j.2A]
 type = ChangeState
@@ -2947,19 +2971,14 @@ volumescale = 500
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 2
+x = 5
 y = -3.8
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time > 2
 y = 0.22
-x = -0.1
-
-[State 0, Speed Cap Forward]
-type = VelSet
-triggerall = time > 5
-trigger1 = vel x < -5
-x = -5.5
+x = -0.02
 
 [State 450, NotHitBy]
 type = notHitBy
@@ -3433,6 +3452,12 @@ trigger1 = command = "s"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 66
 
+[State 300, Hover Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "FF"
+value = 590
+
 [State 200, Special 1 - windball]
 type = ChangeState
 Triggerall = movecontact
@@ -3722,6 +3747,12 @@ trigger1 = command = "holdup" && movecontact && var(3) = 0
 value = 45
 ctrl = 1
 
+[State 200, Wavedash]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "WD"
+trigger1 = command != "NotWD"
+value = 30
 
 [State 200, Special 1 - windball]
 type = ChangeState
@@ -3841,7 +3872,7 @@ volumescale = 80
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -2
 x = 2
 
@@ -4218,7 +4249,7 @@ x = 2
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -2
 x = 2
 

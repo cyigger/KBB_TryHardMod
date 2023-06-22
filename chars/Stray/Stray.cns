@@ -455,6 +455,12 @@ ground.velocity = 2
 guard.velocity = -2
 air.velocity = 2,-1
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, 2A]
 type = ChangeState
@@ -4050,7 +4056,7 @@ volumescale = 50
 [State 0, VelSet]
 type = VelSet
 triggerall = !moveguarded
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -3
 x = 2.5
 
@@ -4151,7 +4157,7 @@ volumescale = 50
 [State 0, VelSet]
 type = VelSet
 triggerall = !moveguarded
-trigger1 = movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 = movecontact = 1
 y = -3
 x = 2
 
@@ -4283,7 +4289,7 @@ volumescale = 50
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = movehit = 1 && (command != "holddown" || moveguarded)
+trigger1 = movehit = 1
 x = 2
 y = -5
 
