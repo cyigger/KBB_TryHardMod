@@ -949,14 +949,14 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; Forward B Aire
-[State -1, Forward B Aire]
-type = ChangeState
-value = 615
-triggerall = command = "holdfwd"
-triggerall = command = "b"
-Triggerall = statetype = A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
+;[State -1, Forward B Aire]
+;type = ChangeState
+;value = 615
+;triggerall = command = "holdfwd"
+;triggerall = command = "b"
+;Triggerall = statetype = A
+;trigger1 = ctrl
+;;---------------------------------------------------------------------------
 ; B Aire
 [State -1, B Aire]
 type = ChangeState

@@ -1106,12 +1106,12 @@ triggerall = command = "a"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; B Aire
+; AirDash B Aire
 [State -1, B Aire]
 type = ChangeState
 value = 615
 triggerall = var(10) = 0
-triggerall = command = "holdfwd"
+triggerall = command = "FF" || stateno = 65
 triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl

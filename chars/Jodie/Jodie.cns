@@ -4599,6 +4599,14 @@ map = "juggle"
 value = 10
 persistent = 0
 
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 3
+
 [State 0, VelSet]
 type = VelSet
 triggerall = prevstateno = 600
@@ -4740,6 +4748,14 @@ map = "juggle"
 value = 10
 persistent = 0
 
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
 [State 0, Voice - Dumbass!]
 type = PlaySnd
 triggerall = var(2)  >=51
@@ -4793,13 +4809,13 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,5.4
-air.velocity = -2,5.4
+ground.velocity = -2,5.5
+air.velocity = -2,5.5
 Fall = 1
 Envshake.time = 25
 fall.recover = 0
-p2stateno = 1000
-p2getp1state = 0
+;p2stateno = 1000
+;p2getp1state = 0
 
 [State 200, End]
 type = ChangeState

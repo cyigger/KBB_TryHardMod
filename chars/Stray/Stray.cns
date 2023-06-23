@@ -474,7 +474,7 @@ type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "a" ;Button to Press
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 220 ;State Number of the animation to use
+value = 210 ;State Number of the animation to use
 
 [State 200, End]
 type = ChangeState
@@ -505,7 +505,7 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 ;-------------------------------------------------------------------------------
-; 6A - Wavedash A
+; A - 2
 [Statedef 210]
 type    = S
 movetype= A
@@ -523,13 +523,6 @@ map = "juggle"
 value = 5
 persistent = 0
 
-[State 0, FatalCounter]
-type = MapSet
-trigger1 = 1
-map = "fatal"
-value = 1
-ignorehitpause = 1
-
 [State 0, Voice - 5B Grunt 01]
 type = PlaySnd
 triggerall = random < 600
@@ -540,24 +533,13 @@ channel = 0
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = animelem = 4
+trigger1 = animelem = 2
 x = 10
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Animelem = 4
+trigger1 = time =7
 x = 4
-
-[State 0, Jump to animelem 2 from spear move]
-type = ChangeAnim2
-trigger1 = prevstateno = 300 && time = 0
-value = 210
-elem = 2
-
-[State 0, VelSet if coming from wavedash]
-type = VelSet
-trigger1 = prevstateno = 30 && AnimElem = 1
-x = const(velocity.run.fwd.x)
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -580,14 +562,14 @@ triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
-animtype  = Hard
-damage    = ifelse(enemy,movetype = A, 60,40)
+animtype  = Medium
+damage    = 15
 hitflag = MAF
-guardflag = HA
-pausetime = ifelse(enemy,movetype = A,15,10),ifelse(enemy,movetype = A,30,10)
-ground.hittime  = 14 + ifelse(enemy,movetype = A, 7,0)
-air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 10,11
+guardflag = MAF
+pausetime = 10,10
+ground.hittime  = 7 + ifelse(enemy,movetype = A, 7,0)
+air.hittime  = 18 + ifelse(enemy,movetype = A, 7,0)
+guard.pausetime = 10,17
 guard.hittime = 25
 sparkno = 1
 guard.sparkno = 13000
@@ -596,13 +578,16 @@ hitsound   = S0,20
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -3
-air.velocity = -1.5,-3
+ground.velocity = -2.5,-3.5
+air.velocity = -2,-2.5
 Envshake.time = 10
-Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
-fall.recover = 1
-fall = ifelse(enemy,movetype = A, 1,0)
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, 2A]
 type = ChangeState
@@ -616,7 +601,7 @@ type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "a" ;Button to Press
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 200 ;State Number of the animation to use
+value = 220 ;State Number of the animation to use
 
 [State 200, 5B]
 type = ChangeState
@@ -647,13 +632,6 @@ triggerall = numhelper(3500) = 0
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 400
-
-[State 200, AutoCancel]
-type = ChangeState
-triggerall = movecontact
-trigger1 = AnimElem = 6
-value = 0
-ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -795,6 +773,139 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Wavedash A
+[Statedef 290]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 290
+poweradd = 0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 5
+persistent = 0
+
+[State 0, Voice - 5B Grunt 01]
+type = PlaySnd
+triggerall = random < 600
+trigger1 = time = 1
+value = S301,0 +(random<500)*1
+volumescale = 900
+channel = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = [0, 4]
+x = 4
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = [5, 16]
+x = 2.5
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,2
+volumescale = 50
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Hard
+damage    = ifelse(enemy,movetype = A, 60,40)
+hitflag = MAF
+guardflag = HA
+pausetime = ifelse(enemy,movetype = A,15,10),ifelse(enemy,movetype = A,30,10)
+ground.hittime  = 14 + ifelse(enemy,movetype = A, 7,0)
+air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
+guard.pausetime = 10,11
+guard.hittime = 25
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,20
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.velocity = -3
+air.velocity = -1.5,-3
+Envshake.time = 10
+Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+fall.recover = 1
+fall = ifelse(enemy,movetype = A, 1,0)
+
+
+[State 200, 2A]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "holddown"
+trigger1 = command = "a"
+value = 950
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "a" ;Button to Press
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 210 ;State Number of the animation to use
+
+[State 200, 5B]
+type = ChangeState
+Triggerall = prevstateno !=300
+Triggerall = movecontact
+trigger1 = command = "b"
+value = 300
+[State 200, 5BB]
+type = ChangeState
+Triggerall = prevstateno = 300
+Triggerall = movecontact
+trigger1 = command = "b"
+value = 310
+
+[State 200, 2C]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown"
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 450
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 400
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
 ;===============================================================================
 ; B:
 ;-------------------------------------------------------------------------------
