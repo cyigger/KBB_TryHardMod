@@ -1882,6 +1882,7 @@ value = 0
 
 [State 0, TargetBind]
 type = TargetBind
+triggerall = movehit
 trigger1 = time <= 50
 id = -1
 pos = 0,0

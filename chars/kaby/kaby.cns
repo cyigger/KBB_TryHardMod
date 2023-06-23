@@ -1021,7 +1021,7 @@ volumescale = 150
 [State 0, VelSet if coming from wavedash]
 type = VelAdd
 trigger1 = prevstateno = 30 && time = 0
-x = const(velocity.run.fwd.x) * 1.6
+x = const(velocity.run.fwd.x) * 1.25
 
 [State 200, 1]
 type = HitDef
@@ -1031,7 +1031,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = C, NA
 animtype  = Medium
-damage    = 20
+damage    = 30
 hitflag = MAFD
 guardflag = LA
 pausetime = 10,10

@@ -591,6 +591,7 @@ type = VelSet
 triggerall = statetype = A && movetype != H
 triggerall = command = "down"
 triggerall = vel y > 0 && vel y < 6
+triggerall = stateno != 900 && stateno != 490
 trigger1 = 1
 y = 6
 

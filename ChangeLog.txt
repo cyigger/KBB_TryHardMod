@@ -10,6 +10,7 @@ General:
 2. Universally Added Wavedash Cancels on Jabs
 	* Delayed Wavedash Cancel on block
 	* Normal Wavedash Cancel on hit
+3. You can no longer fast fall during universal overheads.
 
 Korby:
 1. Prevented inhale from hitting in the first 5 frames of jumping.

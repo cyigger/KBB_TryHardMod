@@ -1192,7 +1192,7 @@ type = ChangeState
 triggerall = movecontact
 trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 200
+value = 220
 
 [State 200, 5B]
 type = ChangeState
@@ -2818,9 +2818,10 @@ hitsound   = S0,3
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2
-air.velocity = -2,-2
+guard.hittime = 15
+air.velocity = -2,-3
 Fall = 0
 Envshake.time = 20
 
@@ -3679,7 +3680,7 @@ y = 0.44
 
 [State 0, VelSet]
 type = VelSet
-trigger1 =  movecontact = 1 && (command != "holddown" || moveguarded)
+trigger1 =  movehit = 1
 y = -1
 
 [State 200, 1]
@@ -3844,7 +3845,7 @@ y = 0.44
 
 [State 0, VelSet]
 type = VelSet
-trigger1 =  movecontact = 1
+trigger1 =  movehit = 1
 y = -1
 
 [State 200, 2]

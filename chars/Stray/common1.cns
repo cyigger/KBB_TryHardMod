@@ -812,7 +812,7 @@ sysvar(1) = -1
 [State 40, 4]
 type = VelSet
 trigger1 = AnimTime = 0
-x = ifelse(sysvar(1)=0, 0, ifelse(sysvar(1)=1, 4.6, -4.6))
+x = ifelse(sysvar(1)=0, 0, ifelse(sysvar(1)=1, 4.8, -4.8))
 y = const(velocity.jump.y) * 0.75
 
 [State 0, Turn]
