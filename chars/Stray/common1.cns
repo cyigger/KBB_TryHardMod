@@ -237,7 +237,7 @@ value = 105
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "a"
-value = 290
+value = 291
 ctrl = 0
 
 [State 200, End]
@@ -902,7 +902,7 @@ flag = NoAutoTurn
 [State 100, 4]
 type = ChangeState
 triggerall = ailevel = 0
-trigger1 = command != "holdfwd"
+trigger1 = command != "holdfwd" && command != "hold_z"
 value = 0
 
 [State 100, 4]
