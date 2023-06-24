@@ -33,7 +33,7 @@ sparkno = 2			;Default hit spark number for HitDefs
 guard.sparkno = 13000	;Default guard spark number
 KO.echo = 0			;1 to enable echo on KO
 volume = 0			;Volume offset (negative for softer)
-IntPersistIndex = 52	;Variables with this index and above will not have their values
+IntPersistIndex = 54	;Variables with this index and above will not have their values
 FloatPersistIndex = 40  ;reset to 0 between rounds or matches. There are 60 int variables,
   				;indexed from 0 to 59, and 40 float variables, indexed from 0 to 39.
   				;If omitted, then it defaults to 60 and 40 for integer and float
@@ -830,7 +830,7 @@ type = ChangeState
 ;trigger1 = command = "b" &&  movehit
 trigger1 = command = "b" &&  movecontact ;&& time <= 24
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 300
+value = 310
 
 [State 300, End]
 type = ChangeState
@@ -1656,7 +1656,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value =  ifelse(prevstateno = 653,50,10)
+value =  ifelse(prevstateno = 653,50,5)
 
 [State 0, VelSet]
 type = PosSet
@@ -2628,7 +2628,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 3
 
 [State 0, Juggle Map]
 type = MapAdd
@@ -2748,7 +2748,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 3
 
 [State 0, Juggle Map]
 type = MapAdd
@@ -3914,7 +3914,6 @@ persistent = 0
 
 
 [Statedef -3]
-
 
 [State 0, Ability]
 type = Explod

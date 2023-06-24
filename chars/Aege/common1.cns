@@ -323,7 +323,7 @@ value = 440
 type = ChangeState
 triggerall = numhelper(3500) = 0
 triggerall = power >=250
-trigger1 = command = "s" && command = "holddown"
+trigger1 = command = "s"
 value = 590
 
 [State 200, End]
@@ -1094,13 +1094,8 @@ flag = NoAutoTurn
 [State 100, 4]
 type = ChangeState
 triggerall = ailevel = 0
-trigger1 = command != "holdfwd"
+trigger1 = command != "holdfwd"  && command != "hold_z"
 value = 0
-
-[State 100, Wavedash]
-type = ChangeState
-trigger1 = command = "WD"
-value = 30
 
 [State 100, 4]
 type = ChangeState

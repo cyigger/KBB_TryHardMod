@@ -3141,13 +3141,6 @@ value = 10
 [State 200, End]
 type = ChangeState
 triggerall = time < 5
-trigger1 = command = "FF" && command != "holddown"
-value = 100
-ctrl = 1
-
-[State 200, End]
-type = ChangeState
-triggerall = time < 5
 trigger1 = command = "BB" && command != "holddown"
 value = 105
 ctrl = 1

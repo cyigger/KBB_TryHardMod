@@ -948,7 +948,7 @@ value = 1
 [State 100, 4]
 type = ChangeState
 triggerall = ailevel = 0
-trigger1 = command != "holdfwd"
+trigger1 = command != "holdfwd" && command != "hold_z"
 value = 0
 
 [State 100, 4]
