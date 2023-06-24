@@ -11,6 +11,7 @@ General:
 	* Delayed Wavedash Cancel on block
 	* Normal Wavedash Cancel on hit
 3. You can no longer fast fall during universal overheads.
+3. Reworked Dash Macro. There is now a separate button for it. Literally Guilty Gear Strive
 
 Korby:
 1. Prevented inhale from hitting in the first 5 frames of jumping.
@@ -19,6 +20,9 @@ Korby:
 4. Wavedash A: Recovery Increased
 5. Fixed Noll Switch
 6. Various Miscellaneous Bug Fixes
+7. Overall Reduced Proration of Key Moves
+8. Reworked 5aaa String.
+9. Removed Ability Damage Multiplier.
 
 Metaknight:
 1. Swapped and adjusted 2a and wavedash A
@@ -34,6 +38,10 @@ Saito:
 2. Wavedash A: Removed Cancel into 2a
 3. 2a: Added Wavedash Cancel on hit
 4. 5a: Added Wavedash Cancel on hit
+
+Stray:
+1. Wavedash A reworked
+2. vanilla 5aaa string returned.
 
 
 ===================================================================================================================================
