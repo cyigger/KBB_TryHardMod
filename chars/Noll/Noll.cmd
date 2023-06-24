@@ -677,7 +677,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(56000) = 0
 Triggerall = power < 3000
 value = 500
-triggerall = command = "s" && ((command != "holdfwd") || command = "holddown")
+triggerall = command = "s"
 Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
@@ -697,7 +697,7 @@ value = 100
 triggerall = stateno != 100
 trigger1 = command = "FF" && command != "holddown"
 trigger1 = statetype = S
-trigger1 = ctrl || (stateno = 500 && time < 5)
+trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; Run Back
@@ -706,7 +706,7 @@ type = ChangeState
 value = 105
 trigger1 = command = "BB" && command != "holddown"
 trigger1 = statetype = S
-trigger1 = ctrl || (stateno = 500 && time < 5)
+trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Run Fwd
 [State -1, Run Fwd]
@@ -733,7 +733,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 66
 triggerall = var(4) = 0 
-triggerall = command = "s" && (command != "holdfwd")
+triggerall = command = "s"
 Triggerall = statetype = A
 triggerall = numhelper(4200) = 0
 trigger1 = ctrl

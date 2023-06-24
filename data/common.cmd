@@ -151,14 +151,8 @@ time = 1
 
 [Command]
 name = "FF"
-command = /F, s
-time = 1
-buffer.time = 1
-[Command]
-name = "FF"
-command = F + s
-time = 1
-buffer.time = 1
+command = z
+time = 3
 
 [Command]
 name = "BB"

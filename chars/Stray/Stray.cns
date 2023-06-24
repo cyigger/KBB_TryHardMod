@@ -906,6 +906,292 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
+;-------------------------------------------------------------------------------
+; C - 2C
+;-------------------------------------------------------------------------------
+[Statedef 291]
+type    = A
+movetype= A
+physics = N 
+ctrl = 0
+anim = 291
+poweradd = 0
+sprpriority = 0
+
+[State 0, Voice!]
+type = PlaySnd
+triggerall = random > 500
+trigger1 = Time = 0
+value = S453,0
+volumescale = 500
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = 0
+value = C
+time = 35
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1||AnimElem = 7
+value = S1,0
+volumescale = 80
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 11
+value = S1,1
+volumescale = 80
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 11
+value = S1,2
+volumescale = 80
+
+[State 0, Explod]
+type = Explod
+trigger1 = Animelem = 4
+anim = 561
+ID = 561
+pos = -38,-26
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 1
+removeongethit = 1
+ignorehitpause = 0
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Stateno !=560
+trigger2 = time = 200
+
+[State 200, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = Animelem = 6
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 15
+hitflag = MAF
+guardflag = MA
+pausetime = 5,5
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,18
+guardsound = 6,10
+ground.type = High
+guard.slidetime = 7
+airguard.hittime = 0
+guard.hittime = 7
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = 1,-6
+air.velocity = 1,-5
+Envshake.time = 30
+fall.recovertime = 30
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = Animelem = 10
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 15
+hitflag = MAF
+guardflag = HA
+pausetime = 5,5
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,18
+guardsound = 6,11
+ground.type = High
+guard.slidetime = 7
+airguard.hittime = 0
+guard.hittime = 7
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = .5,-4
+air.velocity = .5,-3
+Envshake.time = 30
+fall.recovertime = 30
+
+[State 200, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 292
+ctrl = 0
+
+;-------------------------------------------------------------------------------
+; C - 2C 2
+;-------------------------------------------------------------------------------
+[Statedef 292]
+type    = A
+movetype= A
+physics = A 
+ctrl = 0
+anim = 565
+sprpriority = 0
+
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+triggerall = time < 4
+triggerall = enemy,statetype = A
+triggerall = enemy,movetype = A
+triggerall = enemy,map(hitOverride) = 0
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 150
+hitflag = MAF
+guardflag = H
+pausetime = 60,60
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,0
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -8,-3
+air.velocity = -7.5,-3
+Envshake.time = 60
+p2stateno = 1030
+p2getp1state = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+triggerall = time < 4
+triggerall = enemy,movetype = A
+triggerall = enemy,statetype = S
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 150
+hitflag = MAF
+guardflag = H
+pausetime = 60,60
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,0
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -8,20
+air.velocity = -7.5,20
+Envshake.time = 60
+Fall = 1
+Fall.recover = 0
+fall.yvelocity = -12
+down.bounce = 1
+fall.recovertime = 120
+fall.xvelocity = -1.5
+fall.yvelocity = -15
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = !movecontact
+triggerall = time < 4
+trigger1 = enemy,movetype != A
+trigger1 = 1
+trigger2 = enemy,map(hitOverride) = 1
+attr = S, NA
+animtype  = Medium
+damage    = 75
+hitflag = MAF
+guardflag = H
+pausetime = 13,13
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,17
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -8,-2
+air.velocity = -7.5,-2
+fall = 1
+fall.recover = 50
+Envshake.time = 30
+
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = Animelem = 1
+y = -20
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Animelem = 1
+x = 15
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = Animelem = 1
+statetype = A
+movetype = A
+physics = A 
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time = 20
+trigger2 = movehit
+value = 1
+
+[State 0, Hop]
+type = Velset
+trigger1 = Animelem = 1
+x = 5.5
+y = ifelse(command = "holdup",-6.5,ifelse(command = "holddown", 2, -2))
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = animtime = 0
+value = 50
+ctrl = 1
+
 ;===============================================================================
 ; B:
 ;-------------------------------------------------------------------------------
