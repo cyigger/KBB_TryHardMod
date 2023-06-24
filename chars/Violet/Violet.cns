@@ -4958,7 +4958,7 @@ fall.recover = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = Time > 5
+triggerall = Time > 10
 triggerall = numhelper(3500) = 0
 triggerall = power >= 200
 Triggerall = var(47) > 0
@@ -4968,14 +4968,14 @@ ctrl = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = Time > 5
+triggerall = Time > 10
 trigger1 = command = "holdfwd" && command = "c"
 value = 610
 ctrl = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = Time > 5
+triggerall = Time > 10
 triggerall = numhelper(3500) = 0
 triggerall = power >= 200
 Triggerall = var(47) > 0

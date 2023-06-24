@@ -907,7 +907,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; C - 2C
+; Wavedash A V2
 ;-------------------------------------------------------------------------------
 [Statedef 291]
 type    = A
@@ -1042,7 +1042,7 @@ value = 292
 ctrl = 0
 
 ;-------------------------------------------------------------------------------
-; C - 2C 2
+; Wavedash A V2 Hop
 ;-------------------------------------------------------------------------------
 [Statedef 292]
 type    = A
@@ -1051,13 +1051,6 @@ physics = A
 ctrl = 0
 anim = 565
 sprpriority = 0
-
-[State 0, FatalCounter]
-type = MapSet
-trigger1 = 1
-map = "fatal"
-value = 1
-ignorehitpause = 1
 
 [State 0, Damage Proration]
 type = VarAdd
@@ -1071,77 +1064,14 @@ value = 10
 type = HitDef
 getpower = 0
 triggerall = !movecontact
-triggerall = time < 4
-triggerall = enemy,statetype = A
-triggerall = enemy,movetype = A
-triggerall = enemy,map(hitOverride) = 0
-trigger1 = 1
-attr = S, NA
-animtype  = Medium
-damage    = 150
-hitflag = MAF
-guardflag = H
-pausetime = 60,60
-sparkno = 15000
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 8,0
-guardsound = 6,11
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-ground.velocity = -8,-3
-air.velocity = -7.5,-3
-Envshake.time = 60
-p2stateno = 1030
-p2getp1state = 0
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = !movecontact
-triggerall = time < 4
-triggerall = enemy,movetype = A
-triggerall = enemy,statetype = S
-trigger1 = 1
-attr = S, NA
-animtype  = Medium
-damage    = 150
-hitflag = MAF
-guardflag = H
-pausetime = 60,60
-sparkno = 15000
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 8,0
-guardsound = 6,11
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-ground.velocity = -8,20
-air.velocity = -7.5,20
-Envshake.time = 60
-Fall = 1
-Fall.recover = 0
-fall.yvelocity = -12
-down.bounce = 1
-fall.recovertime = 120
-fall.xvelocity = -1.5
-fall.yvelocity = -15
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = !movecontact
-triggerall = time < 4
-trigger1 = enemy,movetype != A
+triggerall = time < 2
 trigger1 = 1
 trigger2 = enemy,map(hitOverride) = 1
 attr = S, NA
 animtype  = Medium
-damage    = 75
+damage    = 50
 hitflag = MAF
-guardflag = H
+guardflag = HA
 pausetime = 13,13
 sparkno = 15000
 guard.sparkno = 13000
@@ -1175,7 +1105,7 @@ physics = A
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time = 20
+trigger1 = time = 30
 trigger2 = movehit
 value = 1
 

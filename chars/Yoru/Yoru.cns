@@ -6061,14 +6061,6 @@ trigger1 = command = "SPECIAL 3"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 23000
 
-[State 200, j6b]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 615
-
 [State 200, j5b]
 type = ChangeState
 Triggerall = movecontact

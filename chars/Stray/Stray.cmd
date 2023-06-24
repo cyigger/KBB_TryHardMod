@@ -775,15 +775,6 @@ triggerall = command = "a"
 Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; Forwards + A
-[State -1, A]
-type = ChangeState
-value = 210
-triggerall = command = "holdfwd"
-triggerall = command = "a"
-Triggerall = statetype != A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
 ; A
 [State -1, A]
 type = ChangeState
