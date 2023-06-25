@@ -4052,7 +4052,7 @@ envshake.ampl = -7
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 7 || AnimElem = 8
+triggerall = AnimElem = 8
 triggerall = hitcount = var(10)
 triggerall = enemy,statetype != L
 trigger1 = 1
@@ -4084,7 +4084,7 @@ fall.yvelocity = -6
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 7 || AnimElem = 8
+triggerall = AnimElem = 8
 triggerall = hitcount = var(10)
 triggerall = enemy,statetype = L
 trigger1 = 1
