@@ -2770,13 +2770,14 @@ type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
+triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = ifelse(enemy,movetype = A, 75,35) + 80 * var(12) / (60 - 7)
+damage    = 35 + 80 * var(12) / (60 - 7)
 hitflag = MAF
 guardflag = MA
-pausetime = ifelse(enemy,movetype = A, 30,14) + floor(20.1 * var(12) / (60 - 7)),ifelse(enemy,movetype = A, 30,14) + floor(20.1 * var(12) / (60 - 7))
+pausetime = 14 + floor(20.1 * var(12) / (60 - 7)),14 + floor(20.1 * var(12) / (60 - 7))
 guard.pausetime = 12,12
 guard.hittime = 20
 guard.slidetime = 20
@@ -2787,13 +2788,13 @@ hitsound   = S0,14
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3,ifelse(enemy,movetype = A, -10,-6)
-air.velocity = -3,ifelse(enemy,movetype = A, -8,-5)
+ground.hittime  = 15
+ground.velocity = -3,-6
+air.velocity = -3,-5
 guard.velocity = -8
 Envshake.time = 20  + floor(10.1 * var(12) / (60 - 7))
 Fall = 1
-Fall.recovertime = 40 + ifelse(enemy,movetype = A, 60,0)
+Fall.recovertime = 40
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
@@ -2816,17 +2817,17 @@ guard.slidetime = 20
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = S0,14
+hitsound   = 8,0
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3,ifelse(enemy,movetype = A, -10,-6)
-air.velocity = -3,ifelse(enemy,movetype = A, -8,-5)
+ground.hittime  = 15 + 7
+ground.velocity = -3,-10
+air.velocity = -3,-8
 guard.velocity = -8
 Envshake.time = 20  + floor(10.1 * var(12) / (60 - 7))
 Fall = 1
-Fall.recovertime = 40 + ifelse(enemy,movetype = A, 60,0)
+Fall.recovertime = 40 + 60
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
