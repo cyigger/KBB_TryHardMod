@@ -6810,16 +6810,36 @@ poweradd = -200
 sprpriority = 2
 ctrl = 0
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = animelem = 3
-x = 2
-
 [State 0, Swing]
 type = PlaySnd
 trigger1 = Animelem = 2
 value = S1,1
 volumescale = 80
+
+[State 0, VelSet]
+type = VelSet
+triggerall = statetype != S
+triggerall = command != "holdfwd"
+triggerall = command != "holdback"
+trigger1 = AnimElem = 1
+x = 0
+y = -5
+
+[State 0, VelSet]
+type = VelSet
+triggerall = statetype != S
+triggerall = command = "holdback"
+trigger1 = AnimElem = 1
+x = -3
+y = -5
+
+[State 0, VelSet]
+type = VelSet
+triggerall = statetype != S
+triggerall = command = "holdfwd"
+trigger1 = AnimElem = 1
+x = 3
+y = -5
 
 [State 0, Helper]
 type = Helper
@@ -11824,7 +11844,7 @@ volumescale = 999
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 2
-x = -map(AbilityMultiplier)5
+x = -1.25
 y = -2
 
 [State 0, Explod]
@@ -11940,7 +11960,7 @@ volumescale = 999
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 2
-x = -map(AbilityMultiplier)5
+x = -1.25
 y = -2
 
 
