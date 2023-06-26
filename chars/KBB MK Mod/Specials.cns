@@ -942,8 +942,8 @@ p2facing = 1        ;Force to face p1
 
 [State 0, SuperPause]
 type = SuperPause
-trigger1 = movehit = 10
-time = 30
+trigger1 = movehit = 20
+time = 40
 pos = 0,0
 sound = S5,2
 movetime = 0
@@ -956,8 +956,8 @@ unhittable = 1
 
 [State 0, BGPalFX]
 type = BGPalFX
-trigger1 = movehit = 10
-time = 30
+trigger1 = movehit = 20
+time = 40
 add = 0,0,0
 mul = 0,0,0
 sinadd = 0,0,0,1
@@ -966,8 +966,8 @@ color = 256
 
 [State 0, PalFXWiz]
 type = PalFX
-trigger1 = movehit = 10
-time = 30
+trigger1 = movehit = 20
+time = 40
 add = 256,256,256
 mul = 256,256,256
 sinadd = 0,0,0,1

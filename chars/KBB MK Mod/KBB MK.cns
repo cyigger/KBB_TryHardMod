@@ -1019,7 +1019,7 @@ ownpal = 1
 [State 235, Fake]
 type = ChangeState
 triggerall = AnimElem = 2
-trigger1 = command = "hold_c"
+trigger1 = command = "hold_b"
 value = 236
 
 [State 235, Wiff]

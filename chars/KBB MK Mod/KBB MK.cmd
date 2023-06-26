@@ -809,19 +809,19 @@ trigger1 = ctrl
 ;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Forward + C
-[State -1, Forward + A]
-type = ChangeState
-value = 235
-triggerall = power >= 250
-triggerall = command = "holdfwd"
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
+;[State -1, Forward + A]
+;type = ChangeState
+;value = 235
+;triggerall = power >= 250
+;triggerall = command = "holdfwd"
+;triggerall = command = "c"
+;Triggerall = statetype != A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Back + C
 [State -1, Back + C]
 type = ChangeState
-value = 340
+value = 235
 triggerall = power >= 250
 triggerall = command = "holdback"
 triggerall = command = "c"

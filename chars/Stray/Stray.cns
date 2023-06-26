@@ -1113,7 +1113,7 @@ value = 1
 type = Velset
 trigger1 = Animelem = 1
 x = 5.5
-y = ifelse(command = "holdup",-6.5,ifelse(command = "holddown", 2, -2))
+y = ifelse(command = "holdup",-6.5,ifelse(command = "holddown", 2, -1.8))
 
 
 [State 200, End]

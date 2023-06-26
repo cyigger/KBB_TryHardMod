@@ -1371,7 +1371,7 @@ Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-Triggerall = AnimElem = 3||AnimElem = 4||AnimElem = 5||AnimElem = 6||AnimElem = 7||AnimElem = 8
+Triggerall = AnimElem = 3||AnimElem = 4||AnimElem = 5||AnimElem = 6;||AnimElem = 7||AnimElem = 8
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
@@ -1395,7 +1395,7 @@ Envshake.time = 5
 [State 200, 1]
 type = HitDef
 getpower = 0
-Triggerall = AnimElem = 9
+Triggerall = AnimElem = 7 ;AnimElem = 9
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
@@ -1440,10 +1440,10 @@ value = 24000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-triggerall = time > 21
+triggerall = time > 14;21
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-trigger2 = hitcount = 8
+trigger2 = hitcount = 6
 value = 320
 
 [State 200, Fwd+C]
@@ -2707,7 +2707,7 @@ ctrl = 0
 type    = A
 movetype= A
 physics = S
-juggle  = 0
+juggle  = 1
 ctrl = 0
 anim = 402
 poweradd = -200
@@ -2718,7 +2718,7 @@ sprpriority = 1
 type = MapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 3
+value = 5
 persistent = 0
 
 [State 0, FatalCounter]
