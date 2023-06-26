@@ -12,6 +12,9 @@ General:
 	* Normal Wavedash Cancel on hit
 3. You can no longer fast fall during universal overheads.
 3. Reworked Dash Macro. There is now a separate button for it. Literally Guilty Gear Strive
+4. Tweaked All Wavedash Animations to feel more responsive
+5. Added an effect for hyperhops
+6. Removed the 5 frame limitation for cancelling wavedash into movement options (except for the use of dash macro).
 
 Korby:
 1. Prevented inhale from hitting in the first 5 frames of jumping.
@@ -26,11 +29,18 @@ Korby:
 
 Metaknight:
 1. Swapped and adjusted 2a and wavedash A
-2. Up Air: Your Free Trial Has Expired. The move never felt useful enough any where and it never felt nice to use in this game. It has removed and archived.
+2. Up Air: Your Free Trial Has Expired. The move never felt useful enough anywhere and it never felt nice to use in this game. It has removed and archived.
 3. 236A > Dash: Reduced Speed Multiplier (1.5 run speed -> 1.25 run speed)
 4. j.5C: Allowed fastfalling the move when it's making contact.
-5. 236B: Counterhit now wall splats.
+5. 236B: 
+	* Counterhit now wall splats.
+	* Shrunk the hitbox for the move
+	* Adjusted the cinematic flash timing
 6. Animation Adjustments Made to make them smoother and slightly more exagerated.
+7. Reduced Damage of 236C
+8. Removed old 4C
+9. Remap: old 6C is now 4C
+10. current 4C: Change how to fake the move: you instead mash B. temporary solution.
 
 Saito:
 1. Added Hover Cancel with a "66" input to 5a - 2, 5a - 3, 5b, 5b - 2, and 2b.
@@ -42,6 +52,32 @@ Saito:
 Stray:
 1. Wavedash A reworked
 2. vanilla 5aaa string returned.
+
+Jay:
+1. Wavedash: Reduced Speed Slightly
+
+Jodie:
+1. j.bb:
+	* Returned Vanilla j.bb properties
+	* Added Proration (0 -> 3) and (0 -> 5)
+2. 5bb:
+	* Shortened Hits (8 -> 6)
+3. Wavedash: Reduced Speed
+
+Hyrio:
+1. Wavedash: Reduced Speed
+
+Yoru:
+1. Wavedash 5B: Increased Hitstop Scaling from charging the move
+
+Noll:
+1. Wavedash B: No longer hits twice
+
+Violet:
+1. Wavedash C: Improved Animation
+2. Wavedash A: Increased Startup (+2)
+
+
 
 
 ===================================================================================================================================
