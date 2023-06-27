@@ -4557,7 +4557,7 @@ ctrl = 0
 type = Changestate
 trigger1 = hitcount >= 5
 trigger2 = (map(guardCount) + hitcount) >= 5
-trigger3 = pos y - var(58) <= -45
+trigger3 = (pos y - root,pos y) <= -45
 value = 452
 ctrl = 0
 
@@ -4751,6 +4751,17 @@ postype = p1  ;p2,front,back,left,right
 vel = .5, -.2
 scale = 0.5,0.5
 sprpriority = 2
+
+[State 0, Spam Deny]
+type = Helper
+trigger1 = AnimTime = 0
+helpertype = normal
+name = "HELPER"
+ID = 632
+stateno = 633
+facing = -1
+sprpriority = 5
+inheritJuggle = 0
 
 [State 200, End]
 type = ChangeState
@@ -6631,6 +6642,23 @@ ctrl = 0
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = Time = 150
+trigger2 = parent,movetype = H
+
+;-------------------------------------------------------------------------------
+; j.2C Spam Deny
+[Statedef 633]
+type    = S
+movetype= A
+physics = S
+anim = 9999
+poweradd = 0
+velset = 0,0
+sprpriority = 1
+ctrl = 0
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Time = 3
 trigger2 = parent,movetype = H
 
 ;-------------------------------------------------------------------------------

@@ -808,6 +808,18 @@ type = PosAdd
 trigger1 = AnimElem = 8
 x = 8
 
+;start
+[State 0, Velset]
+type = Velset
+trigger1 = AnimElem = 1
+x = -2
+
+;start
+[State 0, Velset]
+type = Velset
+trigger1 = AnimElem = 2
+x = 4
+
 [State 0, Velset]
 type = Velset
 trigger1 = AnimElem = 8
@@ -1287,7 +1299,7 @@ animtype  = Light
 damage    = 30
 guardflag = M
 hitflag = MAF
-pausetime = 12,13
+pausetime = 12,12
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -1481,18 +1493,18 @@ animtype  = Medium
 damage    = 30
 guardflag = MAF
 hitflag = MAF
-pausetime = 12,12
+pausetime = 16,18
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
-hitsound   = S0,2
+hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 25
-ground.velocity = -2, -8
+ground.velocity = -2, -7
 air.hittime  = 30
-air.velocity = -2,-7
+air.velocity = -2,-6
 fall = 1
 Fall.recovertime = 40
 Envshake.time = 20
@@ -3304,15 +3316,22 @@ trigger1 = AnimElem = 1
 value = S1,1
 volumescale = 50
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = Animelem = 1
-y = vel y * 0.75
+[State 0, ChangeAnim2]
+type = ChangeAnim2
+triggerall = prevstateno = [600, 630]
+trigger1 = time = 0
+value = 600
+elem = 2
+
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = Animelem = 1
+;y = vel y * 0.75
 
 [State 0, VelAdd]	;The Swing gives extra momentum forward.
 type = VelAdd
 trigger1 = Animelem = 1
-y = -2
+y = -1
 
 [State 0, VelSet]
 type = VelAdd
@@ -3327,7 +3346,7 @@ triggerall = movecontact != 1
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 5
+damage    = 7
 hitflag = MAF
 guardflag = HAF
 pausetime = 2,2
@@ -3335,7 +3354,7 @@ guard.pausetime = 2,2
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-30
-hitsound   = S0,2
+hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
@@ -3743,6 +3762,13 @@ triggerall = movecontact
 trigger1 = command = "up" && var(3) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
 value = 45
+ctrl = 1
+
+[State 200, Land]
+type = ChangeState
+trigger1 = movecontact && time >= 10
+trigger1 = command = "FF"
+value = 65
 ctrl = 1
 
 [State -1, SPECIAL 2 - DP]
@@ -4345,7 +4371,7 @@ damage    = 4
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
-guard.pausetime = 2,2
+guard.pausetime = 2,0
 sparkno = s12000
 guard.sparkno = s13000
 sparkxy = -8,-25
@@ -4357,6 +4383,8 @@ ground.hittime  = 35
 ground.velocity = 0,-1
 air.hittime = 45
 air.velocity = 0,-1
+guard.slidetime = 8
+guard.hittime = 8
 Fall = 1
 fall.recovertime = 30
 
@@ -4373,7 +4401,7 @@ damage    = 10
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
-guard.pausetime = 0,0
+guard.pausetime = 4,0
 sparkno = s12000
 guard.sparkno = s13000
 sparkxy = -8,-25
@@ -4385,6 +4413,8 @@ ground.hittime  = 35
 ground.velocity = -4,-6
 air.hittime = 45
 air.velocity = -4,-6
+guard.slidetime = 10
+guard.hittime = 10
 Fall = 1
 fall.recover = 0
 Envshake.time = 10

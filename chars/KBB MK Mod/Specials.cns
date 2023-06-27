@@ -883,7 +883,7 @@ triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, SA
 animtype  = Hard
-damage    = 175 + var(11) * 2, 10
+damage    = 175 + var(11), 10
 guard.kill = 0	
 hitflag = MAFD
 guardflag = MAFD
@@ -915,7 +915,7 @@ triggerall = enemy,movetype = A
 trigger1 = 1
 attr = S, SA
 animtype  = Hard
-damage    = 350 + var(11) * 2, 10
+damage    = 250 + var(11), 10
 guard.kill = 0	
 hitflag = MAFD
 guardflag = MAFD
