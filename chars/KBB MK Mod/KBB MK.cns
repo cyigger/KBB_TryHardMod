@@ -3312,7 +3312,7 @@ y = vel y * 0.75
 [State 0, VelAdd]	;The Swing gives extra momentum forward.
 type = VelAdd
 trigger1 = Animelem = 1
-y = -1
+y = -2
 
 [State 0, VelSet]
 type = VelAdd
@@ -3372,19 +3372,19 @@ ctrl = 1
 ;trigger1 = command = "b" && command = "holdup"
 ;value = 618
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "b" && command = "holddown"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 615
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 610
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;trigger1 = command = "b" && command = "holddown"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 615
+;
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;trigger1 = command = "b"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 610
 
 [State 0, ChangeState]
 type = ChangeState
@@ -3763,13 +3763,21 @@ value = 22000
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "b" && command = "holddown"
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 600
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "a" && command = "holddown"
 value = 615
 
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact && time >= 10
-trigger1 = command = "b"
+trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 611
 ctrl = 1
@@ -3890,6 +3898,14 @@ triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 2"
 value = 22000
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 600
+ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState

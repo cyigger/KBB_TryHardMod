@@ -925,7 +925,7 @@ trigger1 = ctrl
 [State -1, A Aire]
 type = ChangeState
 value = 600
-triggerall = command = "a"
+triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;--------------------------------------------------------------------------
@@ -943,7 +943,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 615
 triggerall = command = "holddown"
-triggerall = command = "b"
+triggerall = command = "a"
 triggerall = prevstateno != 40 || time >= 5
 Triggerall = statetype = A
 trigger1 = ctrl
@@ -952,7 +952,7 @@ trigger1 = ctrl
 [State -1, B Aire]
 type = ChangeState
 value = 610
-triggerall = command = "b"
+triggerall = command = "a"
 Triggerall = statetype = A
 trigger1 = ctrl
 
