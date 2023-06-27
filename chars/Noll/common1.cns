@@ -177,8 +177,11 @@ volumescale = 500
 type = AfterImage
 triggerall = numhelper(51000) = 0
 trigger1 = AnimElem = 1
+paladd = 255, 180, 0
 time = 10
 trans = add
+
+
 
 [State 0, VelSet]
 type = VelSet

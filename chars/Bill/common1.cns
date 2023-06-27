@@ -172,6 +172,7 @@ volumescale = 500
 type = AfterImage
 triggerall = numhelper(51000) = 0
 trigger1 = AnimElem = 1
+paladd = 255,240,0
 time = 10
 trans = add
 

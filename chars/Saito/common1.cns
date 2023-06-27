@@ -177,7 +177,8 @@ volumescale = 500
 type = AfterImage
 triggerall = numhelper(51000) = 0
 trigger1 = time = 0
-time = 5
+paladd = 230,230,0
+time = 10
 trans = add
 
 [State 0, VelSet]
