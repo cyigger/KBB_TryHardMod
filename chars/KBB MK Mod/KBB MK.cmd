@@ -711,6 +711,7 @@ type = ChangeState
 triggerall = stateno != 60
 triggerall = stateno != 65
 triggerall = stateno != 70
+triggerall = prevstateno != 65
 value = 65
 triggerall = Statetype = A
 trigger1 = command = "FF"
