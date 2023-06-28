@@ -823,7 +823,7 @@ trigger1 = ctrl
 [State -1, Back + C]
 type = ChangeState
 value = 235
-triggerall = power >= 250
+triggerall = power >= 500
 triggerall = command = "holdback"
 triggerall = command = "c"
 Triggerall = statetype != A
