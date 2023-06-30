@@ -1,5 +1,45 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.3 Changes:                    /
+|---------------------------------------------------/
+
+Been on 0.2.2 for a bit too long considering all these changes. Some chagnes used to be part of the 2.2 section, but not anymore.
+
+General:
+5. Added an effect for hyperhops
+6. Removed the 5 frame limitation for cancelling wavedash into movement options (except for the use of dash macro)
+
+Metaknight: Metaknight has received a massive balance rework.
+1. Removed old 4C
+2. Remap: old 6C is now 4C
+3. current 4C: Change how to fake the move: you instead mash B. temporary solution (?).
+4. New move 6C: Sword Beam.
+5. New input for an existing move: 2C - Dimensional Cape. You can actually move the teleport for this one, but it goes less far.
+6. Removed Attack Version of both Dimensional Capes.
+7. 5C: Reduced Air Mobility
+8. Most Moves: 
+	* Increased Startup
+	* Decreased Range
+9. Reworked Airdash:
+	* Movement more similar to saito's airdash
+	* No longer actionable for the attack portion.
+10. Return of j.2B, tho a bit slower than before
+
+Korby:
+1. Fixed Bug: Hammer is now counterable
+2. Fixed Bug: Offscreen korby clone has been killed.
+3. Violet 2C: Made more accurate
+4. Noll j.5C: Made more accurate (nerf)
+5. Fixed Bug: Max Wavedash C Spawning Fly's Projectile
+6. Fixed Bug: Noll Phantom Blade Swinging despite korby being hurt
+7. Fixed Bug: Faulty C Cancels from j.4B
+
+Vivienne:
+1. Wavedash C: Launches Higher
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.2 Changes:                    /
 |---------------------------------------------------/
 
@@ -13,8 +53,6 @@ General:
 3. You can no longer fast fall during universal overheads.
 3. Reworked Dash Macro. There is now a separate button for it. Literally Guilty Gear Strive
 4. Tweaked All Wavedash Animations to feel more responsive
-5. Added an effect for hyperhops
-6. Removed the 5 frame limitation for cancelling wavedash into movement options (except for the use of dash macro).
 
 Korby:
 1. Prevented inhale from hitting in the first 5 frames of jumping.
@@ -38,9 +76,7 @@ Metaknight:
 	* Adjusted the cinematic flash timing
 6. Animation Adjustments Made to make them smoother and slightly more exagerated.
 7. Reduced Damage of 236C
-8. Removed old 4C
-9. Remap: old 6C is now 4C
-10. current 4C: Change how to fake the move: you instead mash B. temporary solution.
+
 
 Saito:
 1. Added Hover Cancel with a "66" input to 5a - 2, 5a - 3, 5b, 5b - 2, and 2b.

@@ -819,12 +819,36 @@ trigger1 = ctrl
 ;Triggerall = statetype != A
 ;trigger1 = ctrl
 ;---------------------------------------------------------------------------
+; Down + C
+[State -1, Down + C]
+type = ChangeState
+value = 440
+triggerall = numhelper(450) = 0
+triggerall = numhelper(3500) = 0
+triggerall = power >= 200
+triggerall = command = "holddown"
+triggerall = command = "c"
+Triggerall = statetype != A
+trigger1 = ctrl
+;---------------------------------------------------------------------------
 ; Back + C
 [State -1, Back + C]
 type = ChangeState
 value = 235
+triggerall = numhelper(3500) = 0
 triggerall = power >= 500
 triggerall = command = "holdback"
+triggerall = command = "c"
+Triggerall = statetype != A
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+; Fwd + C
+[State -1, Fwd + C]
+type = ChangeState
+value = 420
+triggerall = numhelper(3500) = 0
+triggerall = power >= 200
+triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
@@ -921,6 +945,15 @@ triggerall = command = "s"
 Triggerall = statetype != A
 trigger1 = ctrl
 
+;---------------------------------------------------------------------------
+; Down + B Aire
+[State -1, Down + B]
+type = ChangeState
+value = 605
+triggerall = command = "holddown"
+triggerall = command = "b"
+Triggerall = statetype = A
+trigger1 = ctrl
 ;--------------------------------------------------------------------------
 ; A Aire
 [State -1, A Aire]
