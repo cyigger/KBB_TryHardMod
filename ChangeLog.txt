@@ -23,6 +23,7 @@ Metaknight: Metaknight has received a massive balance rework.
 9. Reworked Airdash:
 	* Movement more similar to saito's airdash
 	* No longer actionable for the attack portion.
+	* Reach on late hitbox slightly increased.
 10. Return of j.2B, tho a bit slower than before
 11. j.5A: Changed Velocity on block
 12. 214A: Startup Reduced: (4 -> 2)
