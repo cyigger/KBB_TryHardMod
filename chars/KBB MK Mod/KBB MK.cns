@@ -1650,21 +1650,8 @@ air.velocity = -1,-2
 guard.hittime = 10
 guard.slidetime = 12
 guard.velocity = -5
-Fall.recovertime = 25
+Fall.recovertime = 20
 Envshake.time = 10
-
-[State 200, End]
-type = ChangeState
-Triggerall = movehit
-trigger1 = command = "hyperhop"
-value = 60
-
-[State 200, End]
-type = ChangeState
-Triggerall = movehit
-trigger1 = command = "up"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 40
 
 [State 200, Special 1 - Smash Baby]
 type = ChangeState
@@ -2005,28 +1992,28 @@ pausemovetime = 0
 [State 0, Moving Forward]
 type = VelAdd
 triggerall = time > 5 && time < 35
-triggerall = vel x < 3
+triggerall = vel x < 2
 trigger1 = command = "holdfwd"
-x = 0.33
+x = 0.44
 
 [State 0, Speed Cap Forward]
 type = VelSet
 triggerall = time > 5 && time < 35
-trigger1 = vel x > 3
-x = 3
+trigger1 = vel x > 2
+x = 2
 
 [State 0, Moving Back]
 type = VelAdd
 triggerall = time > 5 && time < 35
-triggerall = vel x > -3
+triggerall = vel x > -2
 trigger1 = command = "holdback"
-x = -0.33
+x = -0.44
 
 [State 0, Speed Cap Back]
 type = VelSet
 triggerall = time > 5 && time < 35
-trigger1 = vel x < -3
-x = -3
+trigger1 = vel x < -2
+x = -2
 
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
@@ -3625,6 +3612,11 @@ trigger1 = time = 0
 value = 600
 elem = 2
 
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time = 0 && prevstateno = 615
+
 ;[State 0, VelSet]
 ;type = VelSet
 ;trigger1 = Animelem = 1
@@ -3746,6 +3738,11 @@ v = 11
 ignorehitpause = 1
 persistent = 0
 value = 8
+
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time = 0 && prevstateno = 615
 
 [State 0, VelSet]	;Stops all momentum
 type = VelSet
@@ -3989,6 +3986,11 @@ trigger1 = AnimElem = 2
 value = S200,1
 volumescale = 50
 
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time = 0 && prevstateno = 615
+
 ;[State 0, VelAdd]	;The Swing gives extra momentum forward.
 ;type = VelAdd
 ;trigger1 = time = 0
@@ -4001,7 +4003,7 @@ y = 0.44
 
 [State 0, VelSet]
 type = VelSet
-trigger1 =  movehit = 1
+trigger1 =  movecontact = 1
 y = -1.5
 
 [State 200, 1]
@@ -4023,10 +4025,11 @@ hitsound   = S0,2
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 25
+ground.hittime  = 20
 ground.velocity = -1,-3
 air.velocity = -1,-2.5
 air.hittime  = 20
+guard.hittime = 10
 fall.recovertime = 20
 Fall = 0
 Envshake.time = 5
@@ -4115,7 +4118,7 @@ ctrl = 1
 [State 0, End]
 type = ChangeState
 trigger1 = pos y >= 0
-value = ifelse(movehit,50,612)
+value = 50 ;ifelse(movehit,50,612)
 
 [State 0, End]
 type = ChangeState
@@ -4162,6 +4165,11 @@ type = PlaySnd
 trigger1 = AnimElem = 2
 value = S200,1
 volumescale = 50
+
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time = 0 && prevstateno = 615
 
 ;[State 0, VelAdd]	;The Swing gives extra momentum forward.
 ;type = VelAdd
@@ -4247,7 +4255,7 @@ ctrl = 1
 [State 0, End]
 type = ChangeState
 trigger1 = pos y >= 0
-value = ifelse(movehit,50,612)
+value = 50 ;ifelse(movehit,50,612)
 ctrl = 1
 
 [State 0, End]

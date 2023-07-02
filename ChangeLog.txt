@@ -16,7 +16,7 @@ Metaknight: Metaknight has received a massive balance rework.
 4. New move 6C: Sword Beam.
 5. New input for an existing move: 2C - Dimensional Cape. You can actually move the teleport for this one, but it goes less far.
 6. Removed Attack Version of both Dimensional Capes.
-7. 5C: Reduced Air Mobility
+7. 5C: Reduced Air Mobility Drastically
 8. Most Moves: 
 	* Increased Startup
 	* Decreased Range
@@ -24,6 +24,8 @@ Metaknight: Metaknight has received a massive balance rework.
 	* Movement more similar to saito's airdash
 	* No longer actionable for the attack portion.
 10. Return of j.2B, tho a bit slower than before
+11. j.5A: Changed Velocity on block
+12. 214A: Startup Reduced: (4 -> 2)
 
 Korby:
 1. Fixed Bug: Hammer is now counterable
