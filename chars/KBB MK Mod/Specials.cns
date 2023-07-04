@@ -279,7 +279,7 @@ removeongethit = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = movehit = 1
+trigger1 = time = 10
 helpertype = normal ;player
 name = "Power Delay"
 ID = 56000

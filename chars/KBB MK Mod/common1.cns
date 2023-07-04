@@ -310,7 +310,7 @@ sysvar(1) = -1
 type = VelSet
 trigger1 = AnimTime = 0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
-y = const(velocity.jump.y) * ifelse(command = "holdup", 1, 0.75)
+y = const(velocity.jump.y)
 
 [State 40, 5]
 type = VelSet
@@ -435,14 +435,14 @@ trans = add
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 trigger1 = time >= 2
-x = 5.75
+x = 5.8
 
 
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 triggerall = time >= 2
 trigger1 = time <= 10
-y = 0.75
+y = 0.5
 
 [State 0, VelAdd]
 type = VelAdd
@@ -632,14 +632,6 @@ physics = A
 type = VarSet
 trigger1 = Time = 0
 sysvar(1) = 0
-
-[State 50, Shorthop buffer]
-type = VelSet
-triggerall = prevstateno = 40
-triggerall = time < 3
-trigger1 = command != "holdup"
-trigger1 = vel y < const(velocity.jump.y) * 0.75
-y = const(velocity.jump.y) * 0.75 + 0.44 * time
 
 [State 50, 2]
 type = ChangeAnim
