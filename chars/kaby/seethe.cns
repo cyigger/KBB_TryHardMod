@@ -12057,6 +12057,13 @@ anim = 540
 poweradd = 0
 sprpriority = 2
 
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
 [State 0, FatalCounter]
 type = MapSet
 trigger1 = 1
@@ -12185,6 +12192,7 @@ air.velocity = 18,5
 Fall = 0
 Envshake.time = 15
 p2stateno = 1025    ;Make p2 go to state 1025 on hit
+p2getp1state = 0
 p2facing = 1        ;Force to face p1
 
 [State 200, 1]
@@ -12212,6 +12220,14 @@ air.velocity = -3,-2
 Fall = 0
 Envshake.time = 15
 Fall.recovertime = 20
+
+[State 200, SPECIAL 3 - CUTTER]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 3"
+value = 26000
 
 [State 200, j.2C]
 type = ChangeState
@@ -12241,7 +12257,7 @@ Triggerall = var(47) > 0
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 535
+value = 538
 
 [State 200, End]
 type = ChangeState
@@ -13768,13 +13784,9 @@ volumescale = 100
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = AnimElem = 1
-x = -3
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = AnimElem = 4
-x = -7
+trigger1 = AnimElem = 2
+x = -2
+y = -5
 
 [State 0, Helper]
 type = Helper

@@ -518,7 +518,7 @@ physics = S
 juggle  = 1
 velset = 0,0
 ctrl = 0
-anim = 196
+anim = 46
 sprpriority = 2
 
 [State 0, VarSet]
