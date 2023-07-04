@@ -847,7 +847,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 420
 triggerall = numhelper(3500) = 0
-triggerall = power >= 200
+triggerall = power >= 100
 triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
@@ -992,16 +992,16 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; C Aire
-;[State -1, C Aire]
-;type = ChangeState
-;value = 625
-;;Triggerall = numhelper(9999) = 0
-;triggerall = numhelper(3500) = 0
-;Triggerall = power >= 200
-;triggerall = command = "holdfwd"
-;triggerall = command = "c"
-;Triggerall = statetype = A
-;trigger1 = ctrl
+[State -1, C Aire]
+type = ChangeState
+value = 625
+;Triggerall = numhelper(9999) = 0
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 100
+triggerall = command = "holdfwd"
+triggerall = command = "c"
+Triggerall = statetype = A
+trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; C Aire
@@ -1011,7 +1011,7 @@ value = 620
 Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 200
-triggerall = var(3) < const(movement.airjump.num)
+triggerall = var(12) < const(movement.airjump.num)
 triggerall = command = "c"
 Triggerall = statetype = A
 trigger1 = ctrl
