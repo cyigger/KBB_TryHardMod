@@ -345,11 +345,6 @@ x = 5
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = AnimElem = 5
-x = 10
-
-[State 0, PosAdd]
-type = PosAdd
 trigger1 = AnimElem = 6
 x = 4
 
@@ -389,7 +384,7 @@ animtype  = Medium
 damage    = 10
 guardflag = M
 hitflag = MAF
-pausetime = 10,10
+pausetime = 8,8
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -397,9 +392,9 @@ hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 20
+ground.hittime  = 13 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1
-air.hittime  = 20
+air.hittime  = 13 + ifelse(enemy,movetype = A, 7,0)
 air.velocity = -1,-2
 Fall.recovertime = 20
 Envshake.time = 5
@@ -541,7 +536,7 @@ animtype  = Light
 damage    = 10
 guardflag = MAFD
 hitflag = MAFD
-pausetime = 10,10
+pausetime = 8,8
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -549,9 +544,9 @@ hitsound   = S0,1
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 20
+ground.hittime  = 15
 ground.velocity = 1
-air.hittime  = 25
+air.hittime  = 20
 air.velocity = 1,-2
 guard.velocity = -2
 Fall = 0
@@ -692,7 +687,7 @@ animtype  = Medium
 damage    = 20
 guardflag = MAF
 hitflag = MAFD
-pausetime = 10,8
+pausetime = 10,10
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -1337,9 +1332,9 @@ hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 20
+ground.hittime  = 15
 ground.velocity = -3, -2
-air.hittime  = 25
+air.hittime  = 20
 air.velocity = -3,-2
 guard.hittime = 10
 guard.slidetime = 12
@@ -1635,7 +1630,7 @@ animtype  = Light
 damage    = 20
 guardflag = MAF
 hitflag = MAF
-pausetime = 12,16
+pausetime = 12,12
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -2183,6 +2178,20 @@ trigger1 = AnimElem = 1
 value = S200,1
 volumescale = 120
 
+[State 200, End]
+type = ChangeState
+Triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7
+trigger1 = command = "hyperhop"
+value = 60
+
+[State 200, End]
+type = ChangeState
+Triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7
+trigger1 = command = "holdup"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 40
+
+
 [State 200, Special 1 - Smash Baby]
 type = ChangeState
 Triggerall = helper(421),movecontact
@@ -2289,10 +2298,10 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 10
+damage    = 15
 hitflag = MAF
 guardflag = MAFD
-pausetime = 2,2
+pausetime = 4,4
 guard.pausetime = 2,2
 sparkno = s11000
 guard.sparkno = s13000
@@ -2300,12 +2309,12 @@ sparkxy = -8,-55
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
-ground.slidetime = 6
-ground.hittime  = 6
-ground.velocity = -1
-air.hittime  = 6
-air.velocity = -1,-1
-guard.hittime = 6
+ground.slidetime = 8
+ground.hittime  = 10
+ground.velocity = -2
+air.hittime  = 10
+air.velocity = -1,-2
+guard.hittime = 8
 Fall = 0
 Fall.recovertime = 25
 
@@ -3207,25 +3216,6 @@ trigger1 = command = "s"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 66
 
-[State 200, j5a]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "a"
-value = 610
-[State 200, j5b]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "b"
-value = 600
-
-[State 200, j5c]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 200
-triggerall = command = "c"
-trigger1 = numhelper(3500) = 0
-value = 620
-
 [State 200, End]
 type = ChangeState
 trigger1 = pos Y >= 0 && Vel Y > 0
@@ -3308,25 +3298,6 @@ Triggerall = movecontact
 trigger1 = command = "s"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 66
-
-[State 200, j5a]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "a"
-value = 610
-[State 200, j5b]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "b"
-value = 600
-
-[State 200, j5c]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 200
-triggerall = command = "c"
-trigger1 = numhelper(3500) = 0
-value = 620
 
 [State 200, End]
 type = ChangeState
@@ -3711,7 +3682,7 @@ triggerall = movecontact != 1
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 7
+damage    = 10
 hitflag = MAF
 guardflag = HAF
 pausetime = 2,2
@@ -3727,8 +3698,8 @@ ground.hittime  = 15
 ground.velocity = -2,-3
 air.velocity = -vel x * 0.5,vel y - 2
 air.hittime  = 30
+guard.slidetime = 8
 guard.hittime = 10
-guard.slidetime = 12
 Fall = 1
 fall.recovertime = 35
 Envshake.time = 5
@@ -4083,7 +4054,7 @@ y = 0.44
 [State 0, VelSet]
 type = VelSet
 trigger1 =  movecontact = 1
-x = 2
+x = ifelse(vel x < 2, 2, vel x)
 y = -1.5
 
 [State 200, 1]
@@ -4272,7 +4243,7 @@ y = 0.44
 [State 0, VelSet]
 type = VelSet
 trigger1 =  movecontact = 1
-x = 2
+x = ifelse(vel x < 2, 2, vel x)
 y = -1
 
 [State 200, 2]
@@ -4856,7 +4827,7 @@ physics = A
 
 [State 0, VelSet]	;Hitting the opponent changes velocity
 type = VelSet
-trigger1 = movehit = 1 && command != "holddown"
+trigger1 = movehit = 1
 y = -.5
 
 [State 0, VelSet]
@@ -4913,7 +4884,7 @@ helpertype = normal ;player
 name = "Swords"
 ID = 626
 stateno = 626
-pos = 20,20
+pos = 20,12
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -5016,7 +4987,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 10
+damage    = 15
 hitflag = MAF
 guardflag = MAFD
 pausetime = 2,2
@@ -5027,11 +4998,11 @@ sparkxy = -8,-55
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
-ground.slidetime = 6
-ground.hittime  = 6
-ground.velocity = -1
-air.hittime  = 6
-air.velocity = -1,-1
+ground.slidetime = 8
+ground.hittime  = 8
+ground.velocity = -2,
+air.hittime  = 8
+air.velocity = -1,-2
 guard.hittime = 6
 Fall = 0
 Fall.recovertime = 30
