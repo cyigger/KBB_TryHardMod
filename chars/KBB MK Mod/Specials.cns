@@ -946,7 +946,7 @@ p2facing = 1        ;Force to face p1
 type = HitDef
 getpower = 0
 triggerall = !movecontact
-trigger2 = enemy,map(hitOverride) = 1
+triggerall = enemy,map(hitOverride) = 1
 trigger1 = 1
 attr = S, SA
 animtype  = Hard

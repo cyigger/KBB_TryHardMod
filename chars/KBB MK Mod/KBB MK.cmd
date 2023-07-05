@@ -1011,7 +1011,7 @@ value = 620
 Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 200
-triggerall = var(3) < const(movement.airjump.num)
+triggerall = var(12) < const(movement.airjump.num)
 triggerall = command = "c"
 Triggerall = statetype = A
 trigger1 = ctrl

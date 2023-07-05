@@ -3235,7 +3235,7 @@ value = 625
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
@@ -3341,7 +3341,7 @@ value = 625
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
@@ -3747,7 +3747,7 @@ air.hittime  = 30
 guard.slidetime = 8
 guard.hittime = 10
 Fall = 1
-fall.recovertime = 30
+fall.recovertime = 25
 Envshake.time = 5
 
 [State -1, SPECIAL 2 - DP]
@@ -3773,12 +3773,12 @@ ctrl = 1
 ;trigger1 = command = "b" && command = "holdup"
 ;value = 618
 
-;[State 0, ChangeState]
-;type = ChangeState
-;triggerall = movecontact
-;trigger1 = command = "b" && command = "holddown"
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-;value = 615
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "b" && command = "holddown"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 605
 ;
 ;[State 0, ChangeState]
 ;type = ChangeState
@@ -3798,7 +3798,7 @@ value = 625
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
@@ -4215,7 +4215,7 @@ value = 625
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 ctrl = 1
@@ -4361,7 +4361,7 @@ value = 625
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 ctrl = 1
@@ -4547,7 +4547,7 @@ value = 625
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 ctrl = 1
@@ -4692,7 +4692,7 @@ value = 610
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "c" && var(3) < const(movement.airjump.num)
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 ctrl = 1
@@ -4738,7 +4738,7 @@ value = 5
 [State 0, VarSet]
 type = VarAdd
 trigger1 = time = 0 
-v = 3    ;fv = 10
+v = 12    ;fv = 10
 value = 1
 
 [State 0, TargetBind]
@@ -5691,6 +5691,12 @@ pausemovetime = 9999
 type = VarSet
 trigger1 = pos Y >= 0
 v = 3    ;fv = 10
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = pos Y >= 0
+v = 12    ;fv = 10
 value = 0
 
 [State 0, VarSet]
