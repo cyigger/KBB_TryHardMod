@@ -389,7 +389,7 @@ animtype  = Medium
 damage    = 10
 guardflag = M
 hitflag = MAF
-pausetime = 10,12
+pausetime = 10,10
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -557,7 +557,7 @@ guard.velocity = -2
 Fall = 0
 Fall.recovertime = 20
 mindist = 45,-55
-maxdist = 85, -8
+maxdist = 85, 0
 Envshake.time = 5
 
 [State 200, Special 1 - Smash Baby]
@@ -3482,6 +3482,7 @@ givepower = 0
 triggerall = enemy,movetype != A
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
+trigger2 = enemy,map(hitOverride) = 1
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
@@ -3516,6 +3517,7 @@ givepower = 0
 triggerall = enemy,movetype = A
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
+triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
