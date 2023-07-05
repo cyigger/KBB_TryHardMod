@@ -4879,6 +4879,14 @@ trigger1 = command = "FF"
 value = 65
 ctrl = 1
 
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 625
+
 [State 200, Land]
 type = ChangeState
 trigger2 = AnimTime = 0
@@ -5054,14 +5062,6 @@ Fall.recovertime = 30
 ;guard.hittime = 15
 ;Fall = 1
 ;Fall.recovertime = 40
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 625
 
 [State 200, End]
 type = Destroyself

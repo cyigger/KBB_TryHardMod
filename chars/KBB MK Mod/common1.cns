@@ -422,7 +422,7 @@ value = 3
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = AnimElem = 4
+trigger1 = time >= 12
 trigger2 = movehit
 value = 1
 
@@ -484,11 +484,6 @@ ground.cornerpush.veloff = 0
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -5
 
-[State 200, End]		;After 15 frames you can cancel.
-type = CtrlSet
-trigger1 = time >= 15
-value = 1
-
 [State 200, End]
 type = ChangeState
 trigger1 = command != "holdfwd" && time > 13
@@ -497,7 +492,7 @@ ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = movecontact || time > 7
+triggerall = movecontact
 trigger1 = command = "up" && var(3) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
 value = 45
