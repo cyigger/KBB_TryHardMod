@@ -2244,7 +2244,7 @@ ctrl = 0
 anim = 421
 poweradd = 0
 sprpriority = 2
-velset = 12, 0
+velset = 9, 0
 
 [State 0, Swing Sound]
 type = PlaySnd
@@ -4947,7 +4947,7 @@ value = 10
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 1
-y = ifelse(vel y > -3, -3, vel y)
+y = ifelse(vel y > -1, -1, vel y)
 
 [State 0, Swing Sound]
 type = PlaySnd
@@ -4980,7 +4980,7 @@ ctrl = 0
 anim = 626
 poweradd = 0
 sprpriority = 2
-velset = 10.4, 6
+velset = 8.66, 5
 
 [State 0, Swing Sound]
 type = PlaySnd
