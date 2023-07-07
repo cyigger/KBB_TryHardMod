@@ -502,9 +502,9 @@ Envshake.time = 25
 
 [State 0, End]
 type = ChangeState
-trigger1 = AnimTime = 0
+trigger1 = (movehit && AnimElem = 17) || AnimTime = 0
 value = 50
-ctrl = ifelse(movehit,1,0)
+ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; "You've much yet to learn." INITIATION
