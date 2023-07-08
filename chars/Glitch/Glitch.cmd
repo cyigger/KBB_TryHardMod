@@ -881,15 +881,6 @@ Triggerall = statetype = A
 triggerall = numhelper(4200) = 0
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; Down A Aire
-[State -1, A Aire]
-type = ChangeState
-value = 605
-triggerall = command = "holddown"
-triggerall = command = "a"
-Triggerall = statetype = A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
 ; A Aire
 [State -1, A Aire]
 type = ChangeState

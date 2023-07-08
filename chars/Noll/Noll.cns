@@ -5191,6 +5191,22 @@ facing = 1
 sprpriority = 1
 inheritJuggle = 0
 
+[State 200, Special 2 - Rapidslash DP]
+type = ChangeState
+Triggerall = time > 5
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+trigger1 = power >= 1000
+value = 22000
+
+[State 200, SPECIAL 4 - Sleeper Move]
+type = ChangeState
+triggerall = time > 5
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 4"
+Trigger1 = power >= 1000
+value = 24000
+
 [State 200, End]
 type = ChangeState
 triggerall = time > 5

@@ -225,7 +225,7 @@ trans = add
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = [0, 2]
+trigger1 = time = [0, 1]
 x = const(velocity.run.fwd.x) * 1.78
 
 [State 0, Explod]
@@ -253,7 +253,7 @@ ownpal = 0
 type = VarAdd
 trigger1 = Time = 0
 v = 53
-value = 2
+value = 4
 
 [State 200, A]
 type = ChangeState
@@ -300,7 +300,7 @@ ctrl = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 15
+triggerall = time >= 10
 trigger1 = command = "WD"
 value = 30
 ctrl = 0

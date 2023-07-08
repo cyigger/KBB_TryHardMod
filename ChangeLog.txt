@@ -1,5 +1,34 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.4 Changes:                    /
+|---------------------------------------------------/
+
+One small change to try and make the mod more fun for everyone. Metaknight is still getting massively changed.
+
+General:
+1. Wavedash's Cancel into itself can now be done faster (from 15 frames to 10 frames)
+2. Waveedash Distance very slightly nerfed.
+3. Some Animation Tweaks.
+
+Metaknight:
+1. 2a and Wavedash A swapped again.
+2. 5c projectile reworked.
+3. Removed j.2a
+4. j.aa now sends highter.
+
+Korby:
+1. Sareo Copy Ability Implemented.
+
+Sareo:
+1. Wavedash Bug Fixed
+2. Backsway: reduced endlag.
+
+Glitch:
+1. Removed j.2a
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.3 Changes:                    /
 |---------------------------------------------------/
 

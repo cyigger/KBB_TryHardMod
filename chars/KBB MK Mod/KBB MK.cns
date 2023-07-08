@@ -1115,7 +1115,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Low Sweap
+; Low Slide
 [Statedef 290]
 type    = C
 movetype= A
@@ -1168,36 +1168,37 @@ x = const(velocity.run.fwd.x)
 
 [State 0, VelSet Slide Start]
 type = VelSet
-trigger1 = time = 0
+trigger1 = AnimElem = 3
 x = 5.5
 
 [State 200, 1]
 type = HitDef
 getpower = 0
-givepower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
-attr = S, NA
-animtype  = Heavy
-damage    = 35
+attr = C, NA
+animtype  = Medium
+damage    = 15
 hitflag = MAFD
-guardflag = MAF
-pausetime = 8,9
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
-hitsound   = S0,0
-guardsound = S2,0
-ground.type = High
+guardflag = LAF
+pausetime = 8,8
+guard.pausetime = 6,9
+guard.hittime  = 15
+guard.slidetime = 10
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,1
+guardsound = 6,10
+ground.type = Low
 ground.slidetime = 12
-ground.hittime  = 25
-ground.velocity = .85, -5
-air.hittime  = 30
-air.velocity = -.5, -4
-guard.velocity = -2
-fall = 0
-Envshake.time = 5
+ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2,-3
+air.velocity = -2,-2
+fall = ifelse(enemy,movetype = A, 1, 0)
+fall.recover = ifelse(enemy,movetype = A, 0, 1)
+fall.recover = 25 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, Special 1 - Smash Baby]
 type = ChangeState
@@ -1229,7 +1230,7 @@ type = ChangeState
 triggerall = movecontact
 trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 220
+value = 210
 
 [State 200, 5B]
 type = ChangeState
@@ -2300,7 +2301,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 15
+damage    = ifelse(time <= 10, 15, 10)
 hitflag = MAF
 guardflag = MAFD
 pausetime = 4,4
@@ -3406,6 +3407,34 @@ value = 1
 [State 200, 1]
 type = HitDef
 getpower = 0
+givepower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Heavy
+damage    = 30
+hitflag = MAFD
+guardflag = MAF
+pausetime = 8,9
+sparkno = s11000
+guard.sparkno = s13000
+sparkxy = -8,-55
+hitsound   = S0,2
+guardsound = S2,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 25
+ground.velocity = .85, -5
+air.hittime  = 30
+air.velocity = -.5, -4
+guard.velocity = -2
+fall = 0
+Envshake.time = 5
+
+[State 200, 1]
+type = HitDef
+getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
@@ -3504,7 +3533,7 @@ value = 3
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = AnimElem = 3
+trigger1 = AnimElem = 1
 x = 8
 
 [State 0, PosAdd]
@@ -3721,17 +3750,17 @@ y = -1
 [State 0, VelSet]
 type = VelAdd
 trigger1 =  movecontact = 1
-y = -1
+y = -0.44
 
 [State 200, 1]
 type = HitDef
 getpower = 25
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = movecontact != 1
+triggerall = AnimElem = 4 || AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10 || AnimElem = 11
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 10
+damage    = 5
 hitflag = MAF
 guardflag = HAF
 pausetime = 2,2
@@ -3739,7 +3768,7 @@ guard.pausetime = 2,2
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-30
-hitsound   = S0,3
+hitsound   = S0,2
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
@@ -4568,150 +4597,6 @@ value = 50
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Up A - Air
-[Statedef 618]
-type    = A
-movetype= A
-physics = A
-juggle  = 2
-ctrl = 0
-anim = 605
-poweradd = 0
-sprpriority = 2
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 10
-persistent = 0
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 5
-
-[State 0, PowerAdd]
-type = PowerAdd
-triggerall = numhelper(51000) = 0
-trigger1 = movecontact = 1
-value = 100
-
-[State 0, Voice - 0]
-type = PlaySnd
-triggerall = random < 600
-trigger1 = AnimElem = 2
-value = S6,2 + (random<500)*1
-volumescale = 200
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = AnimElem = 2
-value = S200,1
-volumescale = 50
-
-;[State 0, VelAdd]	;The Swing gives extra momentum forward.
-;type = VelAdd
-;trigger1 = time = 0
-;y = -2
-
-[State 0, VelSet]
-type = VelSet
-trigger1 =  movecontact = 1 && (command != "holddown" || moveguarded)
-y = -2
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact
-trigger1 = 1
-attr = S, NA
-animtype  = Up
-damage    = 10
-hitflag = MAF
-guardflag = HAF
-pausetime = 8,8
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-30
-hitsound   = S0,0
-guardsound = S2,0
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 25
-ground.velocity = -1,-5.5
-air.velocity = -1,-5
-air.hittime  = 40
-fall.recovertime = 40
-Fall = 0
-Envshake.time = 8
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "up" && var(3) < const(movement.airjump.num)
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
-value = 45
-ctrl = 1
-
-[State -1, SPECIAL 2 - DP]
-type = ChangeState
-triggerall = movecontact
-triggerall = power >= 1000
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 2"
-value = 22000
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "a"
-value = 600
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-triggerall = prevstateno != 618
-trigger1 = command = "b" && command = "holdup"
-value = 618
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "b" && command = "holddown"
-value = 615
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 610
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "c" && var(12) < const(movement.airjump.num)
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 620
-ctrl = 1
-
-[State 0, End]
-type = ChangeState
-trigger1 = pos y >= 0
-value = 50
-
-[State 0, End]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 50
-ctrl = 1
-
-;-------------------------------------------------------------------------------
 ; C - Air
 [Statedef 620]
 type    = A
@@ -5036,7 +4921,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = 15
+damage    = ifelse(time <= 10, 15, 10)
 hitflag = MAF
 guardflag = MAFD
 pausetime = 4,4
