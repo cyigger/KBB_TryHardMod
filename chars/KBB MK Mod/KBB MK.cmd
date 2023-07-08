@@ -955,8 +955,8 @@ triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;--------------------------------------------------------------------------
-; A Aire
-[State -1, A Aire]
+; B Aire
+[State -1, B Aire]
 type = ChangeState
 value = 600
 triggerall = command = "b"
@@ -972,18 +972,18 @@ trigger1 = ctrl
 ;Triggerall = statetype = A
 ;trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; Down + B Aire
-[State -1, Down + B]
-type = ChangeState
-value = 615
-triggerall = command = "holddown"
-triggerall = command = "a"
-triggerall = prevstateno != 40 || time >= 5
-Triggerall = statetype = A
-trigger1 = ctrl
+; Down + A Aire
+;[State -1, Down + A]
+;type = ChangeState
+;value = 615
+;triggerall = command = "holddown"
+;triggerall = command = "a"
+;triggerall = prevstateno != 40 || time >= 5
+;Triggerall = statetype = A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; B Aire
-[State -1, B Aire]
+; A Aire
+[State -1, A Aire]
 type = ChangeState
 value = 610
 triggerall = command = "a"
