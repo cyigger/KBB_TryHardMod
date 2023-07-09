@@ -5256,7 +5256,7 @@ value = palno
 
 [State 0, VarSet]
 type = VarSet
-trigger1 = var(52) > 6
+trigger1 = var(52) > 7
 v = 52    ;fv = 10
 value = 1
 
@@ -5264,7 +5264,7 @@ value = 1
 type = VarSet
 trigger1 = var(52) < 1
 v = 52    ;fv = 10
-value = 6
+value = 7
 ;-------------------------------------------------------
 
 [State 0, StopSnd]

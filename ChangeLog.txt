@@ -8,7 +8,7 @@ One small change to try and make the mod more fun for everyone. Metaknight is st
 General:
 1. Wavedash's Cancel into itself can now be done faster (from 15 frames to 10 frames)
 2. Waveedash Distance very slightly nerfed.
-3. Some Animation Tweaks.
+3. Wavedash Macro Added as Down + Dash Macro. If you are struggling to do the input, you may use this.
 
 Metaknight:
 1. 2a and Wavedash A swapped again.
@@ -25,6 +25,10 @@ Sareo:
 
 Glitch:
 1. Removed j.2a
+
+Yoru:
+1. Wavedash A Replaced Again: I hope that this version feels more natural. It is now like a weak but faster version of Wavedash B, or an otg version of 5aa. Slower but more range than the previous wavedash A.
+2. Wavedash B: Startup Increased (+2)
 
 
 ===================================================================================================================================

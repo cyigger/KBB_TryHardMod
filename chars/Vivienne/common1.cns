@@ -255,6 +255,33 @@ trigger1 = Time = 0
 v = 53
 value = 4
 
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5
+trigger1 = command = "holdup"
+value = 60
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 10
+trigger1 = command = "WD"
+value = 30
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5
+trigger1 = command = "FF"
+value = 100
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5
+trigger1 = command = "back"
+value = 105
+
 [State 200, A]
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
@@ -283,33 +310,6 @@ triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "y"
 value = 3001
 ctrl = 0
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 5
-trigger1 = command = "holdup"
-value = 60
-ctrl = 0
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 5
-trigger1 = command = "FF"
-value = 100
-ctrl = 1
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "WD"
-value = 30
-ctrl = 0
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 5
-trigger1 = command = "back"
-value = 105
 
 [State 200, End]
 type = ChangeState

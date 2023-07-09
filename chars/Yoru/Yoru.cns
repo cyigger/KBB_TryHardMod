@@ -1203,10 +1203,10 @@ value = 100
 
 [State 0, Explod]
 type = Explod
-trigger1 = AnimElem = 3
-anim = 20007
-ID = 20007
-pos = 0,0
+trigger1 = AnimElem = 2
+anim = 20002
+ID = 20002
+pos = 0,-25
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
@@ -1216,7 +1216,7 @@ accel = 0,0
 random = 0,0
 removetime = -2
 pausemovetime = 0
-scale = 0.9,0.9
+scale = 0.8,1
 sprpriority = 3
 ontop = 0
 shadow = 0,0,0
@@ -1271,11 +1271,11 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 30
+damage    = 25
 hitflag = MADF
-guardflag = MA
-pausetime = 10,15
-guard.pausetime = 10,14
+guardflag = MAF
+pausetime = 10,10
+guard.pausetime = 10,10
 guard.hittime = 20
 sparkno = 0
 guard.sparkno = 13000
@@ -1326,18 +1326,6 @@ Triggerall = Power >= 2000
 Triggerall = var(17) < 1
 trigger1 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 25000
-
-[State 200, JumpCancel]
-type = ChangeState
-triggerall = movehit
-trigger1 = command = "holdup"
-value = 40
-
-[State 200, Hop Cancel]
-type = ChangeState
-triggerall = movehit
-trigger1 = command = "hyperhop"
-value = 60
 
 [State 200, End]
 type = ChangeState
@@ -2639,7 +2627,7 @@ y = 0
 
 [State 0, VarSet on Release]
 type = VarSet
-triggerall = time >= 7
+triggerall = time >= 9
 trigger1 = command != "hold_b"
 trigger2 = time >= 60
 v = 12
@@ -2647,21 +2635,21 @@ value = time - 9
 
 [State 0, Release]
 type = ChangeState
-triggerall = time >= 7
+triggerall = time >= 9
 trigger1 = command != "hold_b"
 trigger2 = time >= 60
 value = 391
 
 [State 0, Dash]
 type = ChangeState
-triggerall = time >= 4
+triggerall = time >= 5
 trigger1 = command = "FF"
 value = 100
 ctrl = 1
 
 [State 0, Dash]
 type = ChangeState
-triggerall = time >= 7
+triggerall = time >= 9
 trigger1 = command = "BB"
 value = 105
 ctrl = 1
@@ -2774,10 +2762,10 @@ triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 35 + 80 * var(12) / (60 - 7)
+damage    = 35 + 80 * var(12) / (60 - 9)
 hitflag = MAF
 guardflag = MA
-pausetime = 14 + floor(20.1 * var(12) / (60 - 7)),14 + floor(20.1 * var(12) / (60 - 7))
+pausetime = 14 + floor(20.1 * var(12) / (60 - 9)),14 + floor(20.1 * var(12) / (60 - 9))
 guard.pausetime = 12,12
 guard.hittime = 20
 guard.slidetime = 20
@@ -2792,7 +2780,7 @@ ground.hittime  = 15
 ground.velocity = -3,-6
 air.velocity = -3,-5
 guard.velocity = -8
-Envshake.time = 20  + floor(10.1 * var(12) / (60 - 7))
+Envshake.time = 20  + floor(10.1 * var(12) / (60 - 9))
 Fall = 1
 Fall.recovertime = 40
 guard.cornerpush.veloff = -5
@@ -2807,10 +2795,10 @@ triggerall = enemy,movetype = A
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 75 + 80 * var(12) / (60 - 7)
+damage    = 75 + 80 * var(12) / (60 - 9)
 hitflag = MAF
 guardflag = MA
-pausetime = 30 + floor(20.1 * var(12) / (60 - 7)),30 + floor(20.1 * var(12) / (60 - 7))
+pausetime = 30 + floor(20.1 * var(12) / (60 - 9)),30 + floor(20.1 * var(12) / (60 - 9))
 guard.pausetime = 12,12
 guard.hittime = 20
 guard.slidetime = 20
@@ -2825,7 +2813,7 @@ ground.hittime  = 15 + 7
 ground.velocity = -3,-10
 air.velocity = -3,-8
 guard.velocity = -8
-Envshake.time = 20  + floor(10.1 * var(12) / (60 - 7))
+Envshake.time = 20  + floor(10.1 * var(12) / (60 - 9))
 Fall = 1
 Fall.recovertime = 40 + 60
 guard.cornerpush.veloff = -5

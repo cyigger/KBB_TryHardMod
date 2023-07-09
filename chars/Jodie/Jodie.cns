@@ -1219,7 +1219,7 @@ hitflag = MAF
 guardflag = MAF
 pausetime = 5,5
 ground.hittime  = 24 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 5,13
+guard.pausetime = 5,17
 
 sparkno = 0
 guard.sparkno = 13000
@@ -1497,7 +1497,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 8
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -1566,7 +1566,7 @@ hitflag = MAF
 guardflag = MAF
 pausetime = 12,16
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 12,22
+guard.pausetime = 12,26
 guard.hittime  = 25
 sparkno = 2
 guard.sparkno = 13000
@@ -1694,7 +1694,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 8
 
 [State 0, PowerAdd]
 type = PowerAdd
@@ -2419,21 +2419,21 @@ ctrl = 1
 
 [State 200, Dashback]
 type = ChangeState
-triggerall = time = [22,36]
+triggerall = time = [26,36]
 trigger1 = command = "back"
 trigger2 = command = "holdback"
 value = 105
 ctrl = 0
 [State 200, SPRINT]
 type = ChangeState
-triggerall = time = [22,36]
+triggerall = time = [26,36]
 trigger1 = command = "fwd"
 trigger2 = command = "holdfwd"
 value = 100
 ctrl = 1
 [State 200, Jump]
 type = ChangeState
-triggerall = time = [8,36]
+triggerall = time = [12,36]
 trigger1 = command = "up"
 trigger2 = command = "holdup"
 value = 630
@@ -2447,7 +2447,7 @@ value = 30
 
 [State 200, Down+C Stance Into Sword]
 type = ChangeState
-triggerall = time = [8,36]
+triggerall = time = [12,36]
 triggerall = numhelper(3500) = 0
 triggerall = numhelper(2860) = 0
 triggerall = numhelper(23420) = 0
@@ -2458,7 +2458,7 @@ ctrl = 0
 
 [State 200, AA]
 type = ChangeState
-triggerall = time = [8,36]
+triggerall = time = [12,36]
 trigger1 = command = "a"
 trigger2 = command = "hold_a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -2466,7 +2466,7 @@ value = 320
 ctrl = 0
 [State 200, B]
 type = ChangeState
-triggerall = time = [8,36]
+triggerall = time = [12,36]
 triggerall = command = "holddown"
 trigger1 = command = "b"
 trigger2 = command = "hold_b"
@@ -2474,7 +2474,7 @@ value = 330
 ctrl = 0
 [State 200, B]
 type = ChangeState
-triggerall = time = [8,36]
+triggerall = time = [12,36]
 trigger1 = command = "b"
 trigger2 = command = "hold_b"
 value = 401
@@ -2482,7 +2482,7 @@ ctrl = 0
 
 [State 200, C]
 type = ChangeState
-triggerall = time = [8,36]
+triggerall = time = [12,36]
 triggerall = power >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
@@ -4423,7 +4423,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 2
+value = 3
 
 [State 0, VelSet]
 type = VelSet
@@ -4598,7 +4598,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 3
+value = 5
 
 [State 0, VelSet]
 type = VelSet
