@@ -267,19 +267,19 @@ ctrl = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 5 || command != "z"
-trigger1 = command = "FF"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 100
-ctrl = 1
-
-[State 200, End]
-type = ChangeState
 triggerall = time >= 10
 trigger1 = command = "WD"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 30
 ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5 || command != "z"
+trigger1 = command = "FF"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 100
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -322,7 +322,7 @@ value = 490
 
 [State 200, End]
 type = ChangeState
-trigger1 = time = 20
+trigger1 = AnimTime = 0
 value = 11
 ctrl = 1
 

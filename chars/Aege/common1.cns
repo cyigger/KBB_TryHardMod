@@ -282,17 +282,17 @@ ctrl = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 5 || command != "z"
-trigger1 = command = "FF"
-value = 100
-ctrl = 1
-
-[State 200, End]
-type = ChangeState
 triggerall = time >= 10
 trigger1 = command = "WD"
 value = 30
 ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5 || command != "z"
+trigger1 = command = "FF"
+value = 100
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -328,7 +328,7 @@ value = 590
 
 [State 200, End]
 type = ChangeState
-trigger1 = time = 20
+trigger1 = AnimTime = 0
 value = 11
 ctrl = 1
 

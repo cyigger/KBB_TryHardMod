@@ -152,7 +152,8 @@ time = 1
 [Command]
 name = "FF"
 command = z
-time = 3
+time = 1
+buffer.time = 1
 
 [Command]
 name = "BB"
@@ -163,6 +164,12 @@ time = 1
 name = "WD"
 command = ~F, D, DF
 time = 20
+
+[Command]
+name = "WD"
+command = /$D, z
+time = 1
+buffer.time = 1
 
 [Command]
 name = "NotWD"

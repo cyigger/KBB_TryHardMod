@@ -1052,6 +1052,7 @@ value = 240
 [state -1, B AI]
 Type = Changestate
 Triggerall=var(59)>0 ; Use this only if the AI is ON
+Triggerall= Statetype = S
 Triggerall = numhelper(9999) = 0
 Triggerall =abs(P2Bodydist X)>80 ; use this move only when the opponent is close enough. Moves usually don't hit the entire screen, so specifying the distance this way is necessary
 Triggerall=random<var(50)*1.1
@@ -1086,6 +1087,7 @@ Triggerall= Statetype = A ; Game rules still apply to the AI
 Triggerall=abs(P2Bodydist X)<40 ; use this move only when the opponent is close enough. Moves usually don't hit the entire screen, so specifying the distance this way is necessary
 Triggerall=P2StateType=A; use it only if the opponent is standing. This way, we don't need to worry about the y position of the opponent, and we won't use it when the opponent is on the ground or is falling. Using other triggers in other cases like P2dist Y, enemynear,pos Y, P2Stateype!=L,!enemynear,hitfall, etc... might be necessary.
 Triggerall=random<var(50)*1.1
+Triggerall = Statetype = A
 Trigger1 = ctrl
 value = 600
 
@@ -1096,6 +1098,7 @@ Triggerall = numhelper(9999) = 0
 Triggerall =abs(P2Bodydist X)>80 ; use this move only when the opponent is close enough. Moves usually don't hit the entire screen, so specifying the distance this way is necessary
 Triggerall=random<var(50)*1.3
 Triggerall=P2StateType=A; use it only if the opponent is standing. This way, we don't need to worry about the y position of the opponent, and we won't use it when the opponent is on the ground or is falling. Using other triggers in other cases like P2dist Y, enemynear,pos Y, P2Stateype!=L,!enemynear,hitfall, etc... might be necessary.
+Triggerall = Statetype = A
 Trigger1 = ctrl
 value = 610
 
@@ -1105,6 +1108,7 @@ Triggerall=var(59)>0 ; Use this only if the AI is ON
 Triggerall =abs(P2Bodydist X)>80 ; use this move only when the opponent is close enough. Moves usually don't hit the entire screen, so specifying the distance this way is necessary
 Triggerall=random<var(50)*1.1
 Triggerall=P2StateType=A; use it only if the opponent is standing. This way, we don't need to worry about the y position of the opponent, and we won't use it when the opponent is on the ground or is falling. Using other triggers in other cases like P2dist Y, enemynear,pos Y, P2Stateype!=L,!enemynear,hitfall, etc... might be necessary.
+Triggerall = Statetype = A
 Trigger1 = ctrl
 value = 65
 

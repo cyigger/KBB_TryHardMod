@@ -202,9 +202,36 @@ ownpal = 0
 
 [State 200, End]
 type = ChangeState
+triggerall = time >= 5
+trigger1 = command = "holdup"
+value = 60
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 10
+trigger1 = command = "WD"
+value = 30
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5
+trigger1 = command = "FF"
+value = 100
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5
+trigger1 = command = "back"
+value = 105
+
+[State 200, End]
+type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "a"
-value = 291
+value = 290
 ctrl = 0
 
 [State 200, End]
@@ -239,34 +266,7 @@ ctrl = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 5
-trigger1 = command = "holdup"
-value = 60
-ctrl = 0
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 5
-trigger1 = command = "FF"
-value = 100
-ctrl = 1
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "WD"
-value = 30
-ctrl = 0
-
-[State 200, End]
-type = ChangeState
-triggerall = time >= 5
-trigger1 = command = "back"
-value = 105
-
-[State 200, End]
-type = ChangeState
-trigger1 = time = 20
+trigger1 = AnimTime = 0
 value = 11
 ctrl = 1
 
