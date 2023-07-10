@@ -226,7 +226,7 @@ trans = add
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.78
+x = const(velocity.run.fwd.x) * 1.72
 
 [State 0, Explod]
 type = Explod

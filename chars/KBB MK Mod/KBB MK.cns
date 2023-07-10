@@ -588,6 +588,13 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 2"
 value = 22000
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
+
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
@@ -2360,7 +2367,7 @@ movetype= A
 physics = N
 juggle  = 0
 ctrl = 0
-anim = 490
+anim = 440
 poweradd = -200
 sprpriority = 2
 
@@ -2478,7 +2485,7 @@ trigger1 = Time = 20
 ;-------------------------------------------------------------------------------
  [Statedef 490]
 type    = S
-movetype= I
+movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
@@ -2506,7 +2513,12 @@ movetime = 10
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = AnimElem = 5
-x = 80
+x = -60
+
+[State 0, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 6
+x = 15
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -2520,80 +2532,10 @@ trigger1 = AnimElem = 4
 value = S200,0
 volumescale = 100
 
-;[State 200, End]
-;type = ChangeState
-;triggerall = AnimElem = 6
-;trigger1 = command = "hold_c"
-;value = 491
-
-[State 200, End]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
-
-; Wavedash C Attack
-;-------------------------------------------------------------------------------
- [Statedef 491]
-type    = S
-movetype= A
-physics = S
-juggle  = 1
-ctrl = 0
-anim = 491
-poweradd = 0
-sprpriority = 2
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 5
-persistent = 0
-
-[State 0, FatalCounter]
-type = MapSet
-trigger1 = 1
-map = "fatal"
-value = 1
-ignorehitpause = 1
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 5
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = time = 0
-value = F65,0
-volumescale = 500
-
-[State 0, Turn]
-type = Turn
-triggerall = p2dist x < 0
-trigger1 = time > 2
-
-[State 0, Pause]
-type = Pause
-trigger1 = prevstateno = 24500
-time = 10
-movetime = 10
-
-[State 0, Swing Sound]
-type = PlaySnd
-trigger1 = AnimElem = 1
-value = S200,0
-volumescale = 120
-
 [State SWING 1 HITDEF]
 type = HitDef
 getpower = 0
 givepower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 triggerall = enemy,movetype != A
 trigger1 = 1
@@ -2611,9 +2553,9 @@ guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 20
-ground.velocity = -2
+ground.velocity = -2, -3
 air.hittime  = 20
-air.velocity = -2,-4
+air.velocity = -2,-3
 guard.hittime = 10
 Fall.recovertime = 25
 Envshake.time = 10
@@ -2622,7 +2564,6 @@ Envshake.time = 10
 type = HitDef
 getpower = 0
 givepower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 triggerall = enemy,movetype = A
 trigger1 = 1
@@ -2678,6 +2619,35 @@ triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 2"
 value = 22000
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 220
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 320
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 420
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 400
 
 [State 200, End]
 type = ChangeState
@@ -3531,10 +3501,16 @@ ignorehitpause = 1
 persistent = 0
 value = 3
 
+[State 0, Voice - 0]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S6,4
+volumescale = ifelse(prevstateno = 30, 250, 150)
+
 [State 0, VelSet]
 type = VelSet
-trigger1 = AnimElem = 1
-x = 8
+trigger1 = AnimElem = 2
+x = ifelse(prevstateno = 30, 12, 9)
 
 [State 0, PosAdd]
 type = PosAdd
@@ -3584,9 +3560,8 @@ guard.slidetime = 12
 guard.velocity = -5
 Fall.recovertime = 15
 Envshake.time = 10
-
-guard.cornerpush.veloff = -28
-airguard.cornerpush.veloff = -28
+guard.cornerpush.veloff = -16
+airguard.cornerpush.veloff = -16
 
 [State SWING HITDEF]
 type = HitDef

@@ -16,6 +16,8 @@ Metaknight:
 2. 5c projectile reworked.
 3. Removed j.2a
 4. j.aa now sends highter.
+5. Wavedash B Reworked
+6. Wavedash C Reworked
 
 Korby:
 1. Sareo Copy Ability Implemented.
@@ -30,6 +32,9 @@ Glitch:
 Yoru:
 1. Wavedash A Replaced Again: I hope that this version feels more natural. It is now like a weak but faster version of Wavedash B, or an otg version of 5aa. Slower but more range than the previous wavedash A.
 2. Wavedash B: Startup Increased (+2)
+
+Vivienne:
+1. Wavedash Speed Decreased Slightly
 
 
 ===================================================================================================================================
