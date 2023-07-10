@@ -261,7 +261,7 @@ value = 590
 
 [State 200, End]
 type = ChangeState
-trigger1 = time = 20
+trigger1 = AnimTime = 0
 value = ifelse(pos y < -1, 50, 0)
 ctrl = 1
 

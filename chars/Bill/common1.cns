@@ -260,8 +260,8 @@ ctrl = 0
 
 [State 200, End]
 type = ChangeState
-trigger1 = time = 20
-value = 11
+trigger1 = AnimTime = 0
+value = 0
 ctrl = 1
 
 ;---------------------------------------------------------------------------

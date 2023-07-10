@@ -322,7 +322,7 @@ value = 490
 
 [State 200, End]
 type = ChangeState
-trigger1 = time = 20
+trigger1 = AnimTime = 0
 value = 11
 ctrl = 1
 
