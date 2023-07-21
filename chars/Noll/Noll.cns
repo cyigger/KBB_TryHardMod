@@ -6396,252 +6396,252 @@ ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; J.2C
-[Statedef 630]
-type    = A
-movetype= A
-physics = A
-juggle  = 0
-anim = 490
-sprpriority = 1
-ctrl = 0
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 10
-persistent = 0
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 8
-
-[State 0, PowerAdd]
-type = PowerAdd
-triggerall = prevstateno != 23000
-trigger1 = AnimElem = 3
-value = -250
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = AnimElem = 3
-x = vel x * 0.25
-y = vel y * 0.25
-
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = AnimElem = 1
-id = 23500
-
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = numhelper(631) = 0
-trigger1 = AnimElem = 1
-value = S7,3
-volumescale = 999
-channel = 1
-
-[State 0, PlaySnd]
-type = PlaySnd
-triggerall = numhelper(631) = 0
-trigger1 = AnimElem = 1
-value = S7,3
-volumescale = 999
-channel = 1
-
-[State 0, AURA EFFECT]
-type = Explod
-trigger1 = Animelem = 1
-anim = 1007
-pos = 0,-8
-postype = p1  ;p2,front,back,left,right
-scale = 0.35,0.35
-sprpriority = 2
-
-[State 0, Remove AURA]
-type = RemoveExplod
-trigger1 = time = 100
-
-[State 0, Spiral]
-type = PlaySnd
-trigger1 = animelem = 2
-value = S450,0
-volumescale = 200
-[State 0, Helper]
-type = Helper
-trigger1 = Animelem = 3 && numhelper(631) = 0
-helpertype = normal
-name = "HELPER"
-ID = 631
-stateno = 631
-pos = 35,-15
-postype = p1
-size.xscale = 1.1
-size.yscale = 1.1
-facing = -1
-sprpriority = 5
-inheritJuggle = 1
-
-[State 0, Spam Deny]
-type = Helper
-trigger1 = Animelem = 3 && numhelper(632) = 0
-helpertype = normal
-name = "HELPER"
-ID = 632
-stateno = 632
-facing = -1
-sprpriority = 5
-inheritJuggle = 0
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0 
-value = 45
-ctrl = 1
-
-[State 200, End]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 50
-ctrl = 1
+;[Statedef 630]
+;type    = A
+;movetype= A
+;physics = A
+;juggle  = 0
+;anim = 490
+;sprpriority = 1
+;ctrl = 0
+;
+;[State 0, Juggle Map]
+;type = MapAdd
+;trigger1 = movehit && enemy,gethitvar(fall)
+;map = "juggle"
+;value = 10
+;persistent = 0
+;
+;[State 0, Damage Proration]
+;type = VarAdd
+;trigger1 = movehit
+;v = 11
+;ignorehitpause = 1
+;persistent = 0
+;value = 8
+;
+;[State 0, PowerAdd]
+;type = PowerAdd
+;triggerall = prevstateno != 23000
+;trigger1 = AnimElem = 3
+;value = -250
+;
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = AnimElem = 3
+;x = vel x * 0.25
+;y = vel y * 0.25
+;
+;[State 0, RemoveExplod]
+;type = RemoveExplod
+;trigger1 = AnimElem = 1
+;id = 23500
+;
+;[State 0, PlaySnd]
+;type = PlaySnd
+;triggerall = numhelper(631) = 0
+;trigger1 = AnimElem = 1
+;value = S7,3
+;volumescale = 999
+;channel = 1
+;
+;[State 0, PlaySnd]
+;type = PlaySnd
+;triggerall = numhelper(631) = 0
+;trigger1 = AnimElem = 1
+;value = S7,3
+;volumescale = 999
+;channel = 1
+;
+;[State 0, AURA EFFECT]
+;type = Explod
+;trigger1 = Animelem = 1
+;anim = 1007
+;pos = 0,-8
+;postype = p1  ;p2,front,back,left,right
+;scale = 0.35,0.35
+;sprpriority = 2
+;
+;[State 0, Remove AURA]
+;type = RemoveExplod
+;trigger1 = time = 100
+;
+;[State 0, Spiral]
+;type = PlaySnd
+;trigger1 = animelem = 2
+;value = S450,0
+;volumescale = 200
+;[State 0, Helper]
+;type = Helper
+;trigger1 = Animelem = 3 && numhelper(631) = 0
+;helpertype = normal
+;name = "HELPER"
+;ID = 631
+;stateno = 631
+;pos = 35,-15
+;postype = p1
+;size.xscale = 1.1
+;size.yscale = 1.1
+;facing = -1
+;sprpriority = 5
+;inheritJuggle = 1
+;
+;[State 0, Spam Deny]
+;type = Helper
+;trigger1 = Animelem = 3 && numhelper(632) = 0
+;helpertype = normal
+;name = "HELPER"
+;ID = 632
+;stateno = 632
+;facing = -1
+;sprpriority = 5
+;inheritJuggle = 0
+;
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0 
+;value = 45
+;ctrl = 1
+;
+;[State 200, End]
+;type = ChangeState
+;trigger1 = AnimTime = 0
+;value = 50
+;ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; J.2C Helper
-[Statedef 631]
-type    = A
-movetype= A
-physics = N
-juggle  = 0
-anim = 491
-sprpriority = 3
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 10
-persistent = 0
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 8
-
-
-[State 0, Helper Guarded]
-type = RootMapSet
-trigger1 = 1 
-map = "helperGuarded"
-value = moveguarded
-;ignorehitpause = 
-;persistent = 
-
-[State 0, Helper Hit]
-type = RootMapSet
-trigger1 = 1 
-map = "helperHit"
-value = movehit
-;ignorehitpause = 
-;persistent = 
-
-[State 0, Busterable]
-type = ParentMapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
-
-[State 0, Guard Count Reset]
-type = MapSet
-trigger1 = time = 0
-map = "guardCount"
-value = 0
-
-
-[State 0, Guard Count Add]
-type = MapAdd
-trigger1 = moveguarded = 1
-map = "guardCount"
-value = 1
-
-[State 0, ScreenBound]
-type = ScreenBound
-trigger1 = 1
-value = 1
-movecamera = 0,0
-
-[State 1010, Helper Attack Scale]
-type = AttackMulSet
-trigger1 = 1
-value = 1 * 0.99**root,var(11)
-ignorehitpause = 1
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = !moveguarded
-triggerall = hitcount < 8
-trigger1 = movecontact
-time = 1
-id = -1
-pos = 0,10
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = time = 0
-x = -root,vel x - 4
-y = root,vel y * 1
-
-[State 0, VelAdd]
-type = VelSet
-trigger1 = time > 0
-x = vel x * 0.95
-y = vel y * 0.95
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = pos y > -5
-y = 0
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = AnimElem = 1 || AnimElem = 2 || AnimElem = 3 || AnimElem = 4
-trigger1 = 1
-attr = S, SP0
-animtype  = Medium
-damage    = 4
-hitflag = MAFD
-guardflag = MA
-pausetime = 5,6
-sparkno = s1002
-guard.sparkno = 13000
-guard.kill = 0
-sparkxy = -8,-25
-hitsound   = S4,1
-guardsound = 6,0
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-ground.velocity = 0, -1
-air.hittime = 60
-air.velocity = 0,-1
-fall = 1
-fall.recovertime = 70
-Envshake.time = 10
-
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = hitcount = 5 || map(guardCount) >= 3
-trigger2 = time >= 30
-value = 452
-ctrl = 0
+;[Statedef 631]
+;type    = A
+;movetype= A
+;physics = N
+;juggle  = 0
+;anim = 491
+;sprpriority = 3
+;
+;[State 0, Juggle Map]
+;type = MapAdd
+;trigger1 = movehit && enemy,gethitvar(fall)
+;map = "juggle"
+;value = 10
+;persistent = 0
+;
+;[State 0, Damage Proration]
+;type = VarAdd
+;trigger1 = movehit
+;v = 11
+;ignorehitpause = 1
+;persistent = 0
+;value = 8
+;
+;
+;[State 0, Helper Guarded]
+;type = RootMapSet
+;trigger1 = 1 
+;map = "helperGuarded"
+;value = moveguarded
+;;ignorehitpause = 
+;;persistent = 
+;
+;[State 0, Helper Hit]
+;type = RootMapSet
+;trigger1 = 1 
+;map = "helperHit"
+;value = movehit
+;;ignorehitpause = 
+;;persistent = 
+;
+;[State 0, Busterable]
+;type = ParentMapSet
+;trigger1 = 1
+;map = "busterable"
+;value = 1
+;ignorehitpause = 1
+;
+;[State 0, Guard Count Reset]
+;type = MapSet
+;trigger1 = time = 0
+;map = "guardCount"
+;value = 0
+;
+;
+;[State 0, Guard Count Add]
+;type = MapAdd
+;trigger1 = moveguarded = 1
+;map = "guardCount"
+;value = 1
+;
+;[State 0, ScreenBound]
+;type = ScreenBound
+;trigger1 = 1
+;value = 1
+;movecamera = 0,0
+;
+;[State 1010, Helper Attack Scale]
+;type = AttackMulSet
+;trigger1 = 1
+;value = 1 * 0.99**root,var(11)
+;ignorehitpause = 1
+;
+;[State 0, TargetBind]
+;type = TargetBind
+;triggerall = !moveguarded
+;triggerall = hitcount < 8
+;trigger1 = movecontact
+;time = 1
+;id = -1
+;pos = 0,10
+;
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = time = 0
+;x = -root,vel x - 4
+;y = root,vel y * 1
+;
+;[State 0, VelAdd]
+;type = VelSet
+;trigger1 = time > 0
+;x = vel x * 0.95
+;y = vel y * 0.95
+;
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = pos y > -5
+;y = 0
+;
+;[State 200, 1]
+;type = HitDef
+;getpower = 0
+;triggerall = AnimElem = 1 || AnimElem = 2 || AnimElem = 3 || AnimElem = 4
+;trigger1 = 1
+;attr = S, SP0
+;animtype  = Medium
+;damage    = 4
+;hitflag = MAFD
+;guardflag = MA
+;pausetime = 5,6
+;sparkno = s1002
+;guard.sparkno = 13000
+;guard.kill = 0
+;sparkxy = -8,-25
+;hitsound   = S4,1
+;guardsound = 6,0
+;ground.type = High
+;ground.slidetime = 12
+;ground.hittime  = 15
+;ground.velocity = 0, -1
+;air.hittime = 60
+;air.velocity = 0,-1
+;fall = 1
+;fall.recovertime = 70
+;Envshake.time = 10
+;
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = hitcount = 5 || map(guardCount) >= 3
+;trigger2 = time >= 30
+;value = 452
+;ctrl = 0
 
 ;-------------------------------------------------------------------------------
 ; j.2C Spam Deny
