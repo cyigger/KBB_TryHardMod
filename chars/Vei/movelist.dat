@@ -1,0 +1,36 @@
+<#f0f000>:UNIQUE NORMALS:</>
+_AIR_D^B
+
+<#f0f000>:EX ATTACKS!:</>
+
+Glitch Bomb (1/4 Bar)								^C
+	"Glitch fires a simple energy projectile!
+	Can be charged to send out a slower, 
+	more damaging bomb."
+
+Glitch Bomb Booster (1/4 Bar, _AIR OK)				_D^C
+	"Boosts Glitch vertically on the ground!
+	In the Air he's boosted horizontally!"
+	
+_! Glitch Bomb Booster - (Follow Up)				_D^C
+	"Follows up Aerial 'Glitch Bomb Booster' 
+	on hit with a flip kick slam"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Clone Explosion: Approach (1 Bar)					_D_DF_F^A
+	"Glitch boosts forward with a hefty kick!"
+
+Clone Explosion: Retreat (1 Bar)					_D_DB_B^A
+	"Glitch backs up leaving an explosive clone!"
+
+"Check This Out!": Flip Kick Slam (1/2 Bar)    _AIR_D_DF_F^B
+	"Glitch flip Kicks, teleports, and slams down!"
+
+"Behind You!": Glitch Out (1/2 Bar, _AIR OK)		_D_DB_B^B
+	"Glitch teleports behind the opponent!"
+
+"Say Goodbye To That Ability!" (2 Bars)				_D_DF_F^C
+	"Glitch dashes forward with a grab!
+	If it connects, the opponent loses their 
+	EX Attacks and Star Strikes Temporarily!"

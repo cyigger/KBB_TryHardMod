@@ -226,7 +226,7 @@ Violet, order=4
 blank
 Jay, order=1
 Bill, order=1
-kaby, order = 1
+Vei, order = 1
 
 ;Bosses
 KBB MK, rounds=1, ordersurvival=0, single=1, hidden=2, boss=1, order=5, vsscreen=0, time = -1
