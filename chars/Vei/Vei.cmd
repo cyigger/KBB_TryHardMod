@@ -538,6 +538,16 @@ buffer.time = 1
 ; Don't remove the following line. It's required by the CMD standard.
 [Statedef -1]
 
+;---------------------------------------------------------------------------
+; Soft Fast Fall
+[State -1, Soft Fast Fall]
+type = VelSet
+triggerall = statetype = A
+triggerall = command = "down" && movetype != H
+triggerall = vel y > 0 && vel y < 6
+triggerall = stateno != 900
+trigger1 = 1
+y = 6
 ;===========================================================================
 ;---------------------------------------------------------------------------
 [State -1, AI ON] ; Turn the AI on when
@@ -645,6 +655,15 @@ Triggerall = statetype != A
 Triggerall = power >= 1500
 trigger1 = ctrl
 ;===========================================================================
+
+;---------------------------------------------------------------------------
+; Wavedash
+[State -1, Wavedash]
+type = ChangeState
+value = 30
+trigger1 = command = "WD" && command != "NotWD"
+trigger1 = statetype = C || statetype = S
+trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Run Fwd
 [State -1, Run Fwd]
@@ -675,6 +694,14 @@ trigger1 = ctrl
 
 ;===========================================================================
 ;---------------------------Basics-----------------------------------------
+;---------------------------------------------------------------------------
+;Hyperhop
+[State -1, Hyperhop]
+type = ChangeState
+value = 60
+trigger1 = statetype != A
+trigger1 = command = "hyperhop"
+trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Air Dash - Forward
 [State -1, Air Dash - Forward]

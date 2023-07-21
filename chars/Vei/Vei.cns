@@ -2814,6 +2814,11 @@ trigger1 = Time = 0
 x = 2
 y = -3
 
+[State 0, VelAdd if coming from wavedash]
+type = VelAdd
+trigger1 = prevstateno = 30 && time = 0
+x = 2
+
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1 
