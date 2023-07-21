@@ -178,6 +178,7 @@ type = AfterImage
 triggerall = numhelper(51000) = 0
 trigger1 = time = 0
 time = 5
+paladd = 200, 200, 200
 trans = add
 
 [State 0, VelSet]
