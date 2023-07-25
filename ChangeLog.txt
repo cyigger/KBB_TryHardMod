@@ -1,5 +1,31 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.5 Changes:                    /
+|---------------------------------------------------/
+
+This update is the start of sweeping improvements and replacemets to wavedash moves accross the cast.
+Also, Vei makes his debut to the try-hard mod, though he still lacks unique wavedash moves.
+
+General:
+1. Removed Wavedash Cancel out of Wavedash. Back to trying harder.
+
+Vei:
+Welcome to the Try-Hard Mod
+
+Max:
+1. New Wavedash B: Rolling Gun
+
+Vivienne:
+1. New Wavedash A: Enraged Stance
+
+Metaknight:
+1. 5c and j.5c reworked (buff). Now it is fully controllable
+2. j.6c remapped to j.2c
+3. Airdash Angled Lowered Slightly
+4. j.5b startup decreased slightly (-1 frame)
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.4 Changes:                    /
 |---------------------------------------------------/
 

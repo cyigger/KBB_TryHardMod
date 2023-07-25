@@ -265,13 +265,13 @@ trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 60
 ctrl = 0
 
-[State 200, End]
-type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "WD"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 30
-ctrl = 0
+;[State 200, End]
+;type = ChangeState
+;triggerall = time >= 10
+;trigger1 = command = "WD"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 30
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState

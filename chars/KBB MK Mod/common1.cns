@@ -202,12 +202,12 @@ trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
-[State 200, End]
-type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "WD"
-value = 30
-ctrl = 0
+;[State 200, End]
+;type = ChangeState
+;triggerall = time >= 10
+;trigger1 = command = "WD"
+;value = 30
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState
@@ -442,7 +442,7 @@ x = 5.8
 type = VelSet
 triggerall = time >= 2
 trigger1 = time <= 10
-y = 0.5
+y = 1
 
 [State 0, VelAdd]
 type = VelAdd

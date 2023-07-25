@@ -1507,7 +1507,7 @@ volumescale = 50
 
 [State 0, VelSet Spin Speed]
 type = VelSet
-trigger1 = time = [6, 28]
+trigger1 = time = [6, 23]
 x = 4.5
 y = 0
 
@@ -1520,7 +1520,7 @@ y = 0
 [State 390, Immune to lows]
 type = NotHitBy
 time = 1
-trigger1 = time = [6, 28]
+trigger1 = time = [6, 23]
 value = C, NP, SP, HP
 
 [State 200, 1]
@@ -2606,6 +2606,28 @@ shadow = 0,0,0
 ownpal = 1
 removeongethit = 1
 
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 8
+anim = 491
+ID = 491
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.7,0.7
+sprpriority = 5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = AnimElem = 1
@@ -2616,7 +2638,14 @@ volumescale = 50
 type = VelSet
 trigger1 = Time = 0
 x = 3.75
-y = -4.5
+y = -4.7
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 8
+persistent = 0
+x = -3
+y = -1
 
 [State 0, VelAdd]
 type = VelAdd
