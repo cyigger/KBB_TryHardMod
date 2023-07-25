@@ -209,12 +209,12 @@ trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
-[State 200, End]
-type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "WD"
-value = 30
-ctrl = 0
+;[State 200, End]
+;type = ChangeState
+;triggerall = time >= 10
+;trigger1 = command = "WD" || command != "z"
+;value = 30
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState
@@ -887,7 +887,7 @@ flag = NoAutoTurn
 [State 100, 4]
 type = ChangeState
 triggerall = ailevel = 0
-trigger1 = command != "holdfwd"
+trigger1 = command != "holdfwd" && command != "hold_z"
 value = 0
 
 [State 100, 4]

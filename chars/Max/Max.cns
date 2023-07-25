@@ -2466,6 +2466,179 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
+;Wavedash B
+;-------------------------------------------------------------------------------
+[Statedef 390]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 390
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
+
+[State 0, Voice]
+type = PlaySnd
+triggerall = random < 500
+trigger1 = AnimElem = 1
+value = S250,2+(random<500)*1+(random<500)*1+(random<500)*1+(random<500)*1
+volumescale = 200
+channel = 0
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = F66,0
+volumescale = 500
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 6
+x = 5
+[State 0, VelAdd]
+type = VelSet
+trigger1 = time = [6,15]
+x = 8
+
+[State 0, VelAdd]
+type = VelSet
+trigger1 = time = 16
+x = 3
+
+;[State 0, VarAdd]
+;type = VarAdd
+;trigger1 = Time = 1
+;v = 14   ;fv = 
+;value = 1
+
+[State 200, 1]
+type = HitDef
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+givepower = 0
+getpower = 0
+animtype  = Heavy
+damage    = ifelse(enemy,movetype = A, 60, 30)
+hitflag = MAFD
+guardflag = HAF
+pausetime = ifelse(enemy,movetype = A,30,8),ifelse(enemy,movetype = A,30,12)
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = ifelse(enemy,movetype = A,8,5),ifelse(enemy,movetype = A,0,3)
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -2,15
+air.velocity = -2,20
+air.fall = 1
+Fall = 1
+fall.recovertime = ifelse (var(11) < 95,70,10)
+fall.xvelocity = ifelse (enemy,facing = facing,1.5,-1.5)
+fall.yvelocity = -10
+down.velocity = -1.5,-7.5
+down.bounce = 1
+Envshake.time = 10
+guard.cornerpush.veloff = -20
+airguard.cornerpush.veloff = -20
+ground.cornerpush.veloff = -3
+air.cornerpush.veloff = -3
+
+[State 200, SPECIAL - Standing Gatling]
+type = ChangeState
+triggerall = power >= 1000
+triggerall = movecontact
+triggerall = numhelper(21001) = 0	;standing gatling helper
+triggerall = numhelper(21101) = 0	;air gatling helper
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+value = 21000
+ctrl = 0
+[State 200, SPECIAL - BOMB]
+type = ChangeState
+triggerall = power >= 1000
+triggerall = movecontact
+triggerall = numhelper(22001) = 0	;no bomb helper
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+value = 22000
+ctrl = 0
+[State 200, SPECIAL - yeet!]
+type = ChangeState
+triggerall = power >= 1000
+triggerall = movecontact
+triggerall = numhelper(23001) = 0	;no YEET helper
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+value = 23000
+ctrl = 0
+[State 200, SPECIAL - PROTON CANNON!]
+type = ChangeState
+triggerall = power >= 2000
+triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+value = 25000
+ctrl = 0
+
+[State 200, Stance A - SHOOT]
+type = ChangeState
+;triggerall = movecontact
+triggerall = time >= 28
+triggerall = var(14) < 5
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 222
+
+[State 200, Stance B - OVERHEAD]
+type = ChangeState
+trigger1 = command = "b"
+trigger1 = time >= 28
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 224
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 221
+ctrl = 1
+
+
 ;===============================================================================
 ; C: Cannon Spawn
 ;-------------------------------------------------------------------------------

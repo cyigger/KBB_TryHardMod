@@ -214,12 +214,12 @@ trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
-[State 200, End]
-type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "WD"
-value = 30
-ctrl = 0
+;[State 200, End]
+;type = ChangeState
+;triggerall = time >= 10
+;trigger1 = command = "WD"
+;value = 30
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState

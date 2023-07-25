@@ -1961,7 +1961,7 @@ physics = N
 juggle  = 2
 ctrl = 0
 anim = 620
-poweradd = -200
+poweradd = -250
 sprpriority = 2
 
 [State 0, Juggle Map]
@@ -1994,31 +1994,73 @@ ownpal = 0
 supermovetime = 0
 pausemovetime = 0
 
-[State 0, Moving Forward]
-type = VelAdd
-triggerall = time > 5 && time < 35
-triggerall = vel x < 3
+;[State 0, Moving Forward]
+;type = VelAdd
+;triggerall = time > 5 && time < 35
+;triggerall = vel x < 3
+;trigger1 = command = "holdfwd"
+;x = 0.44
+;
+;[State 0, Speed Cap Forward]
+;type = VelSet
+;triggerall = time > 5 && time < 35
+;trigger1 = vel x > 3
+;x = 3
+;
+;[State 0, Moving Back]
+;type = VelAdd
+;triggerall = time > 5 && time < 35
+;triggerall = vel x > -3
+;trigger1 = command = "holdback"
+;x = -0.44
+;
+;[State 0, Speed Cap Back]
+;type = VelSet
+;triggerall = time > 5 && time < 35
+;trigger1 = vel x < -3
+;x = -3
+
+[State 0, Moving up]
+type = VelSet
+triggerall = time > 5
+trigger1 = command = "holdup"
+y = -2
+
+[State 0, Moving down]
+type = VelSet
+triggerall = time > 5
+trigger1 = command = "holddown"
+y = 2
+
+[State 0, Stop]
+type = VelSet
+triggerall = time > 5
+trigger1 = command != "holdup" && command != "holddown"
+y = 0
+
+[State 0, Moving fwd]
+type = VelSet
+triggerall = time > 5
 trigger1 = command = "holdfwd"
-x = 0.44
+x = 3.5
 
-[State 0, Speed Cap Forward]
+[State 0, Moving back]
 type = VelSet
-triggerall = time > 5 && time < 35
-trigger1 = vel x > 3
-x = 3
-
-[State 0, Moving Back]
-type = VelAdd
-triggerall = time > 5 && time < 35
-triggerall = vel x > -3
+triggerall = time > 5
 trigger1 = command = "holdback"
-x = -0.44
+x = -3.5
 
-[State 0, Speed Cap Back]
+[State 0, Stop]
 type = VelSet
-triggerall = time > 5 && time < 35
-trigger1 = vel x < -3
-x = -3
+triggerall = time > 5
+trigger1 = command != "holdfwd" && command != "holdback"
+x = 0
+
+[State 0, No Land]
+type = PosSet
+;triggerall = !movehit
+trigger1 = pos y >= -0.1
+y = -0.1
 
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
@@ -2029,7 +2071,7 @@ y = 0
 [State 0, VelAdd]		;You gain more VelAdd More or Equal to 5 frames. More Vel per frame after 5 frames of startup.
 type = VelAdd
 trigger1 = time >= 5
-y = ifelse(movecontact, -0.025, -0.05)
+y = ifelse(movecontact, -0.25, -0.5)
 
 [State 0, Voice - 0]
 type = PlaySnd
@@ -3797,7 +3839,7 @@ value = 605
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
+trigger1 = command = "holddown"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4214,7 +4256,7 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
+trigger1 = command = "holddown"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4310,7 +4352,7 @@ animtype  = Up
 damage    = 20
 hitflag = MAF
 guardflag = HAF
-pausetime = 10,10
+pausetime = 8,8
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-30
@@ -4360,7 +4402,7 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
+trigger1 = command = "holddown"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4546,7 +4588,7 @@ value = 600
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
+trigger1 = command = "holddown"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4580,7 +4622,7 @@ physics = N
 juggle  = 2
 ctrl = 0
 anim = 620
-poweradd = -200
+poweradd = -250
 sprpriority = 2
 
 [State 0, Juggle Map]
@@ -4606,37 +4648,79 @@ value = 1
 
 [State 0, TargetBind]
 type = TargetBind
-triggerall = hitcount < 9
+triggerall = hitcount > 1 && hitcount < 9
 trigger1 = movehit
 time = 1
 id = -1
 pos = 25,-10
 
-[State 0, Moving Forward]
-type = VelAdd
+;[State 0, Moving Forward]
+;type = VelAdd
+;triggerall = time > 5
+;triggerall = vel x < 3
+;trigger1 = command = "holdfwd"
+;x = 0.33
+;
+;[State 0, Speed Cap Forward]
+;type = VelSet
+;triggerall = time > 5
+;trigger1 = vel x > 3
+;x = 3
+;
+;[State 0, Moving Back]
+;type = VelAdd
+;triggerall = time > 5
+;triggerall = vel x > -3
+;trigger1 = command = "holdback"
+;x = -0.33
+;
+;[State 0, Speed Cap Back]
+;type = VelSet
+;triggerall = time > 5
+;trigger1 = vel x < -3
+;x = -3
+
+[State 0, Moving up]
+type = VelSet
 triggerall = time > 5
-triggerall = vel x < 3
+trigger1 = command = "holdup"
+y = -2
+
+[State 0, Moving down]
+type = VelSet
+triggerall = time > 5
+trigger1 = command = "holddown"
+y = 2
+
+[State 0, Stop]
+type = VelSet
+triggerall = time > 5
+trigger1 = command != "holdup" && command != "holddown"
+y = 0
+
+[State 0, Moving fwd]
+type = VelSet
+triggerall = time > 5
 trigger1 = command = "holdfwd"
-x = 0.33
+x = 3.5
 
-[State 0, Speed Cap Forward]
+[State 0, Moving back]
 type = VelSet
 triggerall = time > 5
-trigger1 = vel x > 3
-x = 3
-
-[State 0, Moving Back]
-type = VelAdd
-triggerall = time > 5
-triggerall = vel x > -3
 trigger1 = command = "holdback"
-x = -0.33
+x = -3.5
 
-[State 0, Speed Cap Back]
+[State 0, Stop]
 type = VelSet
 triggerall = time > 5
-trigger1 = vel x < -3
-x = -3
+trigger1 = command != "holdfwd" && command != "holdback"
+x = 0
+
+[State 0, No Land]
+type = PosSet
+triggerall = !movehit
+trigger1 = pos y >= -0.1
+y = -0.1
 
 [State 0, VelSet]		;During the first animation frame you have -.5 y velocity (Going down)
 type = VelSet
@@ -4688,9 +4772,9 @@ guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 35
-ground.velocity = 0,-1
+ground.velocity = -1,-2
 air.hittime = 45
-air.velocity = 0,-1
+air.velocity = -1,-2
 guard.slidetime = 8
 guard.hittime = 8
 Fall = 1
@@ -4735,14 +4819,14 @@ movetype = A
 physics = A
 
 [State 0, VelSet]	;Hitting the opponent changes velocity
-type = VelSet
+type = VelAdd
 trigger1 = movehit = 1
 y = -.5
 
 [State 0, VelSet]
-type = VelSet
+type = VelAdd
 trigger1 = movecontact = 1
-x = 2
+x = 1
 
 [State -1, SPECIAL 2 - DP]
 type = ChangeState
@@ -4762,7 +4846,7 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
+trigger1 = command = "holddown"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625

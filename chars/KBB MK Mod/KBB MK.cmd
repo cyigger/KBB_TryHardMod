@@ -859,7 +859,7 @@ type = ChangeState
 value = 400
 Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 200
+Triggerall = power >= 250
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
@@ -998,7 +998,7 @@ value = 625
 ;Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 100
-triggerall = command = "holdfwd"
+triggerall = command = "holddown"
 triggerall = command = "c"
 Triggerall = statetype = A
 trigger1 = ctrl
@@ -1010,7 +1010,7 @@ type = ChangeState
 value = 620
 Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 200
+Triggerall = power >= 250
 triggerall = var(12) < const(movement.airjump.num)
 triggerall = command = "c"
 Triggerall = statetype = A
