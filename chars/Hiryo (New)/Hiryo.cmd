@@ -182,6 +182,16 @@ time = 10
 buffer.time = 1
 
 [Command]
+name = "BWD"
+command = ~B, D, DB
+time = 20
+
+[Command]
+name = "NotBWD"
+command = F, D, DB
+time = 20
+
+[Command]
 name = "IWD"
 command = ~D, D, DF
 time = 20
@@ -190,6 +200,18 @@ buffer.time = 7
 [Command]
 name = "IWD Cancelled"
 command = ~D, B, D
+time = 20
+buffer.time = 7
+
+[Command]
+name = "IBWD"
+command = ~D, D, DB
+time = 20
+buffer.time = 7
+
+[Command]
+name = "IBWD Cancelled"
+command = ~D, F, D
 time = 20
 buffer.time = 7
 
@@ -681,6 +703,15 @@ trigger1 = ctrl
 type = ChangeState
 value = 30
 trigger1 = command = "WD" && command != "NotWD"
+trigger1 = statetype = C || statetype = S
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; backsway to Stance
+[State -1, Wavedash]
+type = ChangeState
+value = 31
+trigger1 = command = "BWD" && command != "NotBWD"
 trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
 

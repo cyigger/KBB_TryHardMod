@@ -776,6 +776,13 @@ air.hittime  = 14 + ifelse(enemy,movetype = A, 7,0)
 Fall = 1
 Envshake.time = 17
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
+
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -832,6 +839,14 @@ Triggerall = var(53) >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 7"
 value = 27000
+
+[State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "holddownfwd"
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && !movehit
+value = 290
 
 [State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
 type = ChangeState
@@ -916,9 +931,15 @@ ignorehitpause = 1
 persistent = 0
 value = 5
 
+;[State 20, 1]
+;type = VelSet
+;trigger1 = prevstateno != 30
+;trigger1 = time = 0
+;x = 6
+
 [State 20, 1]
 type = VelSet
-trigger1 = 1
+trigger1 = vel x < const(velocity.walk.fwd.x)
 x = const(velocity.walk.fwd.x)
 
 [State 1020, Blink White]
@@ -1071,20 +1092,20 @@ damage    = 15
 hitflag = MAFD
 guardflag = LAF
 pausetime = 12,12
-guard.pausetime = 12,10
+guard.pausetime = 12,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-15
 hitsound   = 5,3
 guardsound = 6,10
 ground.type = Low
-ground.slidetime = 12
+ground.slidetime = 10
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1.5,-3.5
-air.velocity = -1.5,-2.5
+air.velocity = -1.5,-3
 down.velocity = -1.8,-4
 air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-guard.hittime = 12
+guard.hittime = 10
 fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 
 [State 0, HitOverrideCheck]
@@ -1101,13 +1122,6 @@ value = 0
 [State 0, End]
 type = ChangeState
 triggerall = time >= 10
-trigger1 = command = "holddown"
-value = 10
-ctrl = 1
-
-[State 0, End]
-type = ChangeState
-triggerall = time >= 10
 trigger1 = command = "holdback"
 value = 20
 ctrl = 1
@@ -1115,21 +1129,21 @@ ctrl = 1
 [State 0, End]
 type = ChangeState
 triggerall = time >= 6
-trigger1 = command = "a"
+trigger1 = command = "b"
 value = 292
 ctrl = 1
 
 [State 0, End]
 type = ChangeState
 triggerall = time >= 6
-trigger1 = command = "b"
+trigger1 = command = "c"
 value = 293
 ctrl = 1
 
 [State 0, End]
 type = ChangeState
 triggerall = time >= 6
-trigger1 = command = "c"
+trigger1 = command = "a"
 value = 295
 ctrl = 1
 
@@ -1621,7 +1635,7 @@ sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S405,0
-guardsound = 6,11
+guardsound = 6,12
 ground.type = High
 ground.slidetime = 16
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
@@ -1924,6 +1938,13 @@ trigger1 = command = "up"
 trigger2 = command =  "holdup"
 value = 40
 
+[State 200, Wavedash]
+type = ChangeState
+Triggerall = prevstateno !=300
+triggerall = movecontact
+trigger1 = command = "WD"
+value = 30
+
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -2160,6 +2181,13 @@ ground.velocity = -1.5, -5
 air.velocity = -1.5,-4.5
 Envshake.time = 10
 
+[State 200, Wavedash]
+type = ChangeState
+Triggerall = prevstateno !=300
+triggerall = movecontact
+trigger1 = command = "WD"
+value = 30
+
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -2210,7 +2238,6 @@ Triggerall = var(53) >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 7"
 value = 27000
-
 
 [State 200, 2A]	;LOW ATTACK
 type = ChangeState
@@ -2396,6 +2423,13 @@ air.hittime = 13 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1.5, -5
 air.velocity = -1.5,-4.5
 Envshake.time = 10
+
+[State 200, Wavedash]
+type = ChangeState
+Triggerall = prevstateno !=300
+triggerall = movecontact
+trigger1 = command = "WD"
+value = 30
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -2625,6 +2659,13 @@ ground.velocity = -1.5, -5
 air.velocity = -1.5,-4.5
 Envshake.time = 10
 
+[State 200, Wavedash]
+type = ChangeState
+Triggerall = prevstateno !=300
+triggerall = movecontact
+trigger1 = command = "WD"
+value = 30
+
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -2835,6 +2876,13 @@ air.hittime = 13 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1.5, -5
 air.velocity = -1.5,-4.5
 Envshake.time = 10
+
+[State 200, Wavedash]
+type = ChangeState
+Triggerall = prevstateno !=300
+triggerall = movecontact
+trigger1 = command = "WD"
+value = 30
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -8592,6 +8640,14 @@ ground.velocity = -2.5
 air.velocity = -3,-1
 air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
 Fall = 1
+Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -8643,6 +8699,13 @@ Triggerall = var(53) >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 7"
 value = 27000
+
+[State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 290
 
 [State 200, End]
 type = ChangeState
