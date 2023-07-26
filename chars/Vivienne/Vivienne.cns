@@ -983,35 +983,42 @@ map = "juggle"
 value = 10
 persistent = 0
 
-[State 0, EnvShake]
-type = EnvShake
-trigger1 = AnimElem = 4 || AnimElem = 8
-time = 6
-ampl = 4
-[State 0, Fwd - Step 01]
-type = PlaySnd
-trigger1 = animelem = 4
-value = S20,0
-volumescale = 150
-[State 0, Fwd - Step 02]
-type = PlaySnd
-trigger1 = animelem = 8
-value = S20,1
-volumescale = 150
-
 [State -2, Toughness var reset] ; Causes Vivienne to take damage when armoring through attacks again
 type = VarSet
+triggerall = anim != 290
 trigger1 = time = 0
 var(47) = 0
 ignorehitpause = 1
 
-[State 1020, Blink Red]
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 4 || AnimElem = 8
+time = 10
+ampl = 5
+[State 0, Fwd - Step 01]
+type = PlaySnd
+trigger1 = animelem = 4
+value = S20,0
+volumescale = 300
+[State 0, Fwd - Step 02]
+type = PlaySnd
+trigger1 = animelem = 8
+value = S20,1
+volumescale = 300
+
+[State 0, Blink Red]
 type = PalFX
 triggerall = anim = 290 && prevstateno != 290
 trigger1 = Time = 0
 time = 5
 add = 255,0,0
 mul = 255,0,0
+[State 0, Toughness Variable]
+type = varadd
+trigger1 = anim = 290 && prevstateno != 290
+trigger1 = time = 0
+v = 47
+value = 1
 [State 0, Hurt]
 type = LifeAdd
 triggerall = anim = 290 && prevstateno != 290
@@ -1026,9 +1033,11 @@ trigger1 = time = 0
 time = 5
 movetime = 0
 
+
+
 [State 0, Super Armor Bootleg = Animelem = 3]
 type = HitOverride
-trigger1 = 1
+trigger1 = var(47) < 2
 attr = SCA,NA,SA,NP,SP
 slot = 0
 stateno = 291
@@ -1091,14 +1100,14 @@ value = 0
 
 [State 0, End]
 type = ChangeState
-triggerall = time >= 6
+triggerall = time >= 10
 trigger1 = command = "holddown"
 value = 10
 ctrl = 1
 
 [State 0, End]
 type = ChangeState
-triggerall = time >= 6
+triggerall = time >= 10
 trigger1 = command = "holdback"
 value = 20
 ctrl = 1
@@ -1121,13 +1130,13 @@ ctrl = 1
 type = ChangeState
 triggerall = time >= 6
 trigger1 = command = "c"
-value = 954
+value = 295
 ctrl = 1
 
 ;Failsafe
 [State 0, End]
 type = ChangeState
-trigger1 = time >= 90
+trigger1 = time >= 96
 value = 0
 ctrl = 1
 
@@ -1534,6 +1543,258 @@ Trigger1 = animtime = 0
 value = 50
 ctrl = 0
 
+;-------------------------------------------------------------------------------
+; Wavedash A Punch
+[Statedef 295]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 295
+poweradd = 0
+velset = 3,0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,2
+volumescale = 50
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Animelem = 1
+x = 10
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Animelem = 2
+x = 5
+[State 0, VelSet]
+type = VelSet
+trigger1 = Animelem = 3
+x = 3.5
+
+[State 200, 1]
+type = HitDef
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = enemy,map(hitOverride) = 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 40
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 20,22
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S405,0
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 16
+ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+air.hittime = 20 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = ifelse(enemy,movetype = A, 16, 6), ifelse(enemy,movetype = A, 1, -2)
+air.velocity = ifelse(enemy,movetype = A, 16, 6), ifelse(enemy,movetype = A, 1, -2)
+guard.velocity = -8
+Fall = 1
+fall.recovertime = 30
+p2stateno = 1025
+p2getp1state = 0
+Envshake.time = 20
+guard.cornerpush.veloff = -6
+
+[State 200, 1]
+type = HitDef
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = enemy,map(hitOverride) = 1
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 40
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 20,22
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S405,0
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 16
+ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+air.hittime = 20 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = ifelse(enemy,movetype = A, -16, -8), ifelse(enemy,movetype = A, -1, -1)
+air.velocity = ifelse(enemy,movetype = A, -16, -8), ifelse(enemy,movetype = A, -1, -1)
+guard.velocity = -6
+Fall = 1
+fall.recovertime = 30
+Envshake.time = 20
+guard.cornerpush.veloff = -6
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = Animelem = 16
+x = -15
+
+[State 200, End]
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "WD"
+value = 30
+
+[State 200, End]
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "hyperhop"
+value = 60
+
+[State 200, Jumpo Cancel]
+type = ChangeState
+Triggerall = movehit
+trigger1 = command = "up"
+trigger2 = command =  "holdup"
+value = 40
+
+[State 200, Special 1 - Geyser]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 1"
+value = 20000
+[State 200, Special 2 - Lazer]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 2"
+value = 21000
+[State 200, Special 3 - Air Kick]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 3"
+value = 23000
+[State 200, Special 4 - Hellish Haymaker]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 4"
+value = 24000
+[State 200, Special 5 - Bubbling Rage]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 5"
+value = 25000
+[State 200, Special 6 - "Say it again."]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 6"
+value = 26000
+[State 200, Special 7 - The Plasma Princess]
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 3000
+Triggerall = var(53) >= 200
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "SPECIAL 7"
+value = 27000
+
+[State 200, End]		;Down+C varient.
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power > 100
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "holddown"
+trigger1 = ailevel = 0 && command = "c"
+value = 450
+
+[State 200, End]		;Dash Grab Forward+C
+type = ChangeState
+Triggerall = movecontact
+Triggerall = var (55) <= 3
+Trigger1 = power > 100
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "holdfwd"
+trigger1 = ailevel = 0 && command = "c"
+value = 476
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power > 100
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = ailevel = 0 && command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 400
+
+[State 200, End]	;POWAH GEYSER
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+value = 20000
+
+[State 200, End]	;POWAH lazur
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+value = 21000
+
+[State 0, VarAdd]
+type = VarAdd
+trigger1 = Time = 1
+v = 53
+value = 1
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
 ;===============================================================================
 ; B:
 ;-------------------------------------------------------------------------------

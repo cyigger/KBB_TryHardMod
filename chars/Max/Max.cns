@@ -2526,14 +2526,14 @@ type = PosAdd
 trigger1 = AnimElem = 6
 x = 5
 [State 0, VelAdd]
-type = VelSet
-trigger1 = time = [6,15]
-x = 8
+type = VelAdd
+trigger1 = AnimElem = 3
+x = 12
 
-[State 0, VelAdd]
-type = VelSet
-trigger1 = time = 16
-x = 3
+;[State 0, VelAdd]
+;type = VelSet
+;trigger1 = time = 16
+;x = 3
 
 ;[State 0, VarAdd]
 ;type = VarAdd
