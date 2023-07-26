@@ -652,7 +652,7 @@ value = 24000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
-Triggerall = power >= 1500
+Triggerall = power >= 1000
 trigger1 = ctrl
 ;===========================================================================
 

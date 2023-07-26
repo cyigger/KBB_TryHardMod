@@ -525,8 +525,15 @@ value = 25000
 [State 200, Wavedash Cancel]
 type = ChangeState
 Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movehit || (movecontact && AnimTime > -7)
+trigger1 = movecontact
 value = 30
+ctrl = 1
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "BWD" && command != "NotBWD"
+trigger1 = movecontact
+value = 31
 ctrl = 1
 
 
@@ -671,8 +678,15 @@ value = 25000
 [State 200, Wavedash Cancel]
 type = ChangeState
 Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movehit || (movecontact && AnimTime > -7)
+trigger1 = movecontact
 value = 30
+ctrl = 1
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "BWD" && command != "NotBWD"
+trigger1 = movecontact
+value = 31
 ctrl = 1
 
 [State 200, End] ; LOW ATTACK
@@ -1090,6 +1104,202 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 620
 
+;-------------------------------------------------------------------------------
+;Wavedash A
+[Statedef 290]
+type    = S
+movetype= A
+physics = S
+juggle = 1
+ctrl = 0
+anim = 290
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 5
+persistent = 0
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+[State 0, DP INVINCIBILLITY BABY]
+type = NotHitBy
+trigger1 = time = [0, 3]
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 12
+
+[State 0, Posadd]
+type = Posadd
+trigger1 = AnimElem = 2
+x = 15
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 2
+
+[State 0, SOUND EFFECT ]
+type = PlaySnd
+trigger1 = Animelem = 1
+value = S10,3
+volumescale = 80
+
+[State 0, SOUND EFFECT ]
+type = PlaySnd
+triggerall = movehit
+triggerall = animelem <= 5
+trigger1 = P2bodyDist X > 130
+value = S8,4
+volumescale = 80
+persistent = 0
+
+[State 0, SOUND EFFECT SHEATH]
+type = PlaySnd
+trigger1 = Animelem = 8
+value = S11,1
+volumescale = 80
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Light
+damage    = 25
+hitflag = MAF
+guardflag = MAF
+guard.pausetime = 10,12
+pausetime = 10,16
+ground.hittime  = 25 + ifelse(enemy,movetype = A || movecountered, 7,0)
+air.hittime  = 25 + ifelse(enemy,movetype = A || movecountered, 7,0)
+sparkno = ifelse(P2bodyDist X > 130, 2, 0)
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = s8,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+guard.velocity = -5
+ground.velocity = -2, 6
+air.velocity = -1.5, 6
+Fall = 1
+fall.xvelocity = -1.5
+fall.yvelocity = -4.5
+fall.recover =  0
+Envshake.time = 15
+
+[State 0, 4] ;Back to Idle
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+[State 200, Special 2 - "Hyper Rush"]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 2"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 22000 
+[State 200, Special 3 - "Lia Burst"]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 3"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 23000 
+ 
+[State 200, Special 5 - "Lai Blast."]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 2000
+trigger1 = command = "SPECIAL 5"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 25000 
+
+
+
+
+[State 200, Special 2 - "Hyper Rush"]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 2"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 22000 
+[State 200, Special 3 - "Lia Burst"]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 3"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 23000 
+ 
+[State 200, Special 5 - "Lai Blast."]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 2000
+trigger1 = command = "SPECIAL 5"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 25000 
+
+
+
+
+[State 200, End] ;RAPIDSLASH
+type = ChangeState
+Triggerall = movecontact
+Trigger1 = power > 200
+trigger1 = hitcount = 2
+trigger1 = command = "holddown"
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 450 
+
+[State 0, 4] ;Dash fwd
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "FF"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 100
+ctrl = 1
+
+[State 0, 4] ;Dash bck
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "BB"
+value = 105
+ctrl = 1
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "BWD" && command != "NotBWD"
+trigger1 = movehit
+value = 31
+ctrl = 1
+
+
+
 ;===============================================================================
 ; B:
 ;-------------------------------------------------------------------------------
@@ -1196,7 +1406,19 @@ trigger1 = command = "SPECIAL 5"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 25000 
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "BWD" && command != "NotBWD"
+trigger1 = movecontact
+value = 31
+ctrl = 1
 
 
 [State 200, End] ; LOW ATTACK
@@ -1812,9 +2034,16 @@ ctrl = 1
 [State 0, 4] ;Wavedash
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "WD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "BWD" && command != "NotBWD"
+trigger1 = movehit
+value = 31
+ctrl = 1
 ;-------------------------------------------------------------------------------
 ;Attack A - Slash
 [Statedef 402]
@@ -1990,6 +2219,13 @@ type = ChangeState
 triggerall = movehit
 trigger1 = command = "BB"
 value = 105
+ctrl = 1
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "BWD" && command != "NotBWD"
+trigger1 = movehit
+value = 31
 ctrl = 1
 
 
@@ -2383,6 +2619,7 @@ physics = S
 sprpriority = 1
 anim = 408
 ctrl = 0
+poweradd = ifelse(prevstateno = 30, -200, 0)
 
 [State 0, Turn]
 type = Turn
@@ -2434,6 +2671,7 @@ value = 24000
 
 [State -1, SPECIAL 5]
 type = ChangeState
+triggerall = prevstateno != 30 || time >= 4
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 5"
 trigger1 = numhelper(3500) = 0
@@ -2442,6 +2680,7 @@ value = 25000
 
 [State 0, 2C]
 type = ChangeState
+triggerall = prevstateno != 30 || time >= 4
 triggerall = power >= 200
 trigger1 = command = "holddown"
 triggerall = numhelper(3500) = 0
@@ -2461,6 +2700,7 @@ value = 404
 ctrl = 0
 [State 0, 4] ;Attack C - Anti Air
 type = ChangeState
+triggerall = prevstateno != 30 || time >= 4
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 406
@@ -2483,9 +2723,15 @@ value = 105
 ctrl = 1
 [State 0, 4] ;Wavedash
 type = ChangeState
-trigger1 = command = "WD"
+triggerall = prevstateno != 30 || time >= 4
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
+[State 200, Wavedash Cancel]
+type = ChangeState
+Trigger1 = command = "BWD" && command != "NotBWD"
+value = 31
+ctrl = 1
 
 [State 0, 4] ; Time period ran out.
 type = ChangeState
@@ -2647,9 +2893,15 @@ ctrl = 0
 [State 0, 4] ;Wavedash
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Trigger1 = command = "BWD" && command != "NotBWD"
+value = 31
+ctrl = 1
 
 [State 0, 4]
 type = ChangeState
@@ -2829,7 +3081,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 anim = 491
-poweradd = -200
+poweradd = 0
 sprpriority = 2
 
 [State 0, Juggle Map]

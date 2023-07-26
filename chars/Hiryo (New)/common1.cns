@@ -266,14 +266,14 @@ value = 105
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "a"
-value = 950
+value = 290
 ctrl = 0
 
 [State 200, End]
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "b"
-value = 390
+value = 491
 ctrl = 0
 
 [State 200, C]
@@ -282,7 +282,7 @@ triggerall = numhelper(3500) = 0
 triggerall = power >=200
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "c"
-value = 491
+value = 408
 
 [State 200, End]
 type = ChangeState
@@ -292,6 +292,121 @@ ctrl = 1
 
 
 ;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+;Wavedash
+[Statedef 31]
+type = C
+movetype= I
+physics = S
+anim = 31
+ctrl = 0
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = F65,0
+volumescale = 500
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = time = 0
+time = 5
+paladd = 240,50,0
+trans = add
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = [0, 1]
+x = -10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 10
+x = -4
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F16000
+ID = 16000
+pos = -40,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.75,0.75
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State 200, End]
+type = ChangeState
+;triggerall = time >= 5
+trigger1 = command = "holdup"
+value = 60
+ctrl = 0
+
+;[State 200, End]
+;type = ChangeState
+;triggerall = time >= 10
+;trigger1 = command = "WD"
+;value = 30
+;ctrl = 0
+
+[State 0, 4] ;Wavedash
+type = ChangeState
+trigger1 = command = "WD"
+value = 30
+ctrl = 0
+
+[State 0, 4] ;Dash fwd
+type = ChangeState
+trigger1 = command = "FF"
+value = 100
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5 || command != "z"
+trigger1 = command = "BB"
+value = 105
+ctrl = 1
+
+[State 0, 4] ;Attack A - Slash
+type = ChangeState
+trigger1 = command = "a"
+value = 402
+ctrl = 0
+[State 0, 4] ;Attack B - Dash Slash
+type = ChangeState
+trigger1 = command = "b"
+value = 404
+ctrl = 0
+[State 0, 4] ;Attack C - Anti Air
+type = ChangeState
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 406
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 408
+ctrl = 1
+
+
+;---------------------------------------------------------------------------
+
 
 ;---------------------------------------------------------------------------
 ; Jump Start
@@ -769,6 +884,13 @@ triggerall = prevstateno = 106
 trigger1 = (command = "IWD" && command != "IWD Cancelled")
 trigger2 = (command = "WD" && command != "NotWD")
 value = 30
+
+[State 52, Instant Wavedash from Fastfall]
+type = ChangeState
+triggerall = prevstateno = 106
+trigger1 = (command = "IBWD" && command != "IBWD Cancelled")
+trigger2 = (command = "BWD" && command != "NotBWD")
+value = 31
 
 ;---------------------------------------------------------------------------
 ; Hyperhop Start

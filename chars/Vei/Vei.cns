@@ -409,6 +409,7 @@ ctrl = 0
 anim = 200
 poweradd = 0
 sprpriority = 2
+attackdist = 50
 
 [State 0, Juggle Map]
 type = MapAdd
@@ -646,8 +647,8 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2
-air.velocity = -2,-1
+ground.velocity = -3,-2
+air.velocity = -3,-1
 Fall = 0
 Envshake.time = 10
 Fall.recovertime = 20
@@ -670,12 +671,20 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
 value = 22000
 
+[State -1, SPECIAL 5]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 5"
+value = 24000
+
 [State 210, Cancel into 2C]
 type = ChangeState
 Triggerall = movecontact
 Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
-trigger1 = command = "holddown"
+trigger1 = command = "holdback"
 trigger1 = command = "c"
 value = 450
 
@@ -704,6 +713,7 @@ ctrl = 0
 poweradd = 0
 velset = 0,0
 sprpriority = 2
+attackdist = 60
 
 [State 0, Juggle Map]
 type = MapAdd
@@ -812,10 +822,18 @@ triggerall = power >= 1000
 trigger1 = command = "SPECIAL 2"
 value = 20000
 
+[State -1, SPECIAL 5]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 5"
+value = 24000
+
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-trigger1 = command = "holddown"
+trigger1 = command = "holdback"
 trigger1 = command = "a"
 value = 950
 
@@ -912,7 +930,7 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2
-air.velocity = -2,-1
+air.velocity = -2,-2
 Fall = 0
 Envshake.time = 5
 Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
@@ -945,6 +963,23 @@ triggerall = power >= 1500
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
 value = 22000
+
+[State -1, SPECIAL 5]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 5"
+value = 24000
+
+[State 210, Cancel into 2C]
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holdback"
+trigger1 = command = "c"
+value = 450
 
 [State 200, End]
 type = ChangeState
@@ -1344,7 +1379,7 @@ helpertype = normal ;player
 name = "Glitch Bomb"
 ID = 415
 stateno = 415
-pos = 0,0
+pos = 20,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -1357,7 +1392,7 @@ inheritJuggle = 1
 type = Changestate
 trigger1 = frontedgebodydist < -100
 trigger2 = time = 120
-trigger3 = movecontact || movereversed
+trigger3 = parent,movetype = H
 value = 411
 
 ;[State 200, End]
@@ -1515,11 +1550,7 @@ juggle  = 0
 ctrl = 0
 anim = 304
 sprpriority = 1
-
-[State 0, AttackDist]
-type = AttackDist
-trigger1 = 1
-value = 60
+attackdist = 60
 
 [State 411, Velset]
 type = velSet
@@ -1790,9 +1821,11 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 3,-3
-air.velocity = 3,-3.25
+ground.velocity = 3.5,-3.5
+air.velocity = 3.5,-2.5
+guard.velocity = 2
 Fall = 0
+fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 5
 [State 200, Launch]
 type = HitDef
@@ -1815,9 +1848,11 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 2,-3
-air.velocity = 2,-2
+ground.velocity = 2.9,-3.5
+air.velocity = 2.9,-2.5
+guard.velocity = 2
 Fall = 0
+fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 5
 [State 200, Hard knockdown]
 type = HitDef
@@ -1839,8 +1874,9 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 1,-6
-air.velocity = 2,-6
+ground.velocity = 2.9,-6
+air.velocity = 2.9,-6
+guard.velocity = 2
 Fall = 1
 Envshake.time = 10
 fall.recover = 0
@@ -1997,12 +2033,12 @@ map = "juggle"
 value = 5
 persistent = 0
 
-[State 0, FatalCounter]
-type = MapSet
-trigger1 = 1
-map = "fatal"
-value = 1
-ignorehitpause = 1
+;[State 0, FatalCounter]
+;type = MapSet
+;trigger1 = 1
+;map = "fatal"
+;value = 1
+;ignorehitpause = 1
 
 [State 0, Helper Guarded]
 type = RootMapSet
@@ -3162,6 +3198,14 @@ value = 460
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+trigger1 = command = "holddown"
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 615
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 610
@@ -3285,6 +3329,14 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "holddown"
 trigger1 = command = "c"
 value = 460
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "holddown"
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 615
 
 [State 200, End]
 type = ChangeState

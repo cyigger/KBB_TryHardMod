@@ -253,7 +253,7 @@ triggerall = numhelper(3500) = 0
 triggerall = var(10)=0
 triggerall = power >= 200
 trigger1 = command = "c"
-value = 490
+value = 2620
 ctrl = 0
 
 ;SWORD JODIE
@@ -263,7 +263,7 @@ triggerall = numhelper(3500) = 0
 triggerall = var(10) = 1
 triggerall = power >= 200
 trigger1 = command = "c"
-value = 2620
+value = 490
 ctrl = 0
 
 [State 200, End]

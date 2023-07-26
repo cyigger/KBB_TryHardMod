@@ -742,6 +742,19 @@ trigger1 = ctrl
 ;--------------------------------Normal Attacks---------------------------
 
 ;---------------------------------------------------------------------------
+; Back + C
+[State -1, Back + C]
+type = ChangeState
+value = 235
+triggerall = numhelper(3500) = 0
+triggerall = power >= 500
+triggerall = command = "b"
+triggerall = command = "a"
+Triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = (stateno = 200 || stateno = 300 || stateno = 320 || stateno = 970) && time <= 3
+
+;---------------------------------------------------------------------------
 ; Dash Attack
 [State -1, Dash Attack]
 type = ChangeState
@@ -827,17 +840,6 @@ triggerall = numhelper(450) = 0
 triggerall = numhelper(3500) = 0
 triggerall = power >= 200
 triggerall = command = "holddown"
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
-; Back + C
-[State -1, Back + C]
-type = ChangeState
-value = 235
-triggerall = numhelper(3500) = 0
-triggerall = power >= 500
-triggerall = command = "holdback"
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl

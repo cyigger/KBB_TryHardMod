@@ -910,6 +910,14 @@ trigger1 = command = "up"
 trigger2 = command = "holdup"
 value = 40
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+triggerall = movecontact
+Trigger1 = command = "WD" && command != "NotWD"
+trigger2 = roundstate = 2 && ailevel > 5 && random < (ailevel * 100)
+value = 30
+ctrl = 1
+
 [State 200, Stance A - SHOOT]
 type = ChangeState
 triggerall = movecontact
@@ -2526,14 +2534,14 @@ type = PosAdd
 trigger1 = AnimElem = 6
 x = 5
 [State 0, VelAdd]
-type = VelSet
-trigger1 = time = [6,15]
-x = 8
+type = VelAdd
+trigger1 = AnimElem = 1
+x = 9
 
-[State 0, VelAdd]
-type = VelSet
-trigger1 = time = 16
-x = 3
+;[State 0, VelAdd]
+;type = VelSet
+;trigger1 = time = 16
+;x = 3
 
 ;[State 0, VarAdd]
 ;type = VarAdd
@@ -2544,7 +2552,7 @@ x = 3
 [State 200, 1]
 type = HitDef
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact
+triggerall = AnimElem = 5
 trigger1 = 1
 attr = S, NA
 givepower = 0
@@ -2552,7 +2560,7 @@ getpower = 0
 animtype  = Heavy
 damage    = ifelse(enemy,movetype = A, 60, 30)
 hitflag = MAFD
-guardflag = HAF
+guardflag = MAF
 pausetime = ifelse(enemy,movetype = A,30,8),ifelse(enemy,movetype = A,30,12)
 sparkno = 1
 guard.sparkno = 13000
@@ -2577,66 +2585,101 @@ airguard.cornerpush.veloff = -20
 ground.cornerpush.veloff = -3
 air.cornerpush.veloff = -3
 
-[State 200, SPECIAL - Standing Gatling]
-type = ChangeState
-triggerall = power >= 1000
-triggerall = movecontact
-triggerall = numhelper(21001) = 0	;standing gatling helper
-triggerall = numhelper(21101) = 0	;air gatling helper
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 1"
-value = 21000
-ctrl = 0
-[State 200, SPECIAL - BOMB]
-type = ChangeState
-triggerall = power >= 1000
-triggerall = movecontact
-triggerall = numhelper(22001) = 0	;no bomb helper
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 2"
-value = 22000
-ctrl = 0
-[State 200, SPECIAL - yeet!]
-type = ChangeState
-triggerall = power >= 1000
-triggerall = movecontact
-triggerall = numhelper(23001) = 0	;no YEET helper
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 3"
-value = 23000
-ctrl = 0
-[State 200, SPECIAL - PROTON CANNON!]
-type = ChangeState
-triggerall = power >= 2000
-triggerall = movecontact
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 5"
-value = 25000
-ctrl = 0
+;Max is now in an airstate as of this swing
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 7
+statetype = A       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = N         ;A,C,S,N
 
-[State 200, Stance A - SHOOT]
-type = ChangeState
-;triggerall = movecontact
-triggerall = time >= 28
-triggerall = var(14) < 5
-trigger1 = command = "a"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 222
+[State 0, PosAdd] 		;Disconnects Max from the floor
+type = PosAdd
+trigger1 = AnimElem = 7
+x = ifelse(!movecontact,3,-1)
+y = -5
 
-[State 200, Stance B - OVERHEAD]
+[State 0, VelAdd]		;Adds velocity.
+type = VelAdd
+trigger1 = AnimElem = 7
+x = ifelse(!movecontact,3,-1)
+y = -2.5
+
+[State 0, VelAdd]		;Adds velocity.
+type = VelAdd
+trigger1 = AnimElem = 8
+x = ifelse(!movecontact,0.8,-0.8)
+y = -.8
+
+[State 0, StateTypeSet]	;Now back to Air State
+type = StateTypeSet
+trigger1 = AnimElem = 11
+statetype = A       ;S,A,C,L
+movetype = I        ;I,A,H
+physics = A        ;A,C,S,N
+
+[State 200, 1]
+type = HitDef
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = AnimElem = 7
+trigger1 = 1
+attr = S, NA
+givepower = 0
+getpower = 0
+animtype  = Light
+damage    = 14
+hitflag = MAFD
+guardflag = MAFD
+pausetime = 5,6
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,3
+guardsound = 6,10
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 35 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = 1.8,-7
+air.hittime  = 35 + ifelse(enemy,movetype = A, 7,0)
+air.velocity = 1.4,-6.5
+Envshake.time = 10
+fall = 1
+fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
+
+[State 200, GRENADE SPAWN AIR]
 type = ChangeState
+Triggerall = movehit = 1
+triggerall = hitcount = 2
+triggerall = power >= 200
+triggerall = numhelper(452) = 0
+triggerall = numhelper(632) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+trigger1 = command = "holddown"
+value = 630
+[State 200, CANNON AIR]
+type = ChangeState
+Triggerall = movehit = 1
+triggerall = hitcount = 2
+triggerall = power >= 200
+triggerall = numhelper(402) = 0
+triggerall = numhelper(622) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 620
+
+[State 200, j5B]
+type = ChangeState
+Triggerall = movehit = 1
+triggerall = hitcount = 2
 trigger1 = command = "b"
-trigger1 = time >= 28
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 224
+value = 610
 
 [State 200, End]
 type = ChangeState
-trigger1 = AnimTime = 0
-value = 221
-ctrl = 1
+trigger1 = Animtime = 0
+value = 227
+ctrl = 0
 
 
 ;===============================================================================
@@ -3236,7 +3279,7 @@ type    = S
 movetype= A
 physics = S
 ctrl = 0
-anim = 450
+anim = 490
 poweradd = -200
 sprpriority = 1
 
@@ -3265,7 +3308,7 @@ volumescale = 100
 Type = Helper
 trigger1 = AnimElem = 2
 name = "Wavedash C Granade"
-ID = 452
+ID = 491
 stateno = 491
 pos = 25,-10
 postype = p1
@@ -3281,25 +3324,25 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
-;Wavedash C: Grenade
+;Wavedash C: Waddle Dee Must Die
 ;------------------------------------------------------------------------------
 [Statedef 491]
 type = A
 movetype= A
 physics = N
-anim = 452
-sprpriority = 2
+anim = 491
+sprpriority = 3
 
-[State 635, PosSet]
-type = PosSet
-trigger1 =  pos y >= 0
-y = 0
+;[State 635, PosSet]
+;type = PosSet
+;trigger1 =  pos y >= 0
+;y = 0
 
-[State 0, ReversalDef]
-type = ReversalDef
-trigger1 = 1
-reversal.attr = SCA,NA,SA,HA,NP,SP,HP
-p1stateno = 459
+;[State 0, ReversalDef]
+;type = ReversalDef
+;trigger1 = 1
+;reversal.attr = SCA,NA,SA,HA,NP,SP,HP
+;p1stateno = 459
 
 [State 490, VelSet]
 type = VelSet
@@ -3309,87 +3352,71 @@ y = -5.5
 
 [State 490, VelAdd]
 type = VelAdd
-trigger1 = pos y < 0
+trigger1 = 1
 y = 0.44
 
-[State 490, Land]
-type = VelSet
-trigger1 = pos y >= 0
-y = 0
+;[State 490, Land]
+;type = VelSet
+;trigger1 = pos y >= 0
+;y = 0
+;
+;[State 490, LandPos]
+;type = PosSet
+;trigger1 = pos y >= 0
+;y = 0
 
-[State 490, LandPos]
-type = PosSet
-trigger1 = pos y >= 0
-y = 0
+;[State 0, StateTypeSet]
+;type = StateTypeSet
+;trigger1 = pos y >= 0 && statetype = A
+;statetype = S
+;movetype = A
+;physics = S
 
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = pos y >= 0 && statetype = A
-statetype = S
-movetype = A
-physics = S
-
-[State 0, ScreenBound]	;Don't leave screen pls
-type = ScreenBound
-trigger1 = Time = [1,100]
-value = 1
-movecamera = 0,0
+;[State 0, ScreenBound]	;Don't leave screen pls
+;type = ScreenBound
+;trigger1 = Time = [1,100]
+;value = 1
+;movecamera = 0,0
 
 [State 632, HitDef Code Going up] 
 type = HitDef
-triggerall = vel y <= 0
 trigger1 = !movecontact
 attr = A, NP
-damage = 5
+damage = 15
 guardflag = MA
 hitflag = MAFD 
-pausetime = 1,5
-guard.pausetime= 0,3
+pausetime = 8,8
+guard.pausetime= 0,4
 sparkxy = 10,-15
 sparkno = s6051
-hitsound   = 5,1
+hitsound   = S4,8
 guardsound = 6,10
-ground.slidetime = 2
-ground.hittime  = 5
-ground.velocity = -3
-air.velocity = -2.5,2 
-forcestand = 1
-
-[State 632, HitDef Code Going Down] 
-type = HitDef
-triggerall = vel y > 0
-trigger1 = !movecontact
-attr = A, NP
-damage = 5
-guardflag = HA
-hitflag = MAFD 
-pausetime = 1,5
-guard.pausetime= 0,3
-sparkxy = 10,-15
-sparkno = s6051
-hitsound   = 5,1
-guardsound = 6,10
-ground.slidetime = 2
-ground.hittime  = 5
-ground.velocity = -3
-air.velocity = -2.5,2 
-forcestand = 1
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7, 0)
+ground.velocity = -3,-3
+air.velocity = -2.5,-2
+fall = 1
+fall.recovertime = 30 + ifelse(enemy,movetype = A, 7, 0)
 
 [State 632, VelSet]
 type = VelSet
-trigger1 = movecontact
-x = 2.5
-y = -4
+trigger1 = movecontact = 1
+y = -2
 
-[State 632, End]
-type = ChangeState
-trigger1 = movecontact
-value = 635
+;[State 632, End]
+;type = ChangeState
+;trigger1 = movecontact
+;value = 635
+;
+;[State 632, End]
+;type = ChangeState
+;trigger1 = vel y > 0 && pos y >= -10
+;value = 634
 
-[State 632, End]
-type = ChangeState
-trigger1 = vel y > 0 && pos y >= -10
-value = 634
+[State 491, End]
+type = DestroySelf
+trigger1 = pos y > 40
+trigger2 = time > 90
 
 ;-----------------------------------------------------------------
 ;===============================================================================

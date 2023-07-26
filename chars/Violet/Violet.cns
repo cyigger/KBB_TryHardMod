@@ -1538,9 +1538,9 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 3,.5
+ground.velocity = 3,0
 guard.velocity = -3
-air.velocity = 3,.5
+air.velocity = 3,0
 Fall = 0
 Envshake.time = 10
 ground.cornerpush.veloff = -1
@@ -1739,8 +1739,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3,.65
-air.velocity = -3,-.65
+ground.velocity = -3,.45
+air.velocity = -3,-.45
 Fall = 1
 Envshake.time = 10
 ground.cornerpush.veloff = -1
