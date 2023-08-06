@@ -931,6 +931,7 @@ ignorehitpause = 1
 persistent = 0
 value = 5
 
+
 ;[State 20, 1]
 ;type = VelSet
 ;trigger1 = prevstateno != 30
@@ -947,6 +948,28 @@ type = PalFX
 trigger1 = Time = 0
 time = 5
 add = 126,126,126
+
+[State -2, Toughness var reset] ; Causes Vivienne to take damage when armoring through attacks again
+type = VarSet
+triggerall = anim != 290
+trigger1 = time = 0
+var(47) = 0
+ignorehitpause = 1
+
+[State 0, HitOverrideCheck]
+type = MapSet
+trigger1 = time = 3
+map = "hitOverride"
+value = 1
+
+[State 0, Super Armor Bootleg = Animelem = 3]
+type = HitOverride
+trigger1 = var(47) < 2
+trigger1 = time >= 3
+attr = SCA,NA,SA,NP,SP
+slot = 0
+stateno = 291
+time = 2
 
 ;[State 200, 1]
 ;type = HitDef
@@ -1114,7 +1137,6 @@ triggerall = time >= 6
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
-trigger4 = command = "holddown"
 trigger5 = command = "holdback"
 map = "hitOverride"
 value = 0

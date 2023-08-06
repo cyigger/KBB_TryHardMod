@@ -13,6 +13,33 @@ _D^A_-^A
 _D^A_-^B
 _D^A_-^C
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A_F_D_DF (Late on Block)
+^B_F_D_DF
+_D^A^A_F_D_DF (Late on Block)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Intimidation								_F_D_DF^A
+	"Vivienne simply walks forward, ignoring
+	anything in her way.
+	Vivienne cannot be interrupted during this
+	move."
+_! "Out Of My Way"							^A
+	"Vivienne barely shoves the opponent, and
+	they get wallspatted smh."
+_! A Side Switch Grab						^B
+_! An Air Grab								^C
+
+Long Jump 2B								_F_D_DF^B
+	"Vivienne jumps far and kicks the opponents
+	head."
+
+Plasma Shine (1/5 Bar)					_F_D_DF^C
+	"Vivienne let's out a quick burst of
+	plasma near her."
+
 <#f0f000>:EX ATTACKS:</>
 
 Plasma Shot (1/4 Bar)						^C or _D^C

@@ -2918,7 +2918,7 @@ movecamera = 0,0
 ; Air get-hit (fall recovery on ground; still falling)
 [Statedef 5200]
 type    = A
-movetype= I
+movetype= H
 physics = N
 
 [State 5200, 1] ;Change anim if done with transition
@@ -2945,6 +2945,7 @@ type    = A
 movetype= I
 physics = A
 anim = 5200
+facep2 = 1
 
 [State 5201, 1] ;Turn if not facing opponent
 type = Turn

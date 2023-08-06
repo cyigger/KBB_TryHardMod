@@ -176,10 +176,16 @@ paladd = 255,240,0
 time = 10
 trans = add
 
+[State 0, PosSet]
+type = PosSet
+trigger1 = AnimElem = 1
+y = 0
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
 x = const(velocity.run.fwd.x) * 1.8
+y = 0
 
 [State 0, Explod]
 type = Explod

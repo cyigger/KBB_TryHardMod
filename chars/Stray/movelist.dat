@@ -1,6 +1,25 @@
 <#f0f000>:UNIQUE NORMALS:</>
 _D^A_F^A
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A_F_D_DF (Late on Block)
+^A^A^A_F_D_DF (On Hit Only)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Spear Poleswing								_F_D_DF^A
+	"Stray launches himself off of his spear.
+	Hold up or down to change the launch angle."
+
+Spear Hellsweep								_F_D_DF^B
+	"Stray winds up and sweeps his spear
+	low to the ground. This move starts the
+	spear dance."
+
+Trash Move (1/5 Bar)						_F_D_DF^C
+	"5b, but it starts the spear dance"
+
 <#f0f000>:EX ATTACKS:</>
 
 Spear Beam  (1/4 Bar)						^C
@@ -17,7 +36,7 @@ _!Aerial Spear Sweeper						_AIR^C
 
 Spear Dance (1/5 Bar)							_D^C
 	"Stray prepares his combination attack!
-	From here, four options are avaliable."
+	From here, several options are avaliable."
 
 _!Spear Sweep 									^A
 	"Stray takes a step and 

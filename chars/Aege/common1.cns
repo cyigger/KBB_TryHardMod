@@ -317,14 +317,14 @@ type = ChangeState
 triggerall = numhelper(3500) = 0
 triggerall = power >=250
 trigger1 = command = "c"
-value = 440
-
-[State 200, C]
-type = ChangeState
-triggerall = numhelper(3500) = 0
-triggerall = power >=250
-trigger1 = command = "s"
 value = 590
+
+;[State 200, C]
+;type = ChangeState
+;triggerall = numhelper(3500) = 0
+;triggerall = power >=250
+;trigger1 = command = "s"
+;value = 590
 
 [State 200, End]
 type = ChangeState

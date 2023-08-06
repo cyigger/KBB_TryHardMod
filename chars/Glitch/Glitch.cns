@@ -935,8 +935,32 @@ ground.velocity = -3,-3
 air.velocity = -4,-3
 Fall = 0
 
+[State 200, End]
+type = ChangeState
+triggerall = pos y < -1
+Triggerall = movecontact
+trigger1 = command = "a"
+value = 600
+
+[State 200, End]
+type = ChangeState
+triggerall = pos y < -1
+Triggerall = movecontact
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 610
+
+[State 200, End]
+type = ChangeState
+triggerall = pos y < -1
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 620
+
 [State 200, 2C]
 type = ChangeState
+triggerall = pos y >= -1
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 200
@@ -946,12 +970,14 @@ value = 450
 
 [State 200, End]
 type = ChangeState
+triggerall = pos y >= -1
 Triggerall = movecontact
 trigger1 = command = "a"
 value = 210
 
 [State 200, End]
 type = ChangeState
+triggerall = pos y >= -1
 Triggerall = movecontact
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -959,6 +985,7 @@ value = 310
 
 [State 200, End]
 type = ChangeState
+triggerall = pos y >= -1
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
@@ -1603,20 +1630,40 @@ triggerall = power >= 500
 trigger1 = command = "SPECIAL 4"
 value = 22000
 
+[State 200, End]
+type = ChangeState
+;triggerall = time >= 5
+triggerall = pos y < -1 && var(3) = 0
+triggerall = movehit
+trigger1 = command = "holdup"
+value = 45
+ctrl = 0
+
 [State 0, Jump]
 type = ChangeState
+triggerall = pos y >= -1
 triggerall = movehit
 trigger1 = command = "up"
 value = 40
 
 [State 0, HyperHop]
 type = ChangeState
+triggerall = pos y >= -1
 triggerall = movehit
 trigger1 = command = "hyperhop"
 value = 60
 
+[State 200, End]
+type = ChangeState
+triggerall = pos y < -1
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 620
+
 [State 200, 2C]
 type = ChangeState
+triggerall = pos y >= -1
 Triggerall = movecontact
 Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
@@ -1627,6 +1674,7 @@ value = 450
 
 [State 200, 5C]
 type = ChangeState
+triggerall = pos y >= -1
 Triggerall = movecontact
 Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
@@ -3650,12 +3698,12 @@ triggerall = var(19) = 0
 trigger1 = command = "SPECIAL 4"
 value = 22000
 
-[State 200, Wavedash B Aire]
+[State 200, Wavedash Cancel]
 type = ChangeState
-triggerall = command = "WD"
-triggerall = command = "b"
-Trigger1 = movecontact
-value = 391
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -3810,12 +3858,12 @@ trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
-[State 200, Wavedash B Aire]
+[State 200, Wavedash Cancel]
 type = ChangeState
-triggerall = command = "WD" && command != "NotWD"
-triggerall = command = "b"
-Trigger1 = movecontact
-value = 391
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
 
 [State 200, End]
 type = ChangeState

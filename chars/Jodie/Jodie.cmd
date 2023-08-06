@@ -830,14 +830,14 @@ Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; DD B
-[State -1, DD + B]
-type = ChangeState
-value = 330
-triggerall = var(10) = 0
-triggerall = command = "DD"
-triggerall = command = "b"
-Triggerall = statetype != A
-trigger1 = ctrl
+;[State -1, DD + B]
+;type = ChangeState
+;value = 330
+;triggerall = var(10) = 0
+;triggerall = command = "DD"
+;triggerall = command = "b"
+;Triggerall = statetype != A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Down + B
 [State -1, Down + B]
@@ -1103,16 +1103,6 @@ type = ChangeState
 value = 600
 triggerall = var(10) = 0
 triggerall = command = "a"
-Triggerall = statetype = A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
-; AirDash B Aire
-[State -1, B Aire]
-type = ChangeState
-value = 615
-triggerall = var(10) = 0
-triggerall = command = "FF" || stateno = 65
-triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------

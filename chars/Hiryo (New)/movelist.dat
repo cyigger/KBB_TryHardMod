@@ -8,11 +8,19 @@ Dash										_F_F or _B_B
 	"Hiryo's Run is a Dash that 
 	phases through opponents."
 	
+Backsway to Stance							_B_D_DB
+	"Hiryo has access to a backwards
+	wavedash that puts him in his C Stance
+	
 Fast Fall										_AIR_D_D
 	"Hiryo has the abillity to get to the
 	ground as quick as possible in the air,
 	whether it be in neutral or off a successful
 	aerial hit."
+_! Instant Wavedash							_D_D_DF or _D_D_DB
+	"When fast falling, hyrio can instantly
+	wavedash or backsway upon landing.
+
 
 "Hiryo's Quick Slash A and Quick Slash C have tipper
 hitboxes that make the move even stronger to use!
@@ -22,6 +30,31 @@ hitboxes that make the move even stronger to use!
 
 _F_F^A
 _AIR_D^B
+
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF
+^A_B_D_DB
+^A^A_F_D_DF
+^A^A_B_D_DB
+^B_F_D_DF
+^B_B_D_DB
+^C_F_D_DF
+^C_B_D_DB
+STANCE _F_D_DF
+STANCE _B_D_DB
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Quick Blade									_F_D_DF^A
+	"Hyrio instantly dashes forward and 
+	slashes you."
+
+Alpha Blade									_F_D_DF^B
+	"Hyrio disappears, appearing behind the
+	opponent and slashing their back."
+
+Instant C Stance (1/4 Bar)		 			_F_D_DF^C
+	"Hyrio instantly enters his C stance."
 
 <#f0f000>:EX ATTACKS:</>
 

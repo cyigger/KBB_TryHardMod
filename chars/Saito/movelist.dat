@@ -8,9 +8,46 @@ Fastfall								_AIR_D_D
 	"Saito drops quickly to the ground like 
 	a brick."
 	
+Aerial Wavedash							_F_D_DF
+	"Saito's wavedash sends him slighly upwards
+	into the air, and some aerial moves can cancel
+	into it."
+	
 <#f0f000>:UNIQUE NORMALS:</>
 _AIR_D^A
 _AIR_D^B
+
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^B_F_D_DF 
+^B^B_F_D_DF (On Hit Only)
+_AIR^A_F_D_DF
+_F_D_DF^C_-_F^C_-_F_D_DF
+_F_D_DF^C_-_B^C_-_F_D_DF
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Glide Kick									_F_D_DF^A
+	"Saito glides straight forward
+	with a fast kick"
+
+He goes down								_F_D_DF^B
+	"Saito... goes down"
+
+Launch									_F_D_DF^C
+	"Saito launches himself even higher,
+	and gains access to unique moves."
+_! "Go Faster"								_F^C
+	"Saito Launches himself forward really
+	fast."
+_! Straight Down							_D^C
+	"Saito dive kicks straight down."
+_! Backwards Dive Kick						_DB^C
+	"So hear me out:
+	What if divekick, but backwards?"
+_! Gust										_B^C
+	"Saito sends a small burst of wind at
+	his opponent, blasting them to the wall!"
 
 
 <#f0f000>:EX ATTACKS:</>

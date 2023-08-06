@@ -1,41 +1,70 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+_B^B
+_F_F^B
+
+_AIR_D^B
+
+^A^B
+
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A_F_D_DF (Late on Block)
+^B_F_D_DF (Late on Block)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Slide Thrust							_F_D_DF^A
+	"Metaknight thrusts his sword low to
+	the ground while sliding."
+
+Air Thrust								_F_D_DF^B
+	"Metaknight jumps up and thrusts his
+	sword straight in the the opponent's
+	head."
+
+Dimensional Cape (1/5 Bar)				_F_D_DF^C
+	"Metaknight disappears into his cape,
+	reappearing moments later further ahead
+	than normal.
+	He cannot change trajectory in this version."
 
 <#f0f000>:EX ATTACKS:</>
 
-Shuriken Toss (1/4 Bar)								^C
-_!
-	"Fly throws an arcing shuriken upwards
-	Depletes health slightly"
+Mach Tornado (1/4 Bar, _AIR OK)					^C
+	"Metaknight spins himself into a tornado."
 
-Aerial Shuriken Toss (1/4 Bar)							^C
-_!
-	"Fly throws an arcing shuriken downward
-	Depletes health slightly"
+Sword Beam (1/10 Bar)						_F^C
+	"Metaknight throws a beam from his sword."
+	
+Dimensional Cape (1/5 Bar)						_F^C
+	"Metaknight disappears into his cape,
+	reappearing moments later.
+	He can move while in his cape."
+	
+Aerial Sword Beam (1/10 Bar)				_AIR_D^C
+	"Metaknight throws a beam from his sword
+	diagonally down."
 
 <#f0f000>:SPECIAL MOVES!:</>
 
-Kickety kicks!  (1/2 Bar)						_D_DF_F^A
-_! 
-	 "Fly whips out a flurry of kicks
-	ends with a powerful blow"
-	(Aerial Only)
+Wind Blade  (1 Bar)								_D_DF_F^A
+	 "Metaknight slashes his sword strong enough
+	 to send a strong gust at the opponent."
 
-"Try and keep up!": 5 Piece Combo w/ Fries  (1 Bar			_D_DB_B^A
-_! 
-	 "Fly attacks 5 times with swift 
-	kicks and a slap!"
+Shuttle Loop (1 Bar)							_D_DB_B^A
+	 "Metaknight shoots himself upwards in a
+	 loop."
 
-"Goin' Up!": Upwards Cutter (1/2 Bar) 					_D_DF_F^B
-_!
-	"Fly Dashes forward and cut his opponent
-	launching them upwards"
+Invinsible Slash (1 1/2 Bar) 					_D_DF_F^B
+	"Metaknight charges forward, slashing right
+	through the opponent!"
  
-"Pay Attention!"  (1 Bar)						_D_DB_B^B
-_!				
-	"Fly dashes behind his opponent and
-	returns with a hefty kick"
+"You've much yet to learn..."  (1 Bar)			_D_DB_B^B			
+	"Metaknight anticipates an attack and prepares
+	to disappear and counteratttack."
 
-"This is gonna hurt..." (2 Bars)					_D_DF_F^C
-_! 				
-	"Fly grabs his opponent and bursts
-	with a heavy electric charge!
-	This move hurts him and his opponent"
+Wind Blade Ultra (2 Bars)						_D_DF_F^C				
+	"Metaknight changes a slash so strong that
+	it covers entire ground in a very damagine
+	gust!"

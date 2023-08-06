@@ -3,6 +3,25 @@
 ^B^B_-_B^B
 _F_F^A
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A_F_D_DF (Late on Block)
+^B_F_D_DF (Late on Block)
+^B^B_F_D_DF (Late on Block)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Fast Slash									_F_D_DF^A
+	"Yoru quickly slashes upwards."
+
+Heavy Slash									_F_D_DF^B
+	"Yoru winds up a very powerful slash.
+	Hold B to keep charging the slash."
+
+Backwards Boomerang Toss (1/4 Bar)			_F_D_DF^C
+	"Yoru tosses his sword backwards as a
+	boomerang."
+
 <#f0f000>:EX ATTACKS:</>
 
 Boomerang Blade Toss (1/4 Bar, _AIR OK)			^C
