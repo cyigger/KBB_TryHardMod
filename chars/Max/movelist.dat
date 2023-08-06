@@ -5,6 +5,27 @@ _B^A
 ^A^A^A_-^C
 ^A^A^A_-^C_-^A
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A_F_D_DF (Late on Block)
+^A^A^A_-_F_D_DF
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Ball Shot									_F_D_DF^A
+	"Max Fires his gun low to the ground.
+	Keep pressing ^A to continue firing."
+
+Roundhouse Gun								_F_D_DF^B
+	"Max pulls out his gun and smashes
+	it against the opponent's head.
+	After that, he jumps in the air
+	ready to shoot."
+
+"Here's another present!" (1/5 Bar)			_F_D_DF^C
+	"Max throws out one of his buddies!
+	He's friendly."
+
 <#f0f000>:EX ATTACKS:</>
 
 Cannon Fodder (1/5 Bar, _AIR OK)					^C

@@ -3,6 +3,59 @@
 | Try-Hard Version 0.2.5 Changes:                    /
 |---------------------------------------------------/
 
+This update adds the command list for everyone except some of the less completed characters. Change in this version have not been documented well :\
+
+But everyone's moves (except for a few characters) have been polished up.
+
+Saito:
+1. Wavedash is now completely unique from everyone. He is the first, but not the last to receive a unique property to his wavedash.
+
+Leon:
+1. his vanilla moves were tweaked to reflect some of the coming changes in the next vanilla update.
+2. He also received a revamped wavedash C, which now uses his stand.
+3. Added a wavedash cancel in 4B
+
+Vivienne:
+1. Animation tweaks
+2. Intimidation armor now starts sooner, but takes one less hit.
+
+Aege:
+1. His old wavedash C was replaced by what used to be his wavedash powercharge. He teleports forward now.
+
+Yoru:
+1. Removed his long jump overhead from wavedash.
+
+Jodie:
+1. Revamped his wavedash moveset. Now his wavedash A and B are two versions of the same idea. 
+2. His sword wavedash B has been truly added now.
+
+Glitch:
+1. Tweaked his wavedash cancels, and his wavedash move's cancels when in the air to avoid infinite.
+2. Added cancels into wavedash from j.a and j.b
+
+Bill:
+1. Added jump cancel out of 4b
+2. Reworked wavedash B. Similar purpose, but more polished.
+3. Added wavedash cancels to 5aa and 5aaa
+
+---------------------------------------------------------------
+ignored characters:
+Noll:
+This character is undergoing massive changes to fit more with his vanilla playstyle.
+
+Clutch:
+This character has not received love at all, so he is also undergoing a rework.
+
+Jay:
+Um... no reason in particular.
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.2.5 Changes:                    /
+|---------------------------------------------------/
+
 This update is the start of sweeping improvements and replacemets to wavedash moves accross the cast.
 Also, Vei makes his debut to the try-hard mod, though he still lacks unique wavedash moves.
 

@@ -2,7 +2,24 @@
 
 _F_F^A
 _D[^B]
-_F^C
+
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^C_F_D_DF (Late on Block)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Hellsweep									_F_D_DF^A
+	"Violet sweeps the opponent off their feet"
+
+Backflip Kick								_F_D_DF^B
+	"Violet does a backflip, kicking the opponent
+	on the way down."
+
+Double Geysers (1/10 Bar)					_F_D_DF^C
+	"Violet 2 low hitting shots that instantly
+	blow out of the ground.
+	(Costs 2 Bullets)"
 
 <#f0f000>:Passive Ability:</>
 

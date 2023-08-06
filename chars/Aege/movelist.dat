@@ -3,6 +3,25 @@
 Brisk													_AIR_F_F
 	"Aege airdashes forward instantly
 	with a time dash"
+	
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A_F_D_DF (Late on Block)
+^C^A_F_D_DF
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Watch Your Toes								_F_D_DF^A
+	"Aege aggressively smashes your toes."
+
+Decked										_F_D_DF^B
+	"Aege jumps up and decks the opponents
+	from above."
+
+Grounded Brisk	(1/4 Bars)	 						_F_D_DF^C
+	"Aege dashes forward instantly with a
+	time dash, potentially going behind
+	the opponent."
 
 <#f0f000>:EX ATTACKS:</>
 

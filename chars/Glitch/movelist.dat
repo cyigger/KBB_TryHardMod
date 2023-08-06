@@ -1,5 +1,30 @@
+<#f0f000>:PASSIVE ABILLITY:</>
+Glitch can break the rules and wavedash in the air
+when he is slightly above the ground.
+
 <#f0f000>:UNIQUE NORMALS:</>
 _AIR_D^B
+
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^B_F_D_DF
+_AIR^A_F_D_DF
+_AIR^B_F_D_DF
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Slide Kick									_F_D_DF^A
+	"A sliding low attack.
+	It's cancels change if done out of
+	aerial wavedash"
+
+Glitchy Tatsu								_F_D_DF^B
+	"Glitch does a series of glitchy kicks
+	facing through any projectile".
+
+Booster to the Face (1/4 Bar)		 		_F_D_DF^C
+	"Glitch jumps and boosts directly at
+	the opponent's face"
 
 <#f0f000>:EX ATTACKS!:</>
 

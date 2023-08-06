@@ -6,6 +6,26 @@ from any moment as long as you have meter.
 <#f0f000>:UNIQUE NORMALS:</>
 _B^B
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF 
+^A^A_F_D_DF (Late on Block)
+^A^A^A_F_D_DF (Late on Block)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Sticky Bomb: Quick Affix					_F_D_DF^A
+	"Bill quickly sticks a bomb 
+	on the opponent."
+
+Sticky Bomb: Overhead Affix					_F_D_DF^B
+	"Bill jumps and sticks a bomb 
+	on the opponent."
+
+Sticky Bomb: Bomb Jump (1/4 Bar)		 	_F_D_DF^C
+	"Bill plants a bomb underhim and 
+	detonates it, sending himself flying.
+	This move detonate other bombs"
+
 <#f0f000>:EX ATTACKS:</>
 
 Sticky Bomb: Affix (1/4 Bar)				^C

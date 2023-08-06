@@ -1605,7 +1605,7 @@ value = 400
 
 [State 210, End]
 type = ChangeState
-trigger1 = AnimTime = 0
+trigger1 = AnimElem = 7
 value = 220
 ctrl = 1
 
@@ -2412,8 +2412,8 @@ attr = S, NA
 animtype  = Medium
 damage    = 15 + cond(prevstateno = [106,107], 25,0)
 guardflag = MA
-pausetime = 5,8
-guard.pausetime = 5,5
+pausetime = 2,5
+guard.pausetime = 2,2
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -3361,6 +3361,13 @@ envshake.ampl = -4
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
+
 [State 0, Special Backdash Cancel]
 type = ChangeState
 triggerall = numhelper(51000) = 0
@@ -3861,6 +3868,32 @@ triggerall = root,var(53) > 20
 trigger1 = root, command = "c"
 trigger1 = root, command = "holdfwd"
 value = 435
+ctrl = 0
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time <= 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 495
+ctrl = 0
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time > 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 496
 ctrl = 0
 
 ;[State 420, Cancel into Star Breaker]
@@ -4841,6 +4874,32 @@ triggerall = root,var(54) > 20
 trigger1 = root, command = "c"
 value = 405
 ctrl = 1
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time <= 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 495
+ctrl = 0
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time > 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 496
+ctrl = 0
 
 ;[State 420, Cancel into Star Breaker]
 ;type = ChangeState
@@ -5864,75 +5923,93 @@ type = VelSet
 trigger1 = AnimElem = 5
 x = 2
 
-[State 240, Uppercut]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = enemy, movetype != A
-triggerall = !movecontact
-trigger1 = 1
-attr = S, NA
-animtype  = Heavy
-damage    = 50
-hitflag = MAF
-guardflag = MA
-pausetime = 17,17
-guard.pausetime = 15,15
-sparkno = 2
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = S0,3
-guardsound = 6,10
-guard.hittime  = 12
-guard.slidetime = 12
-guard.velocity = -8
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-ground.velocity = -1,-6 + (map(electricComboCount) *1.3)
-air.velocity = -1,-6 + (map(electricComboCount) *1.3)
-Fall = 1
-Envshake.time = 20
-fall.recover = 1
-Fall.recovertime = 60
-envshake.time = 18
-envshake.ampl = -4
-guard.cornerpush.veloff = -5
-airguard.cornerpush.veloff = -4
+;[State 240, Uppercut]
+;type = HitDef
+;getpower = 0
+;triggerall = map(juggle) < 100 || hitcount != 0
+;triggerall = enemy, movetype != A
+;triggerall = !movecontact
+;trigger1 = 1
+;attr = S, NA
+;animtype  = Heavy
+;damage    = 50
+;hitflag = MAF
+;guardflag = MA
+;pausetime = 17,17
+;guard.pausetime = 15,15
+;sparkno = 2
+;guard.sparkno = 13000
+;sparkxy = -8,-25
+;hitsound   = S0,3
+;guardsound = 6,10
+;guard.hittime  = 12
+;guard.slidetime = 12
+;guard.velocity = -8
+;ground.type = High
+;ground.slidetime = 12
+;ground.hittime  = 15
+;ground.velocity = -1,-6 + (map(electricComboCount) *1.3)
+;air.velocity = -1,-6 + (map(electricComboCount) *1.3)
+;Fall = 1
+;Envshake.time = 20
+;fall.recover = 1
+;Fall.recovertime = 60
+;envshake.time = 18
+;envshake.ampl = -4
+;guard.cornerpush.veloff = -5
+;airguard.cornerpush.veloff = -4
+;
+;[State 240, Uppercut]
+;type = HitDef
+;getpower = 0
+;triggerall = map(juggle) < 100 || hitcount != 0
+;triggerall = enemy, movetype = A
+;triggerall = !movecontact
+;trigger1 = 1
+;attr = S, NA
+;animtype  = Heavy
+;damage    = 75
+;hitflag = MAF
+;guardflag = MA
+;pausetime = 17,34
+;guard.pausetime = 15,25
+;sparkno = 2
+;guard.sparkno = 13000
+;sparkxy = -8,-25
+;hitsound   = 8,0
+;guardsound = 6,10
+;ground.type = High
+;ground.slidetime = 12
+;ground.hittime  = 15
+;air.hittime = 12
+;ground.velocity = -1,-6.2
+;air.velocity = -1,-6.2
+;Fall = 1
+;Envshake.time = 20
+;fall.recover = 1
+;Fall.recovertime = 180
+;envshake.time = 36
+;envshake.ampl = -4
+;guard.cornerpush.veloff = -5
+;airguard.cornerpush.veloff = -4
 
-[State 240, Uppercut]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = enemy, movetype = A
-triggerall = !movecontact
-trigger1 = 1
-attr = S, NA
-animtype  = Heavy
-damage    = 75
-hitflag = MAF
-guardflag = MA
-pausetime = 17,34
-guard.pausetime = 15,25
-sparkno = 2
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 8,0
-guardsound = 6,10
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-air.hittime = 12
-ground.velocity = -1,-6.2
-air.velocity = -1,-6.2
-Fall = 1
-Envshake.time = 20
-fall.recover = 1
-Fall.recovertime = 180
-envshake.time = 36
-envshake.ampl = -4
-guard.cornerpush.veloff = -5
-airguard.cornerpush.veloff = -4
+[State 400, Summon Star Platinum]
+type = Helper
+triggerall = numhelper(405) = 0
+triggerall = numhelper(435) = 0
+trigger1 = AnimElem = 3
+helpertype = normal ;player
+name = "Star Platinum"
+ID = 405
+stateno = 495
+pos = 15,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+inheritjuggle = 1
 
 [State 0, Special Backdash Cancel]
 type = ChangeState
@@ -6082,6 +6159,632 @@ sinadd = -70,-70,-70,3
 invertall = 0
 color = 256
 
+;[State 240, Uppercut]
+;type = HitDef
+;getpower = 0
+;triggerall = map(juggle) < 100 || hitcount != 0
+;triggerall = enemy, movetype != A
+;triggerall = !movecontact
+;trigger1 = 1
+;attr = S, NA
+;animtype  = Heavy
+;damage    = 75
+;hitflag = MAF
+;guardflag = MA
+;pausetime = 17,17
+;guard.pausetime = 15,15
+;sparkno = 2
+;guard.sparkno = 13000
+;sparkxy = -8,-25
+;hitsound   = S0,3
+;guardsound = 6,10
+;guard.hittime  = 21
+;guard.slidetime = 21
+;guard.velocity = -12
+;ground.type = High
+;ground.slidetime = 12
+;ground.hittime  = 15
+;ground.velocity = -1,-6 + (map(electricComboCount) *1.3)
+;air.velocity = -1,-6 + (map(electricComboCount) *1.3)
+;Fall = 1
+;Envshake.time = 20
+;fall.recover = 1
+;Fall.recovertime = 60
+;envshake.time = 18
+;envshake.ampl = -4
+;guard.cornerpush.veloff = -5
+;airguard.cornerpush.veloff = -4
+;
+;[State 240, Uppercut]
+;type = HitDef
+;getpower = 0
+;triggerall = map(juggle) < 100 || hitcount != 0
+;triggerall = enemy, movetype = A
+;triggerall = !movecontact
+;trigger1 = 1
+;attr = S, NA
+;animtype  = Heavy
+;damage    = 100
+;hitflag = MAF
+;guardflag = MA
+;pausetime = 17,34
+;guard.pausetime = 15,25
+;sparkno = 2
+;guard.sparkno = 13000
+;sparkxy = -8,-25
+;hitsound   = 8,0
+;guardsound = 6,10
+;ground.type = High
+;ground.slidetime = 12
+;ground.hittime  = 15
+;air.hittime = 12
+;ground.velocity = -1,-6.2
+;air.velocity = -1,-6.2
+;Fall = 1
+;Envshake.time = 20
+;fall.recover = 1
+;Fall.recovertime = 180
+;envshake.time = 36
+;envshake.ampl = -4
+;guard.cornerpush.veloff = -5
+;airguard.cornerpush.veloff = -4
+
+[State 400, Summon Star Platinum]
+type = Helper
+triggerall = numhelper(405) = 0
+triggerall = numhelper(435) = 0
+trigger1 = AnimElem = 3
+helpertype = normal ;player
+name = "Star Platinum"
+ID = 405
+stateno = 496
+pos = 15,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+inheritjuggle = 1
+
+[State 0, Special Backdash Cancel]
+type = ChangeState
+triggerall = numhelper(51000) = 0
+trigger1 = movecontact
+trigger1 = command = "BB"
+value = 107
+ctrl = 0
+
+[State 310, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+;===============================================================================
+; C - Star Platinum:
+;-------------------------------------------------------------------------------
+[Statedef 495]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 491
+poweradd = -250
+velset = 0,0
+sprpriority = 1
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 60
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 63
+channel = 0
+;ignorehitpause = 
+;persistent 
+
+[State 310, PlaySnd]
+type = PlaySnd
+triggerall = random < 600
+trigger1 = AnimElem = 1
+value = S300,7
+channel = 0 
+volumescale = 75
+lowpriority = 1
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Juggle Map]
+type = RootMapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, Drain Stand Meter]
+type = RootVarAdd
+trigger1 = AnimElem = 1
+var(53) = -10
+
+[State 400, Damage Proration]
+type = RootVarAdd
+trigger1 = MoveHit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, MapSet]
+type = RootMapSet
+trigger1 = 1
+map = "standHit"
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = root, var(53) = 0
+value = 9855
+ctrl = 0
+
+[State 400, PlaySnd]
+type = PlaySnd
+triggerall = !prevstateno
+trigger1 = AnimElem = 1
+value = S400,0
+volumescale = 100
+
+[State 400, PlaySnd]
+type = PlaySnd
+triggerall = time > 7
+trigger1 = time % 8 = 0
+value = S400,2
+volumescale = 75
+
+[State 0, Projectile and Throw Invul]
+type = NotHitBy
+trigger1 = 1
+value = ,NP,SP,AT
+time = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time > 45
+value = SCA
+;value2 = S,NA
+time = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, Shatters from Physical Attacks and System Mechanics]
+type = ReversalDef 
+trigger1 = enemy, movehit
+reversal.attr = SCA,NA,SA,HA,HP           ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+pausetime = 2,2
+sparkno = S1500
+hitsound = S1,0
+p1stateno = 9855
+;p2stateno = 
+ignorehitpause = 1
+;persistent = 
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 9855
+time = 1
+forceair = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**parent,var(11)
+ignorehitpause = 1
+
+[State 405, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 6
+y = 0.2
+
+[State 405, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 3
+y = -0.2
+
+[State 405, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0.2
+y = 0 
+
+[State 240, Uppercut]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = enemy, movetype != A
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Heavy
+damage    = 50
+hitflag = MAF
+guardflag = MA
+pausetime = 17,17
+guard.pausetime = 15,15
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,3
+guardsound = 6,10
+guard.hittime  = 12
+guard.slidetime = 12
+guard.velocity = -8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -1,-6 + (map(electricComboCount) *1.3)
+air.velocity = -1,-6 + (map(electricComboCount) *1.3)
+Fall = 1
+Envshake.time = 20
+fall.recover = 1
+Fall.recovertime = 60
+envshake.time = 18
+envshake.ampl = -4
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 240, Uppercut]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = enemy, movetype = A
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Heavy
+damage    = 75
+hitflag = MAF
+guardflag = MA
+pausetime = 17,34
+guard.pausetime = 15,25
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,0
+guardsound = 6,10
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+air.hittime = 12
+ground.velocity = -1,-6.2
+air.velocity = -1,-6.2
+Fall = 1
+Envshake.time = 20
+fall.recover = 1
+Fall.recovertime = 180
+envshake.time = 36
+envshake.ampl = -4
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 20
+trigger1 = root, stateno = 400
+value = 405
+ctrl = 0
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time <= 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 495
+ctrl = 0
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time > 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 496
+ctrl = 0
+
+;[State 420, Cancel into Star Breaker]
+;type = ChangeState
+;triggerall = time > 48 && time < 64 && movecontact
+;triggerall = power >= 1500
+;triggerall = root, numhelper(405) = 1
+;triggerall = root, statetype != A
+;triggerall = root, movetype != H
+;trigger1 = root, command = "SPECIAL 4"
+;value = 24000
+;ctrl = 0
+;redirectid = root, ID
+
+[State 420, Die if Root in Leon Montage]
+type = ChangeState
+trigger1 = root, stateno = 25500
+value = 406
+ctrl = 0
+ignorehitpause = 1
+
+[State 420, Cancel into Tandem Rush]
+type = DestroySelf
+trigger1 = root, stateno = 23000
+ignorehitpause = 1
+
+[State 420, Cancel into Star Breaker]
+type = ChangeState
+trigger1 = root, stateno = 24000
+value = 24500
+ctrl = 0
+ignorehitpause = 1
+
+[State 420, Cancel into Finisha]
+type = ChangeState
+triggerall = time > 48 && time < 65 && movecontact
+triggerall = root, statetype = S
+trigger1 = root, command != "holdfwd"
+trigger1 = root, command = "c"
+triggerall = root,var(53) > 5
+;trigger1 = root, command = "holddownfwd"
+value = 407
+ctrl = 0
+
+[State 405, End]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+
+;===============================================================================
+; C - Star Platinum:
+;-------------------------------------------------------------------------------
+[Statedef 496]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 491
+poweradd = -250
+velset = 0,0
+sprpriority = 1
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 60
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = time = 63
+channel = 0
+;ignorehitpause = 
+;persistent 
+
+[State 310, PlaySnd]
+type = PlaySnd
+triggerall = random < 600
+trigger1 = AnimElem = 1
+value = S300,7
+channel = 0 
+volumescale = 75
+lowpriority = 1
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Juggle Map]
+type = RootMapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, Drain Stand Meter]
+type = RootVarAdd
+trigger1 = AnimElem = 1
+var(53) = -10
+
+[State 400, Damage Proration]
+type = RootVarAdd
+trigger1 = MoveHit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 10
+
+[State 0, MapSet]
+type = RootMapSet
+trigger1 = 1
+map = "standHit"
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = root, var(53) = 0
+value = 9855
+ctrl = 0
+
+[State 400, PlaySnd]
+type = PlaySnd
+triggerall = !prevstateno
+trigger1 = AnimElem = 1
+value = S400,0
+volumescale = 100
+
+[State 400, PlaySnd]
+type = PlaySnd
+triggerall = time > 7
+trigger1 = time % 8 = 0
+value = S400,2
+volumescale = 75
+
+[State 0, Projectile and Throw Invul]
+type = NotHitBy
+trigger1 = 1
+value = ,NP,SP,AT
+time = 1
+
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time > 45
+value = SCA
+;value2 = S,NA
+time = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, Shatters from Physical Attacks and System Mechanics]
+type = ReversalDef 
+trigger1 = enemy, movehit
+reversal.attr = SCA,NA,SA,HA,HP           ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+pausetime = 2,2
+sparkno = S1500
+hitsound = S1,0
+p1stateno = 9855
+;p2stateno = 
+ignorehitpause = 1
+;persistent = 
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,HP        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 9855
+time = 1
+forceair = 0
+ignorehitpause = 1
+;persistent = 
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 2,1
+dest = 2,parent,var(52)
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 = 1
+value = 1
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**parent,var(11)
+ignorehitpause = 1
+
+[State 405, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 8
+y = 0.2
+
+[State 405, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 4
+y = -0.2
+
+[State 405, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 0.2
+y = 0 
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = time  =2
+time = 24
+add = 50,50,128
+mul = 256,256,256
+sinadd = -70,-70,-70,3
+invertall = 0
+color = 256
+
 [State 240, Uppercut]
 type = HitDef
 getpower = 0
@@ -6152,18 +6855,91 @@ envshake.ampl = -4
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
-[State 0, Special Backdash Cancel]
+[State 420, Cancel into STAH FINGAH]
 type = ChangeState
-triggerall = numhelper(51000) = 0
-trigger1 = movecontact
-trigger1 = command = "BB"
-value = 107
+triggerall = time > 48 && time < 64 && movecontact
+triggerall = prevstateno != 435
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = power >= 250
+triggerall = root,var(53) > 20
+trigger1 = root, command = "c"
+trigger1 = root, command = "holdfwd"
+value = 435
 ctrl = 0
 
-[State 310, End]
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time <= 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 495
+ctrl = 0
+
+[State 420, Cancel into STAH FINGAH]
+type = ChangeState
+triggerall = time > 11
+triggerall = root, statetype != A
+triggerall = root, movetype != H
+triggerall = root, power >= 250
+triggerall = root,var(53) > 10
+trigger1 = root, time > 1
+trigger1 = root, stateno = 30
+trigger1 = root, command = "c"
+value = 496
+ctrl = 0
+
+;[State 420, Cancel into Star Breaker]
+;type = ChangeState
+;triggerall = time > 48 && time < 64 && movecontact
+;triggerall = power >= 1500
+;triggerall = root, numhelper(405) = 1
+;triggerall = root, statetype != A
+;triggerall = root, movetype != H
+;trigger1 = root, command = "SPECIAL 4"
+;value = 24000
+;ctrl = 0
+;redirectid = root, ID
+
+[State 420, Die if Root in Leon Montage]
+type = ChangeState
+trigger1 = root, stateno = 25500
+value = 406
+ctrl = 0
+ignorehitpause = 1
+
+[State 420, Cancel into Tandem Rush]
+type = DestroySelf
+trigger1 = root, stateno = 23000
+ignorehitpause = 1
+
+[State 420, Cancel into Star Breaker]
+type = ChangeState
+trigger1 = root, stateno = 24000
+value = 24500
+ctrl = 0
+ignorehitpause = 1
+
+[State 420, Cancel into Finisha]
+type = ChangeState
+triggerall = time > 48 && time < 65 && movecontact
+triggerall = root, statetype = S
+trigger1 = root, command != "holdfwd"
+trigger1 = root, command = "c"
+triggerall = root,var(53) > 5
+;trigger1 = root, command = "holddownfwd"
+value = 407
+ctrl = 0
+
+[State 405, End]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 406
 ctrl = 1
 
 

@@ -1386,7 +1386,7 @@ Envshake.time = 10
 type = ChangeState
 triggerall = command = "WD" && command != "NotWD"
 trigger1 = movehit
-trigger2 = movecontact && AnimTime = -5
+trigger2 = movecontact && AnimTime = -7
 value = 30
 
 [State 200, Special 1 - Smash Baby]

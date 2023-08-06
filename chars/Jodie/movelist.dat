@@ -1,6 +1,41 @@
 <#f0f000>:UNIQUE NORMALS:</>
 _F_F^B
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^B^B_F_D_DF
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+Normal Jodie:
+
+Low Bounce										_F_D_DF^A
+	"Jodie charges up a spindash upwards."
+_! Bounce Down									_D^B
+	"Jodie spindashes at the ground."
+
+High Bounce										_F_D_DF^B
+	"Same as Low Bounce, but at a higher angle.
+	Hold back to launch at an even higher angle."
+_! Bounce Down
+
+Rush Tornado! (1/4 Bar)		 					_F_D_DF^C
+	"See EX ATTACKS"
+	
+Sword Jodie:
+
+Heavy Slash										_F_D_DF^A
+	"Jodie slashes upwards before spinning 
+	backwards"
+
+Double Slash									_F_D_DF^B
+	"Jodie lunges forward with a jumping 
+	upper-slash before landing with 
+	one more slash.
+
+Quick Spindash! (1/4 Bar)		 				_F_D_DF^C
+	"Jodie does a spindash and dashes forward.
+	Has the same followups as Spin Dash."
+
 <#f0f000>:EX ATTACKS:</>
 Normal Jodie:
 

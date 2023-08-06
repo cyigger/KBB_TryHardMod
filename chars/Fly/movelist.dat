@@ -3,6 +3,23 @@
 _B^A
 _AIR_B^A
 
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^B^B_F_D_DF
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+ShockDash									_F_D_DF^A
+	"Fly instantly dashes forward and 
+	slaps you."
+
+Double Kicks								_F_D_DF^B
+	"Fly jumps forward with two kicks
+	with great velocity."
+
+Shuriken Toss (1/4 Bar)		 				_F_D_DF^C
+	"See EX ATTACKS"
+
 <#f0f000>:EX ATTACKS:</>
 
 Shuriken Toss (1/4 Bar, _AIR OK)			^C
@@ -14,8 +31,6 @@ Shockdodge (1/4 Bar, _AIR OK)				_D^C
 
 _!Shock Reversal (Followup, _AIR OK)		^C
 	"Fly Kicks the opponent away!"
-
-
 	
 
 <#f0f000>:STAR STRIKES!:</>

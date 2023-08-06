@@ -248,6 +248,7 @@ ctrl = 0
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 triggerall = time <= 1
+triggerall = var(53) > 10
 trigger1 = command = "c"
 value = 491
 ctrl = 0
@@ -256,6 +257,7 @@ ctrl = 0
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 triggerall = time > 1
+triggerall = var(53) > 10
 trigger1 = command = "c"
 value = 490
 ctrl = 0

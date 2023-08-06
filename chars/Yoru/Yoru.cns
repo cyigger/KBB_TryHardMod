@@ -1660,7 +1660,7 @@ value = 25000
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-triggerall = helper(300),movehit
+triggerall = helper(300),movehit || (helper(300),movecontact && AnimTime > -7)
 trigger1 = command = "WD" && command = "NotWD"
 value = 30
 
@@ -1972,7 +1972,7 @@ supermovetime = 9999
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-triggerall = helper(300),movehit
+triggerall = helper(300),movehit || (helper(300),movecontact && AnimTime > -7)
 trigger1 = command = "WD"
 value = 30
 

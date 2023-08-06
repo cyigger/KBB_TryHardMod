@@ -205,6 +205,15 @@ ownpal = 0
 [State 200, End]
 type = ChangeState
 ;triggerall = time >= 5
+triggerall = pos y < -1 && var(3) = 0
+trigger1 = command = "holdup"
+value = 45
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+;triggerall = time >= 5
+triggerall = pos y >= -1
 trigger1 = command = "holdup"
 value = 60
 ctrl = 0
