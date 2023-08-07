@@ -545,15 +545,30 @@ if Time >= 15 {
 [Statedef 810; 
  type: A;
  movetype: A;
- physics: A;
+ physics: N;
  ctrl: 0;
  anim: 810;
  poweradd: 0;
  sprpriority: -1;]
+ 
+ if enemy,stateType = A {
+	StateTypeSet{stateType: A}
+ } else {
+	StateTypeSet{stateType: S}
+ }
 
 AttackDist{value: -1}
 
 VelSet{x: vel x /2;y: vel y /2}
+if pos y < 0 {
+	VelAdd{y: 0.22}
+}
+else {
+	VelSet{y: 0}
+	PosSet{y: 0}
+}
+
+
 
 if gametime%10 = 1 {
     PalFX{time:3; add: 128,128,128}
@@ -596,12 +611,12 @@ ignorehitpause if time = 1 {
 }
 
 if prevStateNo != 820 {
-    if time = 15 || (Vel Y > 0 && Pos Y >= -10) {
+    if time = 15 {
         poweradd{value: -1000}
     }
 }
 
-if !movecontact && time >= 15 {
+if !movecontact && time > 15 {
     MapSet {map:"defence"; value: 0.2}
     MapSet {map:"hitOverride"; value: 0}
 }
@@ -611,7 +626,7 @@ if enemynear, hitpausetime > 15 && var(47) <= 1 {
     ChangeAnim{value: 810; elem: 1}
 }
 
-if (Vel Y > 0 && Pos Y >= -10) {
+if (Vel Y > 0 && Pos Y >= -1) && time > 15 {
     ChangeState{value:816;ctrl:0}
 }
 

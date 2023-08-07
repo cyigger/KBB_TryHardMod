@@ -162,16 +162,6 @@ name = "BB"     ;Required (do not remove)
 command = B, B
 time = 10
 
-[Command]
-name = "WD"
-command = ~F, D, DF
-time = 20
-
-[Command]
-name = "NotWD"
-command = B, D, DF
-time = 20
-
 ;-| 2/3 Button Combination |-----------------------------------------------
 [Command]
 name = "recovery" ;Required (do not remove)

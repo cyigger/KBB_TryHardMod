@@ -182,17 +182,6 @@ command = D, D
 time = 10
 buffer.time = 5
 
-[Command]
-name = "WD"
-command = ~F, D, DF
-time = 20
-buffer.time = 5
-
-[Command]
-name = "NotWD"
-command = B, D, DF
-time = 20
-buffer.time = 5
 ;-| 2/3 Button Combination |-----------------------------------------------
 [Command]
 name = "recovery" ;Required (do not remove)

@@ -1,9 +1,9 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
-| Try-Hard Version 0.2.5 Changes:                    /
+| Try-Hard Version 0.2.6 Changes:                    /
 |---------------------------------------------------/
 
-This update adds the command list for everyone except some of the less completed characters. Change in this version have not been documented well :\
+This update adds the command list for everyone except some of the less completed characters.
 
 But everyone's moves (except for a few characters) have been polished up.
 
