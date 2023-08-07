@@ -181,30 +181,6 @@ time = 10
 buffer.time = 1
 
 [Command]
-name = "236"
-command = ~D, DF, F
-time = 10
-buffer.time = 1
-
-[Command]
-name = "214"
-command = ~D, DB, B
-Time = 10
-buffer.time = 1
-
-[Command]
-name = "WD"
-command = ~F, D, DF
-time = 20
-buffer.time = 5
-
-[Command]
-name = "NotWD"
-command = B, D, DF
-time = 20
-buffer.time = 5
-
-[Command]
 name = "Waveland"
 command = DF
 time = 15

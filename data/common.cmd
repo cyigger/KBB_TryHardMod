@@ -1,3 +1,11 @@
+[Remap]
+x = x
+y = y
+z = z
+a = a
+b = b
+c = c
+s = s
 ;----------------------------------------------------------------------------
 ;Tag Commands
 ;----------------------------------------------------------------------------
@@ -147,34 +155,64 @@ time = 5
 [Command]
 name = "FF"
 command = F, F
-time = 1
+time = 10
 
 [Command]
 name = "FF"
 command = z
 time = 1
-buffer.time = 1
 
 [Command]
 name = "BB"
 command = B, B
-time = 1
+time = 10
+
+[Command]
+name = "WD"
+command = ~F, D, DF, F, F, D, DF
+time = 28
+buffer.time = 5
+
+[Command]
+name = "WD"
+command = ~F, F, D, F
+time = 18
+buffer.time = 5
+
+[Command]
+name = "WD"
+command = ~F, F, D, DF
+time = 18
+buffer.time = 5
+
+[Command]
+name = "WD"
+command = ~F, F, D, F
+time = 18
+buffer.time = 5
 
 [Command]
 name = "WD"
 command = ~F, D, DF
-time = 20
+time = 12
+buffer.time = 5
 
 [Command]
 name = "WD"
-command = /$D, z
+command = ~F, D, F
+time = 12
+buffer.time = 5
+
+[Command]
+name = "WD"
+command = /$D,z
 time = 1
-buffer.time = 1
 
 [Command]
 name = "NotWD"
 command = B, D, DF
-time = 20
+time = 12
+
 ;----------------------------------------------------------------------------
 ;Single Direction
 ;----------------------------------------------------------------------------

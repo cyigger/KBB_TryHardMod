@@ -179,36 +179,6 @@ command = D, D
 time = 10
 buffer.time = 1
 
-[Command]
-name = "236"
-command = ~D, DF, F
-time = 10
-buffer.time = 1
-
-[Command]
-name = "214"
-command = ~D, DB, B
-Time = 10
-buffer.time = 1
-
-[Command]
-name = "WD"
-command = ~F, D, DF
-time = 20
-buffer.time = 5
-
-[Command]
-name = "NotWD"
-command = B, D, DF
-time = 20
-buffer.time = 5
-
-[Command]
-name = "Waveland"
-command = DF
-time = 15
-buffer.time = 5
-
 ;-| 2/3 Button Combination |-----------------------------------------------
 [Command]
 name = "recovery" ;Required (do not remove)
@@ -799,22 +769,22 @@ trigger1 = ctrl
 ;===========================================================================
 ;--------------------------------Normal Attacks---------------------------
 ;---------------------------------------------------------------------------
-; Back + A
-[State -1, A]
-type = ChangeState
-value = 225
-triggerall = command = "a"
-triggerall = command = "holdback"
-Triggerall = statetype != A
-trigger1 = ctrl
-
-
 ; Down + A
 [State -1, Down + A]
 type = ChangeState
 value = 950
 triggerall = command = "holddown" && numexplod(950) = 0
 triggerall = command = "a"
+Triggerall = statetype != A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Back + A
+[State -1, A]
+type = ChangeState
+value = 225
+triggerall = command = "a"
+triggerall = command = "holdback"
 Triggerall = statetype != A
 trigger1 = ctrl
 
@@ -969,16 +939,6 @@ value = 800
 triggerall = ailevel = 0
 triggerall = command = "hold_x"
 Triggerall = statetype != A
-trigger1 = ctrl
-
-;---------------------------------------------------------------------------
-; Back + A Air
-[State -1, A]
-type = ChangeState
-value = 603
-triggerall = command = "a"
-triggerall = command = "holddown"
-Triggerall = statetype = A
 trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
