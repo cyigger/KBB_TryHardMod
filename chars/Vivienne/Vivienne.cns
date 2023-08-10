@@ -644,11 +644,12 @@ triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 7"
 value = 27000
 
-[State 200, Wavedash Cancel]
+[State 200, WD Cancel]
 type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
 trigger1 = movehit || (movecontact && AnimTime > -7)
-value = 30
+trigger1 = command = "WD"
+trigger1 = power >= 250
+value = 290
 ctrl = 1
 
 [State 200, 2A]	;LOW ATTACK
@@ -776,13 +777,6 @@ air.hittime  = 14 + ifelse(enemy,movetype = A, 7,0)
 Fall = 1
 Envshake.time = 17
 
-[State 200, Wavedash Cancel]
-type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movehit || (movecontact && AnimTime > -7)
-value = 30
-ctrl = 1
-
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -840,13 +834,13 @@ triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 7"
 value = 27000
 
-[State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
+[State 200, WD Cancel]
 type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holddownfwd"
-trigger1 = command = "a"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && !movehit
+trigger1 = movecontact
+trigger1 = command = "WD"
+trigger1 = power >= 250
 value = 290
+ctrl = 1
 
 [State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
 type = ChangeState
@@ -913,7 +907,7 @@ physics = S
 juggle  = 2
 ctrl = 0
 anim = 290
-poweradd = 0
+poweradd = -250
 sprpriority = 0
 
 [State 0, Juggle Map]
@@ -941,7 +935,7 @@ value = 5
 [State 20, 1]
 type = VelSet
 trigger1 = vel x < const(velocity.walk.fwd.x)
-x = const(velocity.walk.fwd.x)
+x = const(velocity.walk.fwd.x) * 1.2
 
 [State 1020, Blink White]
 type = PalFX
@@ -964,8 +958,8 @@ value = 1
 
 [State 0, Super Armor Bootleg = Animelem = 3]
 type = HitOverride
-trigger1 = var(47) < 2
-trigger1 = time >= 3
+trigger1 = var(47) < 3
+trigger1 = time >= 1
 attr = SCA,NA,SA,NP,SP
 slot = 0
 stateno = 291
@@ -1081,7 +1075,7 @@ movetime = 0
 
 [State 0, Super Armor Bootleg = Animelem = 3]
 type = HitOverride
-trigger1 = var(47) < 2
+trigger1 = var(47) < 3
 attr = SCA,NA,SA,NP,SP
 slot = 0
 stateno = 291
@@ -1102,7 +1096,7 @@ elem = 4
 [State 20, 1]
 type = VelSet
 trigger1 = 1
-x = const(velocity.walk.fwd.x)
+x = const(velocity.walk.fwd.x) * 1.2
 
 [State 200, 1]
 type = HitDef
@@ -1114,8 +1108,8 @@ animtype  = Medium
 damage    = 15
 hitflag = MAFD
 guardflag = LAF
-pausetime = 12,12
-guard.pausetime = 12,8
+pausetime = 6,6
+guard.pausetime = 6,2
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-15
@@ -1146,6 +1140,13 @@ type = ChangeState
 triggerall = time >= 10
 trigger1 = command = "holdback"
 value = 20
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 8
+trigger1 = command = "FF"
+value = 100
 ctrl = 1
 
 [State 0, End]
@@ -1345,6 +1346,7 @@ ground.velocity = 1.5,8
 air.velocity = 1,8
 fall = 1
 fall.recover = 0
+fall.yvelocity = -5
 Envshake.time = 25
 p2sprpriority = -1
 
@@ -1557,6 +1559,7 @@ ground.slidetime = 0
 ground.velocity = 0,10
 air.velocity = 0,10
 fall = 1
+fall.yvelocity = -4
 fall.recover = 0
 ;p2stateno = 1000
 ;p2getp1state = 0
@@ -1710,7 +1713,7 @@ x = -15
 type = ChangeState
 triggerall = movehit
 trigger1 = command = "WD"
-value = 30
+value = 290
 
 [State 200, End]
 type = ChangeState
@@ -1960,13 +1963,6 @@ trigger1 = command = "up"
 trigger2 = command =  "holdup"
 value = 40
 
-[State 200, Wavedash]
-type = ChangeState
-Triggerall = prevstateno !=300
-triggerall = movecontact
-trigger1 = command = "WD"
-value = 30
-
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -2017,6 +2013,15 @@ Triggerall = var(53) >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 7"
 value = 27000
+
+[State 200, Wavedash]
+type = ChangeState
+Triggerall = prevstateno !=300
+triggerall = movecontact
+trigger1 = command = "WD"
+trigger1 = power >= 250
+value = 290
+
 [State 200, 2A]	;LOW ATTACK
 type = ChangeState
 Triggerall = movecontact
@@ -2208,7 +2213,8 @@ type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -2451,7 +2457,8 @@ type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -2686,7 +2693,8 @@ type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -2904,7 +2912,8 @@ type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, Special 1 - Geyser]
 type = ChangeState
@@ -3295,7 +3304,8 @@ x = -15
 type = ChangeState
 triggerall = movehit
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, End]
 type = ChangeState
@@ -3585,7 +3595,8 @@ ctrl = 1
 type = ChangeState
 triggerall = movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, 6C]		;Dash Grab Forward+C
 type = ChangeState
@@ -3724,7 +3735,8 @@ ctrl = 1
 type = ChangeState
 triggerall = movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, End]			;Dash Grab Forward+C
 type = ChangeState
@@ -3957,7 +3969,8 @@ ctrl = 1
 type = ChangeState
 triggerall = helper(413), movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, End]		;Dash Grab Forward+C
 type = ChangeState
@@ -4222,7 +4235,8 @@ ctrl = 1
 type = ChangeState
 triggerall = helper(415), movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, End]			;Dash Grab Forward+C
 type = ChangeState
@@ -4455,7 +4469,8 @@ ctrl = 1
 type = ChangeState
 triggerall = helper(417) ,movecontact
 trigger1 = command = "WD"
-value = 30
+trigger1 = power >= 250
+value = 290
 
 [State 200, End]			;Dash Grab Forward+C
 type = ChangeState
@@ -7822,7 +7837,7 @@ ctrl = 1
 type = ChangeState
 triggerall = movehit
 trigger1 = command = "WD"
-value = 30
+value = 290
 
 [State 200, End]
 type = ChangeState
@@ -8664,13 +8679,6 @@ air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
 Fall = 1
 Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 
-[State 200, Wavedash Cancel]
-type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movehit || (movecontact && AnimTime > -7)
-value = 30
-ctrl = 1
-
 [State 200, Special 1 - Geyser]
 type = ChangeState
 Triggerall = movecontact
@@ -8725,7 +8733,7 @@ value = 27000
 [State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
 type = ChangeState
 Triggerall = movecontact
-trigger1 = command = "a"
+trigger1 = command = "WD"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 290
 

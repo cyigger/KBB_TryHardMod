@@ -1,6 +1,87 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
-| Try-Hard Version 0.2.6 Changes:                    /
+| Try-Hard Version 0.2.8 Changes:                    /
+|---------------------------------------------------/
+
+This update addresses a few balance hickups, and introduces the second unique wavedash: Vivienne's Merciless Walk.
+
+
+Universal:
+1. Fixed Meterdrain issues when wavedashing during starburst.
+
+
+Aege:
+1. Fixed Grab not working
+2. Tweaked Wavedash Animation.
+
+Bill:
+1. Tweaked Wavedash Animation.
+2. Wavedash A:
+	* Startup Reduced (7 -> 4)
+	* Decreased Recovery on Wiff (-5)
+	* Block Frames made more disadvantageous (+3 -> -4)
+3. Wavedash B:
+	* Startup Increased (14 -> 18)
+	* Cancels into j.5c and j.2c removed
+4. Tweaked Hitboxes and Hurtboxes of 4a (buffed)
+
+Jay:
+1. Tweaked Wavedash Animation
+2. Movelist Added
+
+Jodie:
+1. Tweaked Wavedash Animation
+2. Added Wavedash Cancel To 5bbb
+3. Added Wavedash Cancel to 5bb (on hit only)
+4. Added Airdash to Wavedash A and Wavedash B post hit state.
+
+Metaknight: I hate all these nerfs that happened to him. I have taken a "give and take" attitude towards his buffs.
+1. Airdash:
+	* Hurtbox reduced
+	* Hitbox elongated slightly
+	* It is now takes longer to be actionable (+3 frames)
+	* Speed increased (+0.2)
+	* Animation tweaked
+2. 5c and j.5c:
+	* Movement speed increased.
+	* Hitboxes Shrinked Vertically
+	* Recovery Reduced (-2)
+3. 6c and j.6c:
+	* Hitbox size increased vertically
+	* Projectile speed decreased
+	* hitstun increased (+2)
+4. 2c
+	* Movement speed while invisible increased drastically.
+5. 5a string and j.5a:
+	* Increased Range Slightly
+	* 5a Increased Recovery (+4)
+6. 4b:
+	* Vertical range increased
+	* Horizontal range decreased
+
+Max, Saito, Stray, Sareo:
+1. Fixed potential grab buggyness after grab buff
+
+Vei:
+1. Palette Squares Fixed
+2. select screen icon added.
+3. j.2b:
+	* speed decreased
+	* made a real fatal
+	* startup reverted to former self.
+	* Removed bulshit left over code
+
+Vivienne:
+1. Wavedash Replaced with No Mercy (Armor Walk) (previously Wavedash A)
+2. No Mercy B given extra time to combo
+3. No Mercy C given extra time to combo
+4. No Mercy Dash Cancel Added.
+5. Cancels into No Mercy tweaked.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.2.7 Changes:                    /
 |---------------------------------------------------/
 
 This update adds the command list for everyone except some of the less completed characters.

@@ -1066,7 +1066,7 @@ sprpriority = 1
 type = MapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 15
+value = 10
 persistent = 0
 
 [State 0, FatalCounter]
@@ -1139,7 +1139,7 @@ animtype  = Medium
 damage    = 60
 hitflag = MAF
 guardflag = MAF
-pausetime = 36,36
+pausetime = 30,30
 guard.pausetime = 12, 10
 sparkno = 0
 guard.sparkno = s13000
@@ -1171,7 +1171,7 @@ damage    = 20
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
-guard.pausetime = 12, 10
+guard.pausetime = 12, 12
 sparkno = 0
 guard.sparkno = s13000
 sparkxy = -8,-25
@@ -1182,11 +1182,12 @@ ground.slidetime = 12
 ground.hittime  = 12
 ground.velocity = -5
 air.velocity = -2,-1
+guard.velocity = -10
 Fall = 1
 Envshake.time = 15
 Fall.recovertime = 60
-guard.cornerpush.veloff = -7
-airguard.cornerpush.veloff = -7
+guard.cornerpush.veloff = -9
+airguard.cornerpush.veloff = -9
 
 [State 200, End]
 type = ChangeState
@@ -1205,7 +1206,7 @@ value = 30
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-trigger1 = time = 15
+trigger1 = time = 25
 value = 0
 ctrl = 1
 
@@ -1745,7 +1746,7 @@ damage    = 25
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
-guard.pausetime = 12,18
+guard.pausetime = 12,12
 sparkno = 0
 guard.sparkno = s13000
 sparkxy = -8,-25
@@ -1843,7 +1844,7 @@ value = 0
 ctrl = 1
 
 ;===============================================================================
-; Overhead
+; Wavedash B V2
 [Statedef 390]
 type    = A
 movetype= A
@@ -1882,12 +1883,12 @@ value = 100
 type = VelSet
 trigger1 = Time = 0
 x = 3.75
-y = -4
+y = -3.8
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1 
-y = 0.33
+y = 0.22
 
 [State 0, VarAdd]
 type = VarAdd
@@ -1920,7 +1921,7 @@ animtype  = Light
 damage    = 25
 hitflag = MAF
 guardflag = HAFD
-pausetime = 16,22
+pausetime = 16,24
 sparkno = 1
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -1979,24 +1980,24 @@ value = 21000
 ;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 ;value = 610
 
-[State 200, j.2C]
-type = ChangeState
-triggerall = movecontact
-triggerall = numhelper(3500) = 0
-;triggerall = var(21) > 0
-trigger1 = command = "holddown"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-triggerall = power >= 200
-value = 625
-
-[State 200, j.C]
-type = ChangeState
-triggerall = movecontact
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 620
+;[State 200, j.2C]
+;type = ChangeState
+;triggerall = movecontact
+;triggerall = numhelper(3500) = 0
+;;triggerall = var(21) > 0
+;trigger1 = command = "holddown"
+;trigger1 = command = "c"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;triggerall = power >= 200
+;value = 625
+;
+;[State 200, j.C]
+;type = ChangeState
+;triggerall = movecontact
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "c"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 620
 
 [State 0, Helper]
 type = Helper
@@ -2617,8 +2618,8 @@ type = Helper
 trigger1 = AnimElem = 4
 helpertype = normal ;player
 name = "Light Explosive"
-ID = 21570
-stateno = 21570
+ID = 21572
+stateno = 21572
 pos = -20, 0
 postype = p1    ;p2,front,back,left,right
 facing = 1

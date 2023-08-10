@@ -2024,13 +2024,13 @@ pausemovetime = 0
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holdup"
-y = -2
+y = -2.5
 
 [State 0, Moving down]
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holddown"
-y = 2
+y = 2.5
 
 [State 0, Stop]
 type = VelSet
@@ -2042,19 +2042,25 @@ y = 0
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holdfwd"
-x = 3.5
+x = 3.75
 
 [State 0, Moving back]
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holdback"
-x = -3.5
+x = -3.75
 
 [State 0, Stop]
 type = VelSet
 triggerall = time > 5
 trigger1 = command != "holdfwd" && command != "holdback"
 x = 0
+
+;[State 390, Immune to Projectiles]
+;type = NotHitBy
+;time = 1
+;trigger1 = time = [5, 38]
+;value = , NP, SP, HP
 
 [State 0, No Land]
 type = PosSet
@@ -2294,7 +2300,7 @@ ctrl = 0
 anim = 421
 poweradd = 0
 sprpriority = 2
-velset = 9, 0
+velset = 8, 0
 
 [State 0, Swing Sound]
 type = PlaySnd
@@ -2362,10 +2368,10 @@ hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 8
-ground.hittime  = 10
-ground.velocity = -1, -2
+ground.hittime  = 12
+ground.velocity = -1, -2.5
 air.hittime  = 10
-air.velocity = -1,-2
+air.velocity = -1,-2.5
 guard.hittime = 6
 Fall = 0
 Fall.recovertime = 25
@@ -2438,28 +2444,28 @@ movetime = 10
 [State 0, Moving Forward]
 type = VelAdd
 triggerall = time > 5 && time < 18
-triggerall = vel x < 4.5
+triggerall = vel x < 6
 trigger1 = command = "holdfwd"
-x = 0.88
+x = 1.2
 
 [State 0, Speed Cap Forward]
 type = VelSet
 triggerall = time > 5 && time < 18
-trigger1 = vel x > 4.5
-x = 4.5
+trigger1 = vel x > 6
+x = 6
 
 [State 0, Moving Back]
 type = VelAdd
 triggerall = time > 5 && time < 18
-triggerall = vel x > -4.5
+triggerall = vel x > -6
 trigger1 = command = "holdback"
-x = -0.88
+x = -1.2
 
 [State 0, Speed Cap Back]
 type = VelSet
 triggerall = time > 5 && time < 18
-trigger1 = vel x < -4.5
-x = -4.5
+trigger1 = vel x < -6
+x = -6
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -3764,10 +3770,10 @@ type = VelAdd
 trigger1 = Animelem = 1
 y = -1
 
-[State 0, VelSet]
-type = VelAdd
-trigger1 =  movecontact = 1
-y = -0.44
+;[State 0, VelSet]
+;type = VelAdd
+;trigger1 =  movecontact = 1
+;y = -0.44
 
 [State 200, 1]
 type = HitDef
@@ -3839,7 +3845,7 @@ value = 605
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holddown"
+trigger1 = command = "holdfwd"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4256,7 +4262,7 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holddown"
+trigger1 = command = "holdfwd"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4402,7 +4408,7 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holddown"
+trigger1 = command = "holdfwd"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625
@@ -4648,7 +4654,7 @@ value = 1
 
 [State 0, TargetBind]
 type = TargetBind
-triggerall = hitcount > 1 && hitcount < 9
+triggerall = hitcount < 9
 trigger1 = movehit
 time = 1
 id = -1
@@ -4684,13 +4690,13 @@ pos = 25,-10
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holdup"
-y = -2
+y = -2.5
 
 [State 0, Moving down]
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holddown"
-y = 2
+y = 2.5
 
 [State 0, Stop]
 type = VelSet
@@ -4702,13 +4708,13 @@ y = 0
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holdfwd"
-x = 3.5
+x = 3.75
 
 [State 0, Moving back]
 type = VelSet
 triggerall = time > 5
 trigger1 = command = "holdback"
-x = -3.5
+x = -3.75
 
 [State 0, Stop]
 type = VelSet
@@ -4736,6 +4742,12 @@ y = -0.05
 type = VelAdd
 trigger1 = time < 5
 y = -0.025
+
+;[State 390, Immune to Projectiles]
+;type = NotHitBy
+;time = 1
+;trigger1 = time = [5, 38]
+;value = , NP, SP
 
 [State 0, Voice - 0]
 type = PlaySnd
@@ -4846,7 +4858,7 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holddown"
+trigger1 = command = "holdfwd"
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 625

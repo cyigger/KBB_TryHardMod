@@ -1544,11 +1544,11 @@ trigger1 = time > 28
 x = -0.2
 y = 0
 
-[State 390, Immune to lows]
+[State 390, Immune to Projectiles]
 type = NotHitBy
 time = 1
 trigger1 = time = [6, 23]
-value = C, NP, SP, HP
+value = , NP, SP, HP
 
 [State 200, 1]
 type = HitDef

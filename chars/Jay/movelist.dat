@@ -5,9 +5,34 @@ Burn Levels
 
 Heat Charge
 	"Jay powers up his moves with more flame!"
-
+	
 <#f0f000>:UNIQUE NORMALS:</>
+
 _B^A
+_F^C
+
+_AIR_D^B
+	
+<#f0f000>:COMMAND DASH CANCELS:</>
+^A_F_D_DF (Late on Block)
+^A^A^A_F_D_DF (Late on Block)
+_B^A_F_D_DF (Late on Block)
+^B_F_D_DF (On Hit Only)
+
+<#f0f000>:COMMAND DASH ATTACKS:</>
+
+Stomp Geyser							_F_D_DF^A
+	"Jay stomps on the ground, erupting fire
+	geysers from under."
+
+Flare Uppercut							_F_D_DF^B
+	"Jay hits the opponent in to the air with
+	and uppercut. If the attack succeeds, Jay
+	will charge heat."
+
+Rising Flare Sword (1/5 Bar)			_F_D_DF^C
+	"Jay jumps up with a strong slash of his
+	flare sword, hitting anyone above him."
 
 <#f0f000>:EX ATTACKS!:</>
 
@@ -19,9 +44,11 @@ Fire Slide (1/4 Bar)				_D^C
 	"Jay slides in with a stab from his sword!
 	Applies Burn"
 
-Flare Gun (1/4 Bar)				_AIR^C
-	"Jay tosses a flare ball through the air!
-	Applies Burn"
+Flare Sword Combo (1/4 Bar)				_F^C
+	"Jay starts a flashy sword combo with his
+	sword! Keep pressing attack buttons to
+	customize your combo.
+	Applies Burn twice during the combo."
 	
 Flare Fall (1/4 Bar)				_AIR_D^C
 	"Jay slashes downwards with his fire sword 

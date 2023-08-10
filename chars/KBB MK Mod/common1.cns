@@ -422,7 +422,7 @@ value = 3
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time >= 12
+trigger1 = time >= 14
 trigger2 = movehit
 value = 1
 
@@ -435,19 +435,19 @@ trans = add
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 trigger1 = time >= 2
-x = 5.8
+x = 6
 
 
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 triggerall = time >= 2
-trigger1 = time <= 10
-y = 1
+trigger1 = time <= 14
+y = 0.8
 
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = time > 10
-y = .22
+trigger1 = time > 14
+y = .11
 
 [State HITDEF]
 type = HitDef
@@ -486,7 +486,7 @@ airguard.cornerpush.veloff = -5
 
 [State 200, End]
 type = ChangeState
-trigger1 = command != "holdfwd" && time > 13
+trigger1 = command != "holdfwd" && time >= 14
 value = 50
 ctrl = 1
 

@@ -3240,7 +3240,7 @@ y = -6
 
 [State 0, VelSet]
 type = VelAdd
-trigger1 = time = (70,90)
+trigger1 = time = (65,85)
 ;trigger1 = vel y != 0
 y = 0.44
 
@@ -3251,7 +3251,7 @@ y = 9
 
 [State 0, PosSet]
 type = PosSet
-triggerall = time > 90
+triggerall = time > 85
 trigger1 = pos y > 0
 y = 0
 ignorehitpause = 1
@@ -3259,7 +3259,7 @@ ignorehitpause = 1
 [State 0, VelAdd]
 type = VelAdd
 triggerall =  pos y < 0 && vel y != 0
-trigger1 = Time > 65
+trigger1 = Time > 62
 y = -.2
 
 [State 0, VelSet]
@@ -3271,7 +3271,7 @@ y = 0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time > 15 && Time < 65
+trigger1 = movecontact && Time > 10 && Time < 60
 time = 1
 id = -1
 pos = 30,0
@@ -3279,7 +3279,7 @@ pos = 30,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && (time >= 65 && time < 70)
+trigger1 = movecontact && (time >= 60 && time < 65)
 time = 1
 id = -1
 pos = 0,-40
@@ -3287,7 +3287,7 @@ pos = 0,-40
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && (time >= 70 && time < 77)
+trigger1 = movecontact && (time >= 65 && time < 72)
 time = 1
 id = -1
 pos = 0,-29
@@ -3295,7 +3295,7 @@ pos = 0,-29
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && (time >= 77 && time < 82)
+trigger1 = movecontact && (time >= 72 && time < 77)
 time = 1
 id = -1
 pos = -15,-50
@@ -3303,7 +3303,7 @@ pos = -15,-50
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && (time >= 82 && time < 87)
+trigger1 = movecontact && (time >= 77 && time < 82)
 time = 1
 id = -1
 pos = -17,-52
@@ -3311,7 +3311,7 @@ pos = -17,-52
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && (time >= 87 && time < 90)
+trigger1 = movecontact && (time >= 82 && time < 85)
 time = 1
 id = -1
 pos = 10,-20
@@ -3326,12 +3326,12 @@ pos = 10,-20
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = Time > 25
+trigger1 = Time > 20
 value = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
-triggerall = Time >= 16
+triggerall = Time >= 11
 trigger1 = movecontact
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
