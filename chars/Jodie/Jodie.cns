@@ -1423,6 +1423,13 @@ Fall = 0
 Envshake.time = 5
 Fall.recovertime = 10 + ifelse(enemy,movetype = A, 7,0)
 
+;[State 200, Wavedash Cancel]
+;type = ChangeState
+;Triggerall = command = "WD" && command != "NotWD"
+;trigger1 = movehit
+;value = 30
+;ctrl = 1
+
 [State 200, DP SPECIAL]
 type = ChangeState
 Triggerall = movecontact
@@ -1640,12 +1647,12 @@ Triggerall = movehit
 trigger1 = command = "up" || command = "holdup"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 630
-[State 200, End]
+[State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = movehit
-trigger1 = command = "DD" && command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 330
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
 
 [State 200, Fwd+C]
 type = ChangeState
@@ -1878,6 +1885,13 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 triggerall = time >= 6
+trigger1 = command = "FF"
+value = 65
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 6
 trigger1 = command = "up" || command = "holdup"
 value = 45
 ctrl = 1
@@ -2006,9 +2020,9 @@ hitflag = MAFD
 guardflag = MA
 pausetime = 12,16
 ground.hittime  = 30 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 12,15
+guard.pausetime = 12,10
 guard.hittime  = 10
-guard.velocity = -3
+guard.velocity = -5
 sparkno = 2
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2016,8 +2030,8 @@ hitsound   = 5,4
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -2,-3
-air.velocity = -4,-3
+ground.velocity = -2,-4
+air.velocity = -4,-4
 Fall = 1
 Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 20

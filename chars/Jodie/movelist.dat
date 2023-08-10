@@ -3,7 +3,9 @@ _F_F^B
 
 <#f0f000>:COMMAND DASH CANCELS:</>
 ^A_F_D_DF (Late on Block)
-^B^B_F_D_DF
+^A^A_F_D_DF (Late on Block)
+^B^B^B_F_D_DF
+^C_F_D_DF
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 Normal Jodie:

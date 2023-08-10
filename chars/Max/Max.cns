@@ -3585,13 +3585,13 @@ trigger1 = AnimElem = 5
 [State 0, NotHitBy]
 type = NotHitBy
 triggerall = movecontact
-trigger1 = Time >= 16
+trigger1 = Time >= 11
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = time >= 15
+trigger1 = time >= 10
 value = 0	
 
 [State 0, VelSet]
@@ -3602,7 +3602,7 @@ x = 5
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time < 25
+trigger1 = movecontact && time < 20
 time = 1
 id = -1
 pos = 20,0
@@ -3610,7 +3610,7 @@ pos = 20,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time > 25 && time < 41
+trigger1 = movecontact && time > 20 && time < 36
 time = 1
 id = -1
 pos = 0,-20

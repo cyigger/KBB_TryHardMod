@@ -990,7 +990,7 @@ value = 625
 ;Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 100
-triggerall = command = "holddown"
+triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype = A
 trigger1 = ctrl

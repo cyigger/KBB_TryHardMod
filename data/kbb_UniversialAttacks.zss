@@ -2307,8 +2307,8 @@ if Const(KBB_Playable) = 1 {
                  }
             }
 			if (command = "WD" && command != "NotWD") {
-				PowerAdd{value: -250}
 				ignorehitpause if (statetype = s || statetype = c) {
+					PowerAdd{value: -250}
 					StateTypeSet{Statetype: C}
 					ChangeState{value: 30; ctrl: 0}
 				}

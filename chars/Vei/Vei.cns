@@ -3497,20 +3497,6 @@ map = "juggle"
 value = 5 
 persistent = 0
 
-[State 0, staleMovesException] ;Negates stale moves
-type = MapSet
-trigger1 = 1
-map = "staleMovesException"
-value = 1
-persistent = 0
-
-[State 615, j2bcount]; Counts how many times j.2b was used to decrease Glitch's juggle count 
-type = MapAdd
-trigger1 = movehit
-map = "j2bcount"
-value = 1
-persistent = 0
-
 [State 0, FatalCounter]
 type = MapSet
 trigger1 = 1
@@ -3564,23 +3550,21 @@ x = 3
 [State 0, VelSet]
 type = VelSet
 trigger1 = time >= 9
-y = 8
-x = 8
+y = 6
+x = 6
 
 [State 200, 1]
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = enemy,prevstateno != 1027
 triggerall = !movecontact
-triggerall = enemy,map(hitOverride) = 0
-triggerall = var(31)!= 0
 trigger1 = 1
 attr = A, NA
 animtype  = Medium
 damage    = ifelse(enemy,movetype = A,60,30)
 guardflag = HAF
-pausetime = ifelse(enemy,movetype = A,40,20),ifelse(enemy,movetype = A,40,5)
+pausetime = ifelse(enemy,movetype = A,40,15),ifelse(enemy,movetype = A,40,15)
+guard.pausetime = 15, 10
 sparkno = 2
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -3589,44 +3573,45 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -8,-3
+ground.velocity = -4,6
 guard.velocity = -4
-airguard.velocity = -4,-2
-air.velocity = -8,-3
+airguard.velocity = -4,6
+air.velocity = -4,6
 Fall = 1
+fall.recover = 0
 ;p2facing = 1        ;Force to face p1
 Envshake.time = 30
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact
-trigger1 = 1
-attr = A, NA
-animtype  = Light
-damage    = 15
-hitflag = MAF
-guardflag = HAF
-pausetime = 15,15
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 15,10
-guard.hittime  = 5
-airguard.hittime  = 13
-sparkno = 2
-guard.sparkno = s7000
-sparkxy = -8,-25
-hitsound   = 5,4
-guardsound = 6,11
-ground.type = High
-ground.slidetime = 12
-ground.velocity = -3,8
-air.velocity = -3,8
-Fall = 1
-Envshake.time = 20
-fall.recover = 0
+;[State 200, 1]
+;type = HitDef
+;getpower = 0
+;triggerall = map(juggle) < 100 || hitcount != 0
+;triggerall = !movecontact
+;trigger1 = 1
+;attr = A, NA
+;animtype  = Light
+;damage    = 15
+;hitflag = MAF
+;guardflag = HAF
+;pausetime = 15,15
+;ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+;guard.pausetime = 15,10
+;guard.hittime  = 5
+;airguard.hittime  = 13
+;sparkno = 2
+;guard.sparkno = s7000
+;sparkxy = -8,-25
+;hitsound   = 5,4
+;guardsound = 6,11
+;ground.type = High
+;ground.slidetime = 12
+;ground.velocity = -3,8
+;air.velocity = -3,8
+;Fall = 1
+;Envshake.time = 20
+;fall.recover = 0
 
 [State 200, End]
 type = ChangeState

@@ -950,6 +950,101 @@ type = DestroySelf
 trigger1 = AnimTime = 0
 
 ;-------------------------------------------------------------------------------
+; Light Explosion 4
+[Statedef 21572]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+ctrl = 0
+anim = 21550
+poweradd = 0
+sprpriority = 2
+velset = 0,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 1
+value = S21500,0
+volume = 50
+channel = -1
+;lowpriority = -1
+freqmul = 1.0
+loop = 0
+pan = 0
+;abspan = 
+ignorehitpause = 1
+persistent = 0
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+;ignorehitpause = 
+;persistent = 
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+;ignorehitpause = 
+;persistent = 
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, Damage Proration]
+type = rootVarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = root,var(21) + 3 ; More bombs = more proration
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1
+time = 15
+ampl = -4
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = AnimElem = 1
+trigger1 = 1
+attr = A, NP 
+animtype  = Heavy
+damage    = ifelse(prevstateno = 621 && root,var(22) = 1,50,70) ; Grenades do reduced damage in pyromaniac mode (To reduce pyromaniac's damage boost) 
+hitflag = MAFD
+guardflag = MAF
+pausetime = 12,ifelse(prevstateno = 621,1,12) ;Reduced blockstun if from j.5c
+sparkno = 0
+guard.sparkno = s13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 10
+ground.hittime  = 16
+ground.velocity = -1,-5
+air.velocity = ifelse(prevstateno = 621,-5,-1),-5 ; Launches away farther horizontally if from j.5c grenade
+airguard.velocity = -5,-1
+Fall = 0
+Fall.recovertime = 60
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+
+;-------------------------------------------------------------------------------
 ; Flash Bang
 [Statedef 21580]
 type    = S

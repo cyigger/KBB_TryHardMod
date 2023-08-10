@@ -173,6 +173,7 @@ name = "SPECIAL 8"
 command = ~D,DF,F,y
 time = 15
 buffer.time = 5
+
 ;-| Double Tap |-----------------------------------------------------------
 [Command]
 name = "FF"     ;Required (do not remove)
@@ -713,8 +714,9 @@ trigger1 = ctrl
 ; Wavedash
 [State -1, Wavedash]
 type = ChangeState
-value = 30
-trigger1 = command = "WD" && command != "NotWD"
+value = 290
+trigger1 = power >= 250
+trigger1 = command = "WD"
 trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
 

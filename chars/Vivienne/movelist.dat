@@ -1,8 +1,14 @@
 <#f0f000>:Passive Abillities:</>
 	"Vivienne can charge plasma and meter
 	by mashing down, left or right.
+	
+No Mercy (1/4 Bar)							_F_D_DF
+	"Vivienne's wavedash is replaced by an
+	armored walk instead."
 
 <#f0f000>:UNIQUE NORMALS:</>
+
+_DF^B
 
 _B^Y
 _F^Y
@@ -13,32 +19,24 @@ _D^A_-^A
 _D^A_-^B
 _D^A_-^C
 
-<#f0f000>:COMMAND DASH CANCELS:</>
-^A_F_D_DF (Late on Block)
-^A^A_F_D_DF (Late on Block)
-^B_F_D_DF
-_D^A^A_F_D_DF (Late on Block)
+<#f0f000>:ARMOR WALK CANCELS:</>
+^A_F_D_DF^A (Late on Block)
+^A^A_F_D_DF^A
+^B_F_D_DF^A
+_D^A^A_F_D_DF^A
 
-<#f0f000>:COMMAND DASH ATTACKS:</>
+<#f0f000>:ARMOR WALK ATTACKS:</>
 
-Intimidation								_F_D_DF^A
-	"Vivienne simply walks forward, ignoring
-	anything in her way.
-	Vivienne cannot be interrupted during this
-	move."
-_! "Out Of My Way"							^A
+Royal Shove								_F_D_DF_-^A
 	"Vivienne barely shoves the opponent, and
 	they get wallspatted smh."
-_! A Side Switch Grab						^B
-_! An Air Grab								^C
 
-Long Jump 2B								_F_D_DF^B
-	"Vivienne jumps far and kicks the opponents
-	head."
+Crescent Slam							_F_D_DF_-^B
+	"Vivienne grabs and slams them to the
+	other side"
 
-Plasma Shine (1/5 Bar)					_F_D_DF^C
-	"Vivienne let's out a quick burst of
-	plasma near her."
+Merciless Back Breaker					_F_D_DF_-^C
+	"You shouldn't have been in the air..."
 
 <#f0f000>:EX ATTACKS:</>
 
