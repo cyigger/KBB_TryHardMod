@@ -259,18 +259,37 @@ value = 900
 ctrl = 0
 
 [State 200, C]
-type = ChangeState
+type = PosAdd
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
 triggerall = numhelper(3500) = 0
 triggerall = power >=250
 trigger1 = command = "c"
-value = 450
+y = -10
 
-;[State 200, C]
-;type = ChangeState
-;triggerall = numhelper(3500) = 0
-;triggerall = power >=250
-;trigger1 = command = "s"
-;value = 590
+[State 200, C]
+type = VelSet
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+triggerall = power >=250
+trigger1 = command = "c"
+y = -4
+
+[State 200, C]
+type = ChangeState
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+triggerall = power >=250
+trigger1 = command = "c"
+value = 620
 
 [State 200, End]
 type = ChangeState
