@@ -1,5 +1,48 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.9 Changes:                    /
+|---------------------------------------------------/
+
+More balance tweaks have happened, as well as a new character to the mod: Watanabe has joined the Try-Hard Cast. He will see more tweaks as issues are found. And both Vei and Watanabe will soon gain their own unique wavedash moves.
+
+
+Watanabe:
+1. Welcome
+
+
+Metaknight:
+1. 6C and j.6C:
+	* Now scales properly with proration
+	* Damage reduced to 10
+2. 214A damage redued (100 -> 80 total)
+3. 5b damage reduced (30 -> 25)
+4. j.5b:
+	* Now hits less times
+	* Metergain reduced
+
+
+Vei:
+1. 2a no longer forces juggle and knockdown
+2. 4C:
+	* Final hit launch angle now sends less horizontally
+	* Juggle increased (5 -> 10)
+3. 2C:
+	* Juggle increased (5 -> 10)
+4. Added normal movelist.
+
+Vivienne:
+1. No Mercy B Changed to be more unique.
+
+
+Max:
+1. Wavedash B completely reworked:
+	* Startup increased to 16
+	* Velocity Adjusted for the new startup
+	* Now counts as an overhead.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.8 Changes:                    /
 |---------------------------------------------------/
 
