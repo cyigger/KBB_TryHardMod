@@ -2529,14 +2529,14 @@ trigger1 = time = 0
 value = F66,0
 volumescale = 500
 
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = AnimElem = 6
-x = 5
+;[State 0, PosAdd]
+;type = PosAdd
+;trigger1 = AnimElem = 7
+;x = 4
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = AnimElem = 1
-x = 9
+trigger1 = AnimElem = 1 || AnimElem = 2
+x = 5
 
 ;[State 0, VelAdd]
 ;type = VelSet
@@ -2552,16 +2552,16 @@ x = 9
 [State 200, 1]
 type = HitDef
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 5
+triggerall = AnimElem = 6
 trigger1 = 1
 attr = S, NA
 givepower = 0
 getpower = 0
-animtype  = Heavy
+animtype  = Hard
 damage    = ifelse(enemy,movetype = A, 60, 30)
 hitflag = MAFD
-guardflag = MAF
-pausetime = ifelse(enemy,movetype = A,30,8),ifelse(enemy,movetype = A,30,12)
+guardflag = HA
+pausetime = ifelse(enemy,movetype = A,14,8),ifelse(enemy,movetype = A,30,12)
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2588,32 +2588,32 @@ air.cornerpush.veloff = -3
 ;Max is now in an airstate as of this swing
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 = AnimElem = 7
+trigger1 = AnimElem = 8
 statetype = A       ;S,A,C,L
 movetype = A        ;I,A,H
 physics = N         ;A,C,S,N
 
 [State 0, PosAdd] 		;Disconnects Max from the floor
 type = PosAdd
-trigger1 = AnimElem = 7
+trigger1 = AnimElem = 8
 x = ifelse(!movecontact,3,-1)
 y = -5
 
 [State 0, VelAdd]		;Adds velocity.
 type = VelAdd
-trigger1 = AnimElem = 7
+trigger1 = AnimElem = 8
 x = ifelse(!movecontact,3,-1)
 y = -2.5
 
 [State 0, VelAdd]		;Adds velocity.
 type = VelAdd
-trigger1 = AnimElem = 8
+trigger1 = AnimElem = 9
 x = ifelse(!movecontact,0.8,-0.8)
 y = -.8
 
 [State 0, StateTypeSet]	;Now back to Air State
 type = StateTypeSet
-trigger1 = AnimElem = 11
+trigger1 = AnimElem = 12
 statetype = A       ;S,A,C,L
 movetype = I        ;I,A,H
 physics = A        ;A,C,S,N
@@ -2621,7 +2621,7 @@ physics = A        ;A,C,S,N
 [State 200, 1]
 type = HitDef
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 7
+triggerall = AnimElem = 8
 trigger1 = 1
 attr = S, NA
 givepower = 0
@@ -2629,7 +2629,7 @@ getpower = 0
 animtype  = Light
 damage    = 14
 hitflag = MAFD
-guardflag = MAFD
+guardflag = MA
 pausetime = 5,6
 sparkno = 1
 guard.sparkno = 13000

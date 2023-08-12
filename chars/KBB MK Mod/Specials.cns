@@ -299,7 +299,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 110,10
+damage    = 100,10
 hitflag = MAFD
 guardflag = MAFD
 guard.kill = 0		;no chipkills
@@ -441,7 +441,7 @@ y = -10
 [State 200, VelAdd Friction]
 type = VelAdd
 trigger1 = time > 21
-x = -0.3
+x = ifelse(vel x > 0, -0.3, 0)
 y = 0.6
 
 [State 200, 1]
@@ -451,7 +451,7 @@ triggerall = time <= 20 && !movecontact
 trigger1 = 1
 attr = A, SA
 animtype  = Heavy
-damage    = 50,5
+damage    = 40,5
 guard.kill = 0	
 hitflag = MAF
 guardflag = MAF
@@ -479,7 +479,7 @@ triggerall = AnimElem = 14
 trigger1 = 1
 attr = A, SA
 animtype  = Heavy
-damage    = 50,5
+damage    = 40,5
 guard.kill = 0	
 hitflag = MAF
 guardflag = MAF

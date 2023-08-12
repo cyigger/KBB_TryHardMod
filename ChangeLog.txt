@@ -1,5 +1,67 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.9 hotfix Changes:             /
+|---------------------------------------------------/
+
+Some important bug fixes, balance tweaks, and move replacements have happened.
+
+Metaknight:
+1. 5b, 5bb, 5bbb damage reduced (20, 20, 25 now). this bozo is suppose to be below-average damage. While i can't exactly ensure that, i can bring him closer to that vision.
+2. Wavedash B replaced with new move. this is a slow crossup overhead.
+3. 236A damage reduced
+
+Vei:
+1. 4c no longer groundbounces at all. If you manage to still combo the move into itself infinetely I will kill you.
+
+Watanabe:
+1. Fixed some bugs of seeds turning into watanabe clones. Others are yet to be found unfortunately.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.2.9 Changes:                    /
+|---------------------------------------------------/
+
+More balance tweaks have happened, as well as a new character to the mod: Watanabe has joined the Try-Hard Cast. He will see more tweaks as issues are found. And both Vei and Watanabe will soon gain their own unique wavedash moves.
+
+
+Watanabe:
+1. Welcome
+
+
+Metaknight:
+1. 6C and j.6C:
+	* Now scales properly with proration
+	* Damage reduced to 10
+2. 214A damage redued (100 -> 80 total)
+3. 5b damage reduced (30 -> 25)
+4. j.5b:
+	* Now hits less times
+	* Metergain reduced
+
+
+Vei:
+1. 2a no longer forces juggle and knockdown
+2. 4C:
+	* Final hit launch angle now sends less horizontally
+	* Juggle increased (5 -> 10)
+3. 2C:
+	* Juggle increased (5 -> 10)
+4. Added normal movelist.
+
+Vivienne:
+1. No Mercy B Changed to be more unique.
+
+
+Max:
+1. Wavedash B completely reworked:
+	* Startup increased to 16
+	* Velocity Adjusted for the new startup
+	* Now counts as an overhead.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.8 Changes:                    /
 |---------------------------------------------------/
 
