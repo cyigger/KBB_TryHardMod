@@ -2138,7 +2138,7 @@ time = 1
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = root,stateno = [5000,5210]
-attr =  SCA,NA,SA,HA,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr =  SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 slot = 0
 stateno = 454
 time = 1
