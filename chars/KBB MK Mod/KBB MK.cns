@@ -783,6 +783,12 @@ poweradd = 0
 sprpriority = 3
 velset = 10
 
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
 [State 0, Swing Sound]
 type = PlaySnd
 trigger1 = time = 0
@@ -1329,7 +1335,7 @@ triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 30
+damage    = 25
 guardflag = MAF
 hitflag = MAF
 pausetime = 12,12
@@ -1360,10 +1366,10 @@ triggerall = enemy,movetype = A
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 40
+damage    = 50
 guardflag = M
 hitflag = MAF
-pausetime = 24,25
+pausetime = 24,26
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -2320,6 +2326,12 @@ type = AttackDist
 trigger1 = 1
 value = 50
 
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
 ;[State 200, 1]
 ;type = HitDef
 ;getpower = 0
@@ -2356,7 +2368,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = ifelse(time <= 10, 15, 10)
+damage    = 10
 hitflag = MAF
 guardflag = MAFD
 pausetime = 4,4
@@ -3732,7 +3744,7 @@ value = 5
 type = PowerAdd
 triggerall = numhelper(51000) = 0
 trigger1 = movecontact = 1
-value = 100
+value = 70
 persistent = 0
 
 [State 0, Voice - 0]
@@ -3779,15 +3791,16 @@ y = -1
 type = HitDef
 getpower = 25
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 4 || AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10 || AnimElem = 11
+;triggerall = AnimElem = 4 || AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10 || AnimElem = 11
+triggerall = movecontact != 1
 trigger1 = 1
 attr = S, NA
 animtype  = Up
 damage    = 5
 hitflag = MAF
 guardflag = HAF
-pausetime = 2,2
-guard.pausetime = 2,2
+pausetime = 4,4
+guard.pausetime = 4,4
 sparkno = s11000
 guard.sparkno = s13000
 sparkxy = -8,-30
@@ -4926,7 +4939,7 @@ value = 50
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; A - 3 PROJECTILE
+; Fwd + C Proj
 [Statedef 626]
 type    = A
 movetype= A
@@ -4955,6 +4968,12 @@ ignorehitpause = 1
 type = AttackDist
 trigger1 = 1
 value = 50
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
 
 ;[State 200, 1]
 ;type = HitDef
@@ -4992,7 +5011,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = ifelse(time <= 10, 15, 10)
+damage    = 10
 hitflag = MAF
 guardflag = MAFD
 pausetime = 4,4

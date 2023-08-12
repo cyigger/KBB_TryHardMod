@@ -899,7 +899,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Wavedash A Initial Hit
+; No Mercy Initiation
 [Statedef 290]
 type    = S
 movetype= A
@@ -934,7 +934,7 @@ value = 5
 
 [State 20, 1]
 type = VelSet
-trigger1 = vel x < const(velocity.walk.fwd.x)
+trigger1 = 1
 x = const(velocity.walk.fwd.x) * 1.2
 
 [State 1020, Blink White]
@@ -991,7 +991,7 @@ time = 2
 
 [State 0, End]
 type = ChangeState
-trigger1 = AnimElem = 3
+trigger1 = time = 4
 value = 291
 ctrl = 1
 
@@ -1003,7 +1003,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Wavedash A Enraged Walk
+; No Mercy
 [Statedef 291]
 type    = S
 movetype= A
@@ -1030,17 +1030,17 @@ ignorehitpause = 1
 
 [State 0, EnvShake]
 type = EnvShake
-trigger1 = AnimElem = 4 || AnimElem = 8
+trigger1 = AnimElem = 2 || AnimElem = 6
 time = 10
 ampl = 5
 [State 0, Fwd - Step 01]
 type = PlaySnd
-trigger1 = animelem = 4
+trigger1 = animelem = 2
 value = S20,0
 volumescale = 300
 [State 0, Fwd - Step 02]
 type = PlaySnd
-trigger1 = animelem = 8
+trigger1 = animelem = 6
 value = S20,1
 volumescale = 300
 
@@ -1096,18 +1096,18 @@ elem = 4
 [State 20, 1]
 type = VelSet
 trigger1 = 1
-x = const(velocity.walk.fwd.x) * 1.2
+x = const(velocity.walk.fwd.x) * 1.25
 
 [State 200, 1]
 type = HitDef
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 4 || AnimElem = 8
+triggerall = AnimElem = 2 || AnimElem = 6
 trigger1 = 1
 attr = C, NA
 animtype  = Medium
 damage    = 15
 hitflag = MAFD
-guardflag = LAF
+guardflag = LA
 pausetime = 6,6
 guard.pausetime = 6,2
 sparkno = 0
@@ -1127,45 +1127,51 @@ fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 
 [State 0, HitOverrideCheck]
 type = MapSet
-triggerall = time >= 6
+triggerall = time >= 0
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
-trigger5 = command = "holdback"
+map = "hitOverride"
+value = 0
+
+[State 0, HitOverrideCheck]
+type = MapSet
+triggerall = time >= 5
+trigger1 = command != "holdfwd"
 map = "hitOverride"
 value = 0
 
 [State 0, End]
 type = ChangeState
-triggerall = time >= 10
-trigger1 = command = "holdback"
-value = 20
+triggerall = time >= 5
+trigger1 = command != "holdfwd"
+value = 0
 ctrl = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 8
+triggerall = time >= 0
 trigger1 = command = "FF"
 value = 100
 ctrl = 1
 
 [State 0, End]
 type = ChangeState
-triggerall = time >= 6
+triggerall = time >= 0
 trigger1 = command = "b"
 value = 292
 ctrl = 1
 
 [State 0, End]
 type = ChangeState
-triggerall = time >= 6
+triggerall = time >= 0
 trigger1 = command = "c"
 value = 293
 ctrl = 1
 
 [State 0, End]
 type = ChangeState
-triggerall = time >= 6
+triggerall = time >= 0
 trigger1 = command = "a"
 value = 295
 ctrl = 1
@@ -1173,7 +1179,7 @@ ctrl = 1
 ;Failsafe
 [State 0, End]
 type = ChangeState
-trigger1 = time >= 96
+trigger1 = time >= 300
 value = 0
 ctrl = 1
 
@@ -1251,7 +1257,7 @@ type = TargetBind
 trigger1 = movehit && anim = 292 && AnimElem = 1
 time = 1
 id = -1
-pos = 40,0
+pos = 15,0
 
 [State 0, TargetBind]
 type = TargetBind
@@ -1264,24 +1270,36 @@ type = TargetBind
 trigger1 = movehit && anim = 292 && AnimElem = 3
 time = 1
 id = -1
-pos = 30,-30
+pos = 20,-24
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = movehit && anim = 292 && AnimElem = 4
+trigger1 = movehit && anim = 292 && AnimElem = 9
 time = 1
 id = -1
-pos = 5,-40
+pos = 10,-18
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = movehit && anim = 292 && AnimElem = 6
+trigger1 = movehit && anim = 292 && AnimElem = 10
 time = 1
 id = -1
-pos = -20,-35
+pos = -32,0
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit && anim = 292 && AnimElem = 11
+time = 1
+id = -1
+pos = -30,-2
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit && anim = 292 && AnimElem = 12
+time = 1
+id = -1
+pos = 50,-5
 
 [State 0, PlayerPush]
 type = PlayerPush
 triggerall = movehit
-trigger1 = Time > 17
+trigger1 = Time > 10
 value = 0
 
 [State 0, NotHitBy]
@@ -1302,7 +1320,7 @@ damage  = 0
 HitFlag = MFD
 guardflag = 
 priority = 0, Miss
-pausetime = 0,100
+pausetime = 0,120
 guard.pausetime = 10,10
 sparkno = 2
 hitsound   = 5,2
@@ -1315,25 +1333,17 @@ air.velocity = 0,-1
 p2sprpriority = 2
 p2getp1state = 0
 
-
-[State 0, TargetBind]
-type = TargetBind
-trigger1 = movehit && anim = 292 && AnimElem = 7
-time = 1
-id = -1
-pos = -35,-10
-
-[State 700, Throw Down]
+[State 700, Throw To Wall]
 type = HitDef
 getpower = 0
 triggerall = anim = 292
-trigger1 = 1
+trigger1 = AnimElem = 12
 attr = S, AT
 animtype  = Heavy
 damage  = 160
-HitFlag = MA
-guardflag = MAFD
-pausetime = 2,2
+HitFlag = MAFD
+guardflag = 
+pausetime = 12,2
 sparkno = 2
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1342,11 +1352,11 @@ guardsound = 6,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = 1.5,8
-air.velocity = 1,8
+ground.velocity = 14,5
+air.velocity = 14,5
 fall = 1
 fall.recover = 0
-fall.yvelocity = -5
+p2stateno = 1025
 Envshake.time = 25
 p2sprpriority = -1
 

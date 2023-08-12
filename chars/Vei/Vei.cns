@@ -1740,7 +1740,7 @@ ctrl = 1
 type    = S
 movetype= A
 physics = N
-juggle  = 1
+juggle  = 2
 ctrl = 0
 anim = 452
 sprpriority = 1
@@ -1754,7 +1754,7 @@ value = 60
 type = RootMapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 5
+value = 10
 persistent = 0
 
 [State 0, FatalCounter]
@@ -1801,11 +1801,17 @@ trigger1 = 1
 value = SCA
 time = 1
 
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
 [State 200, Hit]
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
-trigger1 = AnimElem = 1
+trigger1 = AnimElem = 3
 attr = A, NP
 animtype  = Heavy 
 damage    = 10
@@ -1813,6 +1819,7 @@ Hitflag = MAFd
 guardflag = MAF
 getpower = 25
 pausetime = 4,4
+guard.pausetime = 4,0
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-35
@@ -1831,7 +1838,7 @@ Envshake.time = 5
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 10
 attr = A, NP
 animtype  = Heavy 
 damage    = 10
@@ -1858,7 +1865,7 @@ Envshake.time = 5
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
-trigger1 = AnimElem = 12
+trigger1 = AnimElem = 14
 attr = S, NP
 animtype  = Heavy 
 damage    = 20
@@ -1867,19 +1874,19 @@ guardflag = MAF
 pausetime = 4,2
 sparkno = 1
 guard.sparkno = 13000
-guard.pausetime = 10,2
+guard.pausetime = 4,2
 sparkxy = -8,-35
 hitsound   = 5,4
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 2.9,-6
-air.velocity = 2.9,-6
+ground.velocity = 1.5,-6
+air.velocity = 1.5,-6
 guard.velocity = 2
 Fall = 1
 Envshake.time = 10
-fall.recover = 0
+fall.recovertime = 40
 
 [State 0, ScreenBound]	;Don't leave screen pls
 type = ScreenBound
@@ -2265,7 +2272,7 @@ trigger2 = AnimTime = 0
 type    = S
 movetype= A
 physics = S
-juggle  = 1
+juggle  = 2
 ctrl = 0
 anim = 482
 sprpriority = 1
@@ -2279,7 +2286,7 @@ value = 60
 type = RootMapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 5
+value = 10
 persistent = 0
 
 [State 0, FatalCounter]
@@ -2853,7 +2860,7 @@ y = -3
 [State 0, VelAdd if coming from wavedash]
 type = VelAdd
 trigger1 = prevstateno = 30 && time = 0
-x = 2
+x = 1.75
 
 [State 0, VelAdd]
 type = VelAdd
@@ -3018,41 +3025,15 @@ guardsound = 6,11
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 2,-3
+ground.velocity = -2,-3
 air.velocity = 2,-2
-down.velocity = 2,-3
-Fall = 1
-fall.recover = 0
+down.velocity = -2,-3
+Fall = 0
+fall.recovertime = 20
 guard.cornerpush.veloff = -10
 airguard.cornerpush.veloff = -10
 ;ground.cornerpush.veloff = -5
 ;air.cornerpush.veloff = -5
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 7
-trigger1 = 1
-attr = C, NA
-animtype  = Medium
-damage    = 20
-hitflag = MAFD
-guardflag = LA
-pausetime = 10,10
-sparkno = 0
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 5,3
-guardsound = 6,10
-ground.type = Low
-ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-4
-air.velocity = -2,-4
-Fall = 1
-guard.cornerpush.veloff = -15
-airguard.cornerpush.veloff = -15
 
 [State 200, SPECIAL 1 - CLONE KICK]
 type = ChangeState
