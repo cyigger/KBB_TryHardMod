@@ -1,5 +1,24 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.9 hotfix Changes:             /
+|---------------------------------------------------/
+
+Some important bug fixes, balance tweaks, and move replacements have happened.
+
+Metaknight:
+1. 5b, 5bb, 5bbb damage reduced (20, 20, 25 now). this bozo is suppose to be below-average damage. While i can't exactly ensure that, i can bring him closer to that vision.
+2. Wavedash B replaced with new move. this is a slow crossup overhead.
+3. 236A damage reduced
+
+Vei:
+1. 4c no longer groundbounces at all. If you manage to still combo the move into itself infinetely I will kill you.
+
+Watanabe:
+1. Fixed some bugs of seeds turning into watanabe clones. Others are yet to be found unfortunately.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.9 Changes:                    /
 |---------------------------------------------------/
 

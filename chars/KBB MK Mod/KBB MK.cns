@@ -691,7 +691,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 20
+damage    = 10
 guardflag = MAF
 hitflag = MAFD
 pausetime = 10,10
@@ -1335,7 +1335,7 @@ triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 25
+damage    = 20
 guardflag = MAF
 hitflag = MAF
 pausetime = 12,12
@@ -1537,7 +1537,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 30
+damage    = 25
 guardflag = MAF
 hitflag = MAF
 pausetime = 16,16
@@ -3315,13 +3315,24 @@ value = 100
 [State 0, VelSet]
 type = VelSet
 trigger1 = Time = 0
-x = 3.9
-y = -3.23
+x = 6.5
+y = -3.75
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = 16
+x = 1.5
+y = 0
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1 
-y = 0.24
+y = 0.22
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = Time > 4
+value = 0
 
 [State 200, 1]
 type = HitDef
@@ -3330,11 +3341,11 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 40
+damage    = 35
 hitflag = MAF
 guardflag = HAF
 pausetime = 16,16
-guard.pausetime = 16,22
+guard.pausetime = 16,16
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -4368,7 +4379,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 20
+damage    = 15
 hitflag = MAF
 guardflag = HAF
 pausetime = 8,8

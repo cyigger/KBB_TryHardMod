@@ -233,7 +233,7 @@ ctrl = 0
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "b"
-value = 970
+value = 910
 ctrl = 0
 
 [State 200, C]
