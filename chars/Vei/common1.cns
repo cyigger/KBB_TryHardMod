@@ -232,7 +232,7 @@ value = 105
 [State 200, End]
 type = ChangeState
 trigger1 = command = "a"
-value = 950
+value = 290
 ctrl = 0
 
 [State 200, End]

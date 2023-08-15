@@ -1,5 +1,30 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.10 Changes:                   /
+|---------------------------------------------------/
+
+
+Here are some more tweaks and changes to make these characters feel better.
+
+Metaknight:
+1. Wavedash Slightly faster
+2. Added hitsparks to all attacks
+3. Airdash now knocks down again.
+4. Temoved a strange leftover mechanic where backdashing while blocking would result in certain moves.
+5. Fixed a bug where moves gained meter ever after starburster.
+
+
+Vei:
+1. Added New Wavedash A
+2. Added Cancels to Normals into C moves.
+
+
+Watanabe:
+1. Sword now consistenly disappears only when you have been hit.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.9 hotfix Changes:             /
 |---------------------------------------------------/
 
