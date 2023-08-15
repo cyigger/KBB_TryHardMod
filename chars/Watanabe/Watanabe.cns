@@ -468,6 +468,37 @@ ground.velocity = 2
 guard.velocity = -2
 air.velocity = 2,-1
 
+[State -1, Ether Drive]
+type = ChangeState
+value = 19000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 20000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 21000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+Triggerall = power >= 500
+
+[State -1, Special 5]
+type = ChangeState
+value = 23000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+Triggerall = power >= 1500
 
 [State 200, 2A]
 type = ChangeState
@@ -585,6 +616,38 @@ Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 fall.recover = 1
 fall = ifelse(enemy,movetype = A, 1,0)
 
+[State -1, Ether Drive]
+type = ChangeState
+value = 19000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 20000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 21000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+Triggerall = power >= 500
+
+[State -1, Special 5]
+type = ChangeState
+value = 23000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+Triggerall = power >= 1500
+
 [State 200, 2A]
 type = ChangeState
 Triggerall = movecontact
@@ -605,6 +668,41 @@ type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "b"
 value = 310
+
+[State 200, End]
+type = ChangeState
+triggerall = movecontact
+triggerall = numhelper(5465) = 0
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 500
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+value = 5464
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 200
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+value = 450
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+triggerall = power >= 200
+trigger1 = command = "c"
+value = 400
 
 
 [State 200, End]
@@ -689,11 +787,35 @@ fall.recovertime = 20
 
 [State -1, Ether Drive]
 type = ChangeState
+value = 19000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 20000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
 value = 21000
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
 Triggerall = power >= 500
+
+[State -1, Special 5]
+type = ChangeState
+value = 23000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+Triggerall = power >= 1500
 
 [State 200, End]
 type = ChangeState
@@ -711,6 +833,31 @@ Triggerall = power >= 500
 trigger1 = command = "holdfwd"
 trigger1 = command = "c"
 value = 5464
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 200
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+value = 450
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+triggerall = power >= 200
+trigger1 = command = "c"
+value = 400
 
 
 [State 200, End]
@@ -818,13 +965,37 @@ guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
 
-[State -1, not Ether Drive]
+[State -1, Ether Drive]
+type = ChangeState
+value = 19000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 20000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
 type = ChangeState
 value = 21000
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
 Triggerall = power >= 500
+
+[State -1, Special 5]
+type = ChangeState
+value = 23000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+Triggerall = power >= 1500
 
 [State 200, End]
 type = ChangeState
@@ -855,6 +1026,31 @@ Triggerall = power >= 500
 trigger1 = command = "holdfwd"
 trigger1 = command = "c"
 value = 5464
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power >= 200
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+value = 450
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(401) = 0
+triggerall = numhelper(402) = 0
+triggerall = numhelper(623) = 0
+triggerall = numhelper(440) = 0
+triggerall = numhelper(3500) = 0
+triggerall = power >= 200
+trigger1 = command = "c"
+value = 400
 
 
 [State 200, End]
@@ -934,9 +1130,17 @@ persistent = 0
 [State -1, Ether Drive]
 type = ChangeState
 value = 19000
-Triggerall = helper(311),movecontact
+Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
+type = ChangeState
+value = 20000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
 Triggerall = power >= 1000
 
 [State -1, not Ether Drive]
@@ -3187,13 +3391,29 @@ airguard.cornerpush.veloff = -10
 ;ground.cornerpush.veloff = -5
 ;air.cornerpush.veloff = -5
 
-[State -1, not Ether Drive]
+[State -1, Ether Drive]
+type = ChangeState
+value = 20000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+Triggerall = power >= 1000
+
+[State -1, Ether Drive]
 type = ChangeState
 value = 21000
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
 Triggerall = power >= 500
+
+[State -1, Special 5]
+type = ChangeState
+value = 23000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+Triggerall = power >= 1500
 
 [State 200, End]
 type = ChangeState
@@ -3772,7 +3992,13 @@ Envshake.time = 5
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
-
+[State -1, Ether Drive]
+type = ChangeState
+value = 21000
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 3"
+Triggerall = power >= 500
 
 [State 200, End]
 type = ChangeState
@@ -3797,14 +4023,6 @@ triggerall = numhelper(440) = 0
 Triggerall = power >= 500
 trigger1 = command = "c"
 value = 620
-
-[State -1, Ether Drive]
-type = ChangeState
-value = 21000
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 3"
-Triggerall = power >= 500
 
 ;-------------------------------------------------------------------------------
 ; C - Aire

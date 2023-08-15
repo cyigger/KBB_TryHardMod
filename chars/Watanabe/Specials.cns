@@ -804,7 +804,7 @@ triggerall = map(juggle) < 108 || hitcount != 0
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-damage    = 55
+damage    = 70
 hitflag = MAF
 guardflag = MA
 sparkno = 2
@@ -817,8 +817,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 Envshake.time = 5
-ground.velocity = 1,-9
-air.velocity = .5,-9
+ground.velocity = -1,-9
+air.velocity = -.5,-9
 Fall = 1
 fall.recovertime = 90
 
@@ -1728,11 +1728,11 @@ ampl = 2
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = time%4 = 0 
+triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8
 trigger1 = 1
 attr = S, HA
 animtype  = Light
-damage    = 10
+damage    = 10 + var(11)
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,2
