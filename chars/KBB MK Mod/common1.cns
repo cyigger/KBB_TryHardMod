@@ -172,7 +172,7 @@ trans = add
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.75
+x = const(velocity.run.fwd.x) * 1.78
 
 [State 0, Explod]
 type = Explod
@@ -242,13 +242,6 @@ triggerall = numhelper(3500) = 0
 Triggerall = power >= 200
 trigger1 = command = "c"
 value = 490
-ctrl = 0
-
-[State 200, End]
-type = Null
-triggerall = prevstateno != 52 || time > 3
-trigger1 = command = "x"
-value = 590
 ctrl = 0
 
 [State 200, End]
@@ -463,9 +456,9 @@ guardflag = MAF
 pausetime = 10,10
 guard.pausetime = 10,8
 guard.dist = 60
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
@@ -476,7 +469,7 @@ air.hittime  = 30
 air.velocity = -5,-3
 Fall.recovertime = 40
 fall.recover = 0
-Fall = 0
+Fall = 1
 Envshake.time = 10
 down.cornerpush.veloff = 0
 air.cornerpush.veloff = 0
@@ -1230,17 +1223,6 @@ type = ForceFeedback
 trigger1 = time = 0
 waveform = square
 time = 3
-
-[State 131, BLOCK BREAK FWD]
-type = ChangeState
-triggerall = command = "FF"
-trigger1 = power >= 1000
-value = 492
-[State 131, BLOCK BREAK BACK]
-type = ChangeState
-triggerall = command = "BB"
-trigger1 = power >= 1000
-value = 490
 
 ;---------------------------------------------------------------------------
 ; Stand guard hit (knocked back)

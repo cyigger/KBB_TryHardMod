@@ -356,6 +356,8 @@ x = 2.5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -385,9 +387,9 @@ damage    = 10
 guardflag = M
 hitflag = MAF
 pausetime = 8,8
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
@@ -509,6 +511,8 @@ physics = S
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -537,9 +541,9 @@ damage    = 10
 guardflag = MAFD
 hitflag = MAFD
 pausetime = 8,8
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,1
 guardsound = S2,0
 ground.type = High
@@ -655,6 +659,14 @@ facing = 1
 keyctrl = 0
 ownpal = 1
 
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1 || helper(230),movecontact = 1
+value = 25
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 1 || AnimElem = 3 || AnimElem = 5 || AnimElem = 7
@@ -695,9 +707,9 @@ damage    = 10
 guardflag = MAF
 hitflag = MAFD
 pausetime = 10,10
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
@@ -806,9 +818,9 @@ animtype  = Light
 damage    = 4
 guardflag = MAFD
 pausetime = 0,4
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,1
 guardsound = S2,0
 ground.type = High
@@ -981,9 +993,9 @@ damage    = 60
 hitflag = MAF
 guardflag =
 pausetime = 18,18
-sparkno = s15000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
@@ -1008,9 +1020,9 @@ animtype  = Light
 damage    = 20
 guardflag = MAFD
 pausetime = 10,12
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,1
 guardsound = S2,0
 ground.type = High
@@ -1036,9 +1048,9 @@ animtype  = Medium
 damage    = 20
 guardflag = MAF
 pausetime = 14,14
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
@@ -1310,6 +1322,8 @@ x = 2.5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -1339,9 +1353,9 @@ damage    = 20
 guardflag = MAF
 hitflag = MAF
 pausetime = 12,12
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
@@ -1513,6 +1527,8 @@ x = 2.5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -1542,9 +1558,9 @@ guardflag = MAF
 hitflag = MAF
 pausetime = 16,16
 guard.pausetime = 16,18
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
@@ -1625,6 +1641,8 @@ x = 2.5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -1647,9 +1665,9 @@ damage    = 20
 guardflag = MAF
 hitflag = MAF
 pausetime = 12,12
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
@@ -2112,8 +2130,8 @@ hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
 guard.pausetime = 2,2
-sparkno = s12000
-guard.sparkno = s13000
+sparkno = 0
+guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
@@ -2142,8 +2160,8 @@ hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
 guard.pausetime = 0,0
-sparkno = s12000
-guard.sparkno = s13000
+sparkno = 1
+guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
@@ -2373,8 +2391,8 @@ hitflag = MAF
 guardflag = MAFD
 pausetime = 4,4
 guard.pausetime = 2,2
-sparkno = s11000
-guard.sparkno = s13000
+sparkno = 0
+guard.sparkno = 13000
 sparkxy = -8,-55
 hitsound   = S0,0
 guardsound = S2,0
@@ -2605,9 +2623,9 @@ damage    = 30
 guardflag = MAF
 hitflag = MAF
 pausetime = 12,12
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
@@ -2958,8 +2976,8 @@ damage  = 25
 HitFlag = MAFD
 guardflag = MAFD
 pausetime = 10,20
-sparkno = s11000
-guard.sparkno = s13000
+sparkno = 0
+guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,1
 guardsound = S2,0
@@ -2987,8 +3005,8 @@ damage  = 75
 HitFlag = MAFD
 guardflag = MAFD
 pausetime = 10,10
-sparkno = s12000
-guard.sparkno = s13000
+sparkno = 2
+guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
@@ -3228,7 +3246,7 @@ damage    = 15
 hitflag = MAF
 guardflag = HAF
 pausetime = 12,18
-sparkno = 1
+sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-55
 hitsound   = S0,3
@@ -3458,9 +3476,9 @@ damage    = 30
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,9
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-15
 hitsound   = S0,2
 guardsound = S2,0
 ground.type = High
@@ -3615,9 +3633,9 @@ damage    = 20
 guardflag = MAF
 hitflag = MAF
 pausetime = 12,12
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
@@ -3754,6 +3772,8 @@ value = 5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 70
 persistent = 0
@@ -3812,9 +3832,9 @@ hitflag = MAF
 guardflag = HAF
 pausetime = 4,4
 guard.pausetime = 4,4
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-30
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = p2bodydist x - 8, p2bodydist y - 30
 hitsound   = S0,2
 guardsound = S2,0
 ground.type = High
@@ -3943,6 +3963,8 @@ y = 0.44
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -3976,7 +3998,7 @@ type = HitDef
 getpower = 0
 givepower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact && time < 10
+triggerall = !movecontact && time < 12
 trigger1 = 1
 attr = A, NA
 animtype  = Up
@@ -3984,9 +4006,9 @@ damage    = 15
 hitflag = MAF
 guardflag = HAF
 pausetime = 12,15
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-30
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-40
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
@@ -4003,7 +4025,7 @@ type = HitDef
 getpower = 0
 givepower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact && time >= 10
+triggerall = !movecontact && time >= 12
 trigger1 = 1
 attr = S, NA
 animtype  = Up
@@ -4013,14 +4035,14 @@ guardflag = HAF
 pausetime = 12,15
 sparkno = s11000
 guard.sparkno = s13000
-sparkxy = -8,-30
+sparkxy = -8,-10
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -2.8
-air.velocity = -2,8
+ground.velocity = -2,6
+air.velocity = -2,6
 Fall = 1
 Fall.recover = 0
 Envshake.time = 12
@@ -4094,8 +4116,8 @@ damage    = 10
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,8
-sparkno = s11000
-guard.sparkno = s13000
+sparkno = 1
+guard.sparkno = 13000
 sparkxy = -8,-30
 hitsound   = S0,0
 guardsound = S2,0
@@ -4145,6 +4167,8 @@ value = 5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 50
 
@@ -4194,9 +4218,9 @@ damage    = 10
 hitflag = MAF
 guardflag = HAF
 pausetime = 6,6
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-30
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,2
 guardsound = S2,0
 ground.type = High
@@ -4341,6 +4365,8 @@ value = 5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 50
 
@@ -4383,9 +4409,9 @@ damage    = 15
 hitflag = MAF
 guardflag = HAF
 pausetime = 8,8
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-30
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
 ground.type = High
@@ -4526,6 +4552,8 @@ value = 5
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
 value = 100
 
@@ -4800,8 +4828,8 @@ hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
 guard.pausetime = 2,0
-sparkno = s12000
-guard.sparkno = s13000
+sparkno = 0
+guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
@@ -4830,8 +4858,8 @@ hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
 guard.pausetime = 4,0
-sparkno = s12000
-guard.sparkno = s13000
+sparkno = 1
+guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,3
 guardsound = S2,0
@@ -5027,9 +5055,9 @@ hitflag = MAF
 guardflag = MAFD
 pausetime = 4,4
 guard.pausetime = 2,2
-sparkno = s11000
-guard.sparkno = s13000
-sparkxy = -8,-55
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
 hitsound   = S0,0
 guardsound = S2,0
 ground.type = High
