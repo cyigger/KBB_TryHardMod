@@ -21,6 +21,11 @@ Vei:
 
 Watanabe:
 1. Sword now consistenly disappears only when you have been hit.
+2. Added all C cancels into normals
+3. Added more super cancels into his normals
+4. Reduced startup of 2a (f14 -> f10)
+5. Increased damage of 236B
+6. Reduced the effect of proration on 236B
 
 
 ===================================================================================================================================
