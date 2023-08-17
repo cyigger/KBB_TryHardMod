@@ -601,6 +601,13 @@ Clsn2Default: 1
 2,5, 0,0, 5, , AS156D0, 0.5,0.5
 2,6, 0,0, 5, , AS156D0, 0.5,0.5
 
+; 4C Sticky In Air
+[Begin Action 476]
+2,5, 0,0, 5, , AS156D0, 0.5,0.5
+2,6, 0,0, 5, , AS156D0, 0.5,0.5, 90
+2,5, 0,0, 5, , AS156D0, 0.5,0.5, 180
+2,6, 0,0, 5, , AS156D0, 0.5,0.5, 270
+
 ; Wavedash C
 [Begin Action 490]
 Clsn2Default: 1

@@ -3257,7 +3257,7 @@ value = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
-triggerall = Time >= 17
+triggerall = Time >= 12
 trigger1 = movecontact
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
@@ -3384,7 +3384,7 @@ p2sprpriority = 5
 [State 0, KICK]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time = 67
+trigger1 = movecontact && Time = 62
 time = 1
 id = -1
 pos = 30,-8

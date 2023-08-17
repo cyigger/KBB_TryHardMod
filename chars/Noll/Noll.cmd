@@ -956,18 +956,6 @@ triggerall = command = "b"
 Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; 2C Aire
-[State -1, 2C Aire]
-type = ChangeState
-value = 630
-triggerall = power >= 250
-triggerall = numhelper(631) = 0
-triggerall = numhelper(632) = 0
-triggerall = command = "holddown"
-triggerall = command = "c"
-Triggerall = statetype = A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
 ; C - j.C Phase 2 - Spiral
 [State -1, j.C Phase 2 - Spiral]
 type = ChangeState

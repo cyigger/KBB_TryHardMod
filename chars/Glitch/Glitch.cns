@@ -3022,20 +3022,20 @@ physics = A         ;A,C,S,N
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = Time > 15
+trigger1 = Time > 14
 value = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
 triggerall = movecontact
-trigger1 = Time >= 10
+trigger1 = Time >= 9
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time < 42
+trigger1 = movecontact && time < 41
 time = 1
 id = -1
 pos = 40,0
@@ -3043,7 +3043,7 @@ pos = 40,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time > 42 && time < 44
+trigger1 = movecontact && time > 41 && time < 43
 time = 1
 id = -1
 pos = 6
@@ -3051,7 +3051,7 @@ pos = 6
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time > 44 && time < 46
+trigger1 = movecontact && time > 43 && time < 45
 time = 1
 id = -1
 pos = 4
@@ -3059,7 +3059,7 @@ pos = 4
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time > 46 && time < 50
+trigger1 = movecontact && time > 45 && time < 49
 time = 1
 id = -1
 pos = -5
@@ -3067,7 +3067,7 @@ pos = -5
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && time = 50
+trigger1 = movecontact && time = 49
 time = 1
 id = -1
 pos = -5
@@ -3172,7 +3172,7 @@ fall.recover = 0
 [State 1000, 6]
 type = ChangeState
 triggerall = power >= 500
-triggerall = time >= 55
+triggerall = time >= 54
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 4"
 value = 22000

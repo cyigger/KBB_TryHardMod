@@ -485,10 +485,18 @@ ctrl = 1
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = movecontact
+triggerall = time >= 2
 trigger1 = command = "up" && var(3) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
 value = 45
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time >= 2
+trigger1 = command = "s" && var(4) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(4) = 0 
+value = 66
 ctrl = 1
 
 [State 200, End]		

@@ -152,9 +152,202 @@ trigger1 = Anim != 21 && Anim != 5
 trigger2 = Anim = 5 && AnimTime = 0
 value = 21
 
-;---------------------------------------------------------------------------
-;Wavedash
+;===============================================================================
+; Clone Wavedash - Spawn
+;-------------------------------------------------------------------------------
 [Statedef 30]
+type    = C
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 30
+sprpriority = 2
+
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = [0, 1]
+x = const(velocity.run.fwd.x) * 1.4
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S5,2
+volumescale = 100
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Wavedash Clone"
+ID =  31
+stateno = 31
+pos = 10,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 1
+ownpal = 1
+inheritJuggle = 1
+
+[State 200, End]
+type = ChangeState
+;triggerall = time >= 5
+trigger1 = command = "holdup"
+value = 60
+ctrl = 0
+
+;[State 200, End]
+;type = ChangeState
+;triggerall = time >= 10
+;trigger1 = command = "WD" || command != "z"
+;value = 30
+;ctrl = 0
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 5 || command != "z"
+trigger1 = command = "FF"
+value = 100
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+;triggerall = time >= 5
+trigger1 = command = "back"
+value = 105
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "a"
+value = 290
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "b"
+value = 390
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;---------------------------------------------------------------------------
+;Clone Wavedash - Clone
+[Statedef 31]
+type = C
+movetype= I
+physics = S
+anim = 36
+ctrl = 0
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = F65,0
+volumescale = 500
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = time = 0
+time = 5
+paladd = 148,0,211
+trans = add
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = [0, 10]
+x = const(velocity.run.fwd.x) * 1.6
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F16000
+ID = 16000
+pos = -40,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.75,0.75
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+
+[State 0, HurtOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 39
+time = 2
+forceair = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "a"
+trigger2 = root,stateno = 290
+value = 291
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "b"
+trigger2 = root,stateno = 390
+value = 391
+ctrl = 0
+
+;[State 200, C]
+;type = ChangeState
+;triggerall = numhelper(3500) = 0
+;triggerall = power >=250
+;trigger1 = command = "c"
+;value = 480
+
+[State 200, End]
+type = DestroySelf
+trigger1 = root,stateno != 30
+trigger2 = AnimTime = 0
+
+;---------------------------------------------------------------------------
+;Clone Hurt
+[Statedef 39]
+type = A
+movetype = H
+physics = N
+anim = 39
+ctrl = 0
+sprpriority = 0
+
+[State 39, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = -3
+y = -3
+
+[State 39, Gravity]
+type = VelAdd
+trigger1 = 1
+y = 0.44
+
+[State 39, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+
+
+;Standard Wavedash
+[Statedef 35]
 type = C
 movetype= I
 physics = S

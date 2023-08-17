@@ -3426,7 +3426,7 @@ value = 25
 [State 0, NotHitBy]
 type = NotHitBy
 triggerall = movecontact
-trigger1 = Time >= 13
+trigger1 = Time >= 12
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 
@@ -3436,7 +3436,7 @@ trigger1 = AnimElem = 9
 
 [State 0, PlayerPush]
 type = PlayerPush
-triggerall = Time = [34,40]
+triggerall = Time = [31,37]
 trigger1 = 1
 value = 0
 
@@ -3459,7 +3459,7 @@ trans = add
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-triggerall = time < 35
+triggerall = time < 32
 trigger1 = movehit
 time = 1
 id = -1

@@ -457,7 +457,7 @@ pausetime = 8,12
 ground.hittime  = 9 + ifelse(enemy,movetype = A, 7,0)
 guard.pausetime = 10,10
 guard.hittime = 7
-sparkno = 1
+sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,1
@@ -602,7 +602,7 @@ ground.hittime  = 14 + ifelse(enemy,movetype = A, 7,0)
 air.hittime  = 30 + ifelse(enemy,movetype = A, 7,0)
 guard.pausetime = 10,6
 guard.hittime = 25
-sparkno = 1
+sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S0,2
@@ -768,10 +768,10 @@ damage    = 20
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
-ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
-air.hittime = 18 + ifelse(enemy,movetype = A, 7,0)
+ground.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
+air.hittime = 25 + ifelse(enemy,movetype = A, 7,0)
 guard.pausetime = 12,16
-guard.hittime  = 22
+guard.hittime  = 15
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -779,11 +779,11 @@ hitsound   = S0,3
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -4,-2.5
-air.velocity = -4,-2.5
+ground.velocity = -3.5,-4
+air.velocity = -3.5,-3
 Envshake.time = 20
 fall = 0
-fall.recovertime = 20
+fall.recovertime = 25
 
 [State -1, Ether Drive]
 type = ChangeState
@@ -1966,7 +1966,7 @@ juggle  = 1
 ctrl = 0
 anim = 5464
 poweradd = -250
-sprpriority = 2
+sprpriority = 3
 
 [State 0, AttackDist]
 type = AttackDist
@@ -2974,7 +2974,8 @@ x = -9
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = Time > 15
+triggerall = movehit
+trigger1 = Time > 12
 value = 0
 
 [State 700, 1]
@@ -3983,11 +3984,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -1, 0
-air.velocity = -1,-1
+ground.velocity = -1, 1
+air.velocity = -1,2
 Fall = 0
 air.fall = 1
-fall.recovertime = 35 + ifelse(enemy,movetype = A, 7,0)
+fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 5
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
@@ -4132,6 +4133,7 @@ juggle  = 1
 ctrl = 0
 anim = 623
 velset = 0,0
+sprpriority = 0
 
 
 [State 0, BindToRoot]
@@ -4190,7 +4192,7 @@ persistent = 0
 type = HitDef
 trigger1 = !movecontact
 animtype  = Heavy
-attr = S, NP
+attr = A, NP
 damage = 15
 hitflag = MAF
 guardflag = MA
@@ -4349,7 +4351,7 @@ juggle  = 1
 ctrl = 0
 anim = 461
 velset = 0,0
-sprpriority = 2
+sprpriority = 0
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -4504,7 +4506,7 @@ juggle  = 1
 ctrl = 0
 anim = 462
 velset = 0,0
-sprpriority = 2
+sprpriority = 0
 
 [State 0, Helper]
 type = Helper
@@ -4632,11 +4634,6 @@ y = 0
 ;ignorehitpause = 
 ;persistent = 
 
-
-[State 200, End]
-type = Destroyself
-trigger1 = root,stateno = [5000,5210]
-
 [State 200, End]
 type = ChangeState
 trigger1 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 &&  root,stateno != [500,501] && command != "SPECIAL 5"
@@ -4654,7 +4651,7 @@ juggle  = 1
 ctrl = 0
 anim = 463
 velset = 0,0
-sprpriority = 2
+sprpriority = 0
 attackdist = 20
 
 [State 1010, Helper Attack Scale]
