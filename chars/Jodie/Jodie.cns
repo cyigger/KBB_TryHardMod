@@ -3685,7 +3685,7 @@ x = 7
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time < 30
+trigger1 = movecontact && Time < 29
 time = 1
 id = -1
 pos = 30,0
@@ -3693,7 +3693,7 @@ pos = 30,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time > 30 && Time < 35
+trigger1 = movecontact && Time > 29 && Time < 34
 time = 1
 id = -1
 pos = 20,0
@@ -3701,7 +3701,7 @@ pos = 20,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time > 35 && Time < 40
+trigger1 = movecontact && Time > 34 && Time < 39
 time = 1
 id = -1
 pos = -20,0
@@ -3709,7 +3709,7 @@ pos = -20,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time > 40 && Time < 45
+trigger1 = movecontact && Time > 39 && Time < 44
 time = 1
 id = -1
 pos = -40,0
@@ -3717,7 +3717,7 @@ pos = -40,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time > 45 && Time < 50
+trigger1 = movecontact && Time > 44 && Time < 49
 time = 1
 id = -1
 pos = 0,0
@@ -3725,7 +3725,7 @@ pos = 0,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time = 50
+trigger1 = movecontact && Time = 49
 time = 5
 id = -1
 pos = 10,0
@@ -3733,21 +3733,21 @@ pos = 10,0
 [State 0, TargetBind]
 type = TargetBind
 triggerall = enemy,stateno != 4100
-trigger1 = movecontact && Time = 55
+trigger1 = movecontact && Time = 54
 time = 4
 id = -1
 pos = 30,0
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = Time > 10 && Time < 12
+trigger1 = Time > 9 && Time < 11
 trigger2 = movecontact
 value = 0
 
 [State 0, NotHitBy]
 type = NotHitBy
 triggerall = movecontact
-trigger1 = Time >= 11
+trigger1 = Time >= 10
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 

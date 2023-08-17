@@ -1,5 +1,62 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.11 Changes:                   /
+|---------------------------------------------------/
+
+Several characters had their unique wavedash traits introduced in this update. There are also some balance tweaks.
+
+Universal or spread out:
+1. All bugged grabs have been fixed.
+
+Aege:
+1. New wavedash property added: Time-double. Aege is in two places at the same time thanks to messing with time.
+
+
+Bill:
+1. Bill can now kick his sticky bombs with his wavedash.
+
+
+Fly:
+1. Adjusted wavedash animation to be more snappy
+
+
+Glitch:
+1. Wavedash A animation and hitbox adjusted. it reaches slightly further now.
+
+
+MK:
+1. Airdash is now jump cancellable and iad cancellable like normal
+2. Aerial jumps now have less height, but they go faster horizontally.
+3. J.2b is no longer janky
+
+
+Vei:
+1. Unique wavedash property added: Clone dash. Vei wavedashes with a clone who will attack.
+2. No Wavedash C at the moment
+3. Cost of 5c reduced (500 -> 250)
+4. Adjusted launch angles of certain moves to allow for more comboes.
+5. Added wavedash cancel to 5aa.
+
+Watanabe:
+1. Sped up his grab to fit in with Try-hard grabs.
+2. Seed now requires the correct amount of meter (and not more).
+3. 214A can now be done on the ground.
+4. 5aaa, changed launch angle to combo better.
+5. Grounded sword no longer disappears when Watanabe gets hit.
+
+
+Yoru:
+1. Tweaked wavedash animation to be more snappy.
+
+
+Noll and Clutch:
+1. Wavedash Animation Tweaked to me more snappy.
+2. Grabs updated to match the mod's grab speed. Noll: 16 -> 11, Clutch: 17 -> 12
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.10 Changes:                   /
 |---------------------------------------------------/
 

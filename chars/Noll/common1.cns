@@ -243,13 +243,13 @@ trigger1 = command = "a"
 value = 590
 ctrl = 0
 
-[State 200, End]
-type = ChangeState
-triggerall = prevstateno != 52 || time > 3
-triggerall = command = "holdback"
-trigger1 = command = "b"
-value = 350
-ctrl = 0
+;[State 200, End]
+;type = ChangeState
+;triggerall = prevstateno != 52 || time > 3
+;triggerall = command = "holdback"
+;trigger1 = command = "b"
+;value = 350
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState

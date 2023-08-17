@@ -244,13 +244,41 @@ type = AfterImage
 triggerall = numhelper(51000) = 0
 trigger1 = time = 0
 time = 5
-paladd = 0, 255, 50
+paladd = 0, 156, 26
 trans = add
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0
+helpertype = normal ;player
+name = "Aege Still Clone"
+ID = 31
+stateno = 31
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+inheritJuggle = 1
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.8
+x = const(velocity.run.fwd.x) * 1.9
+
+;Ending teleports and velsets
+[State 30, End]
+type = PosSet
+trigger1 = AnimTime = 0 && command != "holdfwd"
+trigger2 = command = "back"
+x = helper(31),pos x
+y = helper(31),pos y
+
+[State 30, End]
+type = VelSet
+trigger1 = AnimTime = 0 && command != "holdfwd"
+x = helper(31),vel x
+y = helper(31),vel y
 
 [State 0, Explod]
 type = Explod
@@ -326,11 +354,29 @@ value = 590
 ;trigger1 = command = "s"
 ;value = 590
 
+
+
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 11
+value = 0
 ctrl = 1
+
+;---------------------------------------------------------------------------
+;Wavedash Still Clone
+[Statedef 31]
+type = S
+movetype= I
+physics = S
+anim = 31
+ctrl = 0
+sprpriority = 1
+velset = 0, 0
+
+[State 31, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 1
+trigger2 = root,stateno != 30
 
 ;---------------------------------------------------------------------------
 ; Jump Start

@@ -2999,7 +2999,7 @@ value = 1
 [State 0, NotHitBy]
 type = NotHitBy
 triggerall = movecontact
-trigger1 = Time >= 15
+trigger1 = Time >= 13
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 

@@ -1689,7 +1689,7 @@ value = movehit
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
-value = 1 * 0.99**root,var(11) ; this shit used to do true damage 
+value = 1 * 0.995**root,var(11) ; this shit used to do true damage 
 ignorehitpause = 1
 
 [State -2, Counterhit TSP]
@@ -1732,7 +1732,7 @@ triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8
 trigger1 = 1
 attr = S, HA
 animtype  = Light
-damage    = 10 + var(11)
+damage    = 10
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,2
