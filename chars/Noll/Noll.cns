@@ -4752,22 +4752,12 @@ vel = .5, -.2
 scale = 0.5,0.5
 sprpriority = 2
 
-[State 0, Spam Deny]
-type = Helper
-trigger1 = AnimTime = 0
-helpertype = normal
-name = "HELPER"
-ID = 632
-stateno = 633
-facing = -1
-sprpriority = 5
-inheritJuggle = 0
-
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
 value = 50
 ctrl = 1
+
 
 ;-------------------------------------------------------------------------------
 ; Wavedash C

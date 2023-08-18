@@ -168,7 +168,7 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.4
+x = const(velocity.run.fwd.x) * 1.5
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -178,6 +178,7 @@ volumescale = 100
 
 [State 0, Helper]
 type = Helper
+triggerall = numhelper(31) = 0
 trigger1 = time = 0
 helpertype = normal ;player
 name = "Wavedash Clone"
@@ -259,10 +260,15 @@ time = 5
 paladd = 148,0,211
 trans = add
 
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
+
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = [0, 10]
-x = const(velocity.run.fwd.x) * 1.6
+trigger1 = time = [0, 3]
+x = const(velocity.run.fwd.x) * 1.8
 
 [State 0, Explod]
 type = Explod
@@ -308,17 +314,16 @@ trigger2 = root,stateno = 390
 value = 391
 ctrl = 0
 
-;[State 200, C]
-;type = ChangeState
-;triggerall = numhelper(3500) = 0
-;triggerall = power >=250
-;trigger1 = command = "c"
-;value = 480
+[State 200, C]
+type = ChangeState
+triggerall = p2dist x > 0
+triggerall = time >= 5
+trigger1 = command = "WD"
+value = 31
 
 [State 200, End]
 type = DestroySelf
-trigger1 = root,stateno != 30
-trigger2 = AnimTime = 0
+trigger1 = AnimTime = 0
 
 ;---------------------------------------------------------------------------
 ;Clone Hurt
