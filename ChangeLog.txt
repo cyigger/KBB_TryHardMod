@@ -1,5 +1,49 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.12 Changes:                   /
+|---------------------------------------------------/
+
+This is a bug fix update for the most part. Though watanabe did get one of the new moves from his official version.
+
+
+Metaknight: Very tiny adjustment
+1. Wavedash B now jumps a little bit higher.
+
+
+Noll:
+1. 2c reverted to vanilla to fix all bugs with it.
+
+
+Vei:
+1. Wavedash:
+	* Both Vei and the clone are a bit faster
+	* Clone Pushes the opponent now
+	* The clone specifically can chain wavedash into wavedash.
+2. Wavedash B:
+	* Jumps lower now
+	* Clone properly disappears when it gets hit now (bug fix)
+3. Portals no longer disappear on block.
+
+
+Watanabe:
+1. 5a
+	* Recovery reduced by 5 frames.
+	* Block advantage increased (-5 -> +1)
+2. 5aa:
+	* Block advantage increased (-6 -> -1)
+3. 5b:
+	* Active for one less frame
+	* Block advantage increased (-9 -> -4)
+4. 2a block advantage changed to -4
+5. 5c projectile no longer turns while the opponent is hit.
+6. j.5c no longer lifts the opponent from the ground on block.
+7. j.2b startup reduced (16f -> 14f)
+8. j.5a hitbox adjusted; no longer hits under him, but reaches slightly higher.
+9. New move: j.5cc
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.11 Changes:                   /
 |---------------------------------------------------/
 

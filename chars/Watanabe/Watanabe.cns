@@ -455,8 +455,8 @@ hitflag = MAF
 guardflag = M
 pausetime = 8,12
 ground.hittime  = 9 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 10,10
-guard.hittime = 7
+guard.pausetime = 8,10
+guard.hittime = 15
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -600,7 +600,7 @@ guardflag = MA
 pausetime = 10,15
 ground.hittime  = 14 + ifelse(enemy,movetype = A, 7,0)
 air.hittime  = 30 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 10,6
+guard.pausetime = 10,10
 guard.hittime = 25
 sparkno = 0
 guard.sparkno = 13000
@@ -946,8 +946,8 @@ animtype  = Medium
 damage    = 15
 hitflag = MAF
 guardflag = MAF
-pausetime = 5,10
-guard.pausetime = 10,9
+pausetime = 10,10
+guard.pausetime = 10,10
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1640,7 +1640,7 @@ ctrl = 0
 
 [State 20, 2]
 type = Turn
-triggerall = 1
+triggerall = !movecontact
 trigger1 = AnimElemTime(2) > 0 && AnimElemTime(2) < 600
 trigger1 = (time%10) = 0
 trigger1 = P2BodyDist X < -10
@@ -3373,7 +3373,7 @@ damage    = 15
 hitflag = MAFD
 guardflag = LA
 pausetime = 10,13
-guard.pausetime = 7,5
+guard.pausetime = 10,10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -4119,6 +4119,12 @@ ctrl = 0
 
 [State 200, End]
 type = ChangeState
+trigger1 = time >= 20 && command = "hold_c"
+value = 627
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
 trigger1 = AnimTime = 0
 value = 625
 ctrl = 1
@@ -4153,7 +4159,7 @@ channel = -1
 
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = 1
+trigger1 = movehit
 time = 1
 id = -1
 pos = 30,15
@@ -4210,13 +4216,395 @@ ground.slidetime = 25
 ground.velocity = 2,-1
 airguard.velocity = 1.5,-1.5
 air.velocity = 1.5,-2
+guard.velocity = -10
 fall.recover = 0
 Getpower = 0,0
 
 [State 200, End]
 type = ChangeState
+trigger1 = root,stateno = 627
+value = 628
+
+[State 200, End]
+type = ChangeState
 trigger1 = AnimTime = 0
 trigger2 = root,stateno != 620
+value = 401
+
+;-------------------------------------------------------------------------------
+; C - Air dropdown
+[Statedef 627]
+type    = A
+movetype= A
+physics = A
+juggle  = 2
+ctrl = 0
+anim = 44
+sprpriority = 2
+velset = 0,0
+ 
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = time = 0
+x = 4
+y = -2
+;ignorehitpause = 
+;persistent = 
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = time = 1
+value = 50
+ctrl = 1
+
+;===============================================================================
+; C Air - Go through air
+;-------------------------------------------------------------------------------
+[Statedef 628]
+type    = A
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 401
+velset = 9,0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = time >= 0
+value = 401
+elem = 3
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time >= 9
+x = 12
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = 1
+time = 1
+pos = 30,15
+;ignorehitpause = 
+;persistent = 
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+;ignorehitpause = 
+;persistent = 
+[State 400, 4]
+type = HitDef
+trigger1 = !movecontact
+animtype  = Heavy
+attr = S, NP
+damage = 5
+hitflag = MAF
+guardflag = MA
+ground.hittime = 20
+pausetime = 0,150
+guard.pausetime = 3,0
+sparkno = 0
+sparkxy = 0, 0
+hitsound = 5,3
+guard.sparkno = 13000
+guardsound = 6,11
+p1sprpriority = 0
+ground.type = High
+ground.slidetime = 25
+ground.velocity = 2,-1
+airguard.velocity = 1.5,-1.5
+air.velocity = 1.5,-2
+fall.recover = 0
+Getpower = 0,0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = root,power >= 200
+trigger1 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [500,501] && root,stateno != [5040,5210] 
+trigger2 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210]
+value = 461
+ctrl = 0
+
+[State 0, ScreenBound]
+type = ScreenBound
+trigger1 =  BackEdgeBodyDist < 65 || FrontEdgeBodyDist < 65 
+value = 1
+;ignorehitpause = 
+;persistent = 
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = BackEdgeBodyDist < 20 || FrontEdgeBodyDist < 20
+value = 629
+
+
+;===============================================================================
+; C Air - Stuck to wall
+;-------------------------------------------------------------------------------
+[Statedef 629]
+type    = A
+movetype= A
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 625
+velset = 0,0
+sprpriority = 2
+
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = 1
+time = 1
+id = -1
+pos = 0,0
+;ignorehitpause = 
+persistent = 0
+
+[State 0, Juggle Map]
+type = RootMapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+persistent = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0 && numhelper(403) = 0 && numhelper(404) = 0
+helpertype = normal ;player
+name = "Phantom Sword Check"
+ID = 403
+stateno = 403
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Helper]
+type = Helper
+trigger1 = time = 0 && numhelper(404) = 0
+helpertype = normal ;player
+name = "Phantom Sword Check Existed"
+ID = 404
+stateno = 404
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State 0, Juggle Map]
+type = RootMapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 15
+persistent = 0
+
+[State 0, Damage Proration]
+type = ParentVarAdd
+trigger1 = movehit 
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 15
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = facing = 1
+x =GameWidth-ScreenPos X
+
+[State 0, PosAdd]
+type = PosSet
+trigger1 = facing = -1
+x =-GameWidth/2
+
+[State 0, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 20
+;[State 0, ChangeAnim]
+;type = ChangeAnim
+;trigger1 = prevstateno != 461 && root,stateno != 450
+;value = 462
+;elem = 4
+;;ignorehitpause = 
+;persistent =  0
+
+[State 0, Helper]
+type = Helper
+trigger1 = time%180 = 0 && root,movetype != H && time > 1
+helpertype = normal ;player
+name = "THUNDER"
+ID = 621
+stateno = 621
+pos = -20,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+inheritJuggle = 1
+keyctrl = 1
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 400, 4]
+type = HitDef
+trigger1 = !movecontact
+animtype  = Heavy
+attr = S, NP
+damage = ifelse(enemy,movetype = A,30,15)
+hitflag = MAFD
+guardflag = MA
+ground.hittime = 20
+pausetime = 0,5
+guard.pausetime = 3,0
+sparkno = 0
+sparkxy = 0, 0
+hitsound = 5,3
+guard.sparkno = 13000
+guardsound = 6,11
+p1sprpriority = 0
+ground.type = High
+ground.slidetime = 25
+ground.velocity = -1,-3
+airguard.velocity = 1.5,-1.5
+air.velocity = -2,3
+fall = 1
+fall.recover = 0
+Getpower = 0,0
+p2stateno = 1030    ;Make p2 go to state 1025 on hit
+p2getp1state = 0
+down.velocity = -3,-4
+down.bounce = 1
+
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = root,power >= 200
+trigger1 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [500,501] && root,stateno != [5040,5210] 
+trigger2 = command = "c" && command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && root,stateno != [5040,5210]
+value = 461
+ctrl = 0
+
+
+
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "c" && root,movetype != H  && root,stateno != [120,140] && command != "holdfwd"  && numhelper(5465) = 0 &&  root,stateno != [500,501] && command != "SPECIAL 5"
+trigger2 = command = "c" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [500,501] && command != "SPECIAL 5"
+value = 630
+
+;===============================================================================
+; C Air - goto 5c
+;-------------------------------------------------------------------------------
+[Statedef 630]
+type    = A
+movetype= I
+physics = N
+juggle  = 1
+ctrl = 0
+anim = 626
+velset = 0,0
+sprpriority = 2
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = -4
+;ignorehitpause = 
+;persistent = 
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
 value = 401
 
 ;-------------------------------------------------------------------------------

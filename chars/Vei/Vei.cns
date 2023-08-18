@@ -1609,6 +1609,15 @@ value = movehit
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, HurtOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 39
+time = 2
+forceair = 0
+
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
@@ -1632,16 +1641,16 @@ volumescale = 50
 type = VelSet
 trigger1 = Time = 0
 x = 3.8
-y = -3.8
+y = -3.5
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1 
-y = 0.22
+y = 0.20
 
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = time >= 20 
+trigger1 = time >= 22 
 x = 3
 y = 5
 
@@ -1975,7 +1984,7 @@ inheritJuggle = 1
 type = Changestate
 trigger1 = frontedgebodydist < -100
 trigger2 = time = 120
-trigger3 = parent,movetype = H
+trigger3 = parent,stateno = [5000, 5210]
 value = 411
 
 ;[State 200, End]
