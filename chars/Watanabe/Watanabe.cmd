@@ -176,6 +176,18 @@ name = "DD"     ;Required (do not remove)
 command = D, D
 time = 10
 buffer.time = 1
+;-| Hold Double Tap |-----------------------------------------------------------
+[Command] ; these are to make it slightly easier for 6C roman cancel and 5AAA backdash
+name = "holdFF"     ;Required (do not remove)
+command = F, /F
+time = 10
+buffer.time = 1
+
+[Command]
+name = "holdBB"     ;Required (do not remove)
+command = B, /B
+time = 10
+buffer.time = 1
 
 ;-| 2/3 Button Combination |-----------------------------------------------
 [Command]
@@ -376,6 +388,7 @@ buffer.time = 1
 name = "downfwd"
 command = $DF
 time = 1
+buffer.time = 1
 
 [Command]
 name = "down" ;Required (do not remove)
@@ -387,6 +400,7 @@ buffer.time = 1
 name = "downback"
 command = $DB
 time = 1
+buffer.time = 1
 
 [Command]
 name = "back" ;Required (do not remove)
@@ -398,6 +412,7 @@ buffer.time = 1
 name = "upback"
 command = $UB
 time = 1
+buffer.time = 1
 
 [Command]
 name = "up" ;Required (do not remove)
@@ -409,6 +424,7 @@ buffer.time = 1
 name = "upfwd"
 command = $UF
 time = 1
+buffer.time = 1
 
 ;-| Hold Button |--------------------------------------------------------------
 [Command]
@@ -451,41 +467,49 @@ time = 1
 name = "holdfwd" ;Required (do not remove)
 command = /$F
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holddownfwd"
 command = /$DF
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holddown" ;Required (do not remove)
 command = /$D
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holddownback"
 command = /$DB
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holdback" ;Required (do not remove)
 command = /$B
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holdupback"
 command = /$UB
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holdup" ;Required (do not remove)
 command = /$U
 time = 1
+buffer.time = 1
 
 [Command]
 name = "holdupfwd"
 command = /$UF
 time = 1
+buffer.time = 1
 
 ;---------------------------------------------------------------------------
 ; 2. State entry
@@ -594,7 +618,7 @@ type = ChangeState
 value = 19000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 1"
-;Triggerall = statetype != A
+Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
@@ -604,7 +628,7 @@ type = ChangeState
 value = 20000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 2"
-Triggerall = statetype = A
+;Triggerall = statetype = A
 Triggerall = power >= 1000
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
