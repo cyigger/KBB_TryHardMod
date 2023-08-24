@@ -4012,12 +4012,12 @@ volumescale = 80
 type = VelSet
 trigger1 = AnimElem = 3
 x = 3.25
-y = -4.7
+y = -2.5
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time > 4
-y = 0.33
+y = 0.44
 
 [State 200, 1]
 type = HitDef
