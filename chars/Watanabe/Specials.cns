@@ -282,7 +282,7 @@ value = 1
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = AnimElem = 1
-x = 3
+x = ifelse(prevstateno=310,12,3)
 
 [State 0, VelSet]
 type = VelSet
@@ -321,7 +321,7 @@ triggerall = enemy,movetype = A
 trigger1 = !movecontact
 attr = A, SA
 animtype  = Heavy
-damage    = 90
+damage    = 110
 hitflag = MAFD
 guardflag = MA
 pausetime = 24,24
@@ -347,7 +347,7 @@ triggerall = enemy,movetype != A
 trigger1 = !movecontact
 attr = A, SA
 animtype  = Heavy
-damage    = 45
+damage    = 55
 hitflag = MAFD
 guardflag = MA
 pausetime = 12,12
@@ -496,7 +496,7 @@ down.bounce = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = AnimElem = 3 && numhelper(401) <= 2
+trigger1 = AnimElem = 3 && numhelper(401) <= 1
 helpertype = normal ;player
 name = "green sword"
 ID = 401
@@ -831,8 +831,13 @@ fall.recovertime = 90
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Time = (15,20)
-x = 15
+trigger1 = Time = (15,21) && !movehit
+x = 17
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Time = (15,21) && movehit
+x = 10
 
 [State 200, End]
 type = ChangeState
@@ -1711,7 +1716,7 @@ value = movehit
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
-value = 1 * 0.995**root,var(11) ; this shit used to do true damage 
+value = 1 * 0.99**root,var(11) ; this shit used to do true damage 
 ignorehitpause = 1
 
 [State -2, Counterhit TSP]
@@ -1754,7 +1759,7 @@ triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8
 trigger1 = 1
 attr = S, HA
 animtype  = Light
-damage    = 10
+damage    = 10 + var(11)
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,2
