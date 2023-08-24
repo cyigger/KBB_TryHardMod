@@ -1732,7 +1732,7 @@ trigger1 = !movecontact
 trigger1 = AnimElem = 5
 trigger2 = root,movetype = H && Time > 600
 trigger3 = enemy,stateno = [801,803] && movecontact
-trigger4 = movecontact && p2dist x != [-60,60]  ; Well, I'm just glad I made a new friend
+trigger4 = movecontact && p2dist x != [-100,100]  ; Well, I'm just glad I made a new friend
 value = 401
 elem = 6
 persistent = 0
