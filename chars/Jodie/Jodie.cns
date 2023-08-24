@@ -662,7 +662,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 20
+damage    = 15
 hitflag = MAFD
 guardflag = MAF
 pausetime = 12,12
@@ -2033,7 +2033,7 @@ ground.slidetime = 12
 ground.velocity = -2,-4
 air.velocity = -4,-4
 Fall = 1
-Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 20
 
 [State 200, Move Connected]
@@ -2508,14 +2508,6 @@ trigger1 = command = "a"
 trigger2 = command = "hold_a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 320
-ctrl = 0
-[State 200, B]
-type = ChangeState
-triggerall = time = [12,36]
-triggerall = command = "holddown"
-trigger1 = command = "b"
-trigger2 = command = "hold_b"
-value = 330
 ctrl = 0
 [State 200, B]
 type = ChangeState
@@ -7272,7 +7264,7 @@ ctrl = 1
 [Statedef 2830]
 type    = A
 movetype= A
-physics = A
+physics = N
 juggle  = 2
 ctrl = 0
 anim = 2830
@@ -7340,6 +7332,11 @@ type = VelSet
 trigger1 = AnimElem = 1
 y = -5
 x = 1
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = 1
+y = 0.44
 
 [State 200, 1]
 type = HitDef
@@ -7410,10 +7407,9 @@ ctrl = 1
 
 [State 200, LANDING LAG]
 type = ChangeState
-triggerall = command = "hold_b"
-trigger1 = pos y >= -15
+trigger1 = pos y >= 0
 value = 2845
-ctrl = 0
+ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; C - Aire Finale
@@ -7543,24 +7539,24 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 25
+damage    = 20
 hitflag = MAF
 guardflag = MAF
-pausetime = 12,14
-guard.pausetime = 12,19
-guard.hittime = 30
+pausetime = 8,8
+guard.pausetime = 8,8
+guard.hittime = 12
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = S5,1
 guardsound = 6,10
 ground.type = High
-ground.slidetime = 17
-ground.hittime  = 17
+ground.slidetime = 12
+ground.hittime  = 15
 air.hittime = 20
-ground.velocity = -2,-4
-air.velocity = -2,-4
-Envshake.time = 20
+ground.velocity = -2,-1
+air.velocity = -2,-1
+Envshake.time = 10
 fall.recover = 0
 
 [State 200, End]

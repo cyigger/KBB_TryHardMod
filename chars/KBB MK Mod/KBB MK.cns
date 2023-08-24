@@ -49,7 +49,7 @@ jump.back = -2.55		;Jump back Speed (x, y)
 jump.fwd = 2.5		;Jump forward Speed (x, y)
 runjump.back = -2.55,-8.1;Running jump speeds (opt)
 runjump.fwd = 4,-8.1	;.
-airjump.neu = 0,-5.2	;.
+airjump.neu = 0,-6.1	;.
 airjump.back = -3.55	;Air jump speeds (opt)
 airjump.fwd = 3.5		;.
 
@@ -1553,7 +1553,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 25
+damage    = 30
 guardflag = MAF
 hitflag = MAF
 pausetime = 16,16
@@ -2125,7 +2125,7 @@ triggerall = hitcount < 9
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 4
+damage    = 5
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
@@ -2233,7 +2233,7 @@ helpertype = normal ;player
 name = "Swords"
 ID = 421
 stateno = 421
-pos = 40,0
+pos = 20,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -2324,7 +2324,7 @@ ctrl = 0
 anim = 421
 poweradd = 0
 sprpriority = 2
-velset = 8, 0
+velset = 9, 0
 
 [State 0, Swing Sound]
 type = PlaySnd
@@ -4823,7 +4823,7 @@ triggerall = hitcount < 9
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 4
+damage    = 5
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
@@ -4941,7 +4941,7 @@ helpertype = normal ;player
 name = "Swords"
 ID = 626
 stateno = 626
-pos = 20,12
+pos = 10,6
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -4954,8 +4954,9 @@ value = 10
 
 [State 0, VelSet]
 type = VelSet
+triggerall = prevstateno = [600, 620] || prevstateno = 400 || prevstateno = 65
 trigger1 = AnimElem = 1
-y = -3
+y = -2
 
 [State 0, Swing Sound]
 type = PlaySnd

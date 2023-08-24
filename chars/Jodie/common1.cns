@@ -237,20 +237,20 @@ value = 105
 [State 200, End]
 type = ChangeState
 trigger1 = command = "a"
-value = ifelse(var(10)=0,335,2590)
+value = ifelse(var(10)=0,290,2590)
 ctrl = 0
 
 [State 200, End]
 type = ChangeState
 trigger1 = command = "b"
-value = ifelse(var(10)=0,330,2690)
+value = ifelse(var(10)=0,335,2690)
 ctrl = 0
 
 ;BASE JODIE NO SWORD PICKUP
 [State 200, End]
 type = ChangeState
 triggerall = numhelper(3500) = 0
-triggerall = var(10)=0
+triggerall = var(10) = 1
 triggerall = power >= 200
 trigger1 = command = "c"
 value = 2620
@@ -260,7 +260,7 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 triggerall = numhelper(3500) = 0
-triggerall = var(10) = 1
+triggerall = var(10) = 0
 triggerall = power >= 200
 trigger1 = command = "c"
 value = 490

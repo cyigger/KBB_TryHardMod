@@ -218,7 +218,7 @@ volumescale = 500
 type = VelSet
 trigger1 = time = [0, 1]
 x = const(velocity.run.fwd.x) * 1.25
-y = -3
+y = -1.5
 
 [State 0, VelAdd]
 type = VelAdd
