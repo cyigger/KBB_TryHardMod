@@ -2354,6 +2354,13 @@ poweradd = -200
 velset = 0,0
 sprpriority = 2
 
+[State 0, ChangeAnimTo]
+type = ChangeAnim2
+triggerall = time = 0
+trigger1 = prevstateno = 490
+value = 450
+elem = 3
+
 [State 0, Swing]
 type = PlaySnd
 trigger1 = Time = 0
@@ -2367,7 +2374,7 @@ x = const(velocity.run.fwd.x)
 
 [State 200, 2C>2C]
 type = Changestate
-triggerall = time > 6
+triggerall = time > 6 || prevstateno = 490
 triggerall = time < 58
 triggerall = power >=200
 triggerall = numhelper(3500) = 0
@@ -2379,7 +2386,7 @@ ctrl = 0
 
 [State 200, JUMP]
 type = Changestate
-triggerall = time > 6
+triggerall = time > 6 || prevstateno = 490
 triggerall = time < 58
 trigger1 = command = "up"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -2397,7 +2404,7 @@ ctrl = 0
 
 [State 200, 2ca]
 type = Changestate
-triggerall = time > 6
+triggerall = time > 6 || prevstateno = 490
 triggerall = time < 58
 triggerall = numhelper(3500) = 0
 trigger1 = command = "a"
@@ -2418,7 +2425,7 @@ ctrl = 0
 
 [State 200, 2cb]
 type = Changestate
-triggerall = time > 6
+triggerall = time > 6 || prevstateno = 490
 triggerall = time < 58
 triggerall = numhelper(3500) = 0
 trigger1 = command = "b"
@@ -2428,7 +2435,7 @@ ctrl = 0
 
 [State 200, 2cc]
 type = Changestate
-triggerall = time > 6
+triggerall = time > 6 || prevstateno = 490
 triggerall = time < 58
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
@@ -2438,7 +2445,7 @@ ctrl = 0
 
 [State 200, backdash]
 type = Changestate
-triggerall = time > 6
+triggerall = time > 6 || prevstateno = 490
 triggerall = time < 58
 trigger1 = command = "BB"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -3341,13 +3348,6 @@ anim = 490
 velset = 3,0
 sprpriority = 2
 
-[State 0, reversalMove]
-type = MapSet
-trigger1 = 1
-map = "reversalMove"
-value = 1
-ignorehitpause = 1
-
 [State 0, Juggle Map]
 type = MapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
@@ -3377,13 +3377,13 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 10
+value = 8
 
 [State 0, Swing]
 type = PlaySnd
 trigger1 = AnimElem = 3
-value = S451,0
-volumescale = 150
+value = S450,0
+volumescale = 400
 
 ;[State 0, Voice - up!]
 ;type = PlaySnd
@@ -3403,21 +3403,37 @@ type = VelSet
 trigger1 = AnimElem = 1
 x = 6
 
+[State 0, TargetBind]
+type = TargetBind
+triggerall = AnimElem = 3
+trigger1 = movehit
+time = 1
+id = -1
+pos = 40,0
+
+[State 0, TargetBind]
+type = TargetBind
+triggerall = AnimElem = 5
+trigger1 = movehit
+time = 1
+id = -1
+pos = 6,-36.5
+
+
 [State 200, 1]
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = enemy,map(hitOverride) = 0
-triggerall = !movecontact
+triggerall = AnimElem = 3 || AnimElem = 4 || AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 40
-hitflag = MAFD
-guardflag = MAF
-pausetime = 10,13
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 10,7
+damage    = 5
+hitflag = MAF
+guardflag = MA
+pausetime = 2,6
+ground.hittime  = 5 + ifelse(enemy,movetype = A, 7,0)
+guard.pausetime = 2,2
 guard.hittime = 8
 sparkno = 15000
 guard.sparkno = 13000
@@ -3426,44 +3442,47 @@ hitsound   = S0,11
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -0.1,-6
-air.velocity = -0.1,-6
+ground.velocity = -1,-1
+air.velocity = -1,-1
 Envshake.time = 15
-fall = 1
+fall = 0
 fall.recover = 1
 Fall.recovertime = 40 + ifelse(enemy,movetype = A || movecountered, 7,0)
-envshake.time = 7
+envshake.time = 5
 
 [State 200, 1]
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = enemy,map(hitOverride) = 1
-triggerall = !movecontact
+triggerall = AnimElem = 9
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 15
-hitflag = MAFD
+damage    = 10
+hitflag = MAF
 guardflag = MA
-pausetime = 10,13
-guard.pausetime = 12,4
+pausetime = 8,8
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+guard.pausetime = 8,6
+guard.hittime = 8
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = S0,13
-guardsound = 6,10
+hitsound   = S0,11
+guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-4
-air.velocity = -2,-4
-fall = 1
+ground.velocity = -3,-5
+air.velocity = -3,-5
 Envshake.time = 15
+fall = 1
+fall.recover = 1
+Fall.recovertime = 45 + ifelse(enemy,movetype = A || movecountered, 7,0)
+envshake.time = 10
 
 [State 0, Special 1 - TORNAEEEEE Horitontal]
 type = ChangeState
-triggerall = movecontact
+triggerall = movecontact 
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 1000
 trigger1 = command = "SPECIAL 1"
@@ -3480,14 +3499,6 @@ trigger1 = command = "SPECIAL 2"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 22000
 ctrl = 0
-
-[State 200, 2C]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = Animelem = 5
-value = 450
 
 [State 200, End]
 type = ChangeState

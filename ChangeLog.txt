@@ -10,9 +10,9 @@ Hyrio:
 
 
 Jodie:
-1. Nerfed
+1. J.b hitbox extends slightly less upwards.
 2. Sword j.C now has landing lag.
-3. 2a one frame slower.
+
 
 KBB MK:
 1. Removed A+B unblockable.
@@ -23,6 +23,7 @@ KBB MK:
 6. j.6c No longer has it's own velocity out of comboes.
 7. Projectile speed increased slightly.
 8. All Specials no longer burstable
+9. Wavedash C Reappears Less Far Behind (buffed horizontal range)
 
 Max:
 1. Wavedash C:
@@ -68,11 +69,26 @@ Watanabe:
 	* Added landing lag
 	* Now hits more times due to being made more consistent.
 	* Reduced hitlag.
+7. Syned up with Vanilla Self:
+	* New 5aaa
+	* Modified sword behaviour
+	* 214A Damage Buff
+	* 214A Amount of swords allowed decreased by one
+	* 6C Modifications
+	* Sword Thunder modifications and Nerfs
 
 
 Yoru:
 1. Wavedash A replaced again. It is now a huge, slow, massive low fatal.
 2. 4a startup reduced (-1)
+
+
+Jay:
+1. Removed Spot dodge out of wavedash
+2. Added Active Charge out of wavedash (Wavedash Powercharge)
+
+Stray:
+1. New Wavedash C move (finally)
 
 
 
