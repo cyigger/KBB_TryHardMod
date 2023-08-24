@@ -21,6 +21,13 @@ trigger1 = 1
 map = "enableDHC"
 value = 1
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, I'm gonna do an unblockable attack!]
 type = Explod
 trigger1 = time = 1
@@ -199,6 +206,13 @@ anim = 21005
 velset = 0,0
 sprpriority = 2
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, enableDHC] ; Enables DHC and disables tag
 type = MapSet
 triggerall = teammode = tag
@@ -361,6 +375,13 @@ sprpriority = 2
 type = MapSet
 trigger1 = 1
 map = "reversalMove"
+value = 1
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
 value = 1
 ignorehitpause = 1
 
@@ -603,6 +624,13 @@ anim = 23005
 velset = 0,0
 sprpriority = 2
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, NotHitBy]
 type = NotHitBy
 trigger1 = 1
@@ -731,6 +759,13 @@ trigger1 = 1
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 time = 1
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, PosSet]
 type = PosSet
 trigger1 = pos y >= 0
@@ -788,6 +823,13 @@ ctrl = 0
 anim = 24000
 velset = 0,0
 sprpriority = 2
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, SuperPause]
 type = SuperPause

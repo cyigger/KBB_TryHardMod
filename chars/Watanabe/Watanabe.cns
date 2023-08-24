@@ -59,7 +59,7 @@ draw.offset = 0,0		;Player drawing offset in pixels (x, y)
 [Velocity]
 walk.fwd  = 2.4	;Walk forward
 walk.back = -2.2		;Walk backward
-run.fwd  = 4.2, 0	;Run forward (x, y)
+run.fwd  = 4.5, 0	;Run forward (x, y)
 run.back = -4.5,-3.8	;Hop backward (x, y)
 jump.neu = 0,-8.4		;Neutral jumping velocity (x, y)
 jump.back = -2.55		;Jump back Speed (x, y)
@@ -1418,7 +1418,7 @@ channel = -1
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 26
+trigger1 = time = 20
 helpertype = normal ;player
 name = "green sword"
 ID = 401
@@ -1604,7 +1604,7 @@ Getpower = 0,0
 [State 0, Helper]
 type = Helper
 trigger1 = movecontact 
-trigger1 = time%22 = 0
+trigger1 = movecontact % 16 = 0
 ;trigger1 = hitcount <= 3
 helpertype = normal ;player
 name = "regular"
@@ -3900,7 +3900,7 @@ ctrl = 1
 [Statedef 610]
 type    = A
 movetype= A
-physics = A
+physics = N
 juggle  = 1
 ctrl = 0
 anim = 610
@@ -3919,6 +3919,11 @@ type = VelSet
 trigger1 =  time = 1
 x = 0
 y = 0
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = 1
+y = 0.44
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -3967,7 +3972,7 @@ volumescale = 50
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = time%3 = 2
+triggerall = AnimElem = 6 || AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10 || AnimElem = 11 || AnimElem = 12 || AnimElem = 13
 triggerall = hitcount <= 2
 triggerall = map(juggle) < 100
 trigger1 = 1
@@ -3975,7 +3980,7 @@ attr = A, NA
 animtype  = Medium
 damage    = 15
 guardflag = HAF
-pausetime = 10,10
+pausetime = 8,6
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -4025,6 +4030,49 @@ Triggerall = power >= 500
 trigger1 = command = "c"
 value = 620
 
+[State 200, End]
+type = ChangeState
+trigger1 = pos Y >= 0 && Vel Y > 0
+value = 611
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Jump Land
+[Statedef 611]
+type    = S
+physics = S
+ctrl = 0
+anim = 611
+facep2 = 1
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 4]
+type = VelSet
+trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
+x = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S3,3
+volumescale = 100
+
+[State 52, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
 ;-------------------------------------------------------------------------------
 ; C - Aire
 [Statedef 620]
@@ -4069,7 +4117,7 @@ removeongethit = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 0
+trigger1 = time = 15
 helpertype = normal ;player
 name = "Spam Deny"
 ID = 440
@@ -5020,7 +5068,11 @@ type = PosSet
 trigger1 = time = 0
 y = 0
 ;ignorehitpause = 
-;persistent = 
+;persistent =
+
+[State 200, End]
+type = Destroyself
+trigger1 = root,stateno = [5000,5210]
 
 [State 200, End]
 type = ChangeState
@@ -5262,7 +5314,7 @@ sprpriority = 5
 
 [State 200, End]
 type = Changestate
-trigger1 = time = 120
+trigger1 = time = 90
 value = 430
 
 ;-------------------------------------------------------------------------------

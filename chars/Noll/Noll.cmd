@@ -686,7 +686,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 30
 trigger1 = command = "WD" && command != "NotWD"
-trigger1 = statetype = C || statetype = S
+trigger1 = var(13) < 2
 trigger1 = ctrl
 
 ;---------------------------------------------------------------------------

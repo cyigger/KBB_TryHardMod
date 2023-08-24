@@ -147,6 +147,13 @@ velset = 0,0
 sprpriority = 2
 poweradd = 0
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
@@ -1302,7 +1309,12 @@ velset = 0,0
 sprpriority = 2
 poweradd = -1500
 
-
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1513,7 +1525,12 @@ velset = 0,0
 sprpriority = 2
 poweradd = 0
 
-
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, AttackDist]
 type = AttackDist
@@ -1660,7 +1677,12 @@ movetype= A
 physics = S
 anim = 23500
 
-
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, PosSet]
 type = PosSet

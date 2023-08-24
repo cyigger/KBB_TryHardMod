@@ -1,5 +1,83 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.13 Changes:                   /
+|---------------------------------------------------/
+
+Heavy Balance Changes to alot of characters. Noll is now part of the updated cast, with a buffed grab and a unique wavedash.
+
+Hyrio:
+1. Can no longer act out of backsway for 10 frames.
+
+
+Jodie:
+1. Nerfed
+2. Sword j.C now has landing lag.
+3. 2a one frame slower.
+
+KBB MK:
+1. Removed A+B unblockable.
+2. Airjump height increased very slightly.
+3. 5bbb damage increased back to 30.
+4. 5c and j.5c damage increased
+5. 6c and j.6c projectiles now spawn closer to him, making it more consistent.
+6. j.6c No longer has it's own velocity out of comboes.
+7. Projectile speed increased slightly.
+8. All Specials no longer burstable
+
+Max:
+1. Wavedash C:
+	* Increased startup (+2)
+	* Increased Endlag (+4)
+	* Increased Vertical velocity
+	* Decreased Horizontal velocity
+	* No longer hits otg
+
+
+Noll:
+1. Wavedash Has been turned into old wavedash A
+2. Wavedash A changed to 6a
+3. Wavedash can now be done in the air
+4. Movelist added
+
+
+Saito:
+1. Wavedash Height Decreased
+
+
+Vei:
+1. All specials now made unbursterable.
+2. j.2b:
+	* Removed Fatal Counter
+	* Added landing lag.
+	* Velocity Increased.
+
+
+Vivienne:
+1. No Mercy no longer has a foot hitbox.
+
+
+
+Watanabe:
+1. Sword now multihits faster. and is now more consistent.
+2. Sword hitbox increased.
+3. All Supers made unbursterable.
+4. Added some missing animations.
+5. 5b startup reduced (-2), and hitbox now extends ever so slightly higher.
+6. j.b
+	* Made hits consistent
+	* Added landing lag
+	* Now hits more times due to being made more consistent.
+	* Reduced hitlag.
+
+
+Yoru:
+1. Wavedash A replaced again. It is now a huge, slow, massive low fatal.
+2. 4a startup reduced (-1)
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.12 Changes:                   /
 |---------------------------------------------------/
 

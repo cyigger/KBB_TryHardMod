@@ -3310,7 +3310,7 @@ trigger1 = AnimElem = 2
 name = "Wavedash C Granade"
 ID = 491
 stateno = 491
-pos = 25,-10
+pos = 25,-25
 postype = p1
 facing = 1
 keyctrl = 0
@@ -3347,8 +3347,8 @@ sprpriority = 3
 [State 490, VelSet]
 type = VelSet
 trigger1 = time = 0
-x = 5
-y = -5.5
+x = 4
+y = -5
 
 [State 490, VelAdd]
 type = VelAdd
@@ -3384,7 +3384,7 @@ trigger1 = !movecontact
 attr = A, NP
 damage = 15
 guardflag = MA
-hitflag = MAFD 
+hitflag = MAF
 pausetime = 8,8
 guard.pausetime= 0,4
 sparkxy = 10,-15

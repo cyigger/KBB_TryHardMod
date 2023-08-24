@@ -1098,32 +1098,32 @@ type = VelSet
 trigger1 = 1
 x = const(velocity.walk.fwd.x) * 1.25
 
-[State 200, 1]
-type = HitDef
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 2 || AnimElem = 6
-trigger1 = 1
-attr = C, NA
-animtype  = Medium
-damage    = 15
-hitflag = MAFD
-guardflag = LA
-pausetime = 6,6
-guard.pausetime = 6,2
-sparkno = 0
-guard.sparkno = 13000
-sparkxy = -8,-15
-hitsound   = 5,3
-guardsound = 6,10
-ground.type = Low
-ground.slidetime = 10
-ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -1.5,-3.5
-air.velocity = -1.5,-3
-down.velocity = -1.8,-4
-air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-guard.hittime = 10
-fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+;[State 200, 1]
+;type = HitDef
+;triggerall = map(juggle) < 100 || hitcount != 0
+;triggerall = AnimElem = 2 || AnimElem = 6
+;trigger1 = 1
+;attr = C, NA
+;animtype  = Medium
+;damage    = 15
+;hitflag = MAFD
+;guardflag = LA
+;pausetime = 6,6
+;guard.pausetime = 6,2
+;sparkno = 0
+;guard.sparkno = 13000
+;sparkxy = -8,-15
+;hitsound   = 5,3
+;guardsound = 6,10
+;ground.type = Low
+;ground.slidetime = 10
+;ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+;ground.velocity = -1.5,-3.5
+;air.velocity = -1.5,-3
+;down.velocity = -1.8,-4
+;air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
+;guard.hittime = 10
+;fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 
 [State 0, HitOverrideCheck]
 type = MapSet

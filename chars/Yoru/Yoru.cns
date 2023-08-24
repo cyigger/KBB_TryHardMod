@@ -1584,6 +1584,237 @@ value = 0
 ctrl = 1
 
 
+;-------------------------------------------------------------------------------
+; Low Thrust
+[Statedef 292]
+type    = S
+movetype= A
+physics = S
+juggle  = 2
+ctrl = 0
+anim = 292
+poweradd = 0
+velset = 0,0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, Swing Sound]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,11
+volumescale = 120
+
+[State 0, Voice - Grunt 5!]
+type = PlaySnd
+triggerall = var(2)  >=0
+triggerall = var(2)  <=25
+trigger1 = AnimElem = 1
+value = S10,10
+volumescale = 200
+[State 0, Voice - Grunt 6!]
+type = PlaySnd
+triggerall = var(2)  >=26
+triggerall = var(2)  <=50
+trigger1 = AnimElem = 1
+value = S10,11
+volumescale = 200
+[State 0, Voice - Grunt 7!]
+type = PlaySnd
+triggerall = var(2)  >=61
+triggerall = var(2)  <=75
+trigger1 = AnimElem = 1
+value = S10,12
+volumescale = 200
+[State 0, Voice - Grunt 8!]
+type = PlaySnd
+triggerall = var(2)  >=76
+triggerall = var(2)  <=100
+trigger1 = AnimElem = 1
+value = S10,13
+volumescale = 200
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 10
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 20006
+ID = 20006
+pos = 0,-5
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 2,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+triggerall = enemy,movetype = A
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 50
+hitflag = MAF
+guardflag = LA
+pausetime = 32,60
+guard.pausetime = 16,16
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,1
+guardsound = 6,10
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 18
+ground.velocity = -10
+air.velocity = -5,-5
+Air.Fall = 1
+Fall.recovertime = 50
+envshake.time = 18
+envshake.freq = 90
+envshake.ampl = 2
+guard.cornerpush.veloff = -20
+airguard.cornerpush.veloff = -20
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+triggerall = enemy,movetype != A
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 25
+hitflag = MAF
+guardflag = LA
+pausetime = 16,18
+guard.pausetime = 16,16
+sparkno = 15000
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = S0,13
+guardsound = 6,10
+ground.type = High
+ground.slidetime = 20
+ground.hittime  = 18
+ground.velocity = -10
+air.velocity = -5,-5
+Air.Fall = 1
+Fall.recovertime = 25
+envshake.time = 18
+envshake.freq = 90
+envshake.ampl = 2
+guard.cornerpush.veloff = -20
+airguard.cornerpush.veloff = -20
+
+
+[State 200, Special - Dual Rush!]
+type = ChangeState
+triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 1"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 26000
+[State 200, Special - heavy swing!]
+type = ChangeState
+triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 2"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 21000
+[State 200, Special - Counter]
+type = ChangeState
+triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 500
+trigger1 = command = "SPECIAL 4"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 22000
+[State 200, Special - Love Delux]
+type = ChangeState
+triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+Triggerall = Life <= 700
+Triggerall = Power >= 2000
+Triggerall = var(17) < 1
+trigger1 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 25000
+
+[State 200, End]
+type = ChangeState
+Triggerall = movehit
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 320
+
+[State 200, Down+C]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >=500
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+trigger1 = command = "holddown"
+value = 400
+[State 200, C]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+triggerall = power >=300
+trigger1 = command = "c"
+value = 400
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
 ;===============================================================================
 ; B:
 ;-------------------------------------------------------------------------------
@@ -7471,7 +7702,7 @@ ctrl = 0
 
 [State 0, Failed to block a low!]
 type = Explod
-triggerall = stateno = 950
+triggerall = stateno = 950 ||  stateno = 292
 triggerall = enemy, prevstateno = [120,160] && numexplod(31000) = 0
 trigger1 = enemy, movetype = H && enemy, stateno != [120,160]
 anim = F36000
@@ -7497,14 +7728,14 @@ persistent = 0
 
 [State 0, IM DOING A LOW, BOZO]
 type = MapSet
-trigger1 = stateno = 950
+trigger1 = stateno = 950 ||  stateno = 292
 map = "lowAttack"
 value = 1
 
 
 [State 0, nvm lol]
 type = MapSet
-trigger1 = stateno != 950
+trigger1 = stateno != 950 &&  stateno != 292
 map = "lowAttack"
 value = 0
 ;ignorehitpause = 
