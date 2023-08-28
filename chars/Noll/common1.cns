@@ -175,7 +175,6 @@ volumescale = 500
 
 [State 0, VelSet]
 type = VelSet
-triggerall = pos y > -5
 trigger1 = time = [0, 1]
 x = 6
 

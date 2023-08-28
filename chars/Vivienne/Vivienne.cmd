@@ -128,8 +128,8 @@ time = 30
 ;-| Specials |-------------------------------------------------------
 [command]
 name = "SPECIAL 1"
-command = ~D,DF,F,a
-time = 15
+command = ~D,DF,F,D,DF,F,a
+time = 30
 buffer.time = 5
 
 [command]
@@ -140,8 +140,8 @@ buffer.time = 5
 
 [command]
 name = "SPECIAL 3"
-command = ~D,DF,F,b
-time = 15
+command = ~D,DF,F,D,DF,F,b
+time = 30
 buffer.time = 5
 
 [command]
@@ -152,8 +152,8 @@ buffer.time = 5
 
 [command]
 name = "SPECIAL 5"
-command = ~D,DF,F,c
-time = 15
+command = ~D,DF,F,D,DF,F,c
+time = 30
 buffer.time = 5
 
 [command]
@@ -165,6 +165,12 @@ buffer.time = 5
 [command]
 name = "SPECIAL 7"
 command = ~D,DF,F,a+b
+time = 20
+buffer.time = 5
+
+[command]
+name = "SPECIAL 7 NM"
+command = ~D,DF,F,D,DF,F,a+b
 time = 30
 buffer.time = 5
 
@@ -191,6 +197,12 @@ buffer.time = 1
 name = "DD"     ;Required (do not remove)
 command = D, D
 time = 10
+buffer.time = 1
+
+[Command]
+name = "NoMercy"     ;Required (do not remove)
+command = ~D,DF,F
+time = 15
 buffer.time = 1
 
 
@@ -620,7 +632,7 @@ triggerall = command = "SPECIAL 7"
 Triggerall = statetype != A
 Triggerall = power >= 3000 ; ALL METER
 Triggerall = var(53) >=100 ; MAX PLASMA PASSIVE
-trigger1 = ctrl
+trigger1 = ctrl || (anim = 290 && command = "SPECIAL 7 NM")
 ;---------------------------------------------------------------------------
 ; Special 1 - GEYSER
 [State -1, SPECIAL 1 - GEYSER]
@@ -630,7 +642,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || anim = 290
 ;---------------------------------------------------------------------------
 ; Special 2 - LAZUR
 [State -1, SPECIAL 2 - LAZUR]
@@ -640,7 +652,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || anim = 290
 ;---------------------------------------------------------------------------
 ; Special 3 - Air Kick
 [State -1, SPECIAL 3 - Air Kick]
@@ -650,7 +662,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
 Triggerall = power >= 1000
 triggerall = numhelper(2105) < 1
-trigger1 = ctrl
+trigger1 = ctrl || anim = 290
 ;---------------------------------------------------------------------------
 ; Special 4 - Overhead
 [State -1, SPECIAL 4 - Overhead]
@@ -660,7 +672,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || anim = 290
 ;---------------------------------------------------------------------------
 ; Special 5 - Bubbling Rage
 [State -1, SPECIAL 4 - Overhead]
@@ -670,7 +682,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || anim = 290
 ;---------------------------------------------------------------------------
 ; Special 6 - "Say that again."
 [State -1, SPECIAL 4 - Overhead]
@@ -680,7 +692,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 6"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || anim = 290
 
 ;---------------------------------------------------------------------------
 ; Special 8 - "Vivienne Piledriver"
@@ -690,7 +702,7 @@ value = 28000
 triggerall = numhelper(3500) = 0
 Triggerall = statetype != A
 Triggerall = power >= 1000
-triggerall = ctrl || stateno = 30
+triggerall = ctrl || (anim = 290 && time >= 6)
 trigger1 = command = "SPECIAL 8"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel **3)
 trigger2 = P2BodyDist X < 10
@@ -715,8 +727,7 @@ trigger1 = ctrl
 [State -1, Wavedash]
 type = ChangeState
 value = 290
-trigger1 = power >= 250
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
 

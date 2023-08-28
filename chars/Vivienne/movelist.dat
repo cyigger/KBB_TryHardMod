@@ -2,7 +2,7 @@
 	"Vivienne can charge plasma and meter
 	by mashing down, left or right.
 	
-No Mercy (1/4 Bar)							_F_D_DF
+No Mercy (1/4 Bar)							_D_DF_F
 	"Vivienne's wavedash is replaced by an
 	armored walk instead."
 
@@ -27,15 +27,15 @@ _D^A^A_F_D_DF^A
 
 <#f0f000>:ARMOR WALK ATTACKS:</>
 
-Royal Shove								_F_D_DF_-^A
+Royal Shove								_D_DF_F_-^A
 	"Vivienne barely shoves the opponent, and
 	they get wallspatted smh."
 
-Crescent Slam							_F_D_DF_-^B
+Crescent Slam							_D_DF_F_-^B
 	"Vivienne grabs and slams them to the
 	other side"
 
-Merciless Back Breaker					_F_D_DF_-^C
+Merciless Back Breaker					_D_DF_F_-^C
 	"You shouldn't have been in the air..."
 
 <#f0f000>:EX ATTACKS:</>
@@ -78,14 +78,14 @@ _!Unruly Ender
 
 <#f0f000>:STAR STRIKES!:</>
 
-Burst Stomp! (1 Bar)						_D_DF_F^A
+Burst Stomp! (1 Bar)						_D_DF_F_D_DF_F^A
 	 "Vivienne stomps three times, unleashing
 	gigantic Geysers of Plasma on each stomp!"
 
 Unholy Scream! (1 Bar)						_D_DB_B^A
 	"Vivienne launches a Massive Blast!"
 
-Flipping Slam Kick (1 Bar, _AIR OK) 		_D_DF_F^B
+Flipping Slam Kick (1 Bar, _AIR OK) 		_D_DF_F_D_DF_F^B
 	"Vivienne flips and slam kicks
 	her opponent!"
  
@@ -93,7 +93,7 @@ Hellish Haymaker (1 Bar)					_D_DB_B^B
 	"Vivienne Slams the ground, erupting
 	plasma geysers in both directions!"
 
-Unhinged (1 Bar)							_D_DB_B^C			
+Unhinged (1 Bar)							_D_DB_B_D_DF_F^C			
 	"Vivienne scares her opponent 
 	with a yell if she gets hurt during this move."
 
@@ -101,12 +101,12 @@ Unhinged (1 Bar)							_D_DB_B^C
 	"Vivienne powers up her plasma charge
 	to the MAX"
 	
-Royal Piledriver (1 Bar)					_D_DF_F^Y
+Royal Piledriver (1 Bar)					_D_DF_F_D_DF_F^Y
 	"Vivienne grabs her opponent, jumps,
 	and slams them down to the ground with extreme
 	royal violence!"
 
-The Plasma Princess (3 Bars)					_D_DF_F^A^B
+The Plasma Princess (3 Bars)					_D_DF_F_D_DF_F^A^B
 	"Vivienne creates a HUGE pillar of plasma
 	around herself! Getting hit by this eradicates 
 	a ton of health."

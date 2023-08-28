@@ -647,7 +647,7 @@ value = 27000
 [State 200, WD Cancel]
 type = ChangeState
 trigger1 = movehit || (movecontact && AnimTime > -7)
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 ctrl = 1
@@ -837,7 +837,7 @@ value = 27000
 [State 200, WD Cancel]
 type = ChangeState
 trigger1 = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 ctrl = 1
@@ -907,7 +907,7 @@ physics = S
 juggle  = 2
 ctrl = 0
 anim = 290
-poweradd = -250
+poweradd = 0
 sprpriority = 0
 
 [State 0, Juggle Map]
@@ -1722,7 +1722,7 @@ x = -15
 [State 200, End]
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 value = 290
 
 [State 200, End]
@@ -2028,7 +2028,7 @@ value = 27000
 type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -2222,7 +2222,7 @@ Envshake.time = 10
 type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -2466,7 +2466,7 @@ Envshake.time = 10
 type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -2702,7 +2702,7 @@ Envshake.time = 10
 type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -2921,7 +2921,7 @@ Envshake.time = 10
 type = ChangeState
 Triggerall = prevstateno !=300
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -3313,7 +3313,7 @@ x = -15
 [State 200, End]
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -3604,7 +3604,7 @@ ctrl = 1
 [State 200, Wavedash]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -3744,7 +3744,7 @@ ctrl = 1
 [State 200, Wavedash]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -3978,7 +3978,7 @@ ctrl = 1
 [State 200, Wavedash]
 type = ChangeState
 triggerall = helper(413), movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -4244,7 +4244,7 @@ ctrl = 1
 [State 200, Wavedash]
 type = ChangeState
 triggerall = helper(415), movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -4478,7 +4478,7 @@ ctrl = 1
 [State 200, Wavedash]
 type = ChangeState
 triggerall = helper(417) ,movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger1 = power >= 250
 value = 290
 
@@ -7846,7 +7846,7 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 value = 290
 
 [State 200, End]
@@ -8743,7 +8743,7 @@ value = 27000
 [State 200, 5B]		;She can cancel into these stand attacks if you hit B or C on movecontact.
 type = ChangeState
 Triggerall = movecontact
-trigger1 = command = "WD"
+trigger1 = command = "NoMercy"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 290
 
