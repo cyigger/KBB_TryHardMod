@@ -524,14 +524,14 @@ value = 25000
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
+Triggerall = command = "CD"
 trigger1 = movecontact
 value = 30
 ctrl = 1
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "BWD" && command != "NotBWD"
+Triggerall = command = "BCD"
 trigger1 = movecontact
 value = 31
 ctrl = 1
@@ -677,14 +677,14 @@ value = 25000
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
+Triggerall = command = "CD"
 trigger1 = movecontact
 value = 30
 ctrl = 1
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "BWD" && command != "NotBWD"
+Triggerall = command = "BCD"
 trigger1 = movecontact
 value = 31
 ctrl = 1
@@ -836,7 +836,7 @@ value = 25000
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
+Triggerall = command = "CD"
 trigger1 = movehit || (movecontact && AnimTime > -7)
 value = 30
 ctrl = 1
@@ -1293,7 +1293,7 @@ ctrl = 1
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "BWD" && command != "NotBWD"
+Triggerall = command = "BCD"
 trigger1 = movehit
 value = 31
 ctrl = 1
@@ -1408,14 +1408,14 @@ value = 25000
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "WD" && command != "NotWD"
+Triggerall = command = "CD"
 trigger1 = movecontact
 value = 30
 ctrl = 1
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "BWD" && command != "NotBWD"
+Triggerall = command = "BCD"
 trigger1 = movecontact
 value = 31
 ctrl = 1
@@ -1777,7 +1777,7 @@ value = 8
 type = VelSet
 trigger1 = Time = 0
 x = 4
-y = -4.2
+y = -4.4
 
 ;[State 0, VelAdd]
 ;type = VelSet
@@ -2034,13 +2034,13 @@ ctrl = 1
 [State 0, 4] ;Wavedash
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "WD" && command != "NotWD"
+trigger1 = command = "CD"
 value = 30
 ctrl = 0
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "BWD" && command != "NotBWD"
+Triggerall = command = "BCD"
 trigger1 = movehit
 value = 31
 ctrl = 1
@@ -2223,7 +2223,7 @@ ctrl = 1
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Triggerall = command = "BWD" && command != "NotBWD"
+Triggerall = command = "BCD"
 trigger1 = movehit
 value = 31
 ctrl = 1
@@ -2724,12 +2724,12 @@ ctrl = 1
 [State 0, 4] ;Wavedash
 type = ChangeState
 triggerall = prevstateno != 30 || time >= 4
-trigger1 = command = "WD" && command != "NotWD"
+trigger1 = command = "CD"
 value = 30
 ctrl = 0
 [State 200, Wavedash Cancel]
 type = ChangeState
-Trigger1 = command = "BWD" && command != "NotBWD"
+Trigger1 = command = "BCD"
 value = 31
 ctrl = 1
 
@@ -2893,13 +2893,13 @@ ctrl = 0
 [State 0, 4] ;Wavedash
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "WD" && command != "NotWD"
+trigger1 = command = "CD"
 value = 30
 ctrl = 0
 
 [State 200, Wavedash Cancel]
 type = ChangeState
-Trigger1 = command = "BWD" && command != "NotBWD"
+Trigger1 = command = "BCD"
 value = 31
 ctrl = 1
 

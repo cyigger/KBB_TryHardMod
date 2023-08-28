@@ -182,38 +182,27 @@ time = 10
 buffer.time = 1
 
 [Command]
-name = "BWD"
-command = ~B, D, DB
-time = 20
+name = "CD"
+command = ~DF, D, DF
+time = 15
 
 [Command]
-name = "NotBWD"
-command = F, D, DB
-time = 20
+name = "BCD"
+command = ~DB, D, DB
+time = 15
 
 [Command]
-name = "IWD"
+name = "ICD"
 command = ~D, D, DF
 time = 20
 buffer.time = 7
 
 [Command]
-name = "IWD Cancelled"
-command = ~D, B, D
-time = 20
-buffer.time = 7
-
-[Command]
-name = "IBWD"
+name = "IBCD"
 command = ~D, D, DB
 time = 20
 buffer.time = 7
 
-[Command]
-name = "IBWD Cancelled"
-command = ~D, F, D
-time = 20
-buffer.time = 7
 
 ;-| 2/3 Button Combination |-----------------------------------------------
 [Command]
@@ -641,7 +630,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = statetype = A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 30 || stateno = 31
 ;---------------------------------------------------------------------------
 ; Special 2
 [State -1, SPECIAL 2]
@@ -651,7 +640,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 30 || stateno = 31
 ;---------------------------------------------------------------------------
 ; Special 3
 [State -1, SPECIAL 3]
@@ -661,7 +650,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 30 || stateno = 31
 ;---------------------------------------------------------------------------
 ; Special 4
 [State -1, SPECIAL 4]
@@ -672,7 +661,7 @@ triggerall = command = "SPECIAL 4"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 Triggerall = p2movetype!= H
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 30 || stateno = 31
 ;---------------------------------------------------------------------------
 ; Special 5
 [State -1, SPECIAL 5]
@@ -682,7 +671,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 2000
-trigger1 = ctrl
+trigger1 = ctrl || stateno = 30 || stateno = 31
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ; Power Charge
@@ -702,7 +691,7 @@ trigger1 = ctrl
 [State -1, Wavedash]
 type = ChangeState
 value = 30
-trigger1 = command = "WD" && command != "NotWD"
+trigger1 = command = "CD"
 trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
 
@@ -711,7 +700,7 @@ trigger1 = ctrl
 [State -1, Wavedash]
 type = ChangeState
 value = 31
-trigger1 = command = "BWD" && command != "NotBWD"
+trigger1 = command = "BCD"
 trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
 
@@ -741,14 +730,6 @@ type = ChangeState
 value = 106
 trigger1 = command = "DD"
 trigger1 = statetype = A
-trigger1 = ctrl
-;---------------------------------------------------------------------------
-; Wavedash
-[State -1, Wavedash]
-type = ChangeState
-value = 30
-trigger1 = command = "WD" && command != "NotWD"
-trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
 ;===========================================================================
 ;---------------------------Basics-----------------------------------------

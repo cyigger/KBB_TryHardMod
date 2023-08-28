@@ -242,12 +242,12 @@ trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
-;[State 200, End]
-;type = ChangeState
-;triggerall = time >= 10
-;trigger1 = command = "WD"
-;value = 30
-;ctrl = 0
+[State 0, 4] ;Wavedash
+type = ChangeState
+triggerall = time > 3
+trigger1 = command = "BCD"
+value = 31
+ctrl = 0
 
 [State 200, End]
 type = ChangeState
@@ -259,7 +259,7 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 ;triggerall = time >= 5
-trigger1 = command = "back"
+trigger1 = command = "BB"
 value = 105
 
 [State 200, End]
@@ -355,16 +355,10 @@ trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
-;[State 200, End]
-;type = ChangeState
-;triggerall = time >= 10
-;trigger1 = command = "WD"
-;value = 30
-;ctrl = 0
-
 [State 0, 4] ;Wavedash
 type = ChangeState
-trigger1 = command = "WD"
+triggerall = time > 3
+trigger1 = command = "CD"
 value = 30
 ctrl = 0
 
@@ -884,15 +878,15 @@ ctrl = 1
 [State 52, Instant Wavedash from Fastfall]
 type = ChangeState
 triggerall = prevstateno = 106
-trigger1 = (command = "IWD" && command != "IWD Cancelled")
-trigger2 = (command = "WD" && command != "NotWD")
+trigger1 = (command = "ICD")
+trigger2 = (command = "CD")
 value = 30
 
 [State 52, Instant Wavedash from Fastfall]
 type = ChangeState
 triggerall = prevstateno = 106
-trigger1 = (command = "IBWD" && command != "IBWD Cancelled")
-trigger2 = (command = "BWD" && command != "NotBWD")
+trigger1 = (command = "IBCD")
+trigger2 = (command = "BCD")
 value = 31
 
 ;---------------------------------------------------------------------------
