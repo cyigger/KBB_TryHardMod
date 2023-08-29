@@ -114,7 +114,7 @@ helpertype = normal ;player
 name = "Ether Drive"
 ID = 19002
 stateno = 19002
-pos = 30,-40+ifelse(random <= 299,20,0)-ifelse(random <= 299,20,0)
+pos = 30,-40+ifelse((time-3)%9=0,20,0)-ifelse((time+3)%9=0,20,0)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -205,7 +205,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, SP
 animtype  = Light
-damage    = 7
+damage    = 10
 hitflag = MAF
 guardflag = MAF
 pausetime = 0,10
@@ -1047,10 +1047,16 @@ Envshake.time = 5
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr = SCA,NA,SA,HA,NP,HP,NT,ST,HT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr = SCA,AA,AP     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
 forceair = 0
+
+[State 0, Throw Invul]
+type = NotHitBy
+trigger1 = 1
+value = SCA,AT
+time = 0
 
 [State 0, TargetBind]
 type = TargetBind
@@ -1114,7 +1120,7 @@ y = gethitvar(yvel) * 2
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr =  SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 slot = 0
 stateno = 22010
 time = 1
@@ -1192,7 +1198,7 @@ anim = 451
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr =  SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 slot = 0
 stateno = 454
 time = 1
@@ -1716,7 +1722,7 @@ value = movehit
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
-value = 1 * 0.99**root,var(11) ; this shit used to do true damage 
+value = 1 ; this does true damage
 ignorehitpause = 1
 
 [State -2, Counterhit TSP]
@@ -1759,7 +1765,7 @@ triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8
 trigger1 = 1
 attr = S, HA
 animtype  = Light
-damage    = 10 + var(11)
+damage    = 15
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,2

@@ -243,7 +243,7 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 trigger1 = command = "b"
-value = ifelse(var(10)=0,335,2690)
+value = ifelse(var(10)=0,330,2690)
 ctrl = 0
 
 ;BASE JODIE NO SWORD PICKUP

@@ -546,8 +546,31 @@ Clsn2: 1
   Clsn2[0] = -25, -45, 22, 0
 0,0, 0,0, 2
 
-; Wavedash A
+; Wavedash A V3
 [Begin Action 290]
+Clsn2Default: 4
+  Clsn2[0] = -25, -36, 26, 1
+  Clsn2[1] = 21, -35, 39, -11
+  Clsn2[2] = -14, -41, 18, -36
+  Clsn2[3] = -6, -44, 9, -42
+2,13, 0,0, 3
+2,14, 0,0, 3
+Clsn1: 2
+  Clsn1[0] = 38, -29, 78, 14
+  Clsn1[1] = 29, -25, 100, 9
+2,16, 0,0, 3
+Clsn1: 1
+  Clsn1[0] = 25, -24, 93, 9
+2,38, 0,0, 3
+2,33, 0,0, 3
+Clsn2: 2
+  Clsn2[0] = -25, -54, 19, 0
+  Clsn2[1] = 16, -27, 35, -9
+2,26, 0,0, 5
+2,27, 0,0, 10
+
+; Wavedash A
+[Begin Action 292]
 Clsn2Default: 1
   Clsn2[0] = -19, -50, 27, -2
 1,4, 0,0, 4
@@ -558,7 +581,7 @@ Clsn2Default: 1
 2,17, 0,0, 2
 
 ; Geiser Plant
-[Begin Action 291]
+[Begin Action 293]
 15,123, -8,-8, 2, , A, 0.3,0.3
 15,123, -4,-4, 2, , A, 0.3,0.3
 LoopStart
@@ -569,7 +592,7 @@ LoopStart
 
 
 ;Geiser Detonate
-[Begin Action 292]
+[Begin Action 294]
 5,0, 4,2, 2, H, A, 0.2,0.2
 Clsn1: 8
   Clsn1[0] = 71, -92, 86, -62

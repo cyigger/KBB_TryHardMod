@@ -1,5 +1,51 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.14 Changes:                   /
+|---------------------------------------------------/
+
+Experiments are abound. Hyrio and Vivienne now have an experimental control scheme. There are also some other balance changes.
+
+
+Hyrio:
+1. Crouch Dash inputs changed to 323 and 121 respectively
+2. Supers are now doable during crouch dash.
+
+
+Vivienne:
+1. No Mercy (Armor Walk) input changed to 236.
+2. All 236X super inputs are now 236236X
+3. Supers are now doable during No Mercy
+
+
+Clutch:
+1. New Move: Wavedash A
+
+
+Jodie:
+1. Wavedash B is now back to what it was before.
+2. Wavedash A is now back to what it was before.
+
+
+Watanabe:
+1. New Move: Wavedash A. Watch your toes
+2. 236A:
+	* Sword Spawn is no longer randomized
+	* Damage increased by 3 per hit
+3. Super Seeds Removed Potential Cause of bugs.
+4. 236C:
+	* Now does true damage (does not scale at all)
+	* Base damage increased
+5. Walk Speed reduced (4.4 -> 4.35) (not as low as the start)
+6. 5c Sword Stab
+	* Damage Increased
+	* Readded Gaps to make it counterable.
+7. Removed j.5cc and Wavedash cc
+
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.13 Changes:                   /
 |---------------------------------------------------/
 
