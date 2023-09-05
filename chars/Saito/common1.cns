@@ -283,11 +283,12 @@ trigger1 = command = "b"
 value = 910
 ctrl = 0
 
-[State 200, C]
+;Access to stance moves
+[State 200, wdC1a]
 type = ChangeState
+triggerall = prevstateno != 52 || time > 3
 triggerall = numhelper(3500) = 0
 triggerall = power >= 100
-triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "c"
 value = 490
 

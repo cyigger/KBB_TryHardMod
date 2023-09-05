@@ -168,7 +168,7 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.5
+x = -2
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -230,6 +230,13 @@ trigger1 = command = "b"
 value = 390
 ctrl = 0
 
+[State 200, C]
+type = ChangeState
+triggerall = helper(31),p2dist x > 0
+triggerall = time >= 5
+trigger1 = command = "WD"
+value = 30
+
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -268,7 +275,7 @@ value = 1
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 3]
-x = const(velocity.run.fwd.x) * 1.8
+x = const(velocity.run.fwd.x) * 2
 
 [State 0, Explod]
 type = Explod
@@ -312,6 +319,13 @@ type = ChangeState
 trigger1 = command = "b"
 trigger2 = root,stateno = 390
 value = 391
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "c"
+trigger2 = root,stateno = 390
+value = 470
 ctrl = 0
 
 [State 200, C]

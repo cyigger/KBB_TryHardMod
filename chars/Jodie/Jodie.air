@@ -2867,13 +2867,15 @@ Clsn2: 1
 
 ; Special 1
 [Begin Action 21000]
+Clsn2Default: 1
+  Clsn2[0] = -18, -47, 24, 1
 1,53, 0,0, 3, H
 1,54, 0,0, 3, H
 1,55, 0,0, 3, H
 0,39, 0,0, 3
 Clsn2: 1
   Clsn2[0] = -17, -37, 22, -6
-0,30, 0,0, 2
+0,30, 0,0, 3
 
 ; Special 2
 [Begin Action 22000]

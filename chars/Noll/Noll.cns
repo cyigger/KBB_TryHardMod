@@ -4024,14 +4024,14 @@ type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = AnimElem = 4
-triggerall = hitcount = var(10)
+triggerall = !movecontact
 trigger1 = 1
 attr = A, NA
 animtype  = Medium
 damage    = 15
 hitflag = MAFD
 guardflag = MA
-pausetime = 7,14
+pausetime = 6,14
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -4052,8 +4052,8 @@ envshake.ampl = -7
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 8
-triggerall = hitcount = var(10)
+triggerall = AnimElem = 7 || AnimElem = 8
+triggerall = movecontact != [1, 9]
 triggerall = enemy,statetype != L
 trigger1 = 1
 attr = A, NA
@@ -4062,6 +4062,7 @@ damage    = 30
 hitflag = MAFD
 guardflag = HA
 pausetime = 14,14
+guard.pausetime = 14,10
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -4084,8 +4085,8 @@ fall.yvelocity = -6
 type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 8
-triggerall = hitcount = var(10)
+triggerall = AnimElem = 7 || AnimElem = 8
+triggerall = movecontact != [1, 9]
 triggerall = enemy,statetype = L
 trigger1 = 1
 attr = A, NA
@@ -4094,6 +4095,7 @@ damage    = 20
 hitflag = MAFD
 guardflag = HA
 pausetime = 14,14
+guard.pausetime = 14,10
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -4111,14 +4113,6 @@ Envshake.time = 30
 envshake.ampl = -7
 down.bounce = 1
 fall.yvelocity = -3
-
-
-
-[State 0, Hit Track]
-type = VarSet
-trigger1 = AnimElem = 5 || AnimElem = 9
-v = 10
-value = hitcount
 
 [State 200, End]
 type = ChangeState

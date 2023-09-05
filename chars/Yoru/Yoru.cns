@@ -905,6 +905,12 @@ Triggerall = var(17) < 1
 trigger1 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 25000
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "WD" && command != "NotWD"
+value = 30
+
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
@@ -1075,6 +1081,13 @@ Envshake.time = 10
 Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
+
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movehit || (movecontact && AnimTime > -7)
+value = 30
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -1695,7 +1708,7 @@ trigger1 = 1
 attr = S, NA
 animtype  = Medium
 damage    = 50
-hitflag = MAF
+hitflag = MAFD
 guardflag = LA
 pausetime = 32,60
 guard.pausetime = 16,16
@@ -1727,7 +1740,7 @@ trigger1 = 1
 attr = S, NA
 animtype  = Medium
 damage    = 25
-hitflag = MAF
+hitflag = MAFD
 guardflag = LA
 pausetime = 16,18
 guard.pausetime = 16,16
@@ -1888,12 +1901,6 @@ Triggerall = Life <= 700
 Triggerall = Power >= 2000
 Triggerall = var(17) < 1
 value = 25000
-
-[State 200, Wavedash Cancel]
-type = ChangeState
-triggerall = helper(300),movehit || (helper(300),movecontact && AnimTime > -7)
-trigger1 = command = "WD" && command = "NotWD"
-value = 30
 
 [State 200, 5BB]
 type = ChangeState
@@ -2200,12 +2207,6 @@ keyctrl = 0
 ownpal = 1
 inheritjuggle = 1
 supermovetime = 9999
-
-[State 200, Wavedash Cancel]
-type = ChangeState
-triggerall = helper(300),movehit || (helper(300),movecontact && AnimTime > -7)
-trigger1 = command = "WD"
-value = 30
 
 [State 200, 2c]
 type = ChangeState
@@ -2804,6 +2805,12 @@ Triggerall = var(17) < 1
 trigger1 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 25000
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "WD" && command != "NotWD"
+value = 30
+
 [State 200, Down+C]
 type = ChangeState
 Triggerall = movecontact
@@ -2997,8 +3004,8 @@ animtype  = Hard
 damage    = 35 + 80 * var(12) / (60 - 9)
 hitflag = MAF
 guardflag = MA
-pausetime = 14 + floor(20.1 * var(12) / (60 - 9)),14 + floor(20.1 * var(12) / (60 - 9))
-guard.pausetime = 12,12
+pausetime = 14 + floor(20.1 * var(12) / (60 - 9)),16 + floor(20.1 * var(12) / (60 - 9))
+guard.pausetime = 12,8 + floor(10.1 * var(12) / (60 - 9))
 guard.hittime = 20
 guard.slidetime = 20
 sparkno = 0
@@ -3014,7 +3021,7 @@ air.velocity = -3,-5
 guard.velocity = -8
 Envshake.time = 20  + floor(10.1 * var(12) / (60 - 9))
 Fall = 1
-Fall.recovertime = 40
+Fall.recovertime = 45
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
@@ -3047,7 +3054,7 @@ air.velocity = -3,-8
 guard.velocity = -8
 Envshake.time = 20  + floor(10.1 * var(12) / (60 - 9))
 Fall = 1
-Fall.recovertime = 40 + 60
+Fall.recovertime = 45 + 60
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
@@ -3098,51 +3105,6 @@ type = ChangeState
 triggerall = movehit
 trigger1 = command = "holdup"
 value = 40
-
-[State 200, End]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "a"
-value = 201
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(300) = 0
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 320
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(300) > 0
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 320
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(440) > 0
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 320
-
-[State 200, Down+C]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-triggerall = power >= 300
-trigger1 = command = "c"
-trigger1 = command = "holddown"
-value = 400
-[State 200, C]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 300
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-value = 400
 
 [State 200, End]
 type = ChangeState
