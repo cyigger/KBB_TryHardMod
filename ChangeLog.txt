@@ -1,5 +1,70 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.15 Changes:                   /
+|---------------------------------------------------/
+
+This version focused on a mix of balance changes and style reworks. Vei now has a functional wavedash moveset, as well as a more defined gimmick to his wavedash. Yoru is also more interesting now, and the Hyrio and Vivienne Experiment is now over as I will not be moving forward with that control scheme.
+
+
+Fly:
+1. Wavedash A startup increased (+1)
+2. Wavedash B movement speed decrease (4 -> 3.8)
+
+
+Hyrio:
+1. Wavedash -> DownBack will now go into Backsway
+2. Backsway -> DownForward will now go into Wavedash
+3. Returnd to the normal control scheme. Supers can no longer be done during wavedash, and the wavedash input is now normal.
+
+
+Vivienne:
+1. Returned to the normal control scheme, just like Hyrio.
+2. No Mercy Armor now starts after 3 frames instead of after 1.
+3. No Mercy now has one less hit of armor (reverting a buff).
+
+
+Jodie:
+1. 236A Invul Startup increased (for real this time) (0 -> 1)
+2. 236A Invul recovery increased (for real this time too) (2 -> 5)
+3. Removed Sword j.5c landing portion.
+
+
+Noll:
+1. Wavedash B: Hitbox Now matches the timing of the animation.
+2. Wavedash B: blockstun reduced (-4)
+
+
+Saito:
+1. Reworked Wavedash C
+
+
+Vei: His Wavedash Has been reworked
+1. Vei himself no longer moves forward when wavedashing.
+2. Vei's clone now moves faster when wavedashing.
+3. Wavedash A now has usual combo routes for the clone. Cancels in to clone 5aa and clone 5bbb.
+4. Vei's Wavedash B now hits more consistently.
+5. New Wavedash C: Vei's Clone does a flurry of kicks.
+6. While in wavedash A, vei himself will now consistently remain in place unless c moves or a jump is preformed.
+
+
+Yoru:
+1. Reformated Yoru's Wavedash Cancels:
+	* Removed Wavedash cancels from 5b and 5bb entirely
+	* Added Wavedash cancels to 4a, 5aaa, and 5bbb on contact.
+2. Wavedash A now hits OTG
+3. Reworked frame data of Wavedash B:
+	* No charge, Block advantage has been reduced (+2 -> -5)
+	* As you charge the move, it will get less disadvantageous untill becoming +5 at full charge.
+	* The move now has more recovery (+2)
+4. Wavedash B Recovery for opponent on hit increased. (More links are possible now)
+5. Wavedash B: Most Cancels removed. Here's what remains:
+	* Cancel into jump and hyperhop
+	* Cancel in to supers.
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.14 Changes:                   /
 |---------------------------------------------------/
 

@@ -7408,7 +7408,7 @@ ctrl = 1
 [State 200, LANDING LAG]
 type = ChangeState
 trigger1 = pos y >= 0
-value = 2845
+value = 52
 ctrl = 1
 
 ;-------------------------------------------------------------------------------

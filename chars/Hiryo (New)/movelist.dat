@@ -8,20 +8,16 @@ Dash										_F_F or _B_B
 	"Hiryo's Run is a Dash that 
 	phases through opponents."
 	
-Crouch Dash									_DF_D_DF
-	"This is hyrio's command dash. His is
-	faster than your average command dash."
-	
-Backsway to Stance							_DB_D_DB
+Backsway to Stance							_B_D_DB
 	"Hiryo has access to a backwards
 	wavedash that puts him in his C Stance
 	
-Fast Fall									_AIR_D_D
+Fast Fall										_AIR_D_D
 	"Hiryo has the abillity to get to the
 	ground as quick as possible in the air,
 	whether it be in neutral or off a successful
 	aerial hit."
-_! Instant Wavedash							_D_D_DF_F or _D_D_DB_B
+_! Instant Wavedash							_D_D_DF or _D_D_DB
 	"When fast falling, hyrio can instantly
 	wavedash or backsway upon landing.
 
@@ -36,28 +32,28 @@ _F_F^A
 _AIR_D^B
 
 <#f0f000>:COMMAND DASH CANCELS:</>
-^A_DF_D_DF
-^A_DF_D_DF
-^A^A_DF_D_DF
-^A^A_DF_D_DF
-^B_DF_D_DF
-^B_DF_D_DF
-^C_DF_D_DF
-^C_DF_D_DF
-STANCE _DF_D_DF
-STANCE _DF_D_DF
+^A_F_D_DF
+^A_B_D_DB
+^A^A_F_D_DF
+^A^A_B_D_DB
+^B_F_D_DF
+^B_B_D_DB
+^C_F_D_DF
+^C_B_D_DB
+STANCE _F_D_DF
+STANCE _B_D_DB
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 
-Quick Blade									_DF_D_DF^A
+Quick Blade									_F_D_DF^A
 	"Hyrio instantly dashes forward and 
 	slashes you."
 
-Alpha Blade									_DF_D_DF^B
+Alpha Blade									_F_D_DF^B
 	"Hyrio disappears, appearing behind the
 	opponent and slashing their back."
 
-Instant C Stance (1/4 Bar)		 			_DF_D_DF^C
+Instant C Stance (1/4 Bar)		 			_F_D_DF^C
 	"Hyrio instantly enters his C stance."
 
 <#f0f000>:EX ATTACKS:</>
@@ -78,7 +74,7 @@ Rapid Slash (1/4 Bar, _AIR OK)					_D^C
 
 <#f0f000>:STAR STRIKES!:</>
 
-Spinning Drop (1 Bar)					_AIR_D_DF_F^A
+Spinning Drop (1 Bar)		_AIR_D_DF_F^A
 	"Hiryo Spin Slashes with a final cut!"
 
 Finale Slasher (1 Bar)						_D_DB_B^A
