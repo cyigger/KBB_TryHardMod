@@ -678,7 +678,7 @@ channel = 0
 type = ChangeState
 triggerall = helper(23500),movecontact
 triggerall = time >= 43
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -1282,14 +1282,14 @@ p2stateno = 1025
 [State 0, PowerAdd]
 type = PowerAdd
 triggerall = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = -200
 
 [State 200, End]
 type = ChangeState
 triggerall = movecontact
 triggerall = power >= 200
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 

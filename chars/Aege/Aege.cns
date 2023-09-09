@@ -2154,7 +2154,7 @@ Fall.recovertime = 10
 
 [State 200, Dash cancel Forward]
 type = ChangeState
-Triggerall = command = "FF"
+Triggerall = command = "FF" || (command = "z" && command != "holddown")
 trigger1 = movecontact
 value = 100
 ctrl = 1

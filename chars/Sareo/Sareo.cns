@@ -1919,7 +1919,7 @@ value = 0
 [State 310, End]
 type = ChangeState
 triggerall = helper(405),movehit
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -2705,7 +2705,7 @@ value = 0
 [State 310, End]
 type = ChangeState
 triggerall = helper,movehit = 1
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -4378,7 +4378,7 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 Triggerall = time >= 7
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -5655,7 +5655,7 @@ value = 0
 
 [State 310, End]
 type = ChangeState
-triggerall = command = "FF"
+triggerall = command = "FF" || command = "z"
 trigger1 = helper(624), movehit
 trigger2 = helper(626), movehit
 value = 65

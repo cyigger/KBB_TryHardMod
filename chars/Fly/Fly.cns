@@ -3138,7 +3138,7 @@ value = 750
 
 [State 200, End]
 type = ChangeState
-triggerall = command = "FF"
+triggerall = command = "FF" || (command = "z" && command != "holddown")
 trigger1 = Time >= 49
 value = 100
 ctrl = 1

@@ -1884,7 +1884,7 @@ value = 21005
 [State 105, Dash Forward]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -1961,7 +1961,7 @@ volumescale = 100
 
 [State 105, Dash Forward]
 type = ChangeState
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 
 [State 105, Dash Forward]
@@ -2195,7 +2195,7 @@ x = 2
 [State 200, Land]
 type = ChangeState
 trigger1 = hitcount > 5
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1
 
@@ -3023,7 +3023,7 @@ Envshake.time = 25
 [State 200, End]
 type = ChangeState
 triggerall = hitcount = 3
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -4272,7 +4272,7 @@ ctrl = 1
 [State 200, Land]
 type = ChangeState
 trigger1 = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1
 
@@ -4435,7 +4435,7 @@ ctrl = 1
 [State 200, Land]
 type = ChangeState
 trigger1 = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1
 
@@ -4619,7 +4619,7 @@ ctrl = 1
 [State 200, Land]
 type = ChangeState
 trigger1 = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1
 
@@ -4903,7 +4903,7 @@ value = 22000
 [State 200, Land]
 type = ChangeState
 trigger1 = hitcount > 5
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1
 

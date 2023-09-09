@@ -1,5 +1,23 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.15 Patch 1 Changes:           /
+|---------------------------------------------------/
+
+Fixed Wavedash Macro conflicts with Dash Macro, while also fixing all of the wavedash animations. now they are the correct size
+
+Universal:
+1. Dash Macro and Wavedash Macro Fixed
+2. Wavedash Animations are now the correct size
+
+Hyrio:
+1. Wavedash <-> Backsway now possible one frame sooner
+
+Violet, Yoru:
+1. Fixed Old Code. They no longer have the old 5 frames restrictions on dash/jump cancelling their wavedashes.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.15 Changes:                   /
 |---------------------------------------------------/
 

@@ -2174,7 +2174,7 @@ value = 30
 [State 200, AirDash]
 type = ChangeState
 triggerall = movehit || time >= 15
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 65
 
 [State 200, AirDash]
@@ -3085,7 +3085,7 @@ value = 55
 [State 200, AirDash]
 type = ChangeState
 triggerall = time >= 5
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 65
 
 [State 200, AirDash]
@@ -3539,8 +3539,8 @@ value = 66
 [State 300, Hover Cancel]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "FF"
-value = 590
+trigger1 = command = "WD" && command != "NotWD"
+value = 30
 
 [State 200, Special 1 - windball]
 type = ChangeState

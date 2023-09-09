@@ -4815,7 +4815,7 @@ removeongethit = 0
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 
 [State 0, ChangeState]

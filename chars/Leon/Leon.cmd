@@ -776,7 +776,7 @@ trigger1 = ctrl
 type = ChangeState
 value = 100
 triggerall = stateno != 100
-trigger1 = command = "FF" && command != "holddown"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -818,7 +818,7 @@ triggerall = stateno != 60
 triggerall = stateno != 65
 triggerall = stateno != 70
 value = ifelse(pos y >= 0,52,65)
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Air Dash - Backwards

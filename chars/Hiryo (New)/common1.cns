@@ -244,15 +244,14 @@ ctrl = 0
 
 [State 0, 4] ;Wavedash
 type = ChangeState
-triggerall = time > 3
+triggerall = time >= 3
 trigger1 = command = "downback"
 value = 31
 ctrl = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 5 || command != "z"
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown" && time >= 5)
 value = 100
 ctrl = 1
 
@@ -364,20 +363,19 @@ ctrl = 0
 
 [State 0, 4] ;Wavedash
 type = ChangeState
-triggerall = time > 3
+triggerall = time >= 3
 trigger1 = command = "downfwd"
 value = 30
 ctrl = 0
 
 [State 0, 4] ;Dash fwd
 type = ChangeState
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = time >= 5 || command != "z"
 trigger1 = command = "BB"
 value = 105
 ctrl = 1

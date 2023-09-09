@@ -1411,7 +1411,7 @@ value = 610
 
 [State 200, Airdash fwd]
 type = ChangeState
-Trigger1 = command = "FF"
+Trigger1 = command = "FF" || command = "z"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 ctrl = 0
@@ -1539,7 +1539,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = Movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(14) = 5
 value = 65
 ctrl = 0

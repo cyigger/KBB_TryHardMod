@@ -158,37 +158,26 @@ command = F, F
 time = 10
 
 [Command]
-name = "FF"
-command = z
-time = 1
-
-[Command]
 name = "BB"
 command = B, B
 time = 10
 
 [Command]
 name = "WD"
-command = ~F, D, DF, F, F, D, DF
-time = 28
-buffer.time = 5
-
-[Command]
-name = "WD"
-command = ~F, F, D, F
-time = 18
+command = ~F, D, F, F, D, DF
+time = 30
 buffer.time = 5
 
 [Command]
 name = "WD"
 command = ~F, F, D, DF
-time = 18
+time = 20
 buffer.time = 5
 
 [Command]
 name = "WD"
 command = ~F, F, D, F
-time = 18
+time = 20
 buffer.time = 5
 
 [Command]

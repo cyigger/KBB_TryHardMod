@@ -1279,7 +1279,7 @@ value = 450
 [State 0, 4] ;Dash fwd
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 100
 ctrl = 1
@@ -2019,7 +2019,7 @@ ctrl = 1
 [State 0, 4] ;Dash fwd
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 100
 ctrl = 1
@@ -2209,7 +2209,7 @@ value = 450
 [State 0, 4] ;Dash fwd
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 100
 ctrl = 1
@@ -2402,7 +2402,7 @@ value = 450
 [State 0, 4] ;Dash fwd
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 100
 ctrl = 1
@@ -2601,7 +2601,7 @@ value = 630
 [State 0, 4] ;Dash fwd
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 
@@ -2713,7 +2713,7 @@ value = 40
 ctrl = 1
 [State 0, 4] ;Dash fwd
 type = ChangeState
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 value = 100
 ctrl = 1
 [State 0, 4] ;Dash bck
@@ -3543,7 +3543,7 @@ trigger1 = AnimTime = 0
 type = ChangeState
 triggerall = power >= 200
 triggerall = hitcount = 2
-trigger1 = command = "FF"
+trigger1 = command = "FF" || (command = "z" && command != "holddown")
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 20
 ctrl = 1

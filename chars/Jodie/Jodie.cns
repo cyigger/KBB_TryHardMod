@@ -1885,7 +1885,7 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 triggerall = time >= 6
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1
 
@@ -2702,7 +2702,7 @@ value = 66
 type = ChangeState
 Triggerall = movecontact
 Triggerall = prevstateno != 620
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 
@@ -3882,7 +3882,7 @@ value = 66
 [State 200, AIRDASH]
 type = ChangeState
 Triggerall = movecontact
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 [State 200, J.6C]
@@ -4855,7 +4855,7 @@ value = 66
 [State 200, AIRDASH]
 type = ChangeState
 Triggerall = movehit
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 
@@ -5150,7 +5150,7 @@ type = ChangeState
 Triggerall = movecontact
 Triggerall = time >=17
 triggerall = prevstateno != [65,70]
-trigger1 = command = "FF"
+trigger1 = command = "FF" || command = "z"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 
