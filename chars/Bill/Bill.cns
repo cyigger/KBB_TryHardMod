@@ -2744,7 +2744,7 @@ trigger1 = AnimElem = 4
 helpertype = normal ;player
 name = "Light Explosive"
 ID = 21570
-stateno = 21570
+stateno = 21573
 pos = p2bodydist x + 20, p2bodydist y
 postype = p1    ;p2,front,back,left,right
 facing = 1

@@ -1,5 +1,22 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.16 Changes:                   /
+|---------------------------------------------------/
+
+Small Balance Patch and update to fix a few things.
+
+Bill:
+1. Wavedash C: Explosion Blockstun Reduced (reduced by 6 frames)
+
+Vivienne:
+1. Armor Walk B: No longer works on comboed opponents.
+
+Watanabe:
+1. Updated to the latest version. All Changes unknown.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.15 Patch 1 Changes:           /
 |---------------------------------------------------/
 

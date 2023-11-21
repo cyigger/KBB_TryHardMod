@@ -5,7 +5,7 @@
 ;-------------------------------------------------------------------------------
 [Statedef 19000]
 type    = S
-movetype= I
+movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
@@ -16,14 +16,14 @@ poweradd = -1000
 
 [State 0, Juggle Map]
 type = MapAdd
-trigger1 = numhelper(19003) >= 1
+trigger1 = numhelper(19003) >= 1 && helper(19002),movehit 
 map = "juggle"
 value = 50
 persistent = 0
 
 [State 0, Damage Proration]
 type = VarAdd
-trigger1 = numhelper(19003) >= 1
+trigger1 = numhelper(19003) >= 1 && helper(19002),movehit 
 v = 11
 ignorehitpause = 1
 persistent = 0
@@ -36,8 +36,6 @@ value = S19000,0
 volumescale = 200
 channel = 0
 
-
-
 [State 0, Busterable]
 type = MapSet
 trigger1 = 1
@@ -48,7 +46,7 @@ ignorehitpause = 1
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = Time = 1
-time = 10
+time = 5
 sound = 20,0
 pos = 0,-20
 movetime = 0
@@ -88,6 +86,15 @@ pausemovetime = 9999
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = numhelper(401) <= 1
+trigger1 = time >= 40
+trigger1 = command = "hold_c"
+trigger1 = power >= 500
+value = 620
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
@@ -108,13 +115,13 @@ poweradd = 0
 [State 0, Helper]
 type = Helper
 trigger1 = time%3 = 0
-trigger1 = time >= 30 && time <= 85
+trigger1 = time >= 30 && time <= 81
 trigger1 = root,movetype != H 
 helpertype = normal ;player
 name = "Ether Drive"
 ID = 19002
 stateno = 19002
-pos = 30,-40+ifelse((time-3)%9=0,20,0)-ifelse((time+3)%9=0,20,0)
+pos = 30,-40+ifelse(random <= 299,15,0)-ifelse(random <= 299,15,0)
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
@@ -147,13 +154,6 @@ velset = 0,0
 sprpriority = 2
 poweradd = 0
 
-[State 0, Busterable]
-type = MapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
-
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
@@ -179,13 +179,6 @@ ownpal = 1
 ignorehitpause = 1
 persistent = 0
 
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = AnimElem = 1
-value = S1,0
-volumescale = 200
-channel = 0
-
 [State 0, VelSet]
 type = VelSet
 trigger1 = time < 13 
@@ -205,7 +198,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, SP
 animtype  = Light
-damage    = 10
+damage    = 7
 hitflag = MAF
 guardflag = MAF
 pausetime = 0,10
@@ -260,7 +253,7 @@ poweradd = -1000
 
 [State 0, FatalCounter]
 type = MapSet
-trigger1 = movehit
+trigger1 = 1
 map = "fatal"
 value = 1
 ignorehitpause = 1
@@ -305,7 +298,7 @@ channel = 0
 type = SuperPause
 trigger1 = Time = 1
 anim = 92006
-time = 10
+time = 15
 sound = 20,0
 pos = 0,-20
 movetime = 0
@@ -486,12 +479,12 @@ guardsound = 6,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -2,-10
-air.velocity = -2,-10
+ground.velocity = -.5,-10
+air.velocity = -.5,-10
 Fall = 1
 Envshake.time = 30
 Fall.recover = 0
-down.velocity = -2,-10
+down.velocity = -1,-10
 down.bounce = 1
 
 [State 0, Helper]
@@ -557,6 +550,11 @@ pausemovetime = 0
 scale = 1,1
 sprpriority = 2
 removeongethit = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 3
+time = 20
 
 [State 0, PosSet]
 type = PosSet
@@ -811,7 +809,7 @@ triggerall = map(juggle) < 108 || hitcount != 0
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-damage    = 70
+damage    = 60
 hitflag = MAF
 guardflag = MA
 sparkno = 2
@@ -824,15 +822,15 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 Envshake.time = 5
-ground.velocity = -1,-9
-air.velocity = -.5,-9
+ground.velocity = 1,-9
+air.velocity = .5,-9
 Fall = 1
 fall.recovertime = 90
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = Time = (15,21) && !movehit
-x = 17
+x = 18
 
 [State 0, VelSet]
 type = VelSet
@@ -842,8 +840,8 @@ x = 10
 [State 200, End]
 type = ChangeState
 Triggerall = movehit
-trigger1 = command = "holdup"
-value = 40
+trigger1 = command = "holdup" && var(3) = 0 
+value = 50
 
 
 [State 200, End]
@@ -858,7 +856,7 @@ ctrl = 1
 ;-------------------------------------------------------------------------------
 [Statedef 22000]
 type    = S
-movetype= I
+movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
@@ -867,20 +865,28 @@ velset = 0,0
 sprpriority = 2
 poweradd = -1000
 
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, SuperPause]
 type = SuperPause
-trigger1 = Time = 1
-time = 25
+trigger1 = Time = 0
+time = 20
 sound = 20,0
 pos = 0,-20
-movetime = 25
+movetime = 20
 darken = 1
 p2defmul = 1
 poweradd = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 26
+trigger1 = time = 24
 helpertype = normal ;player
 name = "plantTHROWSuper"
 ID = 5465
@@ -900,10 +906,10 @@ supermovetime= 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = time = 27
+trigger1 = time = 23
 helpertype = normal ;player
 name = "plantTHROWSuper"
-ID = 5465
+ID = 5466
 stateno = 22005
 pos = 0,-40
 postype = p1    ;p2,front,back,left,right
@@ -959,7 +965,7 @@ y = 0
 
 [State 0, VelAdd]
 type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 0
+trigger1 = time = 1 && IsHelper(5465)
 x = 4
 y = -4
 ;ignorehitpause = 
@@ -967,28 +973,28 @@ y = -4
 
 [State 0, VelAdd]
 type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 1
+trigger1 = time = 1 && IsHelper(5466)
 x = -4
 y = -4
 
-[State 0, VelAdd]
-type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 2
-x = 2.5
-y = -4
-
-[State 0, VelAdd]
-type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) = 3
-x = -2.5
-y = -4
-
-
-[State 0, VelAdd]
-type = VelAdd 
-trigger1 = time = 1 && numHelper(5465) > 3
-x = 2.5
-y = -6
+;[State 0, VelAdd]
+;type = VelAdd 
+;trigger1 = time = 1 && numHelper(5465) = 2
+;x = 2.5
+;y = -4
+;
+;[State 0, VelAdd]
+;type = VelAdd 
+;trigger1 = time = 1 && numHelper(5465) = 3
+;x = -2.5
+;y = -4
+;
+;
+;[State 0, VelAdd]
+;type = VelAdd 
+;trigger1 = time = 1 && numHelper(5465) > 3
+;x = 2.5
+;y = -6
 
 
 
@@ -1026,7 +1032,7 @@ persistent = 0
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = !movecontact
+triggerall = !movecontact && root,command != "hold_s"
 trigger1 = 1
 attr = A,SP
 animtype  = Medium
@@ -1047,16 +1053,10 @@ Envshake.time = 5
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr = SCA,AA,AP     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+attr = SCA,AA,AP,AT    ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
 forceair = 0
-
-[State 0, Throw Invul]
-type = NotHitBy
-trigger1 = 1
-value = SCA,AT
-time = 0
 
 [State 0, TargetBind]
 type = TargetBind
@@ -1092,7 +1092,7 @@ value = 30
 
 
 [State 0, FatalCounter]
-type = RootMapSet
+type = MapSet
 trigger1 = 1
 map = "fatal"
 value = 1
@@ -1117,11 +1117,17 @@ y = gethitvar(yvel) * 2
 ;ignorehitpause = 
 ;persistent = 
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time <= 5
+value = SCA,AT,AA,AP
+;value2 = S,NA
+time = 1
+
 [State 0, HitOverride]
 type = HitOverride
 trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
+attr = SCA,AA,AP,AT         ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 stateno = 22010
 time = 1
 forceair = 0
@@ -1195,14 +1201,14 @@ juggle  = 1
 ctrl = 0
 anim = 451
 
-[State 0, HitOverride]
-type = HitOverride
-trigger1 = 1
-attr =  SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 454
-time = 1
-forceair = 0
+;[State 0, HitOverride] ; buff
+;type = HitOverride
+;trigger1 = 1
+;attr =  SCA,NA,SA,HA,NP,HP,NT,ST,HT       ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;slot = 0
+;stateno = 454
+;time = 1
+;forceair = 0
 
 [State 0, PosSet]
 type = PosSet
@@ -1237,6 +1243,15 @@ type = ChangeState
 trigger1 = Time = 540
 value = 454
 ctrl = 1
+
+[State 0, PalFX]
+type = PalFX ; all i got to do now is
+trigger1 = 1
+time = 1
+invertall = 0
+color = 0
+;ignorehitpause = 
+;persistent = 
 
 [State 0, NotHitBy]
 type = NotHitBy
@@ -1292,7 +1307,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-damage    = 20
+damage    = 40
 hitflag = MAFD
 guardflag =  MA
 sparkno = 0
@@ -1320,12 +1335,12 @@ velset = 0,0
 sprpriority = 2
 poweradd = -1500
 
-[State 0, Busterable]
-type = MapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
+[State 0, Juggle Map]
+type = RootMapSet
+trigger1 = movehit && AnimTime = 0
+map = "juggle"
+value = 200
+persistent = 0
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1460,7 +1475,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-damage    = 35
+damage    = 45
 hitflag = MAF
 guardflag = MA
 sparkno = 2
@@ -1507,16 +1522,11 @@ persistent = 0
 
 [State 200, Neutral Reset]
 type = ChangeState
-Triggerall =  time >= 66 && enemy, life >= 1
+Triggerall =  time >= 56
 trigger1 = p2movetype != H 
-trigger2 = helper(401),movehit = 0 && helper(401),stateno = 23500
-trigger2 = AnimElem = 4 ||  AnimElem = 5 ||  AnimElem = 6 ||  AnimElem = 7 || AnimElem = 8
-value = ifelse(pos y < 0, 50, 0)
-ctrl = 1
-
-[State 200, Is he dead?]
-type = ChangeState
-Trigger1 =  time >= 66 && enemy, life <= 0
+trigger2 = helper(401),stateno = 23500 && helper(401),movehit = 0 || helper(401),stateno = 401 && helper(401),movehit = 0 && helper(401),prevstateno = 23500
+trigger3 = AnimTime = 0
+;trigger2 = AnimElem = 4 ||  AnimElem = 5 ||  AnimElem = 6 ||  AnimElem = 7 || AnimElem = 8
 value = ifelse(pos y < 0, 50, 0)
 ctrl = 1
 
@@ -1536,12 +1546,7 @@ velset = 0,0
 sprpriority = 2
 poweradd = 0
 
-[State 0, Busterable]
-type = MapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
+
 
 [State 0, AttackDist]
 type = AttackDist
@@ -1556,7 +1561,7 @@ ignorehitpause = 1
 
 [State 0, ChangeAnim]
 type = ChangeAnim
-trigger1 = root,time = 23
+trigger1 = root,time = 13
 trigger1 = root,stateno = 23000
 value = 401
 elem = 3
@@ -1622,7 +1627,7 @@ trigger1 = !movecontact
 animtype  = Heavy
 attr = S, NP
 damage = 40
-hitflag = MAF
+hitflag = MAFD
 guardflag = MA
 ground.hittime = 20
 pausetime = 3,45
@@ -1653,7 +1658,7 @@ pos = 0,10
 [State 0, VelSet]
 type = VelAdd
 trigger1 = AnimElem = 3
-x = 25
+x = 30
 y = 0
 
 [State 0, VelSet]
@@ -1688,12 +1693,7 @@ movetype= A
 physics = S
 anim = 23500
 
-[State 0, Busterable]
-type = MapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
+
 
 [State 0, PosSet]
 type = PosSet
@@ -1722,7 +1722,7 @@ value = movehit
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
 trigger1 = 1
-value = 1 ; this does true damage
+value = 1 * 0.99**root,var(11) ; this shit used to do true damage 
 ignorehitpause = 1
 
 [State -2, Counterhit TSP]
@@ -1761,11 +1761,11 @@ ampl = 2
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = AnimElem = 5 || AnimElem = 6 || AnimElem = 7 || AnimElem = 8
+triggerall = time%4 = 0 
 trigger1 = 1
 attr = S, HA
 animtype  = Light
-damage    = 15
+damage    = 10 + var(11)
 hitflag = MAFD
 guardflag = MA
 pausetime = 0,2
@@ -1779,9 +1779,9 @@ ground.type = High
 ground.slidetime = 12
 p1sprpriority = 1
 ground.hittime  = 15 + ifelse(enemy,movetype = A || movecountered, 7,0)
-ground.velocity = -1,-6
+ground.velocity = 1,-6
 guard.velocity = 5
-air.velocity = -1,-6
+air.velocity = .5,-6
 Fall = 1
 fall.recover =  0
 
@@ -1848,7 +1848,7 @@ poweradd = 0
 
 [State 0, LifeSet]
 type = LifeSet
-trigger1 = AnimTime = 0
+trigger1 = AnimTime = 0 ; cc
 value = 0
 
 [State 200, End]

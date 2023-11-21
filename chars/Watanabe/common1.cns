@@ -296,6 +296,7 @@ trigger1 = AnimTime = 0
 value = 11
 ctrl = 1
 
+
 ;---------------------------------------------------------------------------
 ; Jump Start
 [Statedef 40]
@@ -376,6 +377,11 @@ type = PlaySnd
 trigger1 = AnimElem = 1
 value = S7,0
 volumescale = 100
+
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = AnimTime = 0
 
 [State 40, 6]
 type = ChangeState
@@ -866,6 +872,7 @@ value = 50
 ctrl = 1
 
 
+
 ;---------------------------------------------------------------------------
 ; Run forward
 [Statedef 100]
@@ -884,6 +891,20 @@ volumescale = 500
 type = VelSet
 trigger1 = 1
 x = const(velocity.run.fwd.x)
+
+[State 100, 1]
+type = VelSet
+trigger1 = prevstateno = 5464
+y = 0
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = prevstateno = 5464
+time = 8
+trans = add
+palbright = 0,256,0
+persistent = 0
+
 
 [State 0, Explod]
 type = Explod
@@ -956,7 +977,7 @@ y = 0
 [State 0, Helper]
 type = Helper
 trigger1 = time = 1
-helpertype = player
+helpertype = normal
 name = "fast fall THUNDER"
 ID = 56
 stateno = 56
@@ -985,7 +1006,18 @@ ctrl = 0
 anim = 56
 velset = 0,0
 sprpriority = 5
-poweradd = -250
+poweradd = -200
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S621,1
+volume = 100
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 2
+time = 10
 
 [State 0, PosSet]
 type = PosSet
@@ -2142,6 +2174,7 @@ type    = A
 movetype= H
 physics = N
 velset = 0,0
+
 
 [State 0, PlaySnd]
 type = PlaySnd
