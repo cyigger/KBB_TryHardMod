@@ -1067,11 +1067,11 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 air.hittime = 15
-ground.velocity = -4,-3
-air.velocity = -4,-2
-Fall = 0
+ground.velocity = -3,-5
+air.velocity = -3,-4
+Fall = 1
 Envshake.time = 10
-Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 35 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 

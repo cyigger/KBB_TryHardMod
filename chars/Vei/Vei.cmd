@@ -753,6 +753,17 @@ triggerall = command = "holddown"
 triggerall = command = "b"
 Triggerall = statetype != A
 trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Down + B
+[State -1, Down + B]
+type = ChangeState
+value = 320
+triggerall = command = "holdback"
+triggerall = command = "b"
+Triggerall = statetype != A
+trigger1 = ctrl
+
 ;---------------------------------------------------------------------------
 ; B
 [State -1, B]

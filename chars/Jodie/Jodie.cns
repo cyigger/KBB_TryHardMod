@@ -797,9 +797,9 @@ trigger1 = prevstateno = 30
 x = const(velocity.run.fwd.x)
 
 [State 0, Little slide after swing.]
-type = VelAdd
-trigger1 = animelem = 4
-x = -1
+type = VelSet
+trigger1 = time = [8, 9]
+x = 8
 
 
 
