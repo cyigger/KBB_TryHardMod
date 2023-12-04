@@ -688,8 +688,8 @@ animtype  = Light
 damage    = 15
 hitflag = MAF
 guardflag = MAF
-pausetime = 12,12
-guard.pausetime = 12, 10
+pausetime = 8,8
+guard.pausetime = 8, 6
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -863,21 +863,21 @@ volumescale = 100
 [State 200, End]
 type = ChangeState
 triggerall = time >= 5
-triggerall = helper(31),movecontact
+triggerall = helper(31),movecontact >= 2
 trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
 [State 200, SPECIAL 1 - CLONE KICK]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 triggerall = numhelper(3500) = 0
 triggerall = power >= 1000
 trigger1 = command = "SPECIAL 1"
 value = 23000
 [State 200, SPECIAL 2 - CLONE EVADE]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 triggerall = numhelper(3500) = 0
 triggerall = power >= 1000
 trigger1 = command = "SPECIAL 2"
@@ -885,7 +885,7 @@ value = 20000
 
 [State 200, Special 3 - Air Kick]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 triggerall = power >= 1500
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
@@ -893,7 +893,7 @@ value = 22000
 
 [State -1, SPECIAL 5]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 triggerall = numhelper(3500) = 0
 Triggerall = power >= 1000
 trigger1 = command = "SPECIAL 5"
@@ -901,20 +901,20 @@ value = 24000
 
 [State 200, 5AA]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 290
 
 [State 210, Cancel into 2C]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 trigger1 = command = "b"
 value = ifelse(prevstateno = 300, 310, 300)
 
 [State 210, Cancel into 2C]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 Triggerall = power >= 500
 triggerall = numhelper(3500) = 0
 triggerall = numhelper(420) = 0
@@ -924,7 +924,7 @@ value = 480
 
 [State 210, Cancel into 2C]
 type = ChangeState
-Triggerall = helper(31),movecontact
+Triggerall = helper(31),movecontact >= 2
 Triggerall = power >= 250
 triggerall = numhelper(3500) = 0
 triggerall = numhelper(410) < 2
@@ -1064,8 +1064,8 @@ animtype  = Medium
 damage    = 10
 hitflag = MAFD
 guardflag = MA
-pausetime = 4,4
-guard.pausetime = 4,4
+pausetime = 8,8
+guard.pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1223,8 +1223,8 @@ animtype  = Light
 damage    = 15
 hitflag = MAF
 guardflag = MAF
-pausetime = 12,12
-guard.pausetime = 12, 5
+pausetime = 8,8
+guard.pausetime = 8, 1
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1263,7 +1263,7 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 300
-velset = -1,0
+velset = -2,0
 sprpriority = 1
 
 
@@ -1349,15 +1349,12 @@ value = 24000
 
 [State 200, 5AA]
 type = ChangeState
-Triggerall = helper(31),movecontact
-trigger1 = command = "a"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+Trigger1 = helper(31),stateno = 292
 value = 290
 
 [State 210, Cancel into 2C]
 type = ChangeState
-Triggerall = helper(31),movecontact
-trigger1 = command = "b"
+Trigger1 = helper(31),stateno = 311
 value = 310
 
 [State -1, SPECIAL 5]
@@ -1510,8 +1507,8 @@ animtype  = Medium
 damage    = 15
 hitflag = MAFD
 guardflag = MA
-pausetime = 12,12
-guard.pausetime = 12,12
+pausetime = 10,10
+guard.pausetime = 10,10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1614,7 +1611,7 @@ inheritJuggle = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = helper(31),movehit
+triggerall = helper(31),movehit >= 2
 trigger1 = command = "holdup"
 value = 40
 ctrl = 0
