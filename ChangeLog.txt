@@ -1,5 +1,51 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.2.17 Changes:                   /
+|---------------------------------------------------/
+
+Low tiers Rise Up!!! Several sub-par wavedash movesets have been reworked to be more interesting and more useful.
+
+Glitch:
+1. Wavedash A: Reworked
+	* Slower startup
+	* Teleports to the ground always
+	* Intangible from between frames 3 and 7
+2. Wavedash C: Completely replaced by new move
+
+
+Jodie:
+1. Wavedash A: Slight Rework
+	* Now slides forward
+	* A lot more active
+
+
+Leon:
+1. Wavedash A: Replaced
+	* Armored Attack that can be wavedash cancelled on hit
+2. Wavedash B: Reworked
+	* A lot more flashy
+	* More obviously an overhead
+	* Same cancels
+
+Vei:
+1. 5b: Reworked
+	* Now attacks with a clone, which can keep attacking 
+2. New Move 4b
+	* Here's your anti-air
+3. Cancels universalized. All grounded normals should be able to cancel into all c moves.
+
+
+Violet:
+1. Wavedash A startup reduced
+
+
+Watanabe:
+1. Wavedash fixed
+2. Buffer times fixed to be consistent with the rest of the cast
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.16 Changes:                   /
 |---------------------------------------------------/
 
