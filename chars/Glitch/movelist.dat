@@ -13,18 +13,18 @@ _AIR^B_F_D_DF
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 
-Slide Kick									_F_D_DF^A
-	"A sliding low attack.
-	It's cancels change if done out of
-	aerial wavedash"
+Normal Slide Kick									_F_D_DF^A
+	"A totally normal sliding low attack
+	This move will always put Glitch on the
+	ground"
 
 Glitchy Tatsu								_F_D_DF^B
 	"Glitch does a series of glitchy kicks
 	facing through any projectile".
 
-Booster to the Face (1/4 Bar)		 		_F_D_DF^C
-	"Glitch jumps and boosts directly at
-	the opponent's face"
+Quick Bomb Booster (1/5 Bar)		 		_F_D_DF^C
+	"Quickly boosts Glitch forward on the 
+	ground."
 
 <#f0f000>:EX ATTACKS!:</>
 

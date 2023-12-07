@@ -4,24 +4,25 @@ _F_F^B
 <#f0f000>:COMMAND DASH CANCELS:</>
 ^A_F_D_DF (Late on Block)
 ^A^A_F_D_DF (Late on Block)
+^B_F_D_DF
 ^B^B^B_F_D_DF
 ^C_F_D_DF
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 Normal Jodie:
 
-Low Bounce										_F_D_DF^A
+Jumpkick										_F_D_DF^A
+	"Jodie jumps at the opponent with the
+	kick"
+
+Bounce											_F_D_DF^A
 	"Jodie charges up a spindash upwards."
 _! Bounce Down									_D^B
 	"Jodie spindashes at the ground."
-
-High Bounce										_F_D_DF^B
-	"Same as Low Bounce, but at a higher angle.
-	Hold back to launch at an even higher angle."
-_! Bounce Down
-
-Rush Tornado! (1/4 Bar)		 					_F_D_DF^C
-	"See EX ATTACKS"
+	
+Quick Spindash! (1/4 Bar)		 				_F_D_DF^C
+	"Jodie does a spindash and dashes forward.
+	Has the same followups as Spin Dash."
 	
 Sword Jodie:
 
@@ -34,9 +35,8 @@ Double Slash									_F_D_DF^B
 	upper-slash before landing with 
 	one more slash.
 
-Quick Spindash! (1/4 Bar)		 				_F_D_DF^C
-	"Jodie does a spindash and dashes forward.
-	Has the same followups as Spin Dash."
+Rush Tornado (1/4 Bar)		 					_F_D_DF^C
+	"See EX ATTACKS"
 
 <#f0f000>:EX ATTACKS:</>
 Normal Jodie:

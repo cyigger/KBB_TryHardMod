@@ -1241,7 +1241,7 @@ Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 [State 200, Wavedash Cancel]
 type = ChangeState
 Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movehit || (movecontact && AnimTime > -7)
+trigger1 = movecontact
 value = 30
 ctrl = 1
 
@@ -4917,15 +4917,21 @@ volumescale = 200
 type = PosAdd
 trigger1 = animelem = 2
 x = 5
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+y = -5
 [State 0, Swing Velocity]
 type = VelSet
 trigger1 = time = 0
-x = 4.5
-y = ifelse(vel y > -3, -3, vel y)
+x = 4
+y = -3.5
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = movecontact = 1 
+x = 2
 y = -2
 
 [State 200, 1]
@@ -4938,7 +4944,7 @@ attr = A, NA
 animtype  = Medium
 damage    = 30
 hitflag = MAF
-guardflag = HAF
+guardflag = MAF
 pausetime = 12,12
 sparkno = 0
 guard.sparkno = 13000
@@ -5851,7 +5857,7 @@ type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "b"
 trigger3 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 2600
+value = 2610
 
 [State 200, 5c]
 type = ChangeState
@@ -6017,7 +6023,12 @@ trigger1 = command = "SPECIAL 3"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 23000
 
-
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
 
 [State 200, 5B]
 type = ChangeState

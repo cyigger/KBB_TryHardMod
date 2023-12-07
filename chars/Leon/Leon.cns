@@ -2249,8 +2249,23 @@ volumescale = 50
 
 [State 310, VelSet]
 type = VelSet
-trigger1 = time = 0
+trigger1 = AnimElem = 1
+x = 6
+
+[State 310, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 5
+
+[State 310, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
 x = 4
+
+[State 310, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 3
 
 [State 330, Sweep - Ground]
 type = HitDef
@@ -3913,13 +3928,45 @@ triggerall = movehit
 trigger1 = command = "WD" && command != "NotWD"
 value = 30
 
-[State 200, 5AA Cancel]
+[State 300, 5B Cancel]
 type = ChangeState
 triggerall = anim = 391
 Triggerall = movecontact
-trigger1 = command = "a"
+trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 210
+value = 310
+
+[State 300, 3B Cancel]
+type = ChangeState
+triggerall = anim = 391
+Triggerall = movecontact
+trigger1 = command = "holddownfwd"
+trigger1 = ailevel = 0 && command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 330
+
+[State 200, 2C Cancel]
+type = ChangeState
+triggerall = anim = 391
+Triggerall = movecontact
+triggerall = power >= 500
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+value = 420
+
+[State 300, 5C Cancel]
+type = ChangeState
+triggerall = anim = 391
+Triggerall = hitcount = 2 || moveguarded
+triggerall = power >= 250
+triggerall = numhelper(9870) = 0 ;Destroyed
+triggerall = map(shatterCount) < 4 ;Shatter Count
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(405) = 0
+triggerall = var(53) > 20
+trigger1 = command = "c"
+value = 400
 
 [State 52, 5]
 type = ChangeState

@@ -915,16 +915,16 @@ hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
 ground.hittime  = 25 + ifelse(enemy,movetype = A || movecountered, 7,0)
-air.hittime  = 25
-guard.pausetime = 10,12
-guard.hittime = 15
+air.hittime  = 15
+guard.pausetime = 10,10
+guard.hittime = 12
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = 5,1
 guardsound = 6,10
 ground.type = Low
-ground.slidetime = 18
+ground.slidetime = 15
 ground.velocity = -3,-3
 air.velocity = -4,-3
 Fall = 0
@@ -1003,7 +1003,7 @@ triggerall = pos y >= -1
 Triggerall = movecontact
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 310
+value = 320
 
 [State 200, End]
 type = ChangeState
@@ -2662,7 +2662,7 @@ persistent = 0
 type = VelSet
 trigger1 = movecontact = 1
 x = 2
-y = -4
+y = ifelse(pos y >= -5,-5, -4)
 
 [State 0, VelSet]
 type = PosAdd
@@ -2672,6 +2672,7 @@ y = -5
 [State 0, StateTypeSet]
 type = StateTypeSet
 trigger1 = movecontact = 1
+trigger2 = AnimElem = 3 && pos y < -1
 statetype = A       ;S,A,C,L
 movetype = A        ;I,A,H
 physics = A         ;A,C,S,N
@@ -2757,7 +2758,7 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = ifelse(movecontact,50,0)
+value = ifelse(pos y < -1,50,0)
 ctrl = 1
 
 ;-------------------------------------------------------------------------------

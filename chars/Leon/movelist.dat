@@ -16,12 +16,11 @@ _B^B_F_D_DF
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 
-Hellsweep									_F_D_DF^A
-	"Leon Sweeps the opponent off their feet"
-_! Itself (Once)								^A
+Armored Hook								_F_D_DF^A
+	"Leon unleashes a powerful armored hook"
 
-Roundhouse									_F_D_DF^B
-	"Leon does a large overhead kick tat
+Divekick									_F_D_DF^B
+	"Leon does a large overhead kick at
 	the opponents head"
 
 Star Platinum: Platinum Fist (1/4 Bar)		_F_D_DF^C
