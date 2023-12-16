@@ -1163,6 +1163,231 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
+;-------------------------------------------------------------------------------
+; Wavedash A
+[Statedef 290]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 290
+poweradd = 0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 5
+persistent = 0
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(56000) = 0
+triggerall = numhelper(55000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,1
+volumescale = 50
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0
+y = -2
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+y = 0
+x = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 2900
+ID = 2900
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+ignorehitpause = 0
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = A, NA
+animtype  = Light
+damage    = 15
+hitflag = MAFD
+guardflag = MA
+pausetime = 8,8
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,1
+guardsound = 6,10
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -1,-4
+air.velocity = -1,-4
+Fall = 1
+fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+Envshake.time = 10
+
+[State 200, End]
+type = ChangeState
+triggerall = movecontact
+triggerall = var(13) < 2
+trigger1 = command = "WD" && command != "NotWD"
+value = 30
+ctrl = 0
+
+[State 200, Special 1 - TRIPLE SLASH]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+trigger1 = power >= 1000
+value = 21000
+[State 200, Special 2 - Rapidslash DP]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+trigger1 = power >= 1000
+value = 22000
+[State -1, SPECIAL 5 - Spinner Cutters 2 Counter]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+trigger1 = power >= 2000
+value = 25000
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+;triggerall = command = "holdback"
+trigger1 = command = "a"
+value = 250
+
+;Lambda Stance Options
+[State 310, 9B]	; Up + Fwd
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holdupfwd" && command = "b"
+value = 317
+ctrl = 0
+[State 310, 7B]	; Up + Back
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holdupback" && command = "b"
+value = 315
+ctrl = 0
+[State 310, 8B]	; Up
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holdup" && command = "b"
+value = 316
+ctrl = 0
+[State 310, 1B]	; Down + Back
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holddownback" && command = "b"
+value = 312
+ctrl = 0
+[State 310, 3B]	; Down + Fwd
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holddownfwd" && command = "b"
+value = 310
+ctrl = 0
+[State 310, 2B]	; Down
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holddown" && command = "b"
+value = 311
+ctrl = 0
+[State 310, 4B]	; Back
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holdback" && command = "b"
+value = 314
+ctrl = 0
+[State 310, 6B]	; Fwd
+type = ChangeState
+triggerall = var(35) < 5
+triggerall = time > 5 && movecontact
+trigger1 = command = "holdfwd" && command = "b"
+trigger1 = command != "holdup"
+trigger1 = command != "holddown"
+value = 313
+ctrl = 0
+
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2
+value = 300
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
+value = 620
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
 ;===============================================================================
 ; B:
 ;-------------------------------------------------------------------------------
@@ -4133,17 +4358,8 @@ value = 23000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-triggerall = numhelper(631) = 0
-triggerall = numhelper(632) = 0
-trigger1 = command = "c" && command = "holddown"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
-value = 630
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
 triggerall = numhelper(3500) = 0
-trigger1 = command = "c" && command != "holddown"
+trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
 value = 620
 

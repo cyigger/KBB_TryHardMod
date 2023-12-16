@@ -4926,13 +4926,13 @@ y = -5
 type = VelSet
 trigger1 = time = 0
 x = 4
-y = -3.5
+y = -3.7
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = movecontact = 1 
 x = 2
-y = -2
+
 
 [State 200, 1]
 type = HitDef
@@ -4968,6 +4968,19 @@ trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) =
 value = 45
 ctrl = 1
 
+[State 200, INSTANT AIRDASH]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "s"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 66
+[State 200, AIRDASH]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "FF" || command = "z"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 65
+
 [State 200, J.6C]
 type = ChangeState
 triggerall = movecontact
@@ -4987,6 +5000,13 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) != 0
 value = 620
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) != 0
+value = 600
 
 [State 200, End]
 type = ChangeState
@@ -5845,12 +5865,12 @@ trigger1 = command = "a" ;Button to Press
 trigger1 = command = "holddown" ;Button to Press
 value = 2700
 
-[State 200, 5AA]
-type = ChangeState
-Triggerall = movecontact
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-trigger1 = command = "a" ;Button to Press
-value = 2510
+;[State 200, 5AA]
+;type = ChangeState
+;Triggerall = movecontact
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;trigger1 = command = "a" ;Button to Press
+;value = 2510
 
 [State 200, 5bb]
 type = ChangeState
