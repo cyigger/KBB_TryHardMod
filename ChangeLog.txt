@@ -17,6 +17,7 @@ Jodie:
 1. Wavedash A: Slight Rework
 	* Now slides forward
 	* A lot more active
+2. 5b hurtbox size reduced
 
 
 Leon:
@@ -26,6 +27,11 @@ Leon:
 	* A lot more flashy
 	* More obviously an overhead
 	* Same cancels
+
+
+Noll:
+1. Wavedash A completely replaced.
+
 
 Vei:
 1. 5b: Reworked
