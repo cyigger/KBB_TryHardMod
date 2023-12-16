@@ -694,7 +694,7 @@ airguard.cornerpush.veloff = -7
 [State 210, Cancel into 5B]
 type = ChangeState
 Triggerall = movecontact
-triggerall = prevstateno != 950
+triggerall = prevstateno != 950 && prevstateno != 250
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 300
@@ -702,7 +702,7 @@ value = 300
 [State 210, Cancel into 5BB]
 type = ChangeState
 Triggerall = movecontact
-triggerall = prevstateno = 950
+triggerall = prevstateno = 950 || prevstateno = 250
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 310
@@ -1454,7 +1454,7 @@ airguard.cornerpush.veloff = -4
 
 [State 200, Wavedash]
 type = ChangeState
-Triggerall = movehit
+Triggerall = movecontact
 trigger1 = command = "WD" && command != "NotWD"
 value = 30
 
@@ -6225,7 +6225,7 @@ ignorehitpause = 1
 
 [State 0, Failed to block a low!]
 type = Explod
-triggerall = stateno = 950 || stateno = 450 || stateno = 451 || stateno = 452 ;Edit the following to have triggers based on what states are low attack states.
+triggerall = stateno = 950 || stateno = 250 || stateno = [450, 452] ;Edit the following to have triggers based on what states are low attack states.
 triggerall = enemy, prevstateno = [120,160] && numexplod(31000) = 0 ;Don't edit
 trigger1 = enemy, movetype = H && enemy, stateno != [120,160] ;don't edit
 anim = F36000
@@ -6251,7 +6251,7 @@ persistent = 0
 
 [State 0, IM DOING A LOW, BOZO]
 type = MapSet
-trigger1 = stateno = 950 || stateno = 450 || stateno = 451 || stateno = 452
+trigger1 = stateno = 950 || stateno = 250 || stateno = [450, 452]
 map = "lowAttack"
 value = 1
 ;ignorehitpause = 
@@ -6259,7 +6259,7 @@ value = 1
 
 [State 0, nvm lol]
 type = MapSet
-trigger1 = stateno != 950 && stateno != 450 && stateno != 451 && stateno != 452
+trigger1 = stateno != 950 && stateno != 250 && stateno != [450, 452]
 map = "lowAttack"
 value = 0
 ;ignorehitpause = 

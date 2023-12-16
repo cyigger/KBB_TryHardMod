@@ -969,13 +969,13 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; Forward + C Air
-[State -1, C]
-type = ChangeState
-value = 610
-triggerall = command = "holdfwd"
-triggerall = command = "c"
-Triggerall = statetype = A
-trigger1 = ctrl
+;[State -1, C]
+;type = ChangeState
+;value = 610
+;triggerall = command = "holdfwd"
+;triggerall = command = "c"
+;Triggerall = statetype = A
+;trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; Back + C Air

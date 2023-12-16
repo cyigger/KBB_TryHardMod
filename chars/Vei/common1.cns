@@ -297,14 +297,19 @@ ontop = 0
 shadow = 0,0,0
 ownpal = 0
 
-[State 0, HurtOverride]
-type = HitOverride
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = 1
-attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 39
-time = 2
-forceair = 0
+value = SCA, AA, AP, AT 
+
+;[State 0, HurtOverride]
+;type = HitOverride
+;trigger1 = 1
+;attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;slot = 0
+;stateno = 39
+;time = 2
+;forceair = 0
 
 [State 200, End]
 type = ChangeState

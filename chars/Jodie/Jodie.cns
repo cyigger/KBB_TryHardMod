@@ -797,9 +797,9 @@ trigger1 = prevstateno = 30
 x = const(velocity.run.fwd.x)
 
 [State 0, Little slide after swing.]
-type = VelAdd
-trigger1 = animelem = 4
-x = -1
+type = VelSet
+trigger1 = time = [8, 9]
+x = 8
 
 
 
@@ -1241,7 +1241,7 @@ Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 [State 200, Wavedash Cancel]
 type = ChangeState
 Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movehit || (movecontact && AnimTime > -7)
+trigger1 = movecontact
 value = 30
 ctrl = 1
 
@@ -4917,16 +4917,22 @@ volumescale = 200
 type = PosAdd
 trigger1 = animelem = 2
 x = 5
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+y = -5
 [State 0, Swing Velocity]
 type = VelSet
 trigger1 = time = 0
-x = 4.5
-y = ifelse(vel y > -3, -3, vel y)
+x = 4
+y = -3.7
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = movecontact = 1 
-y = -2
+x = 2
+
 
 [State 200, 1]
 type = HitDef
@@ -4938,7 +4944,7 @@ attr = A, NA
 animtype  = Medium
 damage    = 30
 hitflag = MAF
-guardflag = HAF
+guardflag = MAF
 pausetime = 12,12
 sparkno = 0
 guard.sparkno = 13000
@@ -4962,6 +4968,19 @@ trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) =
 value = 45
 ctrl = 1
 
+[State 200, INSTANT AIRDASH]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "s"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 66
+[State 200, AIRDASH]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "FF" || command = "z"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 65
+
 [State 200, J.6C]
 type = ChangeState
 triggerall = movecontact
@@ -4981,6 +5000,13 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) != 0
 value = 620
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) != 0
+value = 600
 
 [State 200, End]
 type = ChangeState
@@ -5839,19 +5865,19 @@ trigger1 = command = "a" ;Button to Press
 trigger1 = command = "holddown" ;Button to Press
 value = 2700
 
-[State 200, 5AA]
-type = ChangeState
-Triggerall = movecontact
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-trigger1 = command = "a" ;Button to Press
-value = 2510
+;[State 200, 5AA]
+;type = ChangeState
+;Triggerall = movecontact
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;trigger1 = command = "a" ;Button to Press
+;value = 2510
 
 [State 200, 5bb]
 type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "b"
 trigger3 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 2600
+value = 2610
 
 [State 200, 5c]
 type = ChangeState
@@ -6017,7 +6043,12 @@ trigger1 = command = "SPECIAL 3"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 23000
 
-
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
 
 [State 200, 5B]
 type = ChangeState

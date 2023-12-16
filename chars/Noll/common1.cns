@@ -261,19 +261,19 @@ trigger1 = command = "SPECIAL 4"
 Trigger1 = power >= 1000
 value = 24000
 
-[State 200, End]
-type = ChangeState
-triggerall = time > 0
-triggerall = command = "holdfwd"
-trigger1 = command = "a"
-value = 260
-ctrl = 0
+;[State 200, End]
+;type = ChangeState
+;triggerall = time > 0
+;triggerall = command = "holdfwd"
+;trigger1 = command = "a"
+;value = 260
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState
 triggerall = time > 0
 trigger1 = command = "a"
-value = 600
+value = 290
 ctrl = 0
 
 [State 200, End]

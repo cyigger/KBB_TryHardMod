@@ -179,7 +179,7 @@ trans = add
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.8
+x = const(velocity.run.fwd.x) * 1.95
 
 [State 0, Explod]
 type = Explod
@@ -906,7 +906,7 @@ flag = NoAutoTurn
 [State 100, 4]
 type = ChangeState
 triggerall = ailevel = 0
-trigger1 = command != "holdfwd"  && command != "hold_z"
+trigger1 = command != "holdfwd" && command != "hold_z"
 value = 0
 
 [State 100, 4]

@@ -677,7 +677,7 @@ trigger1 = ctrl
 [State -1, Wavedash]
 type = ChangeState
 value = 30
-triggerall = pos y > -80
+triggerall = pos y > -120
 trigger1 = command = "WD" && command != "NotWD"
 ;trigger1 = statetype = C || statetype = S
 trigger1 = ctrl
