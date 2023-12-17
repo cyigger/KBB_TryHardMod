@@ -924,6 +924,17 @@ trigger1 = ctrl
 ;Triggerall = statetype = A
 ;trigger1 = ctrl
 ;---------------------------------------------------------------------------
+; Down C Aire
+[State -1, C Aire]
+type = ChangeState
+value = 630
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 200
+triggerall = command = "holddown"
+triggerall = command = "c"
+Triggerall = statetype = A
+trigger1 = ctrl
+;---------------------------------------------------------------------------
 ; C Aire
 [State -1, C Aire]
 type = ChangeState
