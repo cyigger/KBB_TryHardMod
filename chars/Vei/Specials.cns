@@ -811,12 +811,15 @@ trigger1 = movecontact
 x = 0
 y = -5
 
-;[State 0, VelSet]
-;type = VelSet
-;triggerall = AnimElem = 16
-;trigger1 = movecontact
-;x = 0
-;y = 0
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = time = [0, 3]
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;value2 = S,NA
+time = 1
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -1021,7 +1024,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 anim = 400
-poweradd = -1000
+poweradd = -1500
 velset = -2.5,0
 sprpriority = 1
 

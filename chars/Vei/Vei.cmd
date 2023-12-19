@@ -616,7 +616,7 @@ triggerall = numhelper(3500) = 0
 triggerall = numhelper(23001) = 0
 triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
-Triggerall = power >= 1000
+Triggerall = power >= 1500
 trigger1 = ctrl
 trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
