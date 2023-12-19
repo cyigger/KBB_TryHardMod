@@ -120,7 +120,7 @@ trigger17 = AnimElem = 19
 trigger18 = AnimElem = 20
 attr = A, NA
 animtype  = Medium
-damage    = ifelse(prevstateno = 625 || prevstateno = 402, 10,10)
+damage    = 10, 1 
 hitflag = MAF
 guardflag = MAF
 pausetime = 2,2
@@ -151,15 +151,15 @@ triggerall = map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 23
 attr = A, NA
 animtype  = Medium
-damage    = ifelse(prevstateno = 625 || prevstateno = 402, 4,3)
+damage    = 40
 hitflag = MAF
 guardflag = MAF
-pausetime = 2,2
-guard.pausetime = 5,1
+pausetime = 12,12
+guard.pausetime = 12,12
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = S200,19
+hitsound   = 5,4
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
@@ -170,7 +170,7 @@ guard.velocity = -4
 ground.velocity = -3,8
 air.velocity = -3,8
 Fall = 1
-Envshake.time = 5
+Envshake.time = 20
 Fall.recovertime = 50 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5.25
 airguard.cornerpush.veloff = -5.25
@@ -1021,7 +1021,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 anim = 400
-poweradd = -1500
+poweradd = -1000
 velset = -2.5,0
 sprpriority = 1
 
@@ -1448,7 +1448,7 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 24000
-poweradd = -1000
+poweradd = -500
 sprpriority = 2
 
 [State 0, Busterable]

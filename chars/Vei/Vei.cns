@@ -510,36 +510,7 @@ trigger1 = movehit || (movecontact && AnimTime > -7)
 value = 30
 ctrl = 1
 
-[State 200, SPECIAL 1 - CLONE KICK]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-triggerall = power >= 1000
-trigger1 = command = "SPECIAL 1"
-value = 23000
-[State 200, SPECIAL 2 - CLONE EVADE]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-triggerall = power >= 1000
-trigger1 = command = "SPECIAL 2"
-value = 20000
 
-[State 200, Special 3 - Air Kick]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 1500
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 3"
-value = 22000
-
-[State -1, SPECIAL 5]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 1000
-trigger1 = command = "SPECIAL 5"
-value = 24000
 
 [State 200, End]
 type = ChangeState
@@ -714,38 +685,7 @@ trigger1 = movehit || (movecontact && AnimTime > -7)
 value = 30
 ctrl = 1
 
-[State 200, SPECIAL 1 - CLONE KICK]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(23001) = 0
-Triggerall = power >= 1500
-trigger1 = command = "SPECIAL 1"
-value = 23000
 
-[State 200, SPECIAL 2 - CLONE EVADE]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-triggerall = power >= 1000
-trigger1 = command = "SPECIAL 2"
-value = 20000
-
-[State 200, Special 3 - Air Kick]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 1500
-trigger1 = command = "SPECIAL 4"
-value = 22000
-
-[State -1, SPECIAL 5]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 1000
-trigger1 = command = "SPECIAL 5"
-value = 24000
 
 [State 210, Cancel into 5BBB]
 type = ChangeState
@@ -1654,7 +1594,7 @@ type = ChangeState
 Triggerall = helper(31),movecontact
 Triggerall = power >= 500
 triggerall = numhelper(3500) = 0
-triggerall = numhelper(420) = 0
+triggerall = numhelper(420) < 2
 trigger1 = command = "holddown"
 trigger1 = command = "c"
 value = 480
@@ -1677,7 +1617,7 @@ value = 0
 ctrl = 1
 
 
-; Clone B - 3
+; Clone B - 2
 ;-------------------------------------------------------------------------------
 [Statedef 311]
 type    = S
@@ -1766,7 +1706,7 @@ volumescale = 50
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 1
-x = 6
+x = 3
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 3
@@ -1807,21 +1747,6 @@ airguard.cornerpush.veloff = -4
 [State 210, End]
 type = DestroySelf
 trigger1 = AnimTime = 0
-
-
-;===============================================================================
-; B:
-;-------------------------------------------------------------------------------
-Statedef 300]
-type    = S
-movetype= A
-physics = S
-juggle  = 1
-ctrl = 0
-poweradd = 0
-velset = 0,0
-sprpriority = 2
-attackdist = 60
 
 
 ;===============================================================================
@@ -4672,17 +4597,10 @@ value = 22000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+triggerall = power >= 200
 triggerall = command = "holddown"
 trigger1 = command = "c"
 value = 630
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holddown"
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 615
 
 [State 200, End]
 type = ChangeState
@@ -4805,17 +4723,10 @@ value = 22000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+triggerall = power >= 200
 triggerall = command = "holddown"
 trigger1 = command = "c"
 value = 630
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holddown"
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 615
 
 [State 200, End]
 type = ChangeState
@@ -5010,6 +4921,7 @@ volumescale = 50
 type = VelSet
 trigger1 = time = 0
 y = -2
+x = 2
 
 [State 0, VelSet]
 type = VelSet
@@ -5028,7 +4940,7 @@ animtype  = Medium
 damage    = 25
 hitflag = MAF
 guardflag = HAF
-pausetime = 12,12
+pausetime = 12,16
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -5037,10 +4949,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3, 12
-air.velocity = -3, 12
+ground.velocity = -3, 8
+air.velocity = -3, 8
 Fall = 1
 fall.recover = 0
+fall.yvelocity = -0.5
 Envshake.time = 10
 Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
@@ -5049,6 +4962,7 @@ airguard.cornerpush.veloff = -4
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+triggerall = power >= 200
 triggerall = command = "holddown"
 trigger1 = command = "c"
 value = 630
@@ -5130,7 +5044,7 @@ helpertype = normal ;player
 name = "Vei Clone"
 ID = 612
 stateno = 612
-pos = 5,-pos y
+pos = 0,-pos y
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 1
@@ -5150,6 +5064,7 @@ value = 22000
 [State 200, End]
 type = ChangeState
 Triggerall = helper(612),movecontact
+triggerall = power >= 200
 triggerall = command = "holddown"
 trigger1 = command = "c"
 value = 630
@@ -5171,7 +5086,7 @@ ctrl = 0
 anim = 612
 poweradd = 0
 velset = 0,0
-sprpriority = 2
+sprpriority = 4
 
 [State 0, AttackDist]
 type = AttackDist
@@ -5230,30 +5145,38 @@ trigger1 = AnimElem = 1
 value = S1,1
 volumescale = 50
 
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = AnimElem = 2
-x = 15
+;[State 0, PosAdd]
+;type = PosAdd
+;trigger1 = AnimElem = 2
+;x = 15
 [State 0, VelSet]
 type = VelSet
-trigger1 = AnimElem = 1
-x = 3
+trigger1 = AnimElem = 4
+x = 6
 
 [State 0, Delay Hit]
 type = ChangeAnim2
-triggerall = abs(p2bodydist y) >= 10
+triggerall = abs(p2bodydist y) >= 15
 triggerall = enemy,pos y >= -1
 trigger1 = AnimElem = 3
 value = 612
 elem = 3
 
-[State 0,  Hit]
+[State 0, Rush The Hit]
 type = ChangeAnim2
-triggerall = abs(p2bodydist y) < 10
+triggerall = abs(p2bodydist y) < 15
 triggerall = enemy,pos y < -1
 trigger1 = AnimElem = 2
 value = 612
 elem = 4
+
+[State 0, Rush The Hit More]
+type = ChangeAnim2
+triggerall = enemy,pos y > -5
+triggerall = enemy,pos y < -1
+trigger1 = AnimElem = 4
+value = 612
+elem = 5
 
 
 [State 0, HurtOverride]
@@ -5276,18 +5199,18 @@ animtype  = Medium
 damage    = 30
 hitflag = MAFD
 guardflag = MA
-pausetime = 10,10
+pausetime = 12,12
 guard.pausetime = 10,4
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = 5,1
+hitsound   = 5,4
 guardsound = 6,11
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3,-4
-air.velocity = -3,-4
+ground.velocity = -3,-5
+air.velocity = -3,-5
 Envshake.time = 10
 Fall = 1
 fall.recovertime = 40
