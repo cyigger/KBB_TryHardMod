@@ -624,17 +624,17 @@ trigger2 = stateno = [200, 499]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 3
-[State -1, SPECIAL 3]
-type = ChangeState
-value = 22000
-triggerall = numhelper(3500) = 0
-triggerall = command = "SPECIAL 3"
-Triggerall = statetype = A
-Triggerall = power >= 1500
-trigger1 = ctrl
-trigger2 = !isHelper
-trigger2 = movecontact || helper(31),movecontact
-trigger2 = stateno = [200, 499]
+;[State -1, SPECIAL 3]
+;type = ChangeState
+;value = 22000
+;triggerall = numhelper(3500) = 0
+;triggerall = command = "SPECIAL 3"
+;Triggerall = statetype = A
+;Triggerall = power >= 1500
+;trigger1 = ctrl
+;trigger2 = !isHelper
+;trigger2 = movecontact || helper(31),movecontact
+;trigger2 = stateno = [200, 499]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 3 (Ground)
@@ -654,7 +654,7 @@ value = 22000
 triggerall = var(19) = 0
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
-Triggerall = power >= 1500
+Triggerall = power >= 1000
 trigger1 = ctrl
 trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
