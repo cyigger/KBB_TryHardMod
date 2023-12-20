@@ -546,16 +546,6 @@ value = 480
 [State 210, Cancel into 2C]
 type = ChangeState
 Triggerall = movecontact
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(452) = 0
-trigger1 = command = "holdback"
-trigger1 = command = "c"
-value = 450
-
-[State 210, Cancel into 2C]
-type = ChangeState
-Triggerall = movecontact
 Triggerall = power >= 250
 triggerall = numhelper(3500) = 0
 triggerall = numhelper(410) < 2
@@ -703,16 +693,6 @@ triggerall = numhelper(420) = 0
 trigger1 = command = "holddown"
 trigger1 = command = "c"
 value = 480
-
-[State 210, Cancel into 2C]
-type = ChangeState
-Triggerall = movecontact
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(452) = 0
-trigger1 = command = "holdback"
-trigger1 = command = "c"
-value = 450
 
 [State 210, Cancel into 2C]
 type = ChangeState
@@ -983,9 +963,8 @@ guardsound = 6,11
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-3
+ground.velocity = -2,-2
 air.velocity = 2,-2
-down.velocity = -2,-3
 Fall = 0
 fall.recovertime = 20
 guard.cornerpush.veloff = -10
@@ -1971,15 +1950,6 @@ airguard.cornerpush.veloff = -4
 ;air.cornerpush.veloff = -4
 
 
-[State 210, Cancel into 2C]
-type = ChangeState
-Triggerall = movecontact
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-trigger1 = command = "holdback"
-trigger1 = command = "c"
-value = 450
-
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
@@ -2012,16 +1982,6 @@ triggerall = numhelper(420) = 0
 trigger1 = command = "holddown"
 trigger1 = command = "c"
 value = 480
-
-[State 210, Cancel into 2C]
-type = ChangeState
-Triggerall = movecontact
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(452) = 0
-trigger1 = command = "holdback"
-trigger1 = command = "c"
-value = 450
 
 [State 210, Cancel into 2C]
 type = ChangeState
@@ -2549,7 +2509,7 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 401
-sprpriority = 1
+sprpriority = -1
 
 [State 0, AttackDist]
 type = AttackDist
@@ -4223,14 +4183,15 @@ trigger1 = AnimElem = 1
 value = S1,1
 volumescale = 50
 
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = AnimElem = 2
-x = 15
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 2
-x = 4
+x = 3
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 6
 
 [State 0, PosAdd]
 type = PosAdd
@@ -4262,9 +4223,8 @@ guardsound = 6,11
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-3
+ground.velocity = -2,-2
 air.velocity = 2,-2
-down.velocity = -2,-3
 Fall = 0
 fall.recovertime = 20
 guard.cornerpush.veloff = -10
@@ -4729,6 +4689,7 @@ volumescale = 50
 
 [State 0, VelSet]
 type = VelSet
+triggerall = prevstateno = [600,639]
 trigger1 = time = 0
 y = -3
 x = 2
@@ -5463,8 +5424,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 30 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3, vel y - 1
-air.velocity = -3, vel y - 1
+ground.velocity = -2, vel y - 1
+air.velocity = -2, vel y - 1
 fall = 1
 fall.recover = 0
 Envshake.time = 5

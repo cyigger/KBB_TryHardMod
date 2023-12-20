@@ -1023,7 +1023,7 @@ movetype= A
 physics = S
 juggle  = 0
 ctrl = 0
-anim = 400
+anim = 23000
 poweradd = -1500
 velset = -2.5,0
 sprpriority = 1
@@ -1035,18 +1035,11 @@ anim = 92006
 time = 10
 sound = 20,0
 pos = 0,-20
-movetime = 0
+movetime = 10
 darken = 1
 p2defmul = 1
 poweradd = 0
 endcmdbuftime = 7
-
-[State 0, FatalCounter]
-type = MapSet
-trigger1 = 1
-map = "fatal"
-value = 1
-ignorehitpause = 1
 
 [State 0, VelSet]
 type = VelSet
@@ -1062,36 +1055,13 @@ volumescale = 50
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = AnimElem = 1
-value = S0,6
+value = S200,28
 volumescale = 100
 
 [State 0, AfterImage]
 type = AfterImage
 trigger1 = AnimElem = 1
-time = 10
-
-[State 0, Charge Complete]
-type = ChangeState
-triggerall = time > 33
-trigger1 = animelem = 6
-value = 401
-
-[State 0, Charge]
-type = changeAnim2
-triggerall = time < 40
-triggerall = animElem = 6
-trigger1 = command = "hold_c"
-trigger2 = time >= 20 
-value = 400
-elem = 5
-
-[State 0 , Charge sound]
-type = PlaySnd
-triggerall = time > 15
-trigger1 = animElem = 5
-value = F10,1
-volumescale = 300
-persistent = 0
+time = 15
 
 [State 0, Explod]
 type = Explod
@@ -1120,7 +1090,7 @@ persistent = 0
 
 [State 0, Helper]
 type = Helper
-trigger1 = AnimElem = 4
+trigger1 = AnimElem = 9
 helpertype = normal ;player
 name = "Glitch Bomb"
 ID = 23002
@@ -1136,16 +1106,9 @@ inheritJuggle = 1
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = AnimElem = 7
+trigger1 = AnimElem = 9
 value = S0,6
 volumescale = 100
-
-[State 1000, 6]
-type = ChangeState
-triggerall = power >= 500
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 4"
-value = 22000
 
 [State 1000, 6]
 type = ChangeState
@@ -1159,39 +1122,7 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
-;-------------------------------------------------------------------------------
-; C - Charged
-[Statedef 23001]
-type    = S
-movetype= A
-physics = S
-juggle  = 0
-ctrl = 0
-anim = 401
-sprpriority = 1
 
-[State 0, Helper]
-type = Helper
-trigger1 = AnimElem = 1
-helpertype = normal ;player
-name = "Charged Glitch Bomb"
-ID = 415
-stateno = 415
-scale = 2,2
-pos = 0,-20
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 1
-supermovetime = 0
-pausemovetime = 0
-inheritJuggle = 1
-
-[State 1000, 6]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 0
-ctrl = 1
 ;-------------------------------------------------------------------------------
 ; C - Portal dickhead
 [Statedef 23002]
@@ -1201,7 +1132,7 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 401
-sprpriority = 1
+sprpriority = -1
 
 [State 0, AttackDist]
 type = AttackDist

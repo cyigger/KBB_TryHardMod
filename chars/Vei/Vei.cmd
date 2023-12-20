@@ -805,16 +805,16 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-[State -1, back + C]
-type = ChangeState
-value = 450
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(452) = 0
-triggerall = command = "holdback"
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
+;[State -1, back + C]
+;type = ChangeState
+;value = 450
+;Triggerall = power >= 200
+;triggerall = numhelper(3500) = 0
+;triggerall = numhelper(452) = 0
+;triggerall = command = "holdback"
+;triggerall = command = "c"
+;Triggerall = statetype != A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; C
 [State -1, C]
