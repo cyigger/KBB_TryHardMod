@@ -558,6 +558,15 @@ type = VelSet
 trigger1 = 1
 x = const(velocity.run.fwd.x)
 
+[State 0, HurtOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 39
+time = 2
+forceair = 0
+
 [State 0, Explod]
 type = Explod
 trigger1 = AnimElem = 11
@@ -757,7 +766,7 @@ ctrl = 1
 [Statedef 22000]
 type    = S
 movetype= A
-physics = N
+physics = S
 juggle  = 0
 ctrl = 0
 anim = 22000
@@ -813,7 +822,7 @@ y = -5
 
 [State 0, NotHitBy]
 type = NotHitBy
-trigger1 = time = [0, 5]
+trigger1 = time = [0, 8]
 value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
 ;value2 = S,NA
 time = 1
@@ -827,9 +836,16 @@ trigger1 = AnimElem = 2
 value = S5,2
 volumescale = 100
 
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+statetype = A
+movetype = A
+physics = N
+
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = [6, 25]
+trigger1 = time = [8, 25]
 x =  4
 y = -5
 
@@ -842,14 +858,14 @@ y = 0.22
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
-trigger1 = AnimElem = 2
-trigger2 = AnimElem = 3
-trigger3 = AnimElem = 4
-trigger4 = AnimElem = 5
-trigger5 = AnimElem = 6
-trigger6 = AnimElem = 7
-trigger7 = AnimElem = 8
-trigger8 = AnimElem = 9
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 5
+trigger3 = AnimElem = 6
+trigger4 = AnimElem = 7
+trigger5 = AnimElem = 8
+trigger6 = AnimElem = 9
+trigger7 = AnimElem = 10
+trigger8 = AnimElem = 11
 attr = A, NP
 animtype  = Heavy 
 damage    = 15
@@ -873,7 +889,7 @@ Envshake.time = 5
 
 [State 0, Explod]
 type = Explod
-trigger1 = AnimElem = 20
+trigger1 = AnimElem = 24
 anim = 22002
 ID = 22002
 pos = 0,0
@@ -894,7 +910,7 @@ ownpal = 1
 
 [State 0, Helper]
 type = Helper
-trigger1 = AnimElem = 8
+trigger1 = AnimElem = 12
 helpertype = normal ;player
 name = "C Air: 2"
 ID =  22001
@@ -934,6 +950,13 @@ trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
 value = 0
 persistent = 0
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, FatalCounter]
 type = MapSet
