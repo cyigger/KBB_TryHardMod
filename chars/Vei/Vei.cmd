@@ -605,7 +605,7 @@ Triggerall = power >= 500
 trigger1 = ctrl
 trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
-trigger2 = stateno = [200, 499]
+trigger2 = stateno = [200, 499] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 2
@@ -620,7 +620,7 @@ Triggerall = power >= 1500
 trigger1 = ctrl
 trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
-trigger2 = stateno = [200, 499]
+trigger2 = stateno = [200, 499] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 3
@@ -658,7 +658,7 @@ Triggerall = power >= 1000
 trigger1 = ctrl
 trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
-trigger2 = stateno = [200, 499] && stateno = [600, 639]
+trigger2 = stateno = [200, 499] || stateno = [600, 639] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 5
@@ -672,7 +672,7 @@ Triggerall = power >= 1500
 trigger1 = ctrl
 trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
-trigger2 = stateno = [200, 499]
+trigger2 = stateno = [200, 499] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;===========================================================================
 

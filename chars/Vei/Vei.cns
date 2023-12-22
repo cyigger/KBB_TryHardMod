@@ -650,17 +650,17 @@ damage    = 15
 hitflag = MAF
 guardflag = MAF
 pausetime = 8,8
-guard.pausetime = 8, 6
+guard.pausetime = 8, 4
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
 hitsound   = 5,3
 guardsound = 6,11
 ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3.5,-2.5
-air.velocity = -3.5,-2
+ground.slidetime = 10
+ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2,-2.5
+air.velocity = -2,-2
 Fall = 0
 Envshake.time = 10
 Fall.recovertime = 20
@@ -933,14 +933,22 @@ type = VelSet
 trigger1 = AnimElem = 7
 x = 2
 
-[State 0, HurtOverride]
-type = HitOverride
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = 1
-attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 39
-time = 2
-forceair = 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+;ignorehitpause = 
+;persistent = 
+
+;[State 0, HurtOverride]
+;type = HitOverride
+;trigger1 = 1
+;attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;slot = 0
+;stateno = 39
+;time = 2
+;forceair = 0
 
 [State 200, 1]
 type = HitDef
@@ -1068,14 +1076,22 @@ type = VelSet
 trigger1 = animelem = 2
 x = 4
 
-[State 0, HurtOverride]
-type = HitOverride
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = 1
-attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 39
-time = 2
-forceair = 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+;ignorehitpause = 
+;persistent = 
+
+;[State 0, HurtOverride]
+;type = HitOverride
+;trigger1 = 1
+;attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;slot = 0
+;stateno = 39
+;time = 2
+;forceair = 0
 
 [State 210, Explod]
 type = Explod
@@ -1333,14 +1349,22 @@ type = VelSet
 trigger1 = AnimElem = 5
 x = 2
 
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = AnimElem = 7
-x = 6
+;On Hit
+[State 0, VelSet]
+type = VelSet
+trigger1 = movecontact = 1
+x = 2
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 7
 x = 1
+
+;[State 0, NotHitBy]
+;type = NotHitBy
+;trigger1 = 1
+;value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;time = 1
 
 [State 0, HurtOverride]
 type = HitOverride
@@ -1579,6 +1603,12 @@ ignorehitpause = 1
 persistent = 0
 value = 5
 
+;[State 0, NotHitBy]
+;type = NotHitBy
+;trigger1 = 1
+;value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;time = 1
+
 [State 0, HurtOverride]
 type = HitOverride
 trigger1 = 1
@@ -1615,7 +1645,7 @@ damage    = 20
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
-guard.pausetime = 12,8
+guard.pausetime = 12,4
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -2230,14 +2260,22 @@ value = movehit
 ;ignorehitpause = 
 ;persistent = 
 
-[State 0, HurtOverride]
-type = HitOverride
+[State 0, NotHitBy]
+type = NotHitBy
 trigger1 = 1
-attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-slot = 0
-stateno = 39
-time = 2
-forceair = 0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+;ignorehitpause = 
+;persistent = 
+
+;[State 0, HurtOverride]
+;type = HitOverride
+;trigger1 = 1
+;attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+;slot = 0
+;stateno = 39
+;time = 2
+;forceair = 0
 
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
@@ -2262,7 +2300,7 @@ volumescale = 50
 type = VelSet
 trigger1 = Time = 0
 x = 2
-y = -4
+y = -5
 
 [State 0, VelAdd]
 type = VelAdd
@@ -2271,7 +2309,7 @@ y = 0.20
 
 [State 0, VelAdd]
 type = VelAdd
-trigger1 = time >= 22 
+trigger1 = time >= 18 
 x = 4
 y = 4
 
@@ -3579,8 +3617,8 @@ damage = 5
 guard.kill = 0
 hitflag = MAFD
 guardflag = MA
-ground.hittime = 22
-pausetime = 0,8
+ground.hittime = 15
+pausetime = 0,4
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -3588,13 +3626,13 @@ hitsound = S  5,1
 guard.sparkno = 13000
 guardsound = 6,11
 ground.type = High
-ground.slidetime = 15
+ground.slidetime = 12
 ground.velocity = -1.5
 airguard.velocity = -1.5,1.75
 air.velocity = -1.5,-1.5
 air.fall = 1
 Getpower = 0,0
-Fall.recovertime = 20
+Fall.recovertime = 30
 
 [State 200, End]
 type = Destroyself
@@ -4190,7 +4228,7 @@ x = 3
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = AnimElem = 3
+trigger1 = time = [8, 12]
 x = 6
 
 [State 0, PosAdd]
@@ -5345,7 +5383,7 @@ value = 8
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 1
-y = -2
+y = -3
 x = 2
 
 [State 0, StateTypeSet]
