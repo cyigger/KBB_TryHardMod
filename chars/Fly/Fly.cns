@@ -2450,7 +2450,7 @@ Getpower = 0,0
 
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = abs(pos x - root,pos x) = [-20,20] && root,stateno != [450,452]
+trigger1 = abs(pos x - root,pos x) < 20 && root,stateno != [450,452]
 trigger2 = time = 60
 id = 451
 ignorehitpause = 1
@@ -2458,7 +2458,7 @@ ignorehitpause = 1
 [State 200, End]
 type = Changestate
 trigger1 = abs(pos x - root,pos x) < 10
-trigger2 = time = 200
+trigger2 = time = 60
 value = 402
 
 ;===============================================================================
@@ -2529,7 +2529,7 @@ volumescale = 100
 [State 200, End]
 type = PosSet
 trigger1 = AnimElem = 6 ; basically noll
-x = helper(450),pos x + 25
+x = helper(450),pos x + 10
 y = helper(450),pos y + 5
 
 
