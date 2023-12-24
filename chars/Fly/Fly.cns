@@ -2439,10 +2439,10 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 10 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = ifelse(vel x > 0, -3,3),-2.5
+ground.velocity = ifelse(vel x > 0, -3,3),-3
 ground.hittime  = 20
 air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-air.velocity = ifelse(vel x > 0, -3,3),-2.5
+air.velocity = ifelse(vel x > 0, -3,3),ifelse(enemy,pos y < -10, -2.5, -3)
 Fall = 1
 Fall.recovertime = 25
 Envshake.time = 5
@@ -2476,66 +2476,66 @@ sprpriority = 1
 
 [State 0, AfterImage]
 type = AfterImage
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 time = 10
 trans = add
 
 [State 1020, Blink Yellow]
 type = PalFX
-trigger1 = Time = 7
+trigger1 = Time = 5
 time = 2
 add = 32,32,32
 color = 0
 
 [State 1020, Blink Yellow]
 type = PalFX
-trigger1 = Time = 8
+trigger1 = Time = 6
 time = 2
 add = 64,64,64
 color = 0
 
 [State 1020, Blink Yellow]
 type = PalFX
-trigger1 = Time = 9
+trigger1 = Time = 7
 time = 2
 add = 128,128,128
 color = 0
 
 [State 1020, Blink Yellow]
 type = PalFX
-trigger1 = Time = 10
+trigger1 = Time = 8
 time = 6
 add = 255,255,255
 color = 0
 
 [State 0, Helper Hit]
 type = MapSet
-trigger1 = AnimElem = 5 ; basically noll
+trigger1 = AnimElem = 4 ; basically noll
 map = "posx"
 value = pos x + 20
 
 [State 0, Helper Hit]
 type = MapSet
-trigger1 = AnimElem = 5 
+trigger1 = AnimElem = 4 
 map = "posy"
 value = pos y - 20
 
 [State 0, Shock]
 type = PlaySnd
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 value = S400,2
 volumescale = 100
 
 [State 200, End]
 type = PosSet
-trigger1 = AnimElem = 6 ; basically noll
+trigger1 = AnimElem = 5 ; basically noll
 x = helper(450),pos x + 10
 y = helper(450),pos y + 5
 
 
 [State 0, Explod]
 type = Explod
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 anim = 550
 pos = 0,0
 postype = p1
@@ -2546,18 +2546,18 @@ sprpriority = 3
 
 [State 200, End]
 type = Turn
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 trigger1 = p2bodydist x < 0
 
 [State 0, Velset]
 type = Velset
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 x = 4
 y = -2
 
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 statetype = A       ;S,A,C,L
 movetype = I        ;I,A,H
 physics = A         ;A,C,S,N
@@ -2566,7 +2566,7 @@ physics = A         ;A,C,S,N
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = AnimElemTime(6) >= 0
+trigger1 = AnimElemTime(5) >= 0
 value = 1
 
 [State 200, End]
@@ -2579,14 +2579,14 @@ ctrl = 1
 [State 0, LifeAdd]	; Fly hurts himself each time he uses shurikens in lore.
 type = LifeAdd
 triggerall = var(16) = 0
-trigger1 = AnimElem = 3
+trigger1 = AnimElem = 2
 value = -10
 kill = 0
 
 [State 0, LifeAdd]	; Fly hurts himself each time he uses shurikens in lore. But we did some tomfoolery post quizzing Redye. Thanks man
 type = LifeAdd
 triggerall = var(16) = 1
-trigger1 = AnimElem = 3
+trigger1 = AnimElem = 2
 value = -5
 kill = 0
 
