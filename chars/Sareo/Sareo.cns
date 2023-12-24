@@ -4311,6 +4311,19 @@ anim = 590
 poweradd = -100
 sprpriority = 1
 
+[State 0, SuperPause]
+type = SuperPause
+triggerall = enemy,movetype = H
+trigger1 = Time = 1
+anim = 92006
+time = 10
+pos = 0,-20
+movetime = 10
+darken = 0
+p2defmul = 1
+poweradd = 0
+endcmdbuftime = 7
+
 [State 105, NotHitBy]
 type = NotHitBy
 trigger1 = Time = [1, 5]
@@ -4437,7 +4450,7 @@ ctrl = 0
 anim = 591
 poweradd = 0
 sprpriority = 2
-velset = ifelse(enemy,movetype = H, 10, 16),0
+velset = ifelse(enemy,movetype = H, 16, 12),0
 
 [State 0, Juggle Map]
 type = MapAdd

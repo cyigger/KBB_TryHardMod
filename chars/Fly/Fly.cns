@@ -1190,12 +1190,12 @@ x = 8
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [0, 4]
-x = ifelse(var(15) = 1, 20, 10)
+x = ifelse(var(15) = 1, 10, 5)
 
 [State 0, VelSet if coming from wavedash]
 type = VelSet
 trigger1 = time = 5
-x = 4
+x = 2
 
 [State 200, 1]
 type = HitDef
@@ -2206,7 +2206,7 @@ helpertype = normal
 name = "C - Start"
 ID = 450
 stateno = 451
-pos = 25,-15
+pos = 30,-15
 postype = p1
 facing = 1
 keyctrl = 0
@@ -2215,9 +2215,9 @@ inheritjuggle = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = helper(450),movehit
-trigger1 = command = "holdup"
-value = 0
+triggerall = helper(450),movehit || time >= 20
+trigger1 = command = "c"
+value = 452
 ctrl = 1
 
 [State 200, End]
@@ -2334,36 +2334,43 @@ ignorehitpause = 0
 [state 450]
 type = velset
 trigger1 = time = 0
-x = 4
-y = -10
+x = 9
+y = -0.9
 [state 450]
 type = veladd
-trigger1 = time > 4
-y = -0.2
-x = -0.7
+trigger1 = time > 6
+x = -0.70
+y = ifelse(pos y - root,pos y > -15, -0.1, 0.1)
 
 [State 0, AfterImage]
 type = AfterImage
 trigger1 = animelem = 1
-time = 20
+time = 40
 trans = add
 
+;[State 0, TargetBind]
+;type = TargetBind
+;triggerall = time < 40
+;trigger1 = movehit
+;time = 1
+;id = -1
+;pos = 10,-10
+;ignorehitpause = 1
 
 [State 200, 1]
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
-triggerall = !moveguarded
-triggerall = hitcount < 4
+triggerall = AnimElem = 1 || AnimElem = 2 || AnimElem = 3 || AnimElem = 4
 triggerall = time < 40
 trigger1 = 1
 attr = S, NP
 animtype  = Heavy 
-damage    = 17, 5
+damage    = 8
 guard.kill = 0
 Hitflag = MAF
 guardflag = MAF
-pausetime = 4,4
+pausetime = 2,2
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,0
@@ -2372,20 +2379,119 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 10 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-6
+ground.velocity = ifelse(vel x > 0, -3,3),-2.5
 ground.hittime  = 20
 air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-air.velocity = -2,-5
+air.velocity = ifelse(vel x > 0, -3,3),-2.5
 Fall = 1
-Fall.recovertime = 30
+Fall.recovertime = 25
 Envshake.time = 5
 Getpower = 0,0
 
 [State 200, End]
 type = Changestate
-trigger1 = pos y > 0
+trigger1 = abs(pos x - root,pos x) < 10
 trigger2 = time = 200
 value = 402
+
+;===============================================================================
+; WD C - TP:
+;-------------------------------------------------------------------------------
+[Statedef 452]
+type    = A
+movetype= I
+physics = A
+juggle  = 0
+ctrl = 0
+anim = 492
+poweradd = -200
+sprpriority = 1
+
+[State 0, Shock]
+type = PlaySnd
+trigger1 = time = 0
+value = S400,3
+volumescale = 100
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = AnimElem = 1
+id = 451
+;ignorehitpause = 
+;persistent = 
+
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 4
+x = 5.5
+[State 0, Velset]
+type = Velset
+trigger1 = AnimElem = 2
+x = ifelse(p2bodydist x >= 0, 4, -4)
+y = -2
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = AnimElem = 1
+time = 10
+trans = add
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = Time = 0
+time = 20
+add = 32,16,0
+sinadd = 0,71,158,3
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 550
+pos = 0,-15
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+pausemovetime = 0
+scale = 1,1
+sprpriority = 3
+
+
+[State 200, End]
+type = PosSet
+trigger1 = AnimElem = 1
+x = helper(450),pos x
+y = helper(450),pos y
+
+[State 200, End]
+type = Turn
+trigger1 = AnimElem = 2
+trigger1 = p2bodydist x < 0
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = AnimElem = 2
+value = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+
+[State 0, LifeAdd]	; Fly hurts himself each time he uses shurikens in lore.
+type = LifeAdd
+triggerall = var(16) = 0
+trigger1 = AnimElem = 3
+value = -10
+kill = 0
+
+[State 0, LifeAdd]	; Fly hurts himself each time he uses shurikens in lore. But we did some tomfoolery post quizzing Redye. Thanks man
+type = LifeAdd
+triggerall = var(16) = 1
+trigger1 = AnimElem = 3
+value = -5
+kill = 0
 
 ;===============================================================================
 ; C - DOWN DODGE

@@ -4237,7 +4237,7 @@ volumescale = 80
 type = VelSet
 trigger1 = AnimElem = 3
 x = 3.25
-y = -2.75
+y = -3
 
 [State 0, VelAdd]
 type = VelAdd

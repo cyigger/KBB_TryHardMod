@@ -1066,7 +1066,6 @@ getpower = 0
 triggerall = !movecontact
 triggerall = time < 2
 trigger1 = 1
-trigger2 = enemy,map(hitOverride) = 1
 attr = S, NA
 animtype  = Medium
 damage    = 50
@@ -1081,11 +1080,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -8,-2
-air.velocity = -7.5,-2
+ground.velocity = -4,-2
+air.velocity = -4,-1
 fall = 1
 fall.recover = 50
-Envshake.time = 30
+Envshake.time = 15
 
 
 [State 0, PosSet]
@@ -3472,8 +3471,8 @@ hitsound   = S0,11
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -3,-5
-air.velocity = -3,-5
+ground.velocity = -2,-5
+air.velocity = -2,-4
 Envshake.time = 15
 fall = 1
 fall.recover = 1

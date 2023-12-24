@@ -1398,7 +1398,7 @@ value = 416
 ; "No more of that annoying ability!":
 ;-------------------------------------------------------------------------------
 [Statedef 24000]
-type    = C
+type    = S
 movetype= A
 physics = S
 juggle  = 1
@@ -1485,8 +1485,8 @@ damage    = 20
 Hitflag = MAFD
 guardflag = MAFD
 getpower = 0
-pausetime = 12,18
-guard.pausetime = 12,12
+pausetime = 10,16
+guard.pausetime = 10,10
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-35
@@ -1496,9 +1496,9 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2,-3
-air.velocity = -2,-3
+air.velocity = -2,-2
 Fall = 1
-fallrecovertime = 50
+fall.recovertime = 50
 Envshake.time = 5
 
 [State 0, Helper]
@@ -1531,6 +1531,13 @@ juggle  = 1
 ctrl = 0
 anim = 24001
 sprpriority = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, AttackDist]
 type = AttackDist
@@ -1599,7 +1606,7 @@ damage    = 10
 Hitflag = MAFD
 guardflag = MAF
 getpower = 0
-pausetime = 4,12
+pausetime = 4,10
 guard.pausetime = 4,4
 sparkno = 1
 guard.sparkno = 13000

@@ -1228,14 +1228,6 @@ type = ChangeState
 Trigger1 = helper(31),stateno = 311
 value = 310
 
-[State -1, SPECIAL 5]
-type = ChangeState
-Triggerall = helper(31),movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 1000
-trigger1 = command = "SPECIAL 5"
-value = 24000
-
 [State 210, Cancel into 2C]
 type = ChangeState
 Triggerall = helper(31),movecontact
@@ -1494,15 +1486,6 @@ triggerall = helper(31),movehit >= 2
 trigger1 = command = "holdup"
 value = 40
 ctrl = 0
-
-[State 200, SPECIAL 1 - CLONE KICK]
-type = ChangeState
-Triggerall = helper(31),movecontact
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(23001) = 0
-Triggerall = power >= 1500
-trigger1 = command = "SPECIAL 1"
-value = 23000
 
 [State 210, Cancel into 2C]
 type = ChangeState
@@ -3617,7 +3600,7 @@ damage = 5
 guard.kill = 0
 hitflag = MAFD
 guardflag = MA
-ground.hittime = 15
+ground.hittime = 10
 pausetime = 0,4
 sparkno = 0
 guard.sparkno = 13000
@@ -3626,10 +3609,10 @@ hitsound = S  5,1
 guard.sparkno = 13000
 guardsound = 6,11
 ground.type = High
-ground.slidetime = 12
+ground.slidetime = 8
 ground.velocity = -1.5
-airguard.velocity = -1.5,1.75
-air.velocity = -1.5,-1.5
+airguard.velocity = -1.5,-1
+air.velocity = -1.5,-3
 air.fall = 1
 Getpower = 0,0
 Fall.recovertime = 30

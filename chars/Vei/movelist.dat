@@ -26,33 +26,35 @@ Clone Flurry (1/4 Bar)						_F_D_DF^C
 
 <#f0f000>:EX ATTACKS!:</>
 
-Projectile Portal (1/2 Bar, _AIR OK)				^C
+Projectile Portal (1/2 Bar, _AIR OK)			^C
 	"Vei Spawns a portal that shoots a projetile
 	after some time."
 
-Flame Portal (1/2 Bar)								_D^C
+Flame Portal (1/2 Bar)							_D^C
 	"Vei Spawns a portal full of flames under
 	the opponent."
 	
-The Clone Move (1/5 Bar)							_B^C
-	"Vei creates a clone behind the opponent."
+Cloaked Saw (1/5 Bar, _AIR OK)					_AIR_D^C
+	"Spins his cloak and drags the opponent
+	against the ground."
 	
-_! The Air Clone Kicks - (_Air Follow Up)			_AIR_D^C
+The Air Clone Kicks - (_D^B Follow Up)			_AIR_D^C
 	"Vei sends a clone with a flurry of kicks."
 
 <#f0f000>:STAR STRIKES!:</>
 
-Triple Proj Portal (1 1/2 Bar)						_D_DF_F^A
-	"Vei spawns a portal that shoots three
-	projectiles after some time."
-
-"It's a cloak, not a scarf" (1 1/2 Bar)				_D_DB_B^A
-	"Vei viciously attacks the opponent with his
-	cloak before slashing them."
-
-Cloaked Saw (1/2 Bar, _AIR OK)						_D_DB_B^B
-	"Jumps up and spins his cloak."
-
-Clone Assists (2 Bars)								_D_DF_F^C
+Clone Assists (1/2 Bar)								_D_DF_F^A
 	"Vei punches the opponent twice, and creates
 	a clone that continues punching the opponent."
+
+Triple Projectile Portal (1 1/2 Bar)				_D_DB_B^A
+	"Vei spawns a portal that shoots three
+	projectiles after some time."
+	
+Boosted Cloaked Saw (1 1/2 Bar, _AIR OK)			_D_DB_B^B
+	"Jumps up and spins his cloak, and a clone
+	drags them back down."
+	
+"It's a cloak, not a scarf" (1 1/2 Bar)				_D_DF_F^C
+	"Vei viciously attacks the opponent with his
+	cloak before slashing them."
