@@ -2129,6 +2129,8 @@ anim = 490
 poweradd = -300
 sprpriority = 1
 
+
+
 [State 0, Shock]
 type = PlaySnd
 trigger1 = time = 0
@@ -2251,6 +2253,8 @@ ctrl = 0
 anim = 491
 sprpriority = 3
 
+; add spam deny to this or fix it pls im too lazy
+
 [State 0, AttackDist]
 type = AttackDist
 trigger1 = 1
@@ -2322,14 +2326,20 @@ bindtime = -1
 vel = 0,0
 accel = 0,0
 random = 0,0
-removetime = 40
+removetime = 80
 pausemovetime = 0
 scale = 0.3,0.3
 sprpriority = 3
 ontop = 0
 shadow = 0,0,0
-ownpal = 1
+ownpal = 0
 ignorehitpause = 0
+
+[State 0, AfterImage]
+type = AfterImage
+trigger1 = animelem = 1
+time = 40
+trans = add
 
 [state 450]
 type = velset
@@ -2342,12 +2352,6 @@ trigger1 = time > 6
 x = -0.70
 y = ifelse(pos y - root,pos y > -15, -0.1, 0.1)
 
-[State 0, AfterImage]
-type = AfterImage
-trigger1 = animelem = 1
-time = 40
-trans = add
-
 ;[State 0, TargetBind]
 ;type = TargetBind
 ;triggerall = time < 40
@@ -2356,6 +2360,62 @@ trans = add
 ;id = -1
 ;pos = 10,-10
 ;ignorehitpause = 1
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = root,Time = 7 && root,stateno = 452
+time = 2
+add = 32,32,32
+color = 0
+ignorehitpause = 1
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = root,Time = 8 && root,stateno = 452
+time = 2
+add = 64,64,64
+color = 0
+ignorehitpause = 1
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = root,Time = 9 && root,stateno = 452
+time = 2
+add = 128,128,128
+color = 0
+ignorehitpause = 1
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = root,Time = 10 && root,stateno = 452
+time = 6
+add = 255,255,255
+color = 0
+ignorehitpause = 1
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = root,AnimElem = 7 && root,stateno = 452
+x = root, map(posx)
+y = root, map(posy)
+ignorehitpause = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = root,AnimElem = 7 && root,stateno = 452
+x = -(abs(vel x))
+
+[State 0, Explod]
+type = Explod
+trigger1 = root,AnimElem = 7 && root,stateno = 452
+anim = 550
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+bindtime = 1
+pausemovetime = 0
+scale = 1.1,1.1
+sprpriority = 3
+ignorehitpause = 1
 
 [State 200, 1]
 type = HitDef
@@ -2388,6 +2448,13 @@ Fall.recovertime = 25
 Envshake.time = 5
 Getpower = 0,0
 
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = abs(pos x - root,pos x) = [-20,20] && root,stateno != [450,452]
+trigger2 = time = 60
+id = 451
+ignorehitpause = 1
+
 [State 200, End]
 type = Changestate
 trigger1 = abs(pos x - root,pos x) < 10
@@ -2400,81 +2467,111 @@ value = 402
 [Statedef 452]
 type    = A
 movetype= I
-physics = A
+physics = S
 juggle  = 0
 ctrl = 0
 anim = 492
 poweradd = -200
 sprpriority = 1
 
-[State 0, Shock]
-type = PlaySnd
-trigger1 = time = 0
-value = S400,3
-volumescale = 100
-
-[State 0, RemoveExplod]
-type = RemoveExplod
-trigger1 = AnimElem = 1
-id = 451
-;ignorehitpause = 
-;persistent = 
-
-
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = AnimElem = 4
-x = 5.5
-[State 0, Velset]
-type = Velset
-trigger1 = AnimElem = 2
-x = ifelse(p2bodydist x >= 0, 4, -4)
-y = -2
-
 [State 0, AfterImage]
 type = AfterImage
-trigger1 = AnimElem = 1
+trigger1 = AnimElem = 6
 time = 10
 trans = add
 
 [State 1020, Blink Yellow]
 type = PalFX
-trigger1 = Time = 0
-time = 20
-add = 32,16,0
-sinadd = 0,71,158,3
+trigger1 = Time = 7
+time = 2
+add = 32,32,32
+color = 0
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = Time = 8
+time = 2
+add = 64,64,64
+color = 0
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = Time = 9
+time = 2
+add = 128,128,128
+color = 0
+
+[State 1020, Blink Yellow]
+type = PalFX
+trigger1 = Time = 10
+time = 6
+add = 255,255,255
+color = 0
+
+[State 0, Helper Hit]
+type = MapSet
+trigger1 = AnimElem = 5 ; basically noll
+map = "posx"
+value = pos x + 20
+
+[State 0, Helper Hit]
+type = MapSet
+trigger1 = AnimElem = 5 
+map = "posy"
+value = pos y - 20
+
+[State 0, Shock]
+type = PlaySnd
+trigger1 = AnimElem = 6
+value = S400,2
+volumescale = 100
+
+[State 200, End]
+type = PosSet
+trigger1 = AnimElem = 6 ; basically noll
+x = helper(450),pos x + 25
+y = helper(450),pos y + 5
+
 
 [State 0, Explod]
 type = Explod
-trigger1 = AnimElem = 1
+trigger1 = AnimElem = 6
 anim = 550
-pos = 0,-15
-postype = p1  ;p2,front,back,left,right
-bindtime = 1
+pos = 0,0
+postype = p1
+bindtime = 10
 pausemovetime = 0
 scale = 1,1
 sprpriority = 3
 
-
-[State 200, End]
-type = PosSet
-trigger1 = AnimElem = 1
-x = helper(450),pos x
-y = helper(450),pos y
-
 [State 200, End]
 type = Turn
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 6
 trigger1 = p2bodydist x < 0
+
+[State 0, Velset]
+type = Velset
+trigger1 = AnimElem = 6
+x = 4
+y = -2
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 6
+statetype = A       ;S,A,C,L
+movetype = I        ;I,A,H
+physics = A         ;A,C,S,N
+;ignorehitpause = 
+;persistent = 
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = AnimElem = 2
+trigger1 = AnimElemTime(6) >= 0
 value = 1
 
 [State 200, End]
 type = ChangeState
-trigger1 = AnimTime = 0
+trigger1 = AnimTime = 0 || numhelper(450) = 0
 value = 50
 ctrl = 1
 
