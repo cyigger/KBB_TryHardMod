@@ -34,6 +34,9 @@ Saito:
 Sareo:
 1. Backsway adjusted to allow for better pressure and comboes.
 2. Backsway A adjusted to allow for better pressure and comboes.
+3. Old Wavedash C moved to Wavedash B input
+	* No longer costs meter
+4. New Wavedash C Added
 
 
 Hyrio:

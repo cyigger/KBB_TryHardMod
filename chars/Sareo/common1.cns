@@ -284,7 +284,7 @@ type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 900
+value = 390
 ctrl = 0
 
 [State 200, C]

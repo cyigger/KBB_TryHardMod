@@ -1052,7 +1052,7 @@ volumescale = 300
 type = PowerAdd
 triggerall = anim = 290 && prevstateno != 290
 trigger1 = time = 0
-value = -250
+value = -500
 
 [State 0, Blink Red]
 type = PalFX
@@ -1085,7 +1085,7 @@ movetime = 0
 
 [State 0, Super Armor Bootleg = Animelem = 3]
 type = HitOverride
-trigger1 = power >= 250
+trigger1 = power >= 500
 attr = SCA,NA,SA,NP,SP
 slot = 0
 stateno = stateno

@@ -2395,19 +2395,21 @@ ignorehitpause = 1
 
 [State 0, PosSet]
 type = PosSet
-trigger1 = root,AnimElem = 7 && root,stateno = 452
+trigger1 = root,AnimElemTime(5) >= 2 && root,stateno = 452
 x = root, map(posx)
 y = root, map(posy)
 ignorehitpause = 1
+persistent = 0
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = root,AnimElem = 7 && root,stateno = 452
+trigger1 = root,AnimElemTime(5) >= 2 && root,stateno = 452
 x = -(abs(vel x))
+persistent = 0
 
 [State 0, Explod]
 type = Explod
-trigger1 = root,AnimElem = 7 && root,stateno = 452
+trigger1 = root,AnimElemTime(5) >= 2 && root,stateno = 452
 anim = 550
 pos = 0,0
 postype = p1  ;p2,front,back,left,right
@@ -2416,6 +2418,7 @@ pausemovetime = 0
 scale = 1.1,1.1
 sprpriority = 3
 ignorehitpause = 1
+persistent = 0
 
 [State 200, 1]
 type = HitDef
@@ -2428,7 +2431,7 @@ attr = S, NP
 animtype  = Heavy 
 damage    = 8
 guard.kill = 0
-Hitflag = MAF
+Hitflag = MAFD
 guardflag = MAF
 pausetime = 2,2
 sparkno = 15000
@@ -2450,14 +2453,14 @@ Getpower = 0,0
 
 [State 0, RemoveExplod]
 type = RemoveExplod
-trigger1 = abs(pos x - root,pos x) < 20 && root,stateno != [450,452]
+trigger1 = abs(pos x - root,pos x) < 20 && root,stateno != 452
 trigger2 = time = 60
 id = 451
 ignorehitpause = 1
 
 [State 200, End]
 type = Changestate
-trigger1 = abs(pos x - root,pos x) < 10
+trigger1 = abs(pos x - root,pos x) < 20 && root,stateno != 452
 trigger2 = time = 60
 value = 402
 
@@ -2529,7 +2532,7 @@ volumescale = 100
 [State 200, End]
 type = PosSet
 trigger1 = AnimElem = 5 ; basically noll
-x = helper(450),pos x + 10
+x = helper(450),pos x + 20
 y = helper(450),pos y + 5
 
 
@@ -2553,7 +2556,7 @@ trigger1 = p2bodydist x < 0
 type = Velset
 trigger1 = AnimElem = 5
 x = 4
-y = -2
+y = -3
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -2566,7 +2569,7 @@ physics = A         ;A,C,S,N
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = AnimElemTime(5) >= 0
+trigger1 = AnimElem = 6
 value = 1
 
 [State 200, End]
