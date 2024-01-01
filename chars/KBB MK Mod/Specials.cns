@@ -65,19 +65,19 @@ volumescale = 80
 
 [State 0, SLASH SOUND]
 type = PlaySnd
-trigger1 = Animelem = 10
+trigger1 = Animelem = 8
 value = S21000,0
 volumescale = 80
 
 [State 0, GUST SOUND]
 type = PlaySnd
-trigger1 = Animelem = 13
+trigger1 = Animelem = 11
 value = S21000,2
 volumescale = 80
 
 [State 0, SLASH EFFECT]
 type = Explod
-trigger1 = Animelem = 12
+trigger1 = Animelem = 10
 anim = 21003
 pos = 0,0
 postype = p1  ;p2,front,back,left,right
@@ -98,7 +98,7 @@ removeongethit = 0
 
 [State 0, DUST]
 type = Explod
-trigger1 = Animelem = 12
+trigger1 = Animelem = 10
 anim = 21001
 pos = 45,15
 postype = p1  ;p2,front,back,left,right
@@ -119,7 +119,7 @@ removeongethit = 0
 
 [State 0, WIND]
 type = Explod
-trigger1 = Animelem = 13
+trigger1 = Animelem = 10
 anim = 21002
 pos = 45,15
 postype = p1  ;p2,front,back,left,right
@@ -164,21 +164,21 @@ Envshake.time = 30
 
 [State 0, EnvShake]
 type = EnvShake
-trigger1 = AnimElem = 12
+trigger1 = AnimElem = 10
 time = 50
 freq = 5
 ampl = -4
 
 [State 0, EnvShake]
 type = EnvShake
-trigger1 = AnimElem = 13
+trigger1 = AnimElem = 11
 time = 25
 freq = 5
 ampl = -4
 
 [State 0, SuperPause]
 type = SuperPause
-trigger1 = Animelem = 10
+trigger1 = Animelem = 8
 time = 10
 sound = S5,1
 pos = 0,-20

@@ -242,12 +242,12 @@ trigger1 = command = "holdup"
 value = 60
 ctrl = 0
 
-[State 0, 4] ;Wavedash
-type = ChangeState
-triggerall = time >= 3
-trigger1 = command = "downback"
-value = 31
-ctrl = 0
+;[State 0, 4] ;Wavedash
+;type = ChangeState
+;triggerall = time >= 3
+;trigger1 = command = "downback"
+;value = 31
+;ctrl = 0
 
 [State 200, End]
 type = ChangeState
@@ -361,12 +361,12 @@ ctrl = 0
 ;value = 30
 ;ctrl = 0
 
-[State 0, 4] ;Wavedash
-type = ChangeState
-triggerall = time >= 3
-trigger1 = command = "downfwd"
-value = 30
-ctrl = 0
+;[State 0, 4] ;Wavedash
+;type = ChangeState
+;triggerall = time >= 3
+;trigger1 = command = "downfwd"
+;value = 30
+;ctrl = 0
 
 [State 0, 4] ;Dash fwd
 type = ChangeState

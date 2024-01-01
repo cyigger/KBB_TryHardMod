@@ -1,5 +1,106 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.3.0 Changes:                   /
+|---------------------------------------------------/
+
+In this update, Vei and Watanabe get some pretty substancial changes. On top of that, a few bugs were fixed.
+
+Aege:
+1. Wavedash A cancel from pressing A changed to 5aa
+
+
+Fly:
+1. Wavedash A range reduced.
+2. Wavedash C reworked (anti-air -> pulling combo move)
+
+
+Max:
+1. Wavedash B range reduced.
+
+
+Glitch:
+1. Wavedash C now cancels into j.2c instead of 2c
+
+
+Saito:
+1. Wavedash B Reworked:
+	* Startup reduced drastically (f16 > f9)
+	* Damage reduced (60 > 40)
+	* Active frames reduced drastically reduced
+	* Recovery time reduced
+2. Wavedash C > 6C adjusted to allow for better combo potential.
+
+
+Sareo:
+1. Backsway adjusted to allow for better pressure and comboes.
+2. Backsway A adjusted to allow for better pressure and comboes.
+3. Old Wavedash C moved to Wavedash B input
+	* No longer costs meter
+4. New Wavedash C Added
+
+
+Hyrio:
+1. Wavedash A now hits otg
+2. Wavedash B improved:
+	* Startup reduced (f19 -> f17)
+	* Variety of cancels added
+
+
+Noll:
+1. Wavedash B:
+	* Jumps slightly higher
+	* No longer comboes when used on OTG.
+
+
+Vivienne:
+1. Armoring during No Mercy now costs 1/4 bar
+	* Removed limitation of only being able to armor 3 times during No Mercy
+	* Armor startup reduced (f4 -> f3)
+
+
+Jay:
+1. Added Wavedash Cancel out of 5b
+
+
+Vei:
+1. Removed j.2b for the most part
+2. Reworked j.a hitbox and animation
+3. Reworked j.b and j.bb
+4. New j.2c
+5. Removed 4c
+6. Rearranged Super Inputs.
+7. Added missing hurtbox on a specific block state.
+8. Reworked 4b
+9. Wavedash B is now same as 4b.
+
+
+Violet:
+1. Wavedash B:
+	* New followup: wavedash B > C
+	* New Followup: wavedash B > C > B
+	* Followups can be performed on wiff.
+
+
+Watanabe:
+1. New Wavedash B
+2. New Wavedash C
+
+
+Metaknight:
+1. Increased the size of many of his hurtboxes in common non-attack and hurt states.
+
+
+Stray:
+1. Wavedash C Startup increased (f11 > f13)
+
+
+Yoru:
+1. Removed Wavedash Cancel out of 5bbb
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.2.17 Changes:                   /
 |---------------------------------------------------/
 

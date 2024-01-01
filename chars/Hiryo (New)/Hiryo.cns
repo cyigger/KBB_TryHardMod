@@ -1179,7 +1179,7 @@ trigger1 = 1
 attr = S, NA
 animtype  = Light
 damage    = 25
-hitflag = MAF
+hitflag = MAFD
 guardflag = MAF
 guard.pausetime = 10,12
 pausetime = 10,16
@@ -3106,16 +3106,20 @@ ignorehitpause = 1
 persistent = 0
 value = 4
 
+[State 0, VelSet]
+type = Turn
+trigger1 = AnimElem = 2
+
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = AnimElem = 2
-x = 75
+x = -75
 
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 3
-x = 4
+x = -4
 
 [State 0, SOUND EFFECT ]
 type = PlaySnd
@@ -3148,8 +3152,8 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + 7
-ground.velocity = -4, -2
-air.velocity = -4, -2
+ground.velocity = 4, -2
+air.velocity = 4, -2
 air.hittime = 15 + 7
 Fall = 1
 Fall.recover = 0
@@ -3177,82 +3181,82 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -3, -1
-air.velocity = -3, -1
+ground.velocity = 3, -1
+air.velocity = 3, -1
 air.hittime = 15
 Fall = 1
 Fall.recover = 0
 Envshake.time = 20
 
-;[State 200, Special 2 - "Hyper Rush"]
-;type = ChangeState
-;Triggerall = movecontact
-;triggerall = numhelper(3500) = 0
-;Triggerall = power >= 1000
-;trigger1 = command = "SPECIAL 2"
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-;value = 22000 
-;
-;[State 200, Special 3 - "Lia Burst"]
-;type = ChangeState
-;Triggerall = movecontact
-;triggerall = numhelper(3500) = 0
-;Triggerall = power >= 1000
-;trigger1 = command = "SPECIAL 3"
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-;value = 23000 
-; 
-;[State 200, Special 5 - "Lai Blast."]
-;type = ChangeState
-;Triggerall = movecontact
-;triggerall = numhelper(3500) = 0
-;Triggerall = power >= 2000
-;trigger1 = command = "SPECIAL 5"
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-;value = 25000 
-;
-;[State 200, End] ;RAPIDSLASH
-;type = ChangeState
-;Triggerall = movecontact
-;Triggerall = power > 200
-;triggerall = hitcount = 2
-;trigger1 = command = "holddown"
-;triggerall = numhelper(3500) = 0
-;trigger1 = command = "c"
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && prevstateno = 950
-;value = 450
-;
-;[State 200, 2A]
-;type = ChangeState
-;triggerall = movehit
-;trigger1 = command = "a" && command = "holddown"
-;value = 950
-;
-;[State 200, 5A]
-;type = ChangeState
-;triggerall = movehit
-;trigger1 = command = "a"
-;value = 200
-;
-;[State 200, 5b]
-;type = ChangeState
-;triggerall = movehit
-;trigger1 = command = "b"
-;value = 300
-;
-;[State 200, 2c]
-;type = ChangeState
-;triggerall = movehit
-;triggerall = power >= 250
-;trigger1 = command = "c" && command = "holddown"
-;value = 450
-;
-;[State 200, 5c]
-;type = ChangeState
-;triggerall = movehit
-;triggerall = power >= 200
-;trigger1 = command = "c"
-;value = 400
+[State 200, Special 2 - "Hyper Rush"]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 2"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 22000 
+
+[State 200, Special 3 - "Lia Burst"]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 1000
+trigger1 = command = "SPECIAL 3"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 23000 
+ 
+[State 200, Special 5 - "Lai Blast."]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 2000
+trigger1 = command = "SPECIAL 5"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 25000 
+
+[State 200, End] ;RAPIDSLASH
+type = ChangeState
+Triggerall = movecontact
+Triggerall = power > 200
+triggerall = hitcount = 2
+trigger1 = command = "holddown"
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && prevstateno = 950
+value = 450
+
+[State 200, 2A]
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "a" && command = "holddown"
+value = 950
+
+[State 200, 5A]
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "a"
+value = 200
+
+[State 200, 5b]
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "b"
+value = 300
+
+[State 200, 2c]
+type = ChangeState
+triggerall = movecontact
+triggerall = power >= 250
+trigger1 = command = "c" && command = "holddown"
+value = 450
+
+[State 200, 5c]
+type = ChangeState
+triggerall = movecontact
+triggerall = power >= 200
+trigger1 = command = "c"
+value = 400
 
 [State 200, End]
 type = ChangeState

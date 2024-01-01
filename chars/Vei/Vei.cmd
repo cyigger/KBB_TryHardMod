@@ -597,33 +597,45 @@ flag3=nostandguard
 ; Special 1
 [State -1, SPECIAL 1]
 type = ChangeState
-value = 23000
+value = 24000
 triggerall = numhelper(3500) = 0
-triggerall = numhelper(23001) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = statetype != A
-Triggerall = power >= 1500
+Triggerall = power >= 500
 trigger1 = ctrl
+trigger2 = !isHelper
+trigger2 = movecontact || helper(31),movecontact
+trigger2 = stateno = [200, 499] || stateno = [900, 950]
+;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 2
 [State -1, SPECIAL 2]
 type = ChangeState
-value = 20000
+value = 23000
 triggerall = numhelper(3500) = 0
+triggerall = numhelper(23001) = 0
 triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
-Triggerall = power >= 1000
-trigger1 = ctrl
-;---------------------------------------------------------------------------
-; Special 3
-[State -1, SPECIAL 3]
-type = ChangeState
-value = 22000
-triggerall = numhelper(3500) = 0
-triggerall = command = "SPECIAL 3"
-Triggerall = statetype = A
 Triggerall = power >= 1500
 trigger1 = ctrl
+trigger2 = !isHelper
+trigger2 = movecontact || helper(31),movecontact
+trigger2 = stateno = [200, 499] || stateno = [900, 950]
+;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
+;---------------------------------------------------------------------------
+; Special 3
+;[State -1, SPECIAL 3]
+;type = ChangeState
+;value = 22000
+;triggerall = numhelper(3500) = 0
+;triggerall = command = "SPECIAL 3"
+;Triggerall = statetype = A
+;Triggerall = power >= 1500
+;trigger1 = ctrl
+;trigger2 = !isHelper
+;trigger2 = movecontact || helper(31),movecontact
+;trigger2 = stateno = [200, 499]
+;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 3 (Ground)
 ;[State -1, SPECIAL 3]
@@ -642,18 +654,26 @@ value = 22000
 triggerall = var(19) = 0
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
-Triggerall = power >= 1500
+Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = !isHelper
+trigger2 = movecontact || helper(31),movecontact
+trigger2 = stateno = [200, 499] || stateno = [600, 639] || stateno = [900, 950]
+;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;---------------------------------------------------------------------------
 ; Special 5
 [State -1, SPECIAL 5]
 type = ChangeState
-value = 24000
+value = 20000 
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
-Triggerall = power >= 1000
+Triggerall = power >= 1500
 trigger1 = ctrl
+trigger2 = !isHelper
+trigger2 = movecontact || helper(31),movecontact
+trigger2 = stateno = [200, 499] || stateno = [900, 950]
+;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
 ;===========================================================================
 
 ;---------------------------------------------------------------------------
@@ -785,16 +805,16 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-[State -1, back + C]
-type = ChangeState
-value = 450
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(452) = 0
-triggerall = command = "holdback"
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
+;[State -1, back + C]
+;type = ChangeState
+;value = 450
+;Triggerall = power >= 200
+;triggerall = numhelper(3500) = 0
+;triggerall = numhelper(452) = 0
+;triggerall = command = "holdback"
+;triggerall = command = "c"
+;Triggerall = statetype != A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; C
 [State -1, C]
@@ -895,13 +915,13 @@ Triggerall = statetype = A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Down + B Aire
-[State -1, Down + B Aire]
-type = ChangeState
-value = 615
-triggerall = command = "holddown"
-triggerall = command = "b"
-Triggerall = statetype = A
-trigger1 = ctrl
+;[State -1, Down + B Aire]
+;type = ChangeState
+;value = 615
+;triggerall = command = "holddown"
+;triggerall = command = "b"
+;Triggerall = statetype = A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; B Aire
 [State -1, B Aire]
@@ -923,6 +943,17 @@ trigger1 = ctrl
 ;triggerall = command = "c"
 ;Triggerall = statetype = A
 ;trigger1 = ctrl
+;---------------------------------------------------------------------------
+; Down C Aire
+[State -1, C Aire]
+type = ChangeState
+value = 630
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 200
+triggerall = command = "holddown"
+triggerall = command = "c"
+Triggerall = statetype = A
+trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; C Aire
 [State -1, C Aire]

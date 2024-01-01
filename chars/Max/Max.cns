@@ -2536,7 +2536,7 @@ volumescale = 500
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = AnimElem = 1 || AnimElem = 2
-x = 5
+x = 3.5
 
 ;[State 0, VelAdd]
 ;type = VelSet

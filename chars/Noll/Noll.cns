@@ -4237,7 +4237,7 @@ volumescale = 80
 type = VelSet
 trigger1 = AnimElem = 3
 x = 3.25
-y = -2.5
+y = -3
 
 [State 0, VelAdd]
 type = VelAdd
@@ -4334,9 +4334,9 @@ air.hittime  = 28 + ifelse(enemy,movetype = A, 7,0)
 air.velocity = -4,8
 Fall = 1
 fall.recover = 0
+fall.yvelocity = -0.25
 Envshake.time = 30
 envshake.ampl = -7
-down.bounce = 1
 fall.yvelocity = -3
 
 [State 200, End]

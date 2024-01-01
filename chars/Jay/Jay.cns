@@ -1713,7 +1713,7 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 12 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -1,-4
-air.velocity = -1,-2.5
+air.velocity = -1,-3
 Envshake.time = 10
 Fall = 1
 Fall.recover = 0

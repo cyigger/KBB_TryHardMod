@@ -1078,7 +1078,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = C, NA
 animtype  = Heavy
-damage    = ifelse(enemy,movetype = H, 20, 50)
+damage    = ifelse(enemy,movetype = H, 20, 40)
 hitflag = MAFD
 guardflag = LA
 pausetime = 10,10
@@ -1094,7 +1094,7 @@ ground.hittime  = 30 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2, -3
 air.velocity = -2,-2
 Fall = 0
-Fall.recovertime = 15
+Fall.recovertime = 20
 
 [State 0, Explod]
 type = Explod
@@ -1157,7 +1157,7 @@ type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 410
+value = 210
 
 [State 200, 5BB]
 type = ChangeState

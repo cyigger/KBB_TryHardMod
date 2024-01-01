@@ -910,6 +910,7 @@ anim = 290
 poweradd = 0
 sprpriority = 0
 
+
 [State 0, Juggle Map]
 type = MapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
@@ -956,10 +957,11 @@ trigger1 = time = 3
 map = "hitOverride"
 value = 1
 
+;failsafe
 [State 0, Super Armor Bootleg = Animelem = 3]
 type = HitOverride
-trigger1 = var(47) < 2
-trigger1 = time >= 3
+triggerall = power >= 250
+trigger1 = time > 2
 attr = SCA,NA,SA,NP,SP
 slot = 0
 stateno = 291
@@ -991,7 +993,7 @@ time = 1
 
 [State 0, End]
 type = ChangeState
-trigger1 = time = 4
+trigger1 = time = 2
 value = 291
 ctrl = 1
 
@@ -1028,6 +1030,7 @@ trigger1 = time = 0
 var(47) = 0
 ignorehitpause = 1
 
+
 [State 0, EnvShake]
 type = EnvShake
 trigger1 = AnimElem = 2 || AnimElem = 6
@@ -1043,6 +1046,13 @@ type = PlaySnd
 trigger1 = animelem = 6
 value = S20,1
 volumescale = 300
+
+;Cost Meter To Armor
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = anim = 290 && prevstateno != 290
+trigger1 = time = 0
+value = -500
 
 [State 0, Blink Red]
 type = PalFX
@@ -1075,11 +1085,11 @@ movetime = 0
 
 [State 0, Super Armor Bootleg = Animelem = 3]
 type = HitOverride
-trigger1 = var(47) < 3
+trigger1 = power >= 500
 attr = SCA,NA,SA,NP,SP
 slot = 0
 stateno = stateno
-time = 5
+time = 1
 
 [State 0, HitOverrideCheck]
 type = MapSet

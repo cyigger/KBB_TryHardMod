@@ -1,4 +1,5 @@
 <#f0f000>:Passive Abillity:</>
+
 Hover Dash								_F_D_DF
 	"Noll's Wavedash is done on his spinning
 	sword, so he can wavedash in the air."
@@ -12,6 +13,7 @@ _F^B^B
 ^B>_B^B
 
 <#f0f000>:COMMAND DASH CANCELS:</>
+
 ^A_F_D_DF (Late on Block)
 ^A^A_F_D_DF (Late on Block)
 ^A^A^A_F_D_DF
@@ -21,14 +23,14 @@ _AIR^A^A_F_D_DF
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 
-Thrust								_F_D_DF^A
+Thrust										_F_D_DF^A
 	"Noll thrusts the hilt of his sword."
 
-Lunar Arc							_F_D_DF^B
+Lunar Arc									_F_D_DF^B
 	"Noll performs a massive jumping
 	circular slash with his blade."
 
-Phantom Spiral Release (1/4 Bar)		 	_F_D_DF^C
+Phantom Spiral Release (1/4 Bar)			_F_D_DF^C
 	"Noll sends his spinning blade forward."
 
 <#f0f000>:EX ATTACKS:</>

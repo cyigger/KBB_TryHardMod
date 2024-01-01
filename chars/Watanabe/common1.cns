@@ -254,41 +254,38 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 trigger1 = command = "b"
-value = 900
+value = 390
 ctrl = 0
 
-[State 200, C]
-type = PosAdd
-triggerall = numhelper(401) = 0
-triggerall = numhelper(402) = 0
-triggerall = numhelper(623) = 0
-triggerall = numhelper(440) = 0
-triggerall = numhelper(3500) = 0
-triggerall = power >=250
-trigger1 = command = "c"
-y = -10
-
-[State 200, C]
-type = VelSet
-triggerall = numhelper(401) = 0
-triggerall = numhelper(402) = 0
-triggerall = numhelper(623) = 0
-triggerall = numhelper(440) = 0
-triggerall = numhelper(3500) = 0
-triggerall = power >=250
-trigger1 = command = "c"
-y = -4
+;[State 200, C]
+;type = PosAdd
+;triggerall = numhelper(401) = 0
+;triggerall = numhelper(402) = 0
+;triggerall = numhelper(623) = 0
+;triggerall = numhelper(440) = 0
+;triggerall = numhelper(3500) = 0
+;triggerall = power >=250
+;trigger1 = command = "c"
+;y = -10
+;
+;[State 200, C]
+;type = VelSet
+;triggerall = numhelper(401) = 0
+;triggerall = numhelper(402) = 0
+;triggerall = numhelper(623) = 0
+;triggerall = numhelper(440) = 0
+;triggerall = numhelper(3500) = 0
+;triggerall = power >=250
+;trigger1 = command = "c"
+;y = -4
 
 [State 200, C]
 type = ChangeState
-triggerall = numhelper(401) = 0
-triggerall = numhelper(402) = 0
-triggerall = numhelper(623) = 0
-triggerall = numhelper(440) = 0
 triggerall = numhelper(3500) = 0
-triggerall = power >=250
+triggerall = power >=200
+triggerall = numhelper(401) = 0 || helper(401),prevstateno != 491
 trigger1 = command = "c"
-value = 620
+value = 490
 
 [State 200, End]
 type = ChangeState
