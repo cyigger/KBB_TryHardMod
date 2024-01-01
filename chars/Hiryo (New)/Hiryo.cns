@@ -3152,8 +3152,8 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + 7
-ground.velocity = -4, -2
-air.velocity = -4, -2
+ground.velocity = 4, -2
+air.velocity = 4, -2
 air.hittime = 15 + 7
 Fall = 1
 Fall.recover = 0
@@ -3181,8 +3181,8 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity = -3, -1
-air.velocity = -3, -1
+ground.velocity = 3, -1
+air.velocity = 3, -1
 air.hittime = 15
 Fall = 1
 Fall.recover = 0
@@ -3246,14 +3246,14 @@ value = 300
 
 [State 200, 2c]
 type = ChangeState
-triggerall = movehit
+triggerall = movecontact
 triggerall = power >= 250
 trigger1 = command = "c" && command = "holddown"
 value = 450
 
 [State 200, 5c]
 type = ChangeState
-triggerall = movehit
+triggerall = movecontact
 triggerall = power >= 200
 trigger1 = command = "c"
 value = 400

@@ -2798,12 +2798,6 @@ Triggerall = var(17) < 1
 trigger1 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 25000
 
-[State 200, Wavedash Cancel]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "WD" && command != "NotWD"
-value = 30
-
 [State 200, Down+C]
 type = ChangeState
 Triggerall = movecontact

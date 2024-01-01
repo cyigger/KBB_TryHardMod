@@ -1703,7 +1703,7 @@ helpertype = normal ;player
 name = "Vei Clone"
 ID = 31
 stateno = 321
-pos = 5,-5
+pos = 10,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 1
@@ -1817,24 +1817,34 @@ volumescale = 50
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 4
 x = 5
 y = -5
-[State 0, VelSet]
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = 1 
+y = 0.44
+
+[State 0, VelAdd]
 type = VelSet
-trigger1 = AnimElem = 1
-x = 0
+trigger1 = time < 12
+x = 3
 y = 0
-[State 0, VelSet]
+
+[State 0, VelAdd]
 type = VelSet
-trigger1 = AnimElem = 2
-x = 4
-y = -4
-[State 0, VelSet]
+trigger1 = time = [12,13]
+x = 1.5
+y = -7
+
+[State 0, VelAdd]
 type = VelSet
-trigger1 = AnimElem = 5
+trigger1 = time >= 13
+trigger1 = movecontact
 x = 1
-y = -1
+y = -2
+persistent = 0
 
 [State 0, HurtOverride]
 type = HitOverride
@@ -1861,13 +1871,13 @@ guard.pausetime = 12,12
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = 5,1
+hitsound   = 5,4
 guardsound = 6,11
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3,-5
-air.velocity = -3,-5
+ground.velocity = -1,-5
+air.velocity = -1,-5
 Fall = 1
 fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -10
@@ -2288,7 +2298,7 @@ y = -5
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1 
-y = 0.20
+y = 0.22
 
 [State 0, VelAdd]
 type = VelAdd
@@ -2315,8 +2325,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -4, 2
-air.velocity = -4, 2
+ground.velocity = -2, 4
+air.velocity = -2, 4
 Fall = 1
 fall.recover = 0
 Envshake.time = 10

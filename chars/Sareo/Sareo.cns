@@ -10,6 +10,7 @@
 ;var(10):= 450 - Down + C:, 460 - Back + C: ICE CHARGE, 650 - Down + C - Aire, -3
 ;var(11):= 200 - A - 1, 210 - A - 2, 300 - B:, 310 - B - 2, 320 - B - 3, 405, 406, 407, 409 - C - Amped Ice, 415 - C - 2:, 417 - Shocka, 450 - Down + C:, 464, 700 - Grab, 900 - Overhead, 950 - Low Attack, 600 - A - Aire, 610 - B - Aire, 624, 625, 626, 650 - Down + C - Aire, -3, 22000 - Spinny Boy, 50000 - Star Burst, 51000 - Star Burst Start, 54000 - Star Buster, 54500 - Star Buster off Block, 51001 - Star Burst ground dash proration cooldown, 51002 - Star Burst air dash proration cooldown, -3 - StarBurst Negative Statedef Stuff
 ;var(21):= 462
+;var(22):= Wavedash C Shock Projectile
 ;var(24):= 26002 - BLIZZARD Helper
 ;var(26):= 25008 - Reflect - Helper HIT, 250010
 ;var(29):= -3 - Dont mess with; Executed when in self state
@@ -115,6 +116,8 @@ enableDHC = 0; used to enable DHC in tag mode. 0 disables DHC, 1 enables DHC.
 disableTag = 0 ; Disables tagging when this map is set to 1
 
 burn = 0 ; Tracks how many burn stacks this character has (Inflicted by Jay)
+
+shockCount = 0 ; Track how many shocks have been spawned
 
 
 ;---------------------------------------------------------------------------
@@ -4231,6 +4234,12 @@ poweradd = -200
 velset = 0,0
 sprpriority = 0
 
+[State 0, ShockCount]
+type = MapSet
+trigger1 = time = 0
+map = "shockCount"
+value = 0
+
 [State 0, COSMIC SPEED HELPER]
 type = ChangeAnim2
 trigger1 = numhelper(21500) >= 1 &&time = 0
@@ -4572,21 +4581,21 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
-damage = 60
+damage = 40
 hitflag = MAFD
 guardflag = MAF
 pausetime = 5,5
 guard.pausetime = 0,8
 ground.hittime = 12 + ifelse(enemy,movetype = A, 7,0)
-hitsound  = 5,2
+hitsound = S405,3
 guard.sparkno = 13000
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 15
-ground.velocity = -3,-7
-air.velocity = -3,-6
+ground.velocity = -2,-7
+air.velocity = -2,-6
 fall = 1
-fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
+fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 Getpower = 0
 envshake.time = 15
 
@@ -4682,14 +4691,13 @@ ignorehitpause = 1
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 3 || AnimElem = 4 || AnimElem = 5 || AnimElem = 6 || AnimElem = 7
-triggerall = hitcount < 3
+triggerall = AnimElem = 3 || AnimElem = 4 || AnimElem = 5
 trigger1 = 1
 attr = S, NP
-damage = 35
+damage = 25
 hitflag = MAFD
 guardflag = MAF
-pausetime = 6,6
+pausetime = 8,8
 guard.pausetime = 0,4
 ground.hittime = 12 + ifelse(enemy,movetype = A, 7,0)
 hitsound  = 5,2
@@ -4697,10 +4705,10 @@ guard.sparkno = 13000
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 15
-ground.velocity = -2,-5
-air.velocity = -2,-4
+ground.velocity = -1,-4
+air.velocity = -1,-3
 fall = 1
-fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
+fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 Getpower = 0
 envshake.time = 15
 ground.cornerpush.veloff = 0
@@ -4709,6 +4717,23 @@ down.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 airguard.ctrltime = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 5
+helpertype = normal ;player
+name = "Shock"
+ID = 405
+stateno = 491
+pos = 0,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+size.xscale = 1.2
+size.yscale = 1.3
+supermovetime = 0
+pausemovetime = 0
+inheritJuggle = 1
 
 [State 0, DestroySelf]
 type = DestroySelf
@@ -4798,13 +4823,13 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
-damage = 40
+damage = 15
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,60
 guard.pausetime = 8,8
 ground.hittime = 12 + ifelse(enemy,movetype = A, 7,0)
-hitsound  = 5,2
+hitsound  = S402,1
 guard.sparkno = 13000
 guardsound = 6,10
 ground.type = High
@@ -4910,7 +4935,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
-damage = 45
+damage = 25
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,120
@@ -5022,13 +5047,13 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
-damage = 50
+damage = 25
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,18
 guard.pausetime = 8,18
 ground.hittime = 12 + ifelse(enemy,movetype = A, 7,0)
-hitsound  = 5,2
+hitsound  = 5,4
 guard.sparkno = 13000
 guardsound = 6,10
 ground.type = High
@@ -5127,6 +5152,12 @@ trigger1 = 1
 value = 1 * 0.99**root,var(11)
 ignorehitpause = 1
 
+[State 0, ShockCount]
+type = RootMapAdd
+trigger1 = time = 0
+map = "shockCount"
+value = 1
+
 [State 200, 1]
 type = HitDef
 getpower = 0
@@ -5134,13 +5165,13 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
-damage = 30
+damage = 20
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,18
 guard.pausetime = 8,18
 ground.hittime = 12 + ifelse(enemy,movetype = A, 7,0)
-hitsound  = 5,2
+hitsound  = 5,4
 guard.sparkno = 13000
 guardsound = 6,10
 ground.type = High
@@ -5164,13 +5195,11 @@ trigger1 = AnimElem = 8
 helpertype = normal ;player
 name = "Shock"
 ID = 405
-stateno = ifelse(root,stateno = 490, 497, 496)
+stateno = ifelse(map(shockCount) < 3, 497, 496)
 pos = 80,0
 postype = p1  ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
-size.xscale = 0.5
-size.yscale = 0.5
 supermovetime = 0
 pausemovetime = 0
 inheritJuggle = 1
@@ -5256,6 +5285,12 @@ trigger1 = 1
 value = 1 * 0.99**root,var(11)
 ignorehitpause = 1
 
+[State 0, ShockCount]
+type = RootMapSet
+trigger1 = time = 0
+map = "shockCount"
+value = 0
+
 [State 200, 1]
 type = HitDef
 getpower = 0
@@ -5263,13 +5298,13 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
-damage = 35
+damage = 30
 hitflag = MAFD
 guardflag = MAF
 pausetime = 8,18
 guard.pausetime = 8,18
 ground.hittime = 12 + ifelse(enemy,movetype = A, 7,0)
-hitsound  = 5,2
+hitsound  = 5,4
 guard.sparkno = 13000
 guardsound = 6,10
 ground.type = High
@@ -5286,6 +5321,15 @@ down.cornerpush.veloff = 0
 guard.cornerpush.veloff = 0
 airguard.cornerpush.veloff = 0
 airguard.ctrltime = 0
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = AnimElem = 3
+v = 22    ;fv = 10
+value = 0
+;ignorehitpause = 
+;persistent = 
+
 
 [State 0, DestroySelf]
 type = DestroySelf
