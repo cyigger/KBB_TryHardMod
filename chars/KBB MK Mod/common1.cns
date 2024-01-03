@@ -170,9 +170,21 @@ time = 10
 trans = add
 
 [State 0, VelSet]
+type = VelAdd
+trigger1 = time = 0
+x = const(velocity.run.fwd.x) * 1.78 * 0.6
+y = 0
+
+[State 0, VelSet]
 type = VelSet
-trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.78
+trigger1 = time = [1, 2]
+x = const(velocity.run.fwd.x) * 1.78 * 1.25
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = time > 5
+trigger1 = vel x > 1
+x = -0.25
 
 [State 0, Explod]
 type = Explod

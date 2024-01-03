@@ -955,6 +955,7 @@ value = 24000
 
 [State 200, Dash cancel Forward]
 type = ChangeState
+triggerall = prevstateno != 250
 Triggerall = command = "WD" && command != "NotWD"
 trigger1 = movehit || (movecontact && AnimTime > -7)
 value = 30

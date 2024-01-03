@@ -204,15 +204,32 @@ time = 5
 paladd = 240,50,0
 trans = add
 
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = time = [0, 1]
+;x = 13
+;
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = time = 10
+;x = 6
+
 [State 0, VelSet]
-type = VelSet
-trigger1 = time = [0, 1]
-x = 13
+type = VelAdd
+trigger1 = time = 0
+x = 13 * 0.6
+y = 0
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 10
-x = 6
+trigger1 = time = [1, 2]
+x = 13 * 1.25
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = time > 5
+trigger1 = vel x > 1
+x = -0.44
 
 [State 0, Explod]
 type = Explod

@@ -1,6 +1,23 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
-| Try-Hard Version 0.3.0 Changes:                   /
+| Try-Hard Version 0.3.1 Changes:                    /
+|---------------------------------------------------/
+
+Some more adjustments to try improve the feel while also addressing some accidental comboes.
+
+Universal:
+1. Adjusted Wavedash Speed Curve
+	* Faster at the start, but slows down faster
+	* Total distance remains approximately the same, maybe a bit further.
+
+
+Aege:
+1. Removed WD A > A Loop
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
+| Try-Hard Version 0.3.0 Changes:                    /
 |---------------------------------------------------/
 
 In this update, Vei and Watanabe get some pretty substancial changes. On top of that, a few bugs were fixed.

@@ -177,9 +177,21 @@ paladd = 255, 208, 0
 trans = add
 
 [State 0, VelSet]
+type = VelAdd
+trigger1 = time = 0
+x = const(velocity.run.fwd.x) * 1.95 * 0.6
+y = 0
+
+[State 0, VelSet]
 type = VelSet
-trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.95
+trigger1 = time = [1, 2]
+x = const(velocity.run.fwd.x) * 1.95 * 1.25
+
+[State 0, VelSet]
+type = VelAdd
+trigger1 = time > 5
+trigger1 = vel x > 1
+x = -0.25
 
 [State 0, Explod]
 type = Explod
