@@ -41,6 +41,25 @@ Hyrio:
 2. j.b vertical knockback reduced
 
 
+Jay:
+1. j.5b knockback adjusted
+	* reduced vertically, increased horizontally
+
+
+Metaknight:
+1. Jumps reduced (2 airjumps > 1 airjumps)
+
+
+Max:
+1. 5aaa > c and wavedash b cancels all made more consistent
+
+
+Violet:
+1. j.5aa Adjusted
+	* Knockback angle changed
+	* Animation changed to match
+
+
 
 ===================================================================================================================================
 |-----------------------------------------------------/

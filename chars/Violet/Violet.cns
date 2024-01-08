@@ -69,9 +69,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .44		;Vertical acceleration
+yaccel = .55		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing 0.85
 crouch.friction = .82	;Friction coefficient when crouching 0.82
 
@@ -4163,8 +4163,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-7
-air.velocity = -2,-7
+ground.velocity = -3,-4
+air.velocity = -3,-4
 Fall = 0
 Envshake.time = 5
 Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
@@ -4195,13 +4195,13 @@ trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 610
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "up" && var(3) = 0 
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
-value = 45
-ctrl = 1
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;trigger1 = command = "up" && var(3) = 0 
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
+;value = 45
+;ctrl = 1
 
 [State 200, j.2C]
 type = ChangeState
