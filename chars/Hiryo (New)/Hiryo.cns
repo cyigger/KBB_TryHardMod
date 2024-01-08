@@ -68,9 +68,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .44		;Vertical acceleration
+yaccel = .55		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing 0.85
 crouch.friction = .82	;Friction coefficient when crouching 0.82
 
@@ -1000,8 +1000,8 @@ hitsound   = 5,3
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -2, -4.5
-air.velocity = -3,-5.5
+ground.velocity = -2, -4
+air.velocity = -3,-5
 Envshake.time = 10
 
 [State 200, 1]
@@ -1027,8 +1027,8 @@ hitsound   = 5,3
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -2, -5
-air.velocity = -3,-4.5
+ground.velocity = -2, -4.5
+air.velocity = -3,-4
 Fall = 1
 Envshake.time = 10
 Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
@@ -3914,18 +3914,18 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 25 + ifelse(enemy,movetype = A || movecountered, 7,0)
-ground.velocity = -2,-3
-air.velocity = -2,-3
+ground.velocity = -2,-2
+air.velocity = -2,-2
 air.hittime  = 25 + ifelse(enemy,movetype = A || movecountered, 7,0)
 Fall = 0
-fall.recover =  0
+fall.recovertime = 30 + ifelse(enemy,movetype = A || movecountered, 7,0)
 Envshake.time = 20
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0 
-value = 45
-ctrl = 1
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0 
+;value = 45
+;ctrl = 1
 
 [State 200, FastFall]
 type = ChangeState
@@ -4045,21 +4045,20 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 25 + ifelse(enemy,movetype = A || movecountered, 7,0)
-ground.velocity = -2,-5
-air.velocity = -2,-5
+ground.velocity = -2,-4
+air.velocity = -2,-3
 air.hittime  = 35 + ifelse(enemy,movetype = A || movecountered, 7,0)
 Fall = 1
-fall.recovertime = 30 + ifelse(enemy,movetype = A || movecountered, 7,0)
-fall.recover =  0
+fall.recovertime = 40 + ifelse(enemy,movetype = A || movecountered, 7,0)
 Envshake.time = 5
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact && var(3) = 0 
-trigger1 = command = "holdup"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 45
-ctrl = 1
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact && var(3) = 0 
+;trigger1 = command = "holdup"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 45
+;ctrl = 1
 
 [State 200, FastFall]
 type = ChangeState

@@ -69,9 +69,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .44		;Vertical acceleration
+yaccel = .55		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing 0.85
 crouch.friction = .82	;Friction coefficient when crouching 0.82
 
@@ -1316,7 +1316,7 @@ fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, GRENADE SPAWN AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(452) = 0
@@ -1327,7 +1327,7 @@ trigger1 = command = "holddown"
 value = 630
 [State 200, CANNON AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(402) = 0
@@ -1338,7 +1338,7 @@ value = 620
 
 [State 200, j5B]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 trigger1 = command = "b"
 value = 610
@@ -2648,7 +2648,7 @@ fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, GRENADE SPAWN AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(452) = 0
@@ -2659,7 +2659,7 @@ trigger1 = command = "holddown"
 value = 630
 [State 200, CANNON AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(402) = 0
@@ -2670,7 +2670,7 @@ value = 620
 
 [State 200, j5B]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 trigger1 = command = "b"
 value = 610
@@ -4123,11 +4123,11 @@ airguard.cornerpush.veloff = 0
 ground.cornerpush.veloff = -8
 air.cornerpush.veloff = 0
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0 
-value = 45
-ctrl = 1
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0 
+;value = 45
+;ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -4249,12 +4249,12 @@ airguard.cornerpush.veloff = 0
 ground.cornerpush.veloff = -8
 air.cornerpush.veloff = 0
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0 
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-value = 45
-ctrl = 1
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0 
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+;value = 45
+;ctrl = 1
 
 [State 200, End]
 type = ChangeState

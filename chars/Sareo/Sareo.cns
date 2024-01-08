@@ -77,9 +77,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .44		;Vertical acceleration
+yaccel = .55		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing 0.85
 crouch.friction = .82	;Friction coefficient when crouching 0.82
 [Constants]
@@ -2538,10 +2538,10 @@ value = S405,0
 volumescale = 500
  
 
-[State 3000, 0]
-type = ScreenBound
-trigger1 = 1
-value = 1
+;[State 3000, 0]
+;type = ScreenBound
+;trigger1 = 1
+;value = 1
 
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
@@ -2583,11 +2583,11 @@ airguard.ctrltime = 0
 [State 200, End]
 type = ChangeState
 trigger1 = movecontact
-trigger2 = FrontEdgeDist < 5
 value = 406
 [State 0, DestroySelf]
 type = DestroySelf
 trigger1 = time = 200
+trigger2 = FrontEdgeDist < -100
 ;------------------------FIREBALL EXPLODE
 [Statedef 406]
 type  = A

@@ -72,9 +72,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0	;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .44		;Vertical acceleration
+yaccel = .55	;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing 0.85
 crouch.friction = .82	;Friction coefficient when crouching 0.82
 
@@ -2007,7 +2007,7 @@ ground.velocity = -3,-5
 air.velocity = -3,-4.5
 Fall = 1
 Fall.recover = 1
-fall.recovertime = ifelse(enemy,movetype = A,70,35)
+fall.recovertime = ifelse(enemy,movetype = A,80,40)
 
 Envshake.time = 30
 
@@ -4496,7 +4496,7 @@ ground.velocity = -2,-8
 air.velocity = -2,-6
 Fall = 1
 Envshake.time = 25
-Fall.recovertime = 45 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 50 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -12
 airguard.cornerpush.veloff = -10
 

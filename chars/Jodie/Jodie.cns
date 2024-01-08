@@ -70,9 +70,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 1		;Number of air jumps allowed (opt)
+airjump.num = 0	;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .44		;Vertical acceleration
+yaccel = .55		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing
 crouch.friction = .82	;Friction coefficient when crouching
 
@@ -4540,11 +4540,11 @@ Fall = 0
 Envshake.time = 5
 Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0 
-value = 45
-ctrl = 1 
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0 
+;value = 45
+;ctrl = 1 
 
 [State 200, DP SPECIAL]
 type = ChangeState
@@ -4711,13 +4711,13 @@ Fall = 0
 Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 5
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "holdup" && var(3) = 0 
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
-value = 45
-ctrl = 1
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;trigger1 = command = "holdup" && var(3) = 0 
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
+;value = 45
+;ctrl = 1
 
 [State 200, J.6C]
 type = ChangeState
@@ -4932,6 +4932,7 @@ y = -3.7
 type = VelSet
 trigger1 = movecontact = 1 
 x = 2
+y = -2
 
 
 [State 200, 1]
@@ -6552,7 +6553,7 @@ y = -6
 type = VelSet
 trigger1 = AnimElem = 4
 x = 3.5
-y = -4.25
+y = -4.75
 
 [State 200, 1]
 type = HitDef
@@ -6961,11 +6962,11 @@ trigger1 = command = "holddown"
 trigger1 = command = "c"
 value = 2850
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0 
-value = 45
-ctrl = 1 
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0 
+;value = 45
+;ctrl = 1 
 
 [State 200, End]
 type = ChangeState
@@ -7124,13 +7125,13 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 2830
 
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "holdup" && var(3) = 0 
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0 
-value = 45
-ctrl = 1 
+;[State 0, ChangeState]
+;type = ChangeState
+;triggerall = movecontact
+;trigger1 = command = "holdup" && var(3) = 0 
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0 
+;value = 45
+;ctrl = 1 
 
 [State 200, End]
 type = ChangeState
@@ -7250,12 +7251,12 @@ Fall = 1
 Envshake.time = 20
 fall.recovertime = 50
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = command = "holdup" && movecontact && var(3) = 0
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 45
-ctrl = 1 
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = command = "holdup" && movecontact && var(3) = 0
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 45
+;ctrl = 1 
 
 [State 200, DP SPECIAL]
 type = ChangeState

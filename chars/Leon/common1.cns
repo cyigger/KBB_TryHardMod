@@ -856,7 +856,7 @@ sysvar(1) = -1
 type = VelSet
 trigger1 = AnimTime = 0
 x = ifelse(sysvar(1)=0, 0, ifelse(sysvar(1)=1, 4.9, -4.95))
-y = const(velocity.jump.y) * 0.75
+y = const(velocity.jump.y) * 0.85
 
 [State 40, 6]
 type = ChangeState
