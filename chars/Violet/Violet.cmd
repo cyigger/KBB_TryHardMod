@@ -544,7 +544,7 @@ buffer.time = 1
 ; you are in.
 
 
- ;Don't remove the following line. It's required by the CMD standard.
+; Don't remove the following line. It's required by the CMD standard.
 [Statedef -1]
 
 ;===========================================================================

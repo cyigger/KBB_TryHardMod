@@ -128,9 +128,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 0		;Number of air jumps allowed (opt)
+airjump.num = 1		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .55		;Vertical acceleration
+yaccel = .44		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing
 crouch.friction = .82	;Friction coefficient when crouching
 
@@ -5001,13 +5001,13 @@ trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
-;[State 600, Air Jump Cancel]
-;type = ChangeState
-;triggerall = movecontact
-;trigger1 = command = "holdup" && var(3) = 0 
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-;value = 45
-;ctrl = 1
+[State 600, Air Jump Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "holdup" && var(3) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -5118,13 +5118,13 @@ trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
-;[State 600, Air Jump Cancel]
-;type = ChangeState
-;triggerall = movecontact
-;trigger1 = command = "holdup" && var(3) = 0 
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-;value = 45
-;ctrl = 1
+[State 600, Air Jump Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "holdup" && var(3) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -5228,13 +5228,13 @@ trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
-;[State 600, Air Jump Cancel]
-;type = ChangeState
-;triggerall = movecontact
-;trigger1 = command = "holdup" && var(3) = 0 
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-;value = 45
-;ctrl = 1
+[State 600, Air Jump Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "holdup" && var(3) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -5314,11 +5314,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3, -4
-air.velocity = -3,-4
+ground.velocity = -2, -8
+air.velocity = -2,-8
 Fall = 1
 Envshake.time = 15
-Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
@@ -5361,13 +5361,13 @@ trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
 
-;[State 610, Air Jump Cancel]
-;type = ChangeState
-;triggerall = movecontact
-;trigger1 = command = "holdup" && var(3) = 0 
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-;value = 45
-;ctrl = 1
+[State 610, Air Jump Cancel]
+type = ChangeState
+triggerall = movecontact
+trigger1 = command = "holdup" && var(3) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
 
 [State 610, End]
 type = ChangeState

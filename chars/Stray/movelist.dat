@@ -4,8 +4,7 @@ _D^A_F^A
 <#f0f000>:COMMAND DASH CANCELS:</>
 ^A_F_D_DF (Late on Block)
 ^A^A_F_D_DF (Late on Block)
-^A^A^A_F_D_DF
-^B_F_D_DF (On Hit Only)
+^A^A^A_F_D_DF (On Hit Only)
 
 <#f0f000>:COMMAND DASH ATTACKS:</>
 
@@ -19,8 +18,7 @@ Spear Hellsweep								_F_D_DF^B
 	spear dance."
 
 Trash Move (1/5 Bar)						_F_D_DF^C
-	"Stray spins his spear around him, 
-	starting the spear dance in the process"
+	"5b, but it starts the spear dance"
 
 <#f0f000>:EX ATTACKS:</>
 

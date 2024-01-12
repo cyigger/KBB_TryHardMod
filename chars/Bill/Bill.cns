@@ -75,9 +75,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 0		;Number of air jumps allowed (opt)
+airjump.num = 1		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .55		;Vertical acceleration
+yaccel = .44		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing
 crouch.friction = .82	;Friction coefficient when crouching
 
@@ -2716,7 +2716,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 anim = 490
-poweradd = -250
+poweradd = -200
 sprpriority = 2
 
 
@@ -2766,7 +2766,7 @@ persistent = 0
 type = VelSet
 trigger1 = AnimElem = 5
 x = 5
-y = -6.5
+y = -6
 
 [State 0, StateTypeSet]
 type = StateTypeSet

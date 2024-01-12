@@ -74,9 +74,9 @@ airjump.back = -2.55	;Air jump speeds (opt)
 airjump.fwd = 2.5		;.
 
 [Movement]
-airjump.num = 0		;Number of air jumps allowed (opt)
+airjump.num = 1		;Number of air jumps allowed (opt)
 airjump.height = 35	;Minimum distance from ground before you can air jump (opt)
-yaccel = .55		;Vertical acceleration
+yaccel = .44		;Vertical acceleration
 stand.friction = .85	;Friction coefficient when standing
 crouch.friction = .82	;Friction coefficient when crouching
 
@@ -9278,12 +9278,12 @@ triggerall = numhelper(3500) = 0
 trigger1 = ailevel = 0 && command = "SPECIAL 3"
 value = 23000
 
-;[State 0, ChangeState]
-;type = ChangeState
-;trigger1 = command = "holdup" && movehit && var(3) = 0 
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-;value = 45
-;ctrl = 1
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && movehit && var(3) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
 
 [State 200, j.5A]
 type = ChangeState
@@ -9471,12 +9471,12 @@ air.velocity = -4, 5
 airguard.velocity = -5,4
 Envshake.time = 14
 
-;[State 0, ChangeState]
-;type = ChangeState
-;trigger1 = command = "holdup" && movecontact && var(3) = 0 
-;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
-;value = 45
-;ctrl = 1
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && movecontact && var(3) = 0 
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && movecontact && var(3) = 0 
+value = 45
+ctrl = 1
 
 [State 200, Special 3 - Air Kick]
 type = ChangeState

@@ -9,56 +9,10 @@ Universal:
 1. Adjusted Wavedash Speed Curve
 	* Faster at the start, but slows down faster
 	* Total distance remains approximately the same, maybe a bit further.
-***EXTREMELY EXPERIMENTAL***
-2. Increased Gravity (0.44 > 0.55)
-3. Removed Double Jump
-4. Hyperhop height increased to compensate for gravity
 
 
 Aege:
 1. Removed WD A > A Loop
-
-Stray:
-1. 5aaa Wavedash Cancel changed from (On Hit Only) to normal
-2. 5b Wavedash Cancel added (On Hit Only)
-3. 5a, 5aa, 5aaa, 5b, 5bb knockback redused on hit for better comboability.
-
-
-Fly:
-1. j.5c projectile size decreased
-2. j.5aa vertical knockback reduced.
-
-
-Sareo:
-1. 5c fireball nerfed:
-	* Size reduced
-	* Fires lower to make jumping over it easier
-	* No longer explodes when it reaches the corner uninterrupted.
-
-
-Hyrio:
-1. j.a and j.b no longer knockdown
-2. j.b vertical knockback reduced
-
-
-Jay:
-1. j.5b knockback adjusted
-	* reduced vertically, increased horizontally
-
-
-Metaknight:
-1. Jumps reduced (2 airjumps > 1 airjumps)
-
-
-Max:
-1. 5aaa > c and wavedash b cancels all made more consistent
-
-
-Violet:
-1. j.5aa Adjusted
-	* Knockback angle changed
-	* Animation changed to match
-
 
 
 ===================================================================================================================================
