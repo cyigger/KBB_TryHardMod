@@ -578,8 +578,8 @@ hitsound   = S0,20
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -2.5,-3.5
-air.velocity = -2,-2.5
+ground.velocity = -2.5,-3
+air.velocity = -2,-2
 Envshake.time = 10
 
 [State 200, Wavedash Cancel]
@@ -724,13 +724,13 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.velocity = -4,-3
-air.velocity = -4,-2.5
+air.velocity = -4,-2
 Envshake.time = 20
 fall = 1
 
 [State 200, Wavedash]
 type = ChangeState
-triggerall = movehit
+triggerall = movecontact
 trigger1 = command = "WD"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 50)
 value = 30
@@ -1207,9 +1207,16 @@ hitsound   = S0,11
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -2,-6
-air.velocity = -1,-6
+ground.velocity = -2,-4
+air.velocity = -1,-4
 Envshake.time = 15
+
+[State 200, Wavedash]
+type = ChangeState
+triggerall = movehit
+trigger1 = command = "WD"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 50)
+value = 30
 
 [State 200, 2A]
 type = ChangeState

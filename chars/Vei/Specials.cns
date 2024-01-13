@@ -770,7 +770,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 anim = 22000
-poweradd = -1500
+poweradd = -1000
 sprpriority = 2
 
 [State 0, Busterable]
@@ -1024,11 +1024,11 @@ Fall = 1
 Fall.recovertime = 100
 Envshake.time = 5
 
-[State 0, ScreenBound]	;Don't leave screen pls
-type = ScreenBound
-trigger1 = Time = [1,100]
-value = 1
-movecamera = 0,0
+;[State 0, ScreenBound]	;Don't leave screen pls
+;type = ScreenBound
+;trigger1 = Time = [1,100]
+;value = 1
+;movecamera = 0,0
 
 [State 200, End]
 type = ChangeState

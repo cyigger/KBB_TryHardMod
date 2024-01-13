@@ -15,6 +15,28 @@ Aege:
 1. Removed WD A > A Loop
 
 
+Vei:
+1. 214B clone no longer stays on screen
+	* Cost lowered (1.5 Bar > 1 Bar)
+
+
+Hyrio:
+1. Wavedash B crossup now occures later
+
+
+Stray:
+1. Lowered knockback of 5a, 5aa, 5aaa and 5b
+
+
+Max:
+1. Made cancels out of 5aaa > c and wavedash b normal in timing
+
+
+Bill:
+1. Wavedash C Nerfed:
+	* No longer detonates bombs planted on opponents.
+
+
 ===================================================================================================================================
 |-----------------------------------------------------/
 | Try-Hard Version 0.3.0 Changes:                    /

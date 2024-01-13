@@ -3108,11 +3108,11 @@ value = 4
 
 [State 0, VelSet]
 type = Turn
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 3
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 3
 x = -75
 
 

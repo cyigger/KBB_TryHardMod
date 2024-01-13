@@ -1316,7 +1316,7 @@ fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, GRENADE SPAWN AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(452) = 0
@@ -1327,7 +1327,7 @@ trigger1 = command = "holddown"
 value = 630
 [State 200, CANNON AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(402) = 0
@@ -1338,7 +1338,7 @@ value = 620
 
 [State 200, j5B]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 trigger1 = command = "b"
 value = 610
@@ -2648,7 +2648,7 @@ fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, GRENADE SPAWN AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(452) = 0
@@ -2659,7 +2659,7 @@ trigger1 = command = "holddown"
 value = 630
 [State 200, CANNON AIR]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 triggerall = power >= 200
 triggerall = numhelper(402) = 0
@@ -2670,7 +2670,7 @@ value = 620
 
 [State 200, j5B]
 type = ChangeState
-Triggerall = movehit = 1
+Triggerall = movehit
 triggerall = hitcount = 2
 trigger1 = command = "b"
 value = 610
