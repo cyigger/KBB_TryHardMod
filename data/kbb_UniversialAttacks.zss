@@ -48,7 +48,7 @@
             physics: A;
         }
     }
-    if pos y > 1 {
+    if pos y > -1 {
         StateTypeSet{
             statetype: S;
             physics: S;
@@ -2227,7 +2227,7 @@ if Const(KBB_Playable) = 1 {
     if power >= 1000 || numhelper(51000) != 0 {
         if !ctrl && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
             #The exceptions
-            if stateno != 67 && stateno != 500  && stateno != 150 && stateno != 152 && stateno != 154 && stateno != 5000 && stateno != 5010 && stateno != 5020 && stateno != 5070 && stateno != 5080 {
+            if stateno != 67 && stateno != [800, 820]  && stateno != 500 && stateno != 501  && stateno != 150 && stateno != 152 && stateno != 154 && stateno != 5000 && stateno != 5010 && stateno != 5020 && stateno != 5070 && stateno != 5080 {
                 ChangeState{value: 67}
             }
         }
@@ -2264,6 +2264,15 @@ if Const(KBB_Playable) = 1 {
 #Dont Mess With; Always Executed
 #===============================================================================
 [Statedef -2]
+
+if pos y > 0 && ctrl {
+    StateTypeSet{
+        statetype: S;
+        physics: S;
+    }
+    VelSet{y:0}
+    PosSet{y:0}
+}
 
 if Const(KBB_Playable) = 1 {
 
