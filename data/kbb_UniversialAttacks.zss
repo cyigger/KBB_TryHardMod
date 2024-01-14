@@ -2218,7 +2218,7 @@ if Const(KBB_Playable) = 1 {
     }
 
     #Star Cancel Command
-    if (power >= 1000 || numhelper(51000) = 0) && roundstate != 1 && stateno != 500 {
+    if power >= 1000 && roundstate != 1 && stateno != 500 && !ishelper {
         if !ctrl && stateno != 67 && prevstateno != 67 && command = "s" && time >= 3 {
             ChangeState{value: 67}
         }
