@@ -40,8 +40,6 @@
 
  if time = 2 {
     CtrlSet{value: 1;}
-
-    
  }
 
  if time >= 2 {
@@ -49,6 +47,14 @@
         StateTypeSet{
             physics: A;
         }
+    }
+    if pos y > 1 {
+        StateTypeSet{
+            statetype: S;
+            physics: S;
+        }
+        VelSet{y:0}
+        PosSet{y:0}
     }
  }
 
@@ -2218,9 +2224,12 @@ if Const(KBB_Playable) = 1 {
     }
 
     #Star Cancel Command
-    if power >= 1000 && roundstate != 1 && stateno != 500 && !ishelper {
+    if power >= 1000 || numhelper(51000) != 0 {
         if !ctrl && stateno != 67 && prevstateno != 67 && command = "s" && time >= 3 {
-            ChangeState{value: 67}
+            #The exceptions
+            if roundstate != 1 && stateno != 500 && !ishelper && stateno != [150,155] {
+                ChangeState{value: 67}
+            }
         }
     }
 
@@ -2238,7 +2247,7 @@ if Const(KBB_Playable) = 1 {
     }
 
     #Counter
-    if command = "hold_x" && ailevel = 0 && ctrl {
+    if command = "hold_x" && ailevel = 0 && ctrl && stateno != 67 {
         #Air Counter
         if statetype = A {
             ChangeState{value: 810; ctrl: 0}
