@@ -9,6 +9,9 @@ Universal:
 1. Adjusted Wavedash Speed Curve
 	* Faster at the start, but slows down faster
 	* Total distance remains approximately the same, maybe a bit further.
+***EXTREMELY EXPERIMENTAL***
+2. Added Star Cancel:
+	* you can cancel any move by pressing the powercharge button. Costs one bar.
 
 
 Aege:
