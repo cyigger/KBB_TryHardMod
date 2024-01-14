@@ -865,7 +865,7 @@ trigger5 = AnimElem = 8
 trigger6 = AnimElem = 9
 trigger7 = AnimElem = 10
 trigger8 = AnimElem = 11
-attr = A, NP
+attr = A, SA
 animtype  = Heavy 
 damage    = 15
 Hitflag = MAFD
@@ -979,6 +979,15 @@ map = "helperHit"
 value = movehit
 ;ignorehitpause = 
 ;persistent = 
+
+[State 0, HurtOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA, AA, AP, AT     ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 39
+time = 2
+forceair = 0
 
 
 [State 0, Damage Proration]
