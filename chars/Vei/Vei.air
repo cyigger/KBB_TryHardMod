@@ -1241,7 +1241,7 @@ Clsn1: 1
 [Begin Action 804]
 Clsn2Default: 1
   Clsn2[0] = -23, -43, 16, 0
-0,144, 0,0, 10
+0,144, 0,0, 25
 ;-------------------------
 ; COUNTER AIR - Bait
 [Begin Action 810]
