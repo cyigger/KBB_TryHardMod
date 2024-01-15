@@ -42,6 +42,10 @@
     CtrlSet{value: 1;}
  }
 
+ if p2bodydist x < 0 {
+    Turn{}
+ }
+
  if time >= 2 {
     if pos y < -1 {
         StateTypeSet{
@@ -2228,7 +2232,9 @@ if Const(KBB_Playable) = 1 {
         if !ctrl && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
             #The exceptions
             if stateno != 67 && stateno != [800, 820]  && stateno != 500 && stateno != 501  && stateno != 150 && stateno != 152 && stateno != 154 && stateno != 5000 && stateno != 5010 && stateno != 5020 && stateno != 5070 && stateno != 5080 {
-                ChangeState{value: 67}
+                if !(name = "Leon" && stateno = [26000, 26999]) {
+                    ChangeState{value: 67}
+                }
             }
         }
     }
@@ -2477,3 +2483,15 @@ if Const(KBB_Playable) = 1 {
         }
     }
 }
+
+[Statedef -3]
+# ------ Defense Set ------
+if RoundState = 0 && teammode != tag && enemy,teammode != tag {
+    MapSet{map: "initialDefence"; value: 1.25}
+}
+
+if roundstate = 1 {
+    MapSet{map: "defence"; value: 0}
+}
+
+DefenceMulSet{value: map(initialDefence) + map(defence); onhit: 0}
