@@ -48,7 +48,7 @@
             physics: A;
         }
     }
-    if pos y > -1 {
+    if pos y > 0 {
         StateTypeSet{
             statetype: S;
             physics: S;
@@ -2265,16 +2265,12 @@ if Const(KBB_Playable) = 1 {
 #===============================================================================
 [Statedef -2]
 
-if pos y > 0 && ctrl {
-    StateTypeSet{
-        statetype: S;
-        physics: S;
-    }
-    VelSet{y:0}
-    PosSet{y:0}
-}
-
 if Const(KBB_Playable) = 1 {
+
+    #Stall Fixing
+    if statetype = S && ctrl {
+        VelSet{y: vel y * 0.5}
+    }
 
     #Make StarBurst Un-Busterable
     if !enemynear, numhelper(51000) = 1 {

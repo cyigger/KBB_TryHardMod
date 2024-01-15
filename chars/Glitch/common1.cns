@@ -191,6 +191,7 @@ type = VelAdd
 trigger1 = time > 5
 trigger1 = vel x > 1
 x = -0.25
+y = -vel y * 0.25
 
 [State 0, Explod]
 type = Explod
@@ -282,6 +283,13 @@ value = 590
 type = ChangeState
 trigger1 = AnimTime = 0
 value = ifelse(pos y < -1, 50, 0)
+ctrl = 1
+
+[State 200, End]
+type = ChangeState
+triggerall = time > 2
+trigger1 = pos y >= 1
+value = 52
 ctrl = 1
 
 ;---------------------------------------------------------------------------
