@@ -42,7 +42,7 @@
     CtrlSet{value: 1;}
  }
 
- if p2bodydist x < -5 {
+ if p2bodydist x < -10 {
     Turn{}
  }
 
@@ -2232,7 +2232,11 @@ if Const(KBB_Playable) = 1 {
         if !ctrl && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
             #The exceptions
             if stateno != 67 && stateno != [800, 820]  && stateno != 500 && stateno != 501  && stateno != 150 && stateno != 152 && stateno != 154 && stateno != 5000 && stateno != 5010 && stateno != 5020 && stateno != 5070 && stateno != 5080 {
-                if !(name = "Leon" && stateno = [26000, 26999]) {
+                #Character exceptions
+                if !(name = "Leon" && stateno = [26000, 26999]) && 
+                    !(name = "Jodie" && (stateno = 611 || stateno = 401 || stateno = 615) && movehit) &&
+                    !(name != "Noll" && stateno = 900 && movehit) &&
+                    !(name != "Saito" && stateno = 300) {
                     ChangeState{value: 67}
                 }
             }

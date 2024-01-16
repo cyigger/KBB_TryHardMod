@@ -4566,14 +4566,6 @@ value = 600
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) != 0
-value = 615
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 610
