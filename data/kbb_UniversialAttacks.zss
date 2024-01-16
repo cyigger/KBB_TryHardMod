@@ -2229,15 +2229,39 @@ if Const(KBB_Playable) = 1 {
 
     #Star Cancel Command
     if power >= 1000 || numhelper(51000) != 0 {
-        if !ctrl && !ishelper && roundstate != 1 && command = "s" {
+        if !ctrl && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
             #The exceptions
-            if stateno != 67 && stateno != [800, 820]  && stateno != 500 && stateno != 501  && stateno != 150 && stateno != 152 && stateno != 154 {
+            if stateno != 67 && stateno != 52 && stateno != [800, 820]  && stateno != 500 && stateno != 501  && stateno != 150 && stateno != 152 && stateno != 154 {
                 #Character exceptions
                 if !(name = "Leon" && stateno = [26000, 26999]) && 
                     !(name = "Jodie" && (stateno = 611 || stateno = 401 || stateno = 615) && movehit) &&
                     !(name != "Noll" && stateno = 900 && movehit) &&
                     !(name != "Saito" && stateno = 300) {
                     ChangeState{value: 67}
+
+                    if statetype = A {
+                        Helper{
+                            helpertype: normal;
+                           name: "Air Dash Proration";
+                           ID: 51002;
+                           stateno: 51002;
+                           postype: p1;
+                           facing: 1;
+                           keyctrl: 0;
+                           ownpal: 1;
+                       }
+                    } else {
+                        Helper{
+                            helpertype: normal;
+                            name: "Ground Dash Proration";
+                            ID: 51001;
+                            stateno: 51001;
+                            postype: p1;
+                            facing: 1;
+                            keyctrl: 0;
+                            ownpal: 1;
+                        }
+                    }
                 }
             }
         }
@@ -2278,8 +2302,8 @@ if Const(KBB_Playable) = 1 {
 if Const(KBB_Playable) = 1 {
 
     #Stall Fixing
-    if statetype = S && ctrl {
-        VelSet{y: vel y * 0.5}
+    if statetype != A && ctrl {
+        VelSet{y: abs(vel y * 0.5 * 100) * 0.01}
     }
 
     #Make StarBurst Un-Busterable
