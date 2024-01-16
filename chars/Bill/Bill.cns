@@ -4837,11 +4837,11 @@ v = 4
 value = 0
 
 ; ------ Damage scaling -------
-[State -2, Attack Scale]
-type = AttackMulSet
-trigger1 = 1
-value = 1 * 0.99**var(11)
-ignorehitpause = 1
+;[State -2, Attack Scale]
+;type = AttackMulSet
+;trigger1 = 1
+;value = 1 * 0.99**var(11)
+;ignorehitpause = 1
 
 [State -2, Counterhit TSP]
 type = Helper

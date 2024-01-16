@@ -1198,7 +1198,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = helper(31),movecontact = 1
-value = 100
+value = 75
 persistent = 0
 
 [State 0, Helper]
@@ -1455,7 +1455,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = helper(31),movecontact = 1
-value = 100
+value = 75
 persistent = 0
 
 [State 0, VelSet]

@@ -18,7 +18,7 @@
         time: 5;
         sound: 20, 0;
         movetime: 0;
-        darken: 1;
+        darken: 0;
         p2defmul: 1;
         poweradd: 0;
         endcmdbuftime: 7;
@@ -42,7 +42,7 @@
     CtrlSet{value: 1;}
  }
 
- if p2bodydist x < 0 {
+ if p2bodydist x < -5 {
     Turn{}
  }
 
@@ -2487,7 +2487,7 @@ if Const(KBB_Playable) = 1 {
 [Statedef -3]
 # ------ Defense Set ------
 if RoundState = 0 && teammode != tag && enemy,teammode != tag {
-    MapSet{map: "initialDefence"; value: 1.25}
+    MapSet{map: "initialDefence"; value: 1.175}
 }
 
 if roundstate = 1 {
