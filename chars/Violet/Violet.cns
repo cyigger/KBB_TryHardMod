@@ -1318,7 +1318,7 @@ physics = A
 [State 0, Velocity]
 type = VelSet
 trigger1 = time = 3
-x = 3.25
+x = 3.75
 y = -5.0
 
 [State 0, VelAdd]
@@ -1368,8 +1368,8 @@ animtype  = Up
 damage    = 30
 hitflag = MAFD
 guardflag = HAF
-pausetime = 15,15
-guard.pausetime = 15, 5
+pausetime = 15,18
+guard.pausetime = 15, 12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55

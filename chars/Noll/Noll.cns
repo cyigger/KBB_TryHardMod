@@ -677,7 +677,8 @@ value = 25000
 
 [State 200, End]
 type = ChangeState
-triggerall = movehit || (movecontact && AnimTime > -7)
+triggerall = movehit
+triggerall = var(13) < 2
 trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
@@ -897,7 +898,8 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "WD"
+triggerall = var(13) < 2
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 
@@ -6198,7 +6200,7 @@ Envshake.time = 10
 type = ChangeState
 triggerall = movecontact
 triggerall = var(13) < 2
-trigger1 = command = "WD" && command = "NotWD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 
@@ -6331,7 +6333,7 @@ Envshake.time = 15
 type = ChangeState
 triggerall = movecontact
 triggerall = var(13) < 2
-trigger1 = command = "WD" && command = "NotWD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 
@@ -6467,7 +6469,7 @@ value = 23000
 type = ChangeState
 triggerall = movecontact
 triggerall = var(13) < 2
-trigger1 = command = "WD"
+trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 0
 

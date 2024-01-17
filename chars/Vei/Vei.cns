@@ -1399,13 +1399,6 @@ airguard.cornerpush.veloff = -10
 ;ground.cornerpush.veloff = -5
 ;air.cornerpush.veloff = -5
 
-[State 200, 5AA]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "a"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 292
-
 [State 200, 5BBB]
 type = ChangeState
 Triggerall = movecontact
@@ -5068,9 +5061,10 @@ persistent = 0
 type = PlaySnd
 triggerall = random < 600
 trigger1 = AnimElem = 1
-value = S200,10+(random<500)*1
+value = S200,10
 volumescale = 200
 channel = 0
+
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -5372,13 +5366,14 @@ map = "juggle"
 value = 10
 persistent = 0
 
-;[State 0, PlaySnd]
-;type = PlaySnd
-;triggerall = random < 600
-;trigger1 = AnimElem = 1
-;value = S200,10+(random<500)*1
-;volumescale = 200
-;channel = 0
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = random < 600
+trigger1 = AnimElem = 1
+value = S200,10
+volumescale = 200
+channel = 0
+
 
 [State 0, PlaySnd]
 type = PlaySnd
