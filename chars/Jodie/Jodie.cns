@@ -1649,6 +1649,7 @@ trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 630
 [State 200, Wavedash Cancel]
 type = ChangeState
+triggerall = prevstateno != 400 && prevstateno != 490
 Triggerall = command = "WD" && command != "NotWD"
 trigger1 = movecontact
 value = 30
@@ -1669,7 +1670,7 @@ type = ChangeState
 Triggerall = movecontact
 Triggerall = numhelper(420) < 1
 triggerall = numhelper(3500) = 0
-triggerall = prevstateno != 400 
+triggerall = prevstateno != 400 && prevstateno != 490
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 400
@@ -2981,6 +2982,7 @@ physics = C
 juggle  = 1
 ctrl = 0
 anim = 490
+velset = -1, 0
 poweradd = -200
 sprpriority = 2
 
@@ -3008,18 +3010,18 @@ trans = add
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Time = (4,6)
-x = 10
+trigger1 = Time = [9,11]
+x = 19
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Time = (7,10)
-x = 8
+trigger1 = Time = [12,15]
+x = 7
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Time = (11,14)
-x = 6
+trigger1 = Time = [16,19]
+x = 5
 
 [State 0, VelSet]
 type = VelSet

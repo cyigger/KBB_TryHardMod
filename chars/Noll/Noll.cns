@@ -1298,7 +1298,7 @@ type = ChangeState
 Triggerall = movecontact
 ;triggerall = command = "holdback"
 trigger1 = command = "a"
-value = 250
+value = 210
 
 ;Lambda Stance Options
 [State 310, 9B]	; Up + Fwd

@@ -440,7 +440,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
-value = 100
+value = 75
 
 [State 200, Woosh]
 type = PlaySnd
@@ -598,7 +598,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
-value = 100
+value = 75
 
 [State 210, PlaySnd]
 type = PlaySnd
@@ -650,7 +650,7 @@ damage    = 15
 hitflag = MAF
 guardflag = MAF
 pausetime = 8,8
-guard.pausetime = 8, 4
+guard.pausetime = 8, 8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1198,7 +1198,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = helper(31),movecontact = 1
-value = 75
+value = 50
 persistent = 0
 
 [State 0, Helper]
@@ -1379,7 +1379,7 @@ damage    = 15
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,10
-guard.pausetime = 10,10
+guard.pausetime = 10,4
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1388,6 +1388,7 @@ guardsound = 6,11
 ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+guard.hittime = 12
 ground.velocity = -2,-2
 air.velocity = -2,-2
 down.velocity = -2,-2
@@ -1455,7 +1456,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = helper(31),movecontact = 1
-value = 75
+value = 50
 persistent = 0
 
 [State 0, VelSet]
@@ -1465,7 +1466,7 @@ x = 2.8
 
 [State 0, Helper]
 type = Helper
-triggerall = numhelper(301) = 0
+triggerall = numhelper(31) = 0
 trigger1 = AnimElem = 1
 helpertype = normal ;player
 name = "Vei Clone"
@@ -1640,6 +1641,7 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 air.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
+guard.hittime = 12
 ground.velocity = -1,-7.5
 air.velocity = -1,-7
 Fall = 1
@@ -2206,6 +2208,25 @@ Triggerall = helper(291),movecontact && time >= 8
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 320
+
+[State 210, Cancel into 2C]
+type = ChangeState
+Triggerall = helper(31),movecontact
+Triggerall = power >= 500
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(420) < 2
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+value = 480
+
+[State 210, Cancel into 2C]
+type = ChangeState
+Triggerall = helper(31),movecontact
+Triggerall = power >= 250
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(410) < 2
+trigger1 = command = "c"
+value = 400
 
 [State 1000, 6]
 type = ChangeState

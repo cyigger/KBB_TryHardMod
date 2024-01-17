@@ -1331,15 +1331,15 @@ type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
-triggerall = enemy,movetype != A
+triggerall = enemy,movetype != H
 trigger1 = 1
 attr = S, NA
 animtype  = Up
 damage    = 60
 hitflag = MAFD
 guardflag = HAF
-pausetime = 15,15
-guard.pausetime = 15, 5
+pausetime = 15,18
+guard.pausetime = 15, 12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -1361,7 +1361,7 @@ type = HitDef
 getpower = 0
 triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = !movecontact
-triggerall = enemy,movetype = A
+triggerall = enemy,movetype = H
 trigger1 = 1
 attr = S, NA
 animtype  = Up

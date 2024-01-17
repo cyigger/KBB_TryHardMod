@@ -60,6 +60,12 @@
         VelSet{y:0}
         PosSet{y:0}
     }
+
+    if time <= 5 {
+        AssertSpecial{flag: NoAirGuard}
+        AssertSpecial{flag: NoCrouchGuard}
+        AssertSpecial{flag: NoStandGuard}
+    }
  }
 
  if AnimTime = 0 {
