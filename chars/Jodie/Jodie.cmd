@@ -593,7 +593,7 @@ type = VelSet
 triggerall = statetype = A
 triggerall = command = "down" && movetype != H
 triggerall = vel y > 0 && vel y < 6
-triggerall = stateno != 900 && stateno != 2900 && stateno != 615
+triggerall = stateno != 900 && stateno != 2900 && stateno != 292
 trigger1 = 1
 y = 6
 
@@ -790,14 +790,14 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; Dash Attack
-[State -1, Dash Attack]
-type = ChangeState
-value = 2605
-triggerall = var(10) = 1
-triggerall = stateno = 100
-triggerall = command = "b"
-Triggerall = statetype != A
-trigger1 = ctrl
+;[State -1, Dash Attack]
+;type = ChangeState
+;value = 2605
+;triggerall = var(10) = 1
+;triggerall = stateno = 100
+;triggerall = command = "b"
+;Triggerall = statetype != A
+;trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; A

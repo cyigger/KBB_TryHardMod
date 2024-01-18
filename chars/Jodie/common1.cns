@@ -248,7 +248,7 @@ value = 105
 [State 200, End]
 type = ChangeState
 trigger1 = command = "a"
-value = ifelse(var(10)=0,615,2590)
+value = ifelse(var(10)=0,290,2590)
 ctrl = 0
 
 [State 200, End]

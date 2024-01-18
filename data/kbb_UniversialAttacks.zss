@@ -38,9 +38,17 @@
     
  }
 
- if time = 2 {
-    CtrlSet{value: 1;}
+ if prevstateno = [5000, 5999] || prevstateno = [120,159]
+ {
+    if time = 5 {
+        CtrlSet{value: 1;}
+     }
+ } else {
+    if time = 2 {
+        CtrlSet{value: 1;}
+     }
  }
+
 
  if p2bodydist x < -10 {
     Turn{}
@@ -61,11 +69,11 @@
         PosSet{y:0}
     }
 
-    if time <= 5 {
-        AssertSpecial{flag: NoAirGuard}
-        AssertSpecial{flag: NoCrouchGuard}
-        AssertSpecial{flag: NoStandGuard}
-    }
+    #if time <= 5 {
+    #   AssertSpecial{flag: NoAirGuard}
+    #    AssertSpecial{flag: NoCrouchGuard}
+    #    AssertSpecial{flag: NoStandGuard}
+    #}
  }
 
  if AnimTime = 0 {
@@ -2240,7 +2248,7 @@ if Const(KBB_Playable) = 1 {
             if stateno != 67 && stateno != 52 && stateno != [800, 820]  && stateno != 500 && stateno != 501  && stateno != 150 && stateno != 152 && stateno != 154 {
                 #Character exceptions
                 if !(name = "Leon" && stateno = [26000, 26999]) && 
-                    !(name = "Jodie" && (stateno = 611 || stateno = 401 || stateno = 615) && movehit) &&
+                    !(name = "Jodie" && ((stateno = 611 && movehit) || ((stateno = 401 || stateno = 292) && movecontact))) &&
                     !(name != "Noll" && stateno = 900 && movehit) &&
                     !(name != "Saito" && stateno = 300) {
                     ChangeState{value: 67}
