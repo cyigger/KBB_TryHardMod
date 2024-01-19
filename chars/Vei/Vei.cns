@@ -1389,11 +1389,11 @@ ground.type = Low
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 guard.hittime = 12
-ground.velocity = -2,-2
-air.velocity = -2,-2
-down.velocity = -2,-2
+ground.velocity = -2,-3
+air.velocity = -2,-3
+down.velocity = -2,-3
 Fall = 0
-fall.recovertime = 20
+fall.recovertime = 25
 guard.cornerpush.veloff = -10
 airguard.cornerpush.veloff = -10
 ;ground.cornerpush.veloff = -5
