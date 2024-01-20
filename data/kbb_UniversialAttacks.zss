@@ -3,12 +3,14 @@
 #===============================================================================
 [Statedef 67; 
  type: U;
- movetype: I;
+ movetype: A;
  physics: U;
  ctrl: 0;
  anim: 50500;
  poweradd: 0;
  sprpriority: 2;]
+
+ AttackDist{value:0}
 
  #Twinkle Cancel F520
 
@@ -42,11 +44,11 @@
 
  if prevstateno = [5000, 5999] || prevstateno = [1000,1039]
  {
-    if time = 7 {
+    if time = 6 {
         CtrlSet{value: 1;}
      }
  } else if prevstateno = [150, 155] {
-    if time = 5 {
+    if time = 4 {
         CtrlSet{value: 1;}
      }
  } else {
@@ -2266,6 +2268,7 @@ if Const(KBB_Playable) = 1 {
                     ChangeState{value: 67}
 
                     var(11) := var(11) - 5;
+                    enemy,var(11) := enemy,var(11) - 5;
                 }
             }
         }
@@ -2519,7 +2522,7 @@ if Const(KBB_Playable) = 1 {
 [Statedef -3]
 # ------ Defense Set ------
 if RoundState = 0 && teammode != tag && enemy,teammode != tag {
-    MapSet{map: "initialDefence"; value: 1.175}
+    MapSet{map: "initialDefence"; value: 1}
 }
 
 if roundstate = 1 {
