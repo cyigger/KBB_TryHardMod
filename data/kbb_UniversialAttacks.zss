@@ -3,7 +3,7 @@
 #===============================================================================
 [Statedef 67; 
  type: U;
- movetype: A;
+ movetype: I;
  physics: U;
  ctrl: 0;
  anim: 50500;
@@ -29,6 +29,7 @@
     }
 
     var(4) := 1;
+    MapSet {map:"defence"; value: 0.15}
 
     if numhelper(51000) = 0 {
         AfterImage{
@@ -45,14 +46,17 @@
  if prevstateno = [5000, 5999] || prevstateno = [1000,1039]
  {
     if time = 6 {
+        MapSet {map:"defence"; value: 0}
         CtrlSet{value: 1;}
      }
  } else if prevstateno = [150, 155] {
     if time = 4 {
+        MapSet {map:"defence"; value: 0}
         CtrlSet{value: 1;}
      }
  } else {
     if time = 2 {
+        MapSet {map:"defence"; value: 0}
         CtrlSet{value: 1;}
      }
  }
@@ -145,7 +149,9 @@ ignorehitpause if time = 1 {
 }
 
 if !movecontact && time >= 16 {
-    MapSet {map:"defence"; value: 0.2}
+    persistent(0) if prevStateNo != 820 {
+        poweradd{value: -1000}
+    }
     MapSet {map:"hitOverride"; value: 0}
 }
 
@@ -155,9 +161,7 @@ if enemynear, hitpausetime > 15 && var(47) <= 1 {
 }
 
 if animtime = 0 {
-    if prevStateNo != 820 {
-        poweradd{value: -1000}
-    }
+    
     changeState{value: 806; ctrl: 1}
 }
 
@@ -241,7 +245,7 @@ if time >= 16 {
 }
 
 if !movecontact && time = 17 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
 }
 
 if !movecontact {
@@ -438,7 +442,7 @@ if !movecontact {
 }
 
 if !movecontact && time = 15 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
 }
 
 if AnimTime = 0 {
@@ -513,7 +517,7 @@ if time >= 13 {
 }
 
 if !movecontact && time = 14 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
 }
 
 if !movecontact {
@@ -702,13 +706,13 @@ ignorehitpause if time = 1 {
 }
 
 if prevStateNo != 820 {
-    if time = 15 {
+    persistent(0) if time = 15 {
         poweradd{value: -1000}
     }
 }
 
 if !movecontact && time > 15 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
     MapSet {map:"hitOverride"; value: 0}
 }
 
@@ -810,7 +814,7 @@ if time >= 16 {
 }
 
 if !movecontact && time = 17 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
 }
 
 if !movecontact {
@@ -958,7 +962,7 @@ if !movecontact {
 }
 
 if !movecontact && time = 12 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
 }
 
 if AnimTime = 0 {
@@ -1030,7 +1034,7 @@ if time >= 10 {
 }
 
 if !movecontact && time = 11 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
 }
 
 if AnimElem = 3 {
@@ -1418,7 +1422,8 @@ ignorehitpause if time = 1 {
 }
 
 if !movecontact && time >= 6 {
-    MapSet {map:"defence"; value: 0.2}
+    #MapSet {map:"defence"; value: 0.2}
+    persistent(0) {powerAdd{value: -1000}}
     MapSet {map:"hitOverride"; value: 0}
 }
 
@@ -1428,7 +1433,6 @@ if enemynear, hitpausetime > 15 && var(47) <= 1 {
 }
 
 if animtime = 0 {
-    powerAdd{value: -1000}
     changeState{value: 806; ctrl: 1}
 }
 
@@ -2254,7 +2258,8 @@ if Const(KBB_Playable) = 1 {
     if power >= 1000 || numhelper(51000) != 0 {
         if alive && !ctrl && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
             #The exceptions
-            if stateno != 67 && anim != 47 && stateno != 105 && stateno != [800, 820] && 
+            if stateno != 67 && anim != 47 && stateno != 105 && stateno != 40 && stateno != 60 &&
+             stateno != 800 && stateno != 810 && stateno != [820, 829] && stateno != 830 &&
             stateno != 500 && stateno != 501 && 
             stateno != 150 && stateno != 152 && stateno != 154 &&
             stateno != [1000, 1039] &&
