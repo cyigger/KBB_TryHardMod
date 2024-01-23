@@ -157,7 +157,7 @@ value = 21
 ;-------------------------------------------------------------------------------
 [Statedef 30]
 type    = C
-movetype= A
+movetype= I
 physics = S
 juggle  = 1
 ctrl = 0
@@ -237,7 +237,6 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 trigger1 = command = "b"
-trigger2 = command = "c"
 value = 390
 ctrl = 0
 
@@ -365,7 +364,6 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 trigger1 = command = "c"
-trigger2 = root,stateno = 390
 value = 470
 ctrl = 0
 
@@ -571,7 +569,6 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 trigger1 = command = "c"
-trigger2 = root,stateno = 390
 value = 470
 ctrl = 0
 
