@@ -915,10 +915,6 @@ trigger1 = AnimElem = 1
 value = S1,1
 volumescale = 50
 
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = AnimElem = 2
-x = 15
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = [8, 12]
@@ -1757,6 +1753,11 @@ sprpriority = 2
 type = AttackDist
 trigger1 = 1
 value = 40
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
 
 [State 0, Helper Guarded]
 type = RootMapSet

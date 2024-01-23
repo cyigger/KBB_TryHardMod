@@ -168,12 +168,12 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.1 * 0.6
+x = const(velocity.run.fwd.x) * ifelse(prevstateno = 30, 0.9, 0.6) * 0.6
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 2
-x = const(velocity.run.fwd.x) * 1.1 * 1.25
+x = const(velocity.run.fwd.x) * ifelse(prevstateno = 30, 0.9, 0.6) * 1.25
 
 [State 0, VelSet]
 type = VelAdd
@@ -237,6 +237,7 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 trigger1 = command = "b"
+trigger2 = command = "c"
 value = 390
 ctrl = 0
 
@@ -285,19 +286,19 @@ trans = add
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 2 * 0.6
+x = const(velocity.run.fwd.x) * ifelse(p2bodydist x < 30, 1.1, 2) * 0.6
 y = 0
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 2
-x = const(velocity.run.fwd.x) * 2 * 1.25
+x = const(velocity.run.fwd.x) * ifelse(p2bodydist x < 30, 1.1, 2) * 1.25
 
 [State 0, VelSet]
 type = VelSet
-triggerall = abs(p2bodydist x) < 40
-trigger1 = time = [0, 3]
-x = const(velocity.run.fwd.x) * 1.25
+triggerall = p2bodydist x < 40
+trigger1 = time >= 3
+x = vel x * 0.75
 
 [State 0, VelSet]
 type = VelAdd
@@ -523,32 +524,15 @@ ctrl = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = prevstateno != 52 || time > 3
-triggerall = prevstateno != 290
 trigger1 = command = "a"
 value = 290
 ctrl = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "b"
+trigger2 = command = "c"
 value = 390
-ctrl = 0
-
-[State 200, C]
-type = ChangeState
-triggerall = numhelper(3500) = 0
-triggerall = power >=200
-triggerall = prevstateno != 52 || time > 3
-trigger1 = command = "c"
-value = 490
-
-[State 200, End]
-type = ChangeState
-triggerall = prevstateno != 52 || time > 3
-trigger1 = command = "x"
-value = 590
 ctrl = 0
 
 [State 200, End]
@@ -569,6 +553,27 @@ physics = S
 anim = 36
 ctrl = 0
 sprpriority = 1
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "a"
+trigger2 = root,stateno = 290
+value = 291
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "b"
+trigger2 = root,stateno = 390
+value = 321
+ctrl = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = command = "c"
+trigger2 = root,stateno = 390
+value = 470
+ctrl = 0
 
 [State 31, DestroySelf]
 type = DestroySelf

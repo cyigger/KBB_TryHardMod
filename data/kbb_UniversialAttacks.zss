@@ -40,7 +40,9 @@
 
         PowerAdd{value: -1000}
     }
-    
+
+    var(11) := var(11) - 5;
+    enemy,var(11) := enemy,var(11) - 5;
  }
 
  if prevstateno = [5000, 5999] || prevstateno = [1000,1039]
@@ -66,12 +68,7 @@
     Turn{}
  }
 
- if time >= 2 {
-    if pos y < -1 {
-        StateTypeSet{
-            physics: A;
-        }
-    }
+ if time >= 1 {
     if pos y > 0 {
         StateTypeSet{
             statetype: S;
@@ -79,6 +76,11 @@
         }
         VelSet{y:0}
         PosSet{y:0}
+    }
+    if pos y < -1 && name != "Noll" {
+        StateTypeSet{
+            physics: A;
+        }
     }
 
     #if time <= 5 {
@@ -2256,14 +2258,12 @@ if Const(KBB_Playable) = 1 {
 
     #Star Cancel Command
     if power >= 1000 || numhelper(51000) != 0 {
-        if alive && !ctrl && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
+        if alive && !ctrl && movetype != I && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
             #The exceptions
-            if stateno != 67 && anim != 47 && stateno != 105 && stateno != 40 && stateno != 60 &&
-             stateno != 800 && stateno != 810 && stateno != [820, 829] && stateno != 830 &&
-            stateno != 500 && stateno != 501 && 
+            if stateno != 800 && stateno != 810 && stateno != [820, 829] && stateno != 830 &&
             stateno != 150 && stateno != 152 && stateno != 154 &&
             stateno != [1000, 1039] &&
-            !(enemy,HitDefAttr = SCA,NT,ST,HT) &&
+            !(GetHitVar(attr) = [129, 132] || GetHitVar(attr) = [1025, 1028] || GetHitVar(attr) = [8193,8196]) &&
             !(enemy,movecountered != 0 && enemy,map(fatal) = 1) {
                 #Character exceptions
                 if !(name = "Leon" && stateno = [26000, 26999]) && 
@@ -2271,9 +2271,6 @@ if Const(KBB_Playable) = 1 {
                     !(name != "Noll" && stateno = 900 && movehit) &&
                     !(name != "Saito" && stateno = 300) {
                     ChangeState{value: 67}
-
-                    var(11) := var(11) - 5;
-                    enemy,var(11) := enemy,var(11) - 5;
                 }
             }
         }

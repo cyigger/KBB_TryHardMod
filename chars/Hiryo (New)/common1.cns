@@ -216,7 +216,7 @@ trans = add
 
 [State 0, VelSet]
 type = VelAdd
-trigger1 = time = time = [0, 1]
+trigger1 = time = [0, 1]
 x = 13 * 0.6
 y = 0
 
