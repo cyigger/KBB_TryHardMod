@@ -243,7 +243,7 @@ ctrl = 1
 type = ChangeState
 ;triggerall = time >= 5
 trigger1 = command = "back"
-value = 105
+value = 35
 
 [State 200, End]
 type = ChangeState

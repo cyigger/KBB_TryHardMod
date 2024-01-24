@@ -6043,10 +6043,10 @@ ownpal = 1
 supermovetime = 9999
 pausemovetime = 9999
 
-[State 0, ScreenBound]
-type = ScreenBound
-trigger1 = 1
-value = 1
+;[State 0, ScreenBound]
+;type = ScreenBound
+;trigger1 = 1
+;value = 1
 
 [State 0, AttackDist]
 type = AttackDist
