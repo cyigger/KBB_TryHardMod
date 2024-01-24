@@ -15,8 +15,6 @@ Universal:
 3. Pressing back while 
 
 
-
-
 Aege:
 1. Removed WD A > A Loop
 2. Changed how his wavedash controls due to the addition of wavestop.
@@ -46,6 +44,7 @@ Hyrio:
 
 Stray:
 1. Lowered knockback of 5a, 5aa, 5aaa and 5b
+2. Increased Range and Reduced Cost of 236C
 
 
 Max:
@@ -75,6 +74,8 @@ Noll:
 	* Added jump cancel
 	* Fixed bug where it couldn't be used in certain scenarios
 2. New Wavedash A
+3. 214A no longer automatically does j.5c on hit.
+	* It can now be manually inputted along with a few more options.
 
 
 Saito:
