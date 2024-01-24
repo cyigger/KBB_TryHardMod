@@ -305,6 +305,12 @@ trigger1 = time > 5
 trigger1 = vel x > 1
 x = -0.25
 
+[State 0, VelSet]
+type = VelSet
+triggerall = abs(p2bodydist x) < 40
+trigger1 = time = [0, 3]
+x = const(velocity.run.fwd.x) * 0.75
+
 [State 0, Explod]
 type = Explod
 trigger1 = AnimElem = 1

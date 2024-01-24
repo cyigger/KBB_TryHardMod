@@ -2536,6 +2536,7 @@ x = helper(455),pos x + 20
 y = helper(455),pos y + 5
 
 
+
 [State 0, Explod]
 type = Explod
 trigger1 = AnimElem = 5
