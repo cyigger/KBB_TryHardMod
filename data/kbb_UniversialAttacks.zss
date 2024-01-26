@@ -45,28 +45,28 @@
     enemy,var(11) := enemy,var(11) - 5;
 
     if command = "holddownfwd" {
-        VelAdd{x:3;y:3}
+        VelAdd{x:2;y:2}
     } else if command = "holddownback" {
-        VelAdd{x:-3;y:3}
+        VelAdd{x:-2;y:2}
     } else if command = "holdupback" {
-        VelAdd{x:-3;y:-3}
+        VelAdd{x:-2;y:-2}
     } else if command = "holdupfwd" {
-        VelAdd{x:3;y:-3}
+        VelAdd{x:2;y:-2}
     } else if command = "fwd" {
-        VelAdd{x:3}
+        VelAdd{x:2}
     } else if command = "down" {
-        VelAdd{y:3}
+        VelAdd{y:2}
     } else if command = "back" {
-        VelAdd{x:-3}
+        VelAdd{x:-2}
     } else if command = "up" {
-        VelAdd{y:-3}
+        VelAdd{y:-2}
     }
 
  }
 
  if prevstateno = [5000, 5999] || prevstateno = [1000,1039]
  {
-    if time = 10 {
+    if time = 20 {
         MapSet {map:"defence"; value: 0}
         CtrlSet{value: 1;}
      }
