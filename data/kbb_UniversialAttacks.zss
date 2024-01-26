@@ -29,7 +29,6 @@
     }
 
     var(4) := 1;
-    MapSet {map:"defence"; value: 0.15}
 
     if numhelper(51000) = 0 {
         AfterImage{
@@ -45,21 +44,21 @@
     enemy,var(11) := enemy,var(11) - 5;
 
     if command = "holddownfwd" {
-        VelAdd{x:2;y:2}
+        VelAdd{x:3;y:3}
     } else if command = "holddownback" {
-        VelAdd{x:-2;y:2}
+        VelAdd{x:-3;y:3}
     } else if command = "holdupback" {
-        VelAdd{x:-2;y:-2}
+        VelAdd{x:-3;y:-3}
     } else if command = "holdupfwd" {
-        VelAdd{x:2;y:-2}
+        VelAdd{x:3;y:-3}
     } else if command = "fwd" {
-        VelAdd{x:2}
+        VelAdd{x:3}
     } else if command = "down" {
-        VelAdd{y:2}
+        VelAdd{y:3}
     } else if command = "back" {
-        VelAdd{x:-2}
+        VelAdd{x:-3}
     } else if command = "up" {
-        VelAdd{y:-2}
+        VelAdd{y:-3}
     }
 
  }
@@ -2278,20 +2277,24 @@ if Const(KBB_Playable) = 1 {
 
     #Star Cancel Command
     if power >= 1000 || numhelper(51000) != 0 {
-        if alive && !ctrl && movetype != I && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
-            #The exceptions
-            if stateno != 800 && stateno != 810 && stateno != [820, 829] && stateno != 830 &&
-            stateno != 150 && stateno != 152 && stateno != 154 &&
-            stateno != [1000, 1039] &&
-            !(GetHitVar(attr) = [129, 132] || GetHitVar(attr) = [1025, 1028] || GetHitVar(attr) = [8193,8196]) &&
-            !(enemy,movecountered != 0 && enemy,map(fatal) = 1) {
-                #Character exceptions
-                if !(name = "Leon" && stateno = [26000, 26999]) && 
-                    !(name = "Jodie" && ((stateno = 611 && movehit) || ((stateno = 401 || stateno = 292) && movecontact))) &&
-                    !(name != "Noll" && stateno = 900 && movehit) &&
-                    !(name != "Saito" && stateno = 300) {
-                    ChangeState{value: 67}
+        if alive && !ctrl && movetype = A && !ishelper && roundstate != 1 && command = "s" && time >= 3 {
+            #Character exceptions
+            if !(name = "Leon" && stateno = [26000, 26999]) && 
+            !(name = "Jodie" && ((stateno = 611 && movehit) || ((stateno = 401 || stateno = 292) && movecontact))) &&
+            !(name != "Noll" && stateno = 900 && movehit) &&
+            !(name != "Saito" && stateno = 300) {
+                Helper{
+                    helpertype: normal;
+                    name: "Ground Dash Proration";
+                    ID: 51001;
+                    stateno: 51001;
+                    postype: p1;
+                    facing: 1;
+                    keyctrl: 0;
+                    ownpal: 1;
                 }
+
+                ChangeState{value: 67}
             }
         }
     }
