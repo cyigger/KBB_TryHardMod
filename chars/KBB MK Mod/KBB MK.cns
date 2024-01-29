@@ -2171,6 +2171,14 @@ type = VelSet
 trigger1 = movecontact = 1
 x = 2
 
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movehit && time > 18
+trigger1 = command = "up" && var(3) < const(movement.airjump.num)
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
+value = 45
+ctrl = 1
+
 [State 200, Land]
 type = ChangeState
 trigger1 = hitcount > 3
@@ -3820,12 +3828,12 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
 ground.velocity = -2,-3
-air.velocity = -vel x * 0.5,vel y - 2
+air.velocity = -vel x * 0.5, -2
 air.hittime  = 30
 guard.slidetime = 8
 guard.hittime = 10
 Fall = 1
-fall.recovertime = 25
+fall.recovertime = 30
 Envshake.time = 5
 
 [State -1, SPECIAL 2 - DP]
@@ -4835,7 +4843,7 @@ physics = A
 
 [State 0, VelSet]	;Gravity after the last hit
 type = VelAdd
-trigger1 = time >= 18
+trigger1 = time > 18
 y = 0.44
 
 [State 0, VelSet]	;Hitting the opponent changes velocity
@@ -4856,9 +4864,17 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 2"
 value = 22000
 
+[State 0, ChangeState]
+type = ChangeState
+triggerall = movehit && time > 18
+trigger1 = command = "up" && var(3) < const(movement.airjump.num)
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(3) = 0
+value = 45
+ctrl = 1
+
 [State 200, Land]
 type = ChangeState
-trigger1 = hitcount > 3
+trigger1 = hitcount >= 2
 trigger1 = command = "FF" || command = "z"
 value = 65
 ctrl = 1

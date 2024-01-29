@@ -3852,13 +3852,8 @@ sprpriority = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 1
-y = -4
-
-[State 0, VelSet]
-type = VelSet
-triggerall = vel x > 0
-trigger1 = time = 0
-x = vel x * 0.5
+x = -4
+y = -3
 
 [State 0, Helper]
 type = Helper

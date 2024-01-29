@@ -499,7 +499,7 @@ value = 3
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = time >= 14
+trigger1 = time >= 15
 trigger2 = movehit
 value = 1
 
@@ -512,14 +512,14 @@ trans = add
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 trigger1 = time >= 2
-x = 6.5
+x = 6
 
 
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 triggerall = time >= 2
 trigger1 = time <= 14
-y = 1.2
+y = 1
 
 [State 0, VelAdd]
 type = VelAdd
@@ -581,6 +581,38 @@ triggerall = time >= 2
 trigger1 = command = "s" && var(4) = 0 
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && var(4) = 0 
 value = 66
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time >= 2
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 600
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time >= 2
+trigger1 = command = "a"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 610
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time >= 2
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 625
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = time >= 2
+trigger1 = command = "c" && var(12) < const(movement.airjump.num)
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 620
 ctrl = 1
 
 [State 200, End]		
