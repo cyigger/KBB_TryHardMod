@@ -317,7 +317,7 @@ damage    = 115,10
 hitflag = MAFD
 guardflag = MAFD
 guard.kill = 0		;no chipkills
-pausetime = 18,18
+pausetime = 18,24
 sparkno = 9999
 sparkxy = -8,-25
 hitsound = S0,3
@@ -326,8 +326,8 @@ guard.sparkno = 9999
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15
-ground.velocity  = -4.5,-7
-air.velocity  = -4.5,-6
+ground.velocity  = -3.5,-7
+air.velocity  = -3.5,-6
 Fall = 1
 Fall.recovertime = 50 + ifelse(enemy,movetype = A, 7, 0)
 
@@ -351,6 +351,19 @@ triggerall = movehit
 trigger1 = command = "WD"
 value = 30
 ctrl = 0
+
+[State 200, End]
+type = ChangeState
+Triggerall = movehit
+trigger1 = command = "hyperhop"
+value = 60
+
+[State 200, End]
+type = ChangeState
+Triggerall = movehit
+trigger1 = command = "up"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 40
 
 [State 200, End]
 type = ChangeState
