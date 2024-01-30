@@ -95,12 +95,16 @@
         VelSet{y:0}
         PosSet{y:0}
     }
-    if (pos y < -1 || vel y < 0 || prevstateno = [5080, 5199 ]) && name != "Noll" {
-        StateTypeSet{
-            statetype: A;
-            physics: A;
+    #Exception to noll
+    if !(name = "Noll" && numhelper(31) != 0 && helper(31),stateno = 31) {
+        if pos y < -1 || vel y < 0 || prevstateno = [5080, 5199 ] {
+            StateTypeSet{
+                statetype: A;
+                physics: A;
+            }
         }
     }
+    
 
     #if time <= 5 {
     #   AssertSpecial{flag: NoAirGuard}

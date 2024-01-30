@@ -1167,7 +1167,6 @@ velset = -2,0
 sprpriority = 1
 
 
-
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = numhelper(301) = 0
@@ -1267,6 +1266,11 @@ sprpriority = 2
 type = AttackDist
 trigger1 = 1
 value = 40
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 1
 
 [State 0, Helper Guarded]
 type = RootMapSet

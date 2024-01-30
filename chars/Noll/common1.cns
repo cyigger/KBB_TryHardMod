@@ -187,12 +187,12 @@ value = 1
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 0
-y = -3.2
+y = ifelse(pos y >= -1,-3.2, -1)
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time > 0
-y = 0.20
+y = 0.22
 
 [State 0, Moving Forward]
 type = VelAdd
@@ -225,8 +225,8 @@ type = Helper
 trigger1 = time = 0
 helpertype = normal
 name = "HELPER"
-ID = 591
-stateno = 591
+ID = 31
+stateno = 31
 pos = pos x, pos y
 postype = p1
 size.xscale = 1
@@ -351,8 +351,9 @@ y = root,vel y
 
 [State 0, ChangeState]
 type = ChangeState
-trigger1 = root,statetype != S
-trigger2 = time >= 600
+trigger1 = root,statetype = A
+trigger2 = root,pos y > -1
+trigger3 = root,movetype = H
 value = 32
 ctrl = 0
 

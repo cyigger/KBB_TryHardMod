@@ -1865,12 +1865,12 @@ x = -2
 [State 0, VelSet if coming from wavedash]
 type = VelSet
 trigger1 = AnimElem = 1
-x = const(velocity.run.fwd.x)
+x = -4
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = AnimElem = 4
-x = 5
+x = -1
 
 [State 0, VarAdd]
 type = VarAdd

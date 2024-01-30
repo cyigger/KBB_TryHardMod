@@ -4137,7 +4137,7 @@ fall.recovertime = 40
 Envshake.time = 10
 
 [State 0, PosSet]
-type = PosSet
+type = PosAdd
 trigger1 = Animelem = 4
 y = -5
 [State 0, StateTypeSet]
@@ -6227,20 +6227,12 @@ trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2
 value = 610
 
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(631) = 0
-triggerall = numhelper(632) = 0
-trigger1 = command = "c" && command = "holddown"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
-value = 630
 
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
-trigger1 = command = "c" && command != "holddown"
+trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
 value = 620
 
@@ -6348,15 +6340,6 @@ value = 23000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-triggerall = numhelper(631) = 0
-triggerall = numhelper(632) = 0
-trigger1 = command = "c" && command = "holddown"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
-value = 630
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 && var(3) != 0
 value = 610
@@ -6365,7 +6348,7 @@ value = 610
 type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
-trigger1 = command = "c" && command != "holddown"
+trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
 value = 620
 
@@ -6476,15 +6459,6 @@ ctrl = 0
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-triggerall = numhelper(631) = 0
-triggerall = numhelper(632) = 0
-trigger1 = command = "c" && command = "holddown"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
-value = 630
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
 value = 615
@@ -6493,7 +6467,7 @@ value = 615
 type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
-trigger1 = command = "c" && command != "holddown"
+trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
 value = 620
 
@@ -6607,17 +6581,8 @@ value = 23000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-triggerall = numhelper(631) = 0
-triggerall = numhelper(632) = 0
-trigger1 = command = "c" && command = "holddown"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
-value = 630
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
 triggerall = numhelper(3500) = 0
-trigger1 = command = "c" && command != "holddown"
+trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel ** ailevel) * 2 
 value = 620
 

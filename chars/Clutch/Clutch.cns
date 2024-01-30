@@ -2365,7 +2365,7 @@ volumescale = 300
 
 [State 0, VarSet]		;When Animelem = 4 is met, variable value changes to 0.
 type = VarSet
-trigger1 = Animelem = 4
+trigger1 = Animelem = 1
 v = 17
 value = 0
 
