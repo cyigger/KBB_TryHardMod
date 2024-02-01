@@ -834,16 +834,28 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
-; Fwd + C
-[State -1, Fwd + C]
+; Down + C
+[State -1, Down + C]
 type = ChangeState
-value = 420
+value = 340
+triggerall = numhelper(450) = 0
 triggerall = numhelper(3500) = 0
-triggerall = power >= 100
-triggerall = command = "holdfwd"
+triggerall = power >= 250
+triggerall = command = "holdback"
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
+;---------------------------------------------------------------------------
+; Fwd + C
+;[State -1, Fwd + C]
+;type = ChangeState
+;value = 420
+;triggerall = numhelper(3500) = 0
+;triggerall = power >= 100
+;triggerall = command = "holdfwd"
+;triggerall = command = "c"
+;Triggerall = statetype != A
+;trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; C
 [State -1, C]
@@ -984,17 +996,28 @@ trigger1 = ctrl
 
 ;---------------------------------------------------------------------------
 ; C Aire
-[State -1, C Aire]
+;[State -1, C Aire]
+;type = ChangeState
+;value = 625
+;;Triggerall = numhelper(9999) = 0
+;triggerall = numhelper(3500) = 0
+;Triggerall = power >= 100
+;triggerall = command = "holdfwd"
+;triggerall = command = "c"
+;Triggerall = statetype = A
+;trigger1 = ctrl
+;---------------------------------------------------------------------------
+; Down + C Aire
+[State -1, Down + C]
 type = ChangeState
-value = 625
-;Triggerall = numhelper(9999) = 0
+value = 445
+triggerall = numhelper(450) = 0
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 100
-triggerall = command = "holdfwd"
+triggerall = power >= 200
+triggerall = command = "holddown"
 triggerall = command = "c"
 Triggerall = statetype = A
 trigger1 = ctrl
-
 ;---------------------------------------------------------------------------
 ; C Aire
 [State -1, C Aire]

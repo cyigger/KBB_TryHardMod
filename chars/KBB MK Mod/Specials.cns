@@ -728,7 +728,7 @@ animtype  = Medium
 damage    = 200
 hitflag = MAFD
 guardflag = 
-pausetime = 2,60
+pausetime = 2,45
 sparkno = 9999
 sparkxy = -8,-25
 guard.sparkno = 9999
@@ -745,7 +745,8 @@ fall.envshake.freq = 5
 fall.envshake.ampl = -4
 down.bounce = 1		;Bounces once
 
-p1stateno = 23007		;Successful hit goes to the successful animation
+p1stateno = 23007
+p2stateno = 1000		;Successful hit goes to the successful animation
 
 [State 200, End]
 type = ChangeState
