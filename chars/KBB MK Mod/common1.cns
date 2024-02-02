@@ -512,14 +512,14 @@ trans = add
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 trigger1 = time >= 2
-x = 6
+x = 6.25
 
 
 [State 0, VelSet]		;During the first animation frame you have -2 y velocity (Going upwards) and -2 X vel (Backwards, away from p2.)
 type = VelSet
 triggerall = time >= 2
 trigger1 = time <= 14
-y = 1
+y = 0.75
 
 [State 0, VelAdd]
 type = VelAdd
@@ -548,9 +548,9 @@ guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 30
-ground.velocity = -5, -3
+ground.velocity = -5, -1
 air.hittime  = 30
-air.velocity = -5,-3
+air.velocity = -5,-1
 Fall.recovertime = 40
 fall.recover = 0
 Fall = 1
@@ -1350,6 +1350,12 @@ trigger1 = time = 0
 waveform = square
 time = 3
 
+ [State 150, Counter Cancel]
+type = ChangeState
+triggerall = (command = "hold_x" && command = "hold_s")
+trigger1 = power >= 1000
+value = 820
+
 ;---------------------------------------------------------------------------
 ; Stand guard hit (knocked back)
 [Statedef 151]
@@ -1761,10 +1767,11 @@ type = VelSet
 trigger1 = HitOver
 x = 0
 
-[State 5001, 5]
-type = DefenceMulSet
+[State 5001, 5] ; Resets defence stat
+type = MapSet
 trigger1 = HitOver
-value = 1
+map = "defence"
+value = 0
 
 [State 5001, 6]
 type = ChangeState
@@ -1802,6 +1809,7 @@ trigger1 = time = 0
 value = S7,2
 volumescale = 200
 
+
 [State 5010, 1] ;Anim for HIT_LIGHT to HIT_HARD
 type = ChangeAnim
 trigger1 = Time = 0
@@ -1837,6 +1845,12 @@ type = ChangeState
 trigger1 = HitShakeOver
 trigger1 = GetHitVar(yvel) = 0 && !GetHitVar(fall)
 value = 5011 ;Crouch get-hit (knocked back)
+
+; [State 5010, Infinite Protection Hard] ;Causes the character to break out of a combo if their proration gets REALLY high. Should not occur in normal gameplay.
+; type = NotHitBy
+; trigger1 = enemy,var(11) > 250
+; value = SCA
+; time = 60
 
 [State 5010, 7]
 type = ChangeState
@@ -1893,10 +1907,11 @@ type = VelSet
 trigger1 = HitOver
 x = 0
 
-[State 5011, 5]
-type = DefenceMulSet
+[State 5011, 5] ; Resets defence stat
+type = MapSet
 trigger1 = HitOver
-value = 1
+map = "defence"
+value = 0
 
 [State 5011, 6]
 type = ChangeState
@@ -2015,6 +2030,12 @@ trigger1 = Time = 0
 x = 1
 y = 1
 
+[State 5030, Defence Reset] ; resets defence stat
+type = MapSet
+trigger1 = HitOver
+map = "defence"
+value = 0
+
 [State 5030, 4]
 type = ChangeState
 triggerall = !HitFall
@@ -2091,6 +2112,12 @@ trigger1 = !Alive
 value = 5050
 ctrl = 0
 
+[State 0, NotHitBy]
+type = NotHitBy
+trigger1 = AnimElem = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 10
+
 [State 5040, 2]
 type = ChangeAnim
 trigger1 = AnimTime = 0
@@ -2114,7 +2141,27 @@ type = VelAdd
 trigger1 = 1
 y = GetHitVar(yaccel)
 
+[State 5040, Defence Reset] ; resets defence stat
+type = MapSet
+trigger1 = HitOver
+map = "defence"
+value = 0
+
+;If the character is facing the same way as the opponent, holding away from the opponent causes you to turn (To block)
 [State 5040, 6]
+type = Turn
+trigger1 = command = "holdfwd"
+trigger1 = p2dist X < 0
+trigger1 = inguarddist
+
+;If the character is facing the same way as the opponent, holding toward the opponent prevents blocking
+[State 5040, 7]
+type = AssertSpecial
+trigger1 = p2dist X < 0
+trigger1 = command = "holdback"
+flag = NoAirGuard
+
+[State 5040, 8]
 type = ChangeState
 trigger1 = Vel Y > 0
 trigger1 = Pos Y >= 0
@@ -2485,6 +2532,23 @@ trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && time = 1
 trigger3 = roundstate = 2 && ailevel > 0 && random < (ailevel ** 2) * time/5
 value = 5120
 
+[State 5120, VelSet] ; Removes all momentum to prevent targetbind bugs
+type = Velset
+trigger1 = 1
+x = 0
+y = 0
+
+[State 5120, PosSet] ; Forces player to the ground to prevent targetbind bugs
+type = posSet
+trigger1 = 1
+y = 0
+
+[State 5110, NotHitBy] ;Invincibility if you decide to stay down (So delayed wake up can be more useful to dodge stuff)
+type = NotHitBy
+trigger1 = time >= 1
+value = SCA
+time = 1
+
 [State 5110, EnvShake]
 type = FallEnvShake
 trigger1 = Time = 0
@@ -2613,6 +2677,7 @@ waveform = sine
 type    = L
 movetype= I
 physics = N
+facep2 = 1
 
 [State 5120, 1a] ;Get up anim (normal)
 type = ChangeAnim
@@ -2627,6 +2692,17 @@ triggerall = time = 0
 trigger1 = anim = [5111,5119]
 trigger1 = SelfAnimExist(5120 + (anim % 10))
 value = 5120 + (anim % 10)
+
+[State 5120, VelSet] ; Removes all momentum to prevent targetbind bugs
+type = Velset
+trigger1 = 1
+x = 0
+y = 0
+
+[State 5120, PosSet] ; Forces player to the ground to prevent targetbind bugs
+type = posSet
+trigger1 = 1
+y = 0
 
 [State 5120, 2]
 type = VelSet
@@ -2644,17 +2720,23 @@ type = HitFallSet
 trigger1 = AnimTime = 0
 value = 1
 
+[State 5120, Defence Reset] ; resets defence stat
+type = MapSet
+trigger1 = time = 0
+map = "defence"
+value = 0
+
 [State 5120, 5] ;Can't be thrown right after getting up
 type = NotHitBy
 trigger1 = AnimTime = 0
-value = , NT,ST,HT
+value = ,HA,NT,ST,HT
 time = 12
 
 [State 5120, 6] ;Can't be hit right after getting up (short time)
 type = NotHitBy
 trigger1 = AnimTime = 0
 value2 = SCA
-time = 3
+time = 1
 
 [State 5120, 7]
 type = ChangeState
@@ -2750,6 +2832,7 @@ type    = A
 movetype= H
 physics = A
 anim = 5200
+facep2 = 1
 
 [State 5201, 1] ;Turn if not facing opponent
 type = Turn
@@ -2771,7 +2854,7 @@ y = 0
 type = NotHitBy
 trigger1 = 1
 value = SCA
-time = 1
+time = 4
 
 [State 5201, 5] ;Blink white
 type = PalFX
@@ -2796,6 +2879,7 @@ movetype= I
 physics = N
 anim = 5210
 ctrl = 0
+facep2 = 1
 
 [State 5210, 1] ;Blink white
 type = PalFX
@@ -2858,25 +2942,25 @@ y = -1
 type = VelAdd
 trigger1 = Time = 4
 trigger1 = Command = "holdup"
-y = Const(velocity.air.gethit.airrecover.up)
+y = -3
 
 [State 5210, 2] ;Go down
 type = VelAdd
 trigger1 = Time = 4
 trigger1 = Command = "holddown"
-y = Const(velocity.air.gethit.airrecover.down)
+y = 5
 
 [State 5210, 2] ;Go fwd
 type = VelAdd
 trigger1 = Time = 4
 trigger1 = Command = "holdfwd"
-x = Const(velocity.air.gethit.airrecover.fwd)
+x = 3
 
 [State 5210, 2] ;Go back
 type = VelAdd
 trigger1 = Time = 4
 trigger1 = Command = "holdback"
-x = Const(velocity.air.gethit.airrecover.back)
+x = -3
 
 [State 5210, 3]
 type = NotHitBy
@@ -2900,6 +2984,12 @@ trigger1 = Vel Y > 0
 trigger1 = Pos Y >= 0
 value = 52 ;Jump land
 ctrl = 1
+
+[State 5201, 7] ; Resets defence stat
+type = MapSet
+trigger1 = time = 0
+map = "defence"
+value = 0
 
 ;---------------------------------------------------------------------------
 ; Continue screen animation

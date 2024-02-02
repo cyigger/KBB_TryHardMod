@@ -860,10 +860,10 @@ trigger1 = ctrl
 ; C
 [State -1, C]
 type = ChangeState
-value = 400
+value = 420
 Triggerall = numhelper(9999) = 0
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 250
+Triggerall = power >= 100
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
