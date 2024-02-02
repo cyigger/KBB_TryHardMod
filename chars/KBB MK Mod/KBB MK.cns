@@ -772,6 +772,14 @@ value = 320
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 440
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 400
@@ -1467,6 +1475,14 @@ value = 320
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 440
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 400
@@ -1733,6 +1749,14 @@ value = 310
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 440
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
 trigger1 = command = "c"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 400
@@ -1768,13 +1792,13 @@ reversal.attr = SCA,NA,SA,HA,NP,SP,HP
 pausetime = 0,10
 p1stateno = ifelse(command = "holdback",343,342)	;On hit he Attacks
 
-[State 0, VelSet]
-type = VelSet
-trigger1 = Animelem = 6
-x = 0
+;[State 0, VelSet]
+;type = VelSet
+;trigger1 = Animelem = 6
+;x = 0
 [State 1020, Blink Red]
 type = PalFX
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 3
 time = 10
 add = 40, -40, -40
 [State 0, Play Sound]
@@ -2701,7 +2725,7 @@ movetime = 10
 [State 0, PosAdd]
 type = PosAdd
 trigger1 = AnimElem = 5
-x = -30
+x = -40
 
 [State 0, PosAdd]
 type = VelSet
