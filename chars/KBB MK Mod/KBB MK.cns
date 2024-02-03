@@ -415,7 +415,7 @@ type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -573,7 +573,7 @@ type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -735,7 +735,7 @@ type = ChangeState
 Triggerall = movecontact || helper(230),movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -1247,7 +1247,7 @@ type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -1431,7 +1431,7 @@ type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -1712,7 +1712,7 @@ type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -2299,7 +2299,7 @@ type = ChangeState
 Triggerall = helper(421),movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -2627,9 +2627,9 @@ x = -12
 
 [State 0, StateTypeSet]
 type = StateTypeSet
-trigger1 = AnimElem = 7
+trigger1 = AnimElem = 8
 statetype = A
-movetype = I
+movetype = A
 physics = A
 
 [State 0, Speed Relax]
@@ -2813,7 +2813,7 @@ type = ChangeState
 Triggerall = movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
-Trigger1 = power >= 1000
+Trigger1 = power >= 1500
 value = 24000
 
 [State 200, Special 5 - Smash Ultra]
@@ -3961,7 +3961,7 @@ triggerall = movecontact != 1
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 10
+damage    = 8
 hitflag = MAF
 guardflag = HAF
 pausetime = 2,2

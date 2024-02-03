@@ -513,7 +513,7 @@ triggerall = AnimElem = 14
 trigger1 = 1
 attr = A, SA
 animtype  = Heavy
-damage    = 50,5
+damage    = 60,5
 guard.kill = 0	
 hitflag = MAF
 guardflag = MAF
@@ -832,7 +832,7 @@ type    = S
 movetype= A
 physics = S
 juggle  = 0
-poweradd = -1000
+poweradd = -1500
 ctrl = 0
 anim = 24000
 velset = 0,0
@@ -940,7 +940,7 @@ triggerall = enemy,map(hitOverride) = 0
 trigger1 = 1
 attr = S, SA
 animtype  = Hard
-damage    = 200 + var(11), 10
+damage    = 220 + var(11), 10
 guard.kill = 0	
 hitflag = MAFD
 guardflag = MAFD
