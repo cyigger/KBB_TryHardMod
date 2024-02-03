@@ -4159,7 +4159,7 @@ Triggerall = movecontact
 trigger1 = command = "holddown"
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 615
+value = 610
 
 [State 200, j.2C]
 type = ChangeState
