@@ -473,8 +473,28 @@ Clsn1: 2
 1,2, 0,0, 4
 700,10, 0,0, 4
 
-; Wavedash A A
+; Wavedash A 2
 [Begin Action 291]
+Clsn2Default: 1
+  Clsn2[0] = -20, -36, 18, 1
+1,13, 0,0, 3
+1,16, 0,0, 3, , , 1,1.2
+Clsn1: 2
+  Clsn1[0] = -11, -49, 23, -36
+  Clsn1[1] = 18, -46, 27, -15
+1,13, 4,0, 2, H
+Clsn1: 1
+  Clsn1[0] = 18, -32, 34, -1
+1,17, 4,0, 2, H, , 1.1,0.9
+
+
+1,12, 0,0, 3, , , 1.1,0.9
+
+
+1,12, 0,0, 7
+
+; Wavedash A A
+[Begin Action 292]
 Clsn2: 1
   Clsn2[0] = -16, -43, 19, 2
 1,18, 0,0, 3, H
@@ -504,7 +524,7 @@ Clsn2: 1
 1,30, 0,0, 8
 
 ; Wavedash A B Aire
-[Begin Action 292]
+[Begin Action 293]
 Clsn2: 1
   Clsn2[0] = -21, -50, 13, -3
 1,45, 0,0, 2, , , 1,0.9
@@ -540,7 +560,7 @@ Clsn2: 2
 1,59, -11,0, 4, H
 
 ; Wavedash A C
-[Begin Action 293]
+[Begin Action 294]
 -1,0, 0,0, 0
 
 ; B - 1

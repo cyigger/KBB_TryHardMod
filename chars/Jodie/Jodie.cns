@@ -742,291 +742,6 @@ ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; Wavedash A
-Statedef 290]
-type    = C
-movetype= A
-physics = C
-juggle  = 1
-ctrl = 0
-anim = 290
-poweradd = 0
-sprpriority = 2
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 5
-persistent = 0
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 5
-
-[State 0, VarAdd]
-type = VarAdd
-trigger1 = movecontact = 1 && hitcount = 1
-v = 57    ;fv = 10
-value = 1
-
-[State 0, PowerAdd]
-type = PowerAdd
-triggerall = numhelper(51000) = 0
-triggerall = numhelper(55000) = 0
-triggerall = numhelper(56000) = 0
-trigger1 = movecontact = 1
-value = 104
-
-[State 0, PlaySnd]
-type = PlaySnd
-trigger1 = AnimElem = 1
-value = S1,1
-volumescale = 50
-
-
-
-[State 0, VelSet if coming from wavedash]
-type = VelSet
-triggerall = time = 0
-triggerall = vel x < const(velocity.run.fwd.x)
-trigger1 = prevstateno = 30
-x = const(velocity.run.fwd.x)
-
-[State 0, Little slide after swing.]
-type = VelSet
-trigger1 = time = [8, 9]
-x = 8
-
-
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact
-trigger1 = 1
-attr = S, NA
-animtype  = Medium
-damage    = 45
-hitflag = MAFD
-guardflag = LA
-pausetime = 12,12
-guard.pausetime = 10,10
-guard.hittime  = 25
-sparkno = 2
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 5,4
-guardsound = 6,11
-ground.type = Low
-ground.slidetime = 12
-ground.velocity = -1.5,-3.5
-air.velocity = -1, -3.5
-Fall = 0
-Fall.recover = 0
-Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
-Envshake.time = 20
-
-[State 200, SPEED SPECIAL]
-type = ChangeState
-Triggerall = movehit
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 500
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 1"
-value = 21000
-[State 200, DP SPECIAL]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 1000
-triggerall = numhelper(2860) = 0
-trigger1 = command = "SPECIAL 2"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 22000
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "a" || command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 291
-
-[State 200, Fwd+C]
-type = ChangeState
-Triggerall = movecontact
-Triggerall = numhelper(420) < 1
-triggerall = numhelper(3500) = 0
-triggerall = power >= 300
-trigger1 = command = "holdfwd"
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-value = 402
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-Triggerall = numhelper(420) < 1
-triggerall = numhelper(3500) = 0
-triggerall = prevstateno != 400 
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-value = 400
-
-[State 200, Into Crouch idle]
-type = ChangeState
-trigger1 = AnimTime = -6 && movehit
-value = 11
-ctrl = 1
-
-[State 200, Into Crouch idle]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 11
-ctrl = 1
-
-;-------------------------------------------------------------------------------
-; Wavedash A - 2
-Statedef 291]
-type    = C
-movetype= A
-physics = S
-juggle  = 1
-ctrl = 0
-anim = 291
-poweradd = 0
-sprpriority = 2
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 5
-persistent = 0
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 5
-
-[State 0, PowerAdd]
-type = PowerAdd
-triggerall = numhelper(51000) = 0
-triggerall = numhelper(55000) = 0
-triggerall = numhelper(56000) = 0
-trigger1 = movecontact = 1
-value = 100
-
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = time = 0
-x = 7
-
-[State 0, PosAdd]
-type = PosAdd
-trigger1 = animelem = 2
-x = 5
-[State 0, VelSet]
-type = VelSet
-trigger1 = animelem = 1
-x = 4
-
-[State 200, 1]
-type = HitDef
-getpower = 0
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = !movecontact
-trigger1 = 1
-attr = S, NA
-animtype  = Light
-damage    = 20
-hitflag = MAFD
-guardflag = MAF
-pausetime = 12,12
-ground.hittime  = 11 + ifelse(enemy,movetype = A, 7,0)
-air.hittime = 11 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 12,12
-guard.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
-sparkno = 1
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 5,3
-guardsound = 6,11
-ground.type = High
-ground.slidetime = 12
-ground.velocity = -2,-2
-air.velocity = -2,-1
-Fall = 0
-Envshake.time = 10
-Fall.recovertime = 10 + ifelse(enemy,movetype = A, 7,0)
-
-[State 200, SPEED SPECIAL]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 500
-triggerall = numhelper(3500) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 1"
-value = 21000
-[State 200, DP SPECIAL]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 1000
-triggerall = numhelper(2860) = 0
-trigger1 = command = "SPECIAL 2"
-value = 22000
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "a"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 292
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "b"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 320
-
-[State 200, Fwd+C]
-type = ChangeState
-Triggerall = movecontact
-Triggerall = numhelper(420) < 1
-triggerall = numhelper(3500) = 0
-triggerall = power >= 300
-trigger1 = command = "holdfwd"
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-value = 402
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-triggerall = numhelper(3500) = 0
-Triggerall = numhelper(420) < 1
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-value = 400
-
-[State 200, Into Crouch idle]
-type = ChangeState
-trigger1 = AnimTime = 0
-value = 11
-ctrl = 1
-
-;-------------------------------------------------------------------------------
-; Wavedash A
 [Statedef 290]
 type    = S
 movetype= A
@@ -1131,32 +846,131 @@ Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 
 [State 200, End]
 type = ChangeState
-triggerall = prevstateno != 290
-triggerall = time >= 12
+triggerall = time >= 12 || movecontact
 trigger1 = command = "a"
 trigger2 = command = "b"
 trigger3 = command = "c"
-value = 290
-
-[State 200, End]
-type = ChangeState
-triggerall = prevstateno = 290
-triggerall = time >= 12
-trigger1 = command = "a"
 value = 291
 
 [State 200, End]
 type = ChangeState
-triggerall = prevstateno = 290
-triggerall = time >= 12
-trigger1 = command = "b"
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Wavedash A 2
+[Statedef 291]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 291
+poweradd = 0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 5
+persistent = 0
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, Voice - YAH!]
+
+type = PlaySnd
+triggerall = var(2)  >=0
+triggerall = var(2)  <=34
+trigger1 = AnimElem = 1
+value = S7,4
+volumescale = 200
+[State 0, Voice - hhHUAH!]
+type = PlaySnd
+triggerall = var(2)  >=35
+triggerall = var(2)  <=50
+trigger1 = AnimElem = 1
+value = S7,5
+volumescale = 200
+[State 0, Voice - Dumbass!]
+type = PlaySnd
+triggerall = var(2)  >=51
+triggerall = var(2)  <=55
+trigger1 = AnimElem = 1
+value = S7,8
+volumescale = 200
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 6
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
+x = 2
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Medium
+damage    = 15
+hitflag = MAFD
+guardflag = MA
+pausetime = 8,10
+ground.hittime  = 11 + ifelse(enemy,movetype = A, 7,0)
+air.hittime = 11 + ifelse(enemy,movetype = A, 7,0)
+guard.pausetime = 8,8
+guard.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
+sparkno = 1
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,3
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.velocity = -1,-3
+air.velocity = -1,-3
+Fall = 1
+Envshake.time = 10
+Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 12 || movecontact
+trigger1 = command = "a"
 value = 292
 
 [State 200, End]
 type = ChangeState
-triggerall = prevstateno = 290
+triggerall = time >= 12 || movecontact
+trigger1 = command = "b"
+value = 293
+
+[State 200, End]
+type = ChangeState
 triggerall = power >= 200
-triggerall = time >= 12
+triggerall = time >= 12 || movecontact
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 490
@@ -1167,15 +981,16 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
+
 ; Wavedash A A
 ;-------------------------------------------------------------------------------
-[Statedef 291]
+[Statedef 292]
 type    = S
 movetype= A
 physics = S
 juggle  = 1
 ctrl = 0
-anim = 291
+anim = 292
 poweradd = 0
 sprpriority = 2
 
@@ -1258,8 +1073,8 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 guard.velocity = -2
-ground.velocity = -3.5,-4
-air.velocity = -3.5,-3
+ground.velocity = -3.5,-3
+air.velocity = -3.5,-2
 Fall = 1
 Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 20
@@ -1282,6 +1097,16 @@ triggerall = numhelper(2860) = 0
 trigger1 = command = "SPECIAL 2"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 22000
+
+[State 200, End]
+type = ChangeState
+Triggerall = var(10) = 0
+Triggerall = movecontact
+Triggerall = power >= 500
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 4"
+value = 24000
 
 [State 200, Fwd+C]
 type = ChangeState
@@ -1312,13 +1137,13 @@ ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; Wavedash A B
-[Statedef 292]
+[Statedef 293]
 type    = A
 movetype= A
 physics = A
 juggle  = 2
 ctrl = 0
-anim = 292
+anim = 293
 poweradd = 0
 sprpriority = 2
 
