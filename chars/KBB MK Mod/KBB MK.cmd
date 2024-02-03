@@ -596,7 +596,7 @@ trigger1 = ctrl
 [State -1, SPECIAL 3]
 type = ChangeState
 value = 24000
-triggerall = power >= 1500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
 Triggerall = statetype != A

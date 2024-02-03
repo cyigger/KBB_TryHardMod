@@ -151,7 +151,7 @@ triggerall = map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 23
 attr = A, NA
 animtype  = Medium
-damage    = 40
+damage    = 100
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,12
@@ -1244,7 +1244,7 @@ type = Helper
 trigger1 = AnimElem = 12
 helpertype = normal ;player
 name = "Glitch Bomb"
-ID = 415
+ID = 23005
 stateno = 23010
 pos = 0,0
 postype = p1    ;p2,front,back,left,right
@@ -1285,8 +1285,8 @@ trigger1 = AnimTime = 0
 
 
 ;-------------------------------------------------------------------------------
-; C Charged- Start
-[Statedef 23010]
+; Portal Projectile
+[Statedef 23005]
 type    = S
 movetype= A
 physics = S
@@ -1375,8 +1375,8 @@ type = HitDef
 triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = !movecontact && !movereversed
 animtype  = Heavy
-attr = S, SP
-damage = ifelse(enemy,movetype = A,30,30)
+attr = S, NP
+damage = ifelse(enemy,movetype = A,120,80)
 guard.kill = 0
 hitflag = MAF
 guardflag = MA
@@ -1387,8 +1387,9 @@ sparkxy = 0, 0
 hitsound = S ifelse(enemy,movetype = A,5,3), 1
 guard.sparkno = 13000
 guardsound = 6,11
+guard.slidetime = 12
 ground.type = High
-ground.slidetime = 12
+ground.slidetime = ifelse(enemy,movetype = A,48,25)
 ground.velocity = -3
 airguard.velocity = -1.5,1.75
 air.velocity = -1.5,-1.5
@@ -1402,6 +1403,7 @@ trigger1 = frontedgebodydist < -30
 trigger2 = time = 250
 trigger3 = movecontact || movereversed
 value = 416
+
 
 ;===============================================================================
 ; "No more of that annoying ability!":
@@ -1490,7 +1492,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 3 || AnimElem = 9
 attr = A, NP
 animtype  = Heavy 
-damage    = 20
+damage    = 25
 Hitflag = MAFD
 guardflag = MAFD
 getpower = 0
@@ -1611,7 +1613,7 @@ triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 6 || AnimElem = 12 || AnimElem = 18
 attr = A, NP
 animtype  = Heavy 
-damage    = 10
+damage    = 15
 Hitflag = MAFD
 guardflag = MAF
 getpower = 0
