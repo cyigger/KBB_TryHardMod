@@ -1245,7 +1245,7 @@ trigger1 = AnimElem = 12
 helpertype = normal ;player
 name = "Glitch Bomb"
 ID = 23005
-stateno = 23010
+stateno = 23005
 pos = 0,0
 postype = p1    ;p2,front,back,left,right
 facing = 1
@@ -1506,8 +1506,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-3
-air.velocity = -2,-2
+ground.velocity = -2,-2.5
+air.velocity = -2,-2.5
 Fall = 1
 fall.recovertime = 50
 Envshake.time = 5
@@ -1554,13 +1554,6 @@ ignorehitpause = 1
 type = AttackDist
 trigger1 = 1
 value = 60
-
-[State 0, Juggle Map]
-type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 0
-persistent = 0
 
 [State 0, FatalCounter]
 type = MapSet
@@ -1609,7 +1602,6 @@ time = 1
 [State 200, Hit]
 type = HitDef
 getpower = 0
-triggerall = root,map(juggle) < 100 || hitcount != 0
 trigger1 = AnimElem = 6 || AnimElem = 12 || AnimElem = 18
 attr = A, NP
 animtype  = Heavy 
