@@ -63,7 +63,7 @@ draw.offset = 0,0		;Player drawing offset in pixels (x, y)
 walk.fwd  = 2.5		;Walk forward
 walk.back = -2.3		;Walk backward
 run.fwd  = 5.1, 0		;Run forward (x, y)
-run.back = -4.5,-3.8	;Hop backward (x, y)
+run.back = -4.4,-3.8	;Hop backward (x, y)
 jump.neu = 0,-8.4		;Neutral jumping velocity (x, y)
 jump.back = -2.55		;Jump back Speed (x, y)
 jump.fwd = 2.5		;Jump forward Speed (x, y)
@@ -500,7 +500,7 @@ value = 0
 
 
 ;===============================================================================
-; A:
+; A: I NEED TO PISS
 ;-------------------------------------------------------------------------------
 ; A - 1
 [Statedef 200]
@@ -1952,7 +1952,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Wavedash B
+; Wavedash C
 [Statedef 390]
 type    = S
 movetype= A
@@ -1960,8 +1960,14 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 390
-poweradd = 0
+poweradd = -200
 sprpriority = 2
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = root,movetype = H 
+;ignorehitpause = 
+;persistent = 
 
 [State 0, VelSet]
 type = VelSet
@@ -2069,11 +2075,11 @@ triggerall = AnimElem = 10
 trigger1 = 1
 attr = S, NA
 animtype  = Light
-damage    = 30
-guardflag = HA
+damage    = 50
+guardflag = MA
 hitflag = MAFD
 pausetime = 15,15
-guard.pausetime = 8,7
+guard.pausetime = 8,12
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2344,7 +2350,7 @@ ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall) 
+trigger1 = movehit 
 map = "juggle"
 value = 9
 persistent = 0
@@ -2460,7 +2466,7 @@ ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall) 
+trigger1 = movehit
 map = "juggle"
 value = 5
 persistent = 0
@@ -2570,7 +2576,7 @@ ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall) 
+trigger1 = movehit
 map = "juggle"
 value = 3
 persistent = 0
@@ -2948,7 +2954,7 @@ ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall) 
+trigger1 = movehit 
 map = "juggle"
 value = 9
 persistent = 0
@@ -3078,7 +3084,7 @@ ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall) 
+trigger1 = movehit 
 map = "juggle"
 value = 5
 persistent = 0
@@ -3203,7 +3209,7 @@ ignorehitpause = 1
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall) 
+trigger1 = movehit 
 map = "juggle"
 value = 3
 persistent = 0
@@ -3825,14 +3831,6 @@ type = VelSet
 trigger1 = AnimTime = 0
 x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
 y = const(velocity.jump.y)
-
-[State 40, 5]
-type = VelSet
-trigger1 = AnimTime = 0
-trigger1 = prevstateno = 100 ;RUN_FWD
-trigger1 = sysvar(1) = 1
-x = const(velocity.runjump.fwd.x)
-
 
 
 [State 40, 6]
@@ -5607,7 +5605,7 @@ trigger1 = time > 480 && root,stateno != [20000,25000] && anim != 467  || anim =
 ;ignorehitpause = 
 ;persistent = 
 ;-------------------------------------------------------------------------------
-; Wavedash C
+; Wavedash B
 [Statedef 490]
 type    = S
 movetype= A
@@ -5675,7 +5673,7 @@ ctrl = 1
 
 
 ;---------------------------------------------
-; Wavedash C
+; Wavedash B Space D
 [Statedef 495]
 type    = A
 movetype= A
@@ -5683,7 +5681,7 @@ physics = N
 juggle  = 2
 ctrl = 0
 anim = 495
-poweradd = -200
+poweradd = 0
 sprpriority = 0
 
 [State 0, Helper Guarded]
@@ -5732,7 +5730,7 @@ persistent = 0
 type = RootMapAdd
 trigger1 = movehit && enemy,gethitvar(fall)
 map = "juggle"
-value = 5
+value = 10
 persistent = 0
 
 [State 1010, Helper Attack Scale]
@@ -5799,7 +5797,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 10
 
 [State 200, 1]
 type = HitDef
@@ -5809,11 +5807,12 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NP
 animtype  = Light
-damage    = ifelse(enemy,movetype = A, 140, 70)
+damage    = ifelse(enemy,movetype = A, 80, 40)
 hitflag = MAF
-guardflag = MA
-pausetime = ifelse(enemy,movetype = A, 40, 20),ifelse(enemy,movetype = A, 30, 15)
-guard.pausetime = 15,5
+guardflag = HA
+pausetime = ifelse(enemy,movetype = A, 30, 15),ifelse(enemy,movetype = A, 20, 10)
+guard.pausetime = 10,0
+guard.hittime = 6
 sparkno = 2
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -7041,7 +7040,7 @@ type = ChangeState
 Triggerall = movecontact 
 trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 310
+value = 315
 
 [State 200, End]
 type = ChangeState
@@ -7924,7 +7923,7 @@ persistent = 0
 [State 0, Charge]
 type = changestate
 triggerall = animElem = 4 
-trigger1 = command = "hold_c"
+trigger1 = command = "hold_c" && prevstateno != 650
 value = 650
 
 [State 0, ChangeAnim]
@@ -8188,7 +8187,7 @@ persistent = 0
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time = 0 && vel x < 0 && (vel x != -3 || vel x != 3) && vel y != 12
+trigger1 = time = 0 && vel x <= 0 && (vel x != -3 || vel x != 3)
 x = 3
 y = -6
 
@@ -8205,6 +8204,11 @@ trigger1 = time = 0 && vel x > 0 && vel x != 3
 x = -3
 y = -6
 
+[State 0, VelSet]
+type = VelSet
+trigger1 = time = 0 && vel y = 12
+x = 0
+y = 0
 
 
 [State 200, Gravity]
@@ -8357,7 +8361,7 @@ value = 60
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
+trigger1 = movehit
 map = "juggle"
 value = 7
 persistent = 0
@@ -8854,7 +8858,7 @@ value = 60
 
 [State 0, Juggle Map]
 type = RootMapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
+trigger1 = movehit 
 map = "juggle"
 value = 10
 persistent = 0
@@ -9525,7 +9529,7 @@ value = 0
 
 [State 0, Failed to block an overhead!]
 type = Explod
-triggerall = stateno = [600, 625] && stateno != 620 || stateno = 900 || stateno = 610 || stateno = 390 || helper(25001),stateno = 25004
+triggerall = stateno = [600, 625] && stateno != 620 || stateno = 900 || stateno = 610 || helper(25001),stateno = 25004 || helper(495),stateno = 495
 triggerall = enemy, prevstateno = [120,160] && numexplod(31000) = 0
 trigger1 = enemy, movetype = H && enemy, stateno != [120,160]
 anim = F35000
@@ -10095,12 +10099,12 @@ trigger1 = 1
 v = 40
 value = life ** 0 * (1 + life / 100) 
 
-; ------ Damage scaling -------
-;[State -2, Attack Scale]
-;type = AttackMulSet
-;trigger1 = 1
-;value = 1 * 0.99**var(11)
-;ignorehitpause = 1
+ ;------ Damage scaling -------
+[State -2, Attack Scale] ; wow
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**var(11)
+ignorehitpause = 1
 
 [State -2, Counterhit TSP]
 type = Helper

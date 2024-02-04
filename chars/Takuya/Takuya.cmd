@@ -583,27 +583,17 @@ Trigger1=var(59)>0
 flag=noairguard
 flag2=nocrouchguard
 flag3=nostandguard
-;---------------------------------------------------------------------------
-; Soft Fast Fall
-[State -1, Soft Fast Fall]
-type = VelSet
-triggerall = statetype = A && movetype != H
-triggerall = stateno != [900,910] && stateno != 390 ;Moves that have been nerfed to not allow fastfall during them
-triggerall = command = "down" 
-triggerall = vel y > 0 && vel y < 6
-trigger1 = 1
-y = 6
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ; SUPER:
 ;[State -1, Fly Final Dash]
-;type = ChangeState
-;value = 30000
-;triggerall = numhelper(3500) = 0
-;triggerall = command = "SUPER1"
-;Triggerall = Power = 3000
-;Triggerall = statetype != A
-;trigger1 = ctrl
+type = ChangeState
+value = 30000
+triggerall = numhelper(3500) = 0
+triggerall = command = "SUPER1"
+Triggerall = Power = 3000
+Triggerall = statetype != A
+trigger1 = ctrl
 ;===========================================================================
 ;SPECIALS:
 ;===========================================================================
@@ -692,7 +682,7 @@ trigger1 = ctrl
 [State -1, Run Fwd]
 type = ChangeState
 value = 100
-trigger1 = command = "FF" || (command = "z" && command != "holddown")
+trigger1 = command = "FF"
 trigger1 = statetype = S
 trigger1 = ctrl
 

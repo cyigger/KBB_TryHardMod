@@ -16,7 +16,7 @@
 
  if time = 0 {
     ChangeAnim2{value:50500;elem:2;}
-    
+
     SuperPause{
         anim: F520;
         time: 5;
@@ -27,7 +27,9 @@
         poweradd: 0;
         endcmdbuftime: 7;
     }
+ }
 
+ if time = 1 {
     Helper{
         helpertype: normal;
         name: "Power Delay";
@@ -2304,17 +2306,6 @@ if Const(KBB_Playable) = 1 {
                 !(name = "Jodie" && ((stateno = 611 && movehit) || ((stateno = 401 || stateno = 292) && movecontact))) &&
                 !(name != "Noll" && stateno = 900 && movehit) &&
                 !(name = "Saito" && stateno = 300) {
-                    Helper{
-                        helpertype: normal;
-                        name: "Ground Dash Proration";
-                        ID: 51001;
-                        stateno: 51001;
-                        postype: p1;
-                        facing: 1;
-                        keyctrl: 0;
-                        ownpal: 1;
-                    }
-    
                     ChangeState{value: 67}
                 }
             }

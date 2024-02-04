@@ -200,13 +200,13 @@ trans = add
 [State 0, VelSet]
 type = VelAdd
 trigger1 = time = [0, 1]
-x = const(velocity.run.fwd.x) * 1.85 * 0.6
+x = const(velocity.run.fwd.x) * 1.8 * 0.6
 y = 0
 
 [State 0, VelSet]
 type = VelSet
 trigger1 = time = 2
-x = const(velocity.run.fwd.x) * 1.85 * 1.25
+x = const(velocity.run.fwd.x) * 1.8 * 1.25
 
 [State 0, VelSet]
 type = VelAdd
@@ -272,7 +272,7 @@ ctrl = 0
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "b"
-value = 390
+value = 490
 ctrl = 0
 
 [State 200, C]
@@ -281,7 +281,7 @@ triggerall = numhelper(3500) = 0
 triggerall = power >=200
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "c"
-value = 490
+value = 390
 
 [State 200, End]
 type = ChangeState
