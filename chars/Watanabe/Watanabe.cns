@@ -620,7 +620,7 @@ value = 220
 type = ChangeState
 Triggerall = movecontact
 trigger1 = command = "b"
-value = 310
+value = 300
 
 
 [State 200, End]
@@ -725,6 +725,11 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 5"
 Triggerall = power >= 1500
 
+[State 200, 5BB]
+type = ChangeState
+Triggerall = helper(311),movecontact
+trigger1 = command = "b"
+value = 300
 
 [State 200, End]
 type = ChangeState
@@ -1304,18 +1309,18 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
 Triggerall = power >= 500
 
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "holddown"
-trigger1 = command = "a"
-value = 950
-
-[State 200, End]
-type = ChangeState
-Triggerall = movecontact
-trigger1 = command = "a"
-value = 210
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;trigger1 = command = "holddown"
+;trigger1 = command = "a"
+;value = 950
+;
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;trigger1 = command = "a"
+;value = 210
 
 [State 200, End]
 type = ChangeState
@@ -2196,12 +2201,12 @@ type = HitDef
 trigger1 = !movecontact
 animtype  = Heavy
 attr = S, NP
-damage = 35
+damage = 5
 hitflag = MAF
 guardflag = MA
-ground.hittime = 22
-pausetime = 3,22
-guard.pausetime = 3,12
+ground.hittime = 20
+pausetime = 3,50
+guard.pausetime = 3,0
 sparkno = 0
 sparkxy = 0, 0
 hitsound = 5,3
@@ -2210,40 +2215,39 @@ guardsound = 6,11
 p1sprpriority = 0
 ground.type = High
 ground.slidetime = 25
-ground.velocity = -3,-2
+ground.velocity = 2,-1
 airguard.velocity = 1.5,-1.5
-air.velocity = -1.5,-2
+air.velocity = 1.5,-2
 fall.recover = 0
-Envshake.time = 20
 Getpower = 0,0
 
-;[State 0, Helper]
-;type = Helper
-;trigger1 = movecontact 
-;trigger1 = AnimElemTime(5) = 0 || AnimElemTime(5) = 20 || AnimElemTime(5) = 40
-;;trigger1 = hitcount <= 3
-;helpertype = normal ;player
-;name = "regular"
-;ID = 402
-;stateno = 402
-;pos = 0,0
-;postype = p1    ;p2,front,back,left,right
-;facing = 1
-;keyctrl = 0
-;ownpal = 0
-;supermovetime = 0
-;pausemovetime = 0
-;inheritJuggle = 1
+[State 0, Helper]
+type = Helper
+trigger1 = movecontact 
+trigger1 = AnimElemTime(5) = 0 || AnimElemTime(5) = 20 || AnimElemTime(5) = 40
+;trigger1 = hitcount <= 3
+helpertype = normal ;player
+name = "regular"
+ID = 402
+stateno = 402
+pos = 0,0
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 0
+supermovetime = 0
+pausemovetime = 0
+inheritJuggle = 1
 
 
 
-;[State 0, TargetBind]
-;type = TargetBind
-;trigger1 = movehit
-;time = 190
-;pos = 0,15
-;;ignorehitpause = 
-;persistent = 0
+[State 0, TargetBind]
+type = TargetBind
+trigger1 = movehit
+time = 190
+pos = 0,15
+;ignorehitpause = 
+persistent = 0
 
 [State 0, ChangeState]
 type = ChangeState
@@ -2365,12 +2369,10 @@ trigger1 = !movecontact
 trigger1 = AnimElem = 5
 trigger2 = root,movetype = H && Time > 600
 trigger3 = enemy,stateno = [801,803] && movecontact
-trigger4 = movecontact && movecontact >= 12  ; Well, I'm just glad I made a new friend
+trigger4 = movecontact && p2dist x != [-80,80]  ; Well, I'm just glad I made a new friend
 value = 401
 elem = 6
 persistent = 0
-
-; && p2dist x != [-80,80]
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -6287,12 +6289,12 @@ trigger1 = AnimElem = 8
 value = S621,1
 volume = 100
 
-;[State 0, FatalCounter]
-;type = MapSet
-;trigger1 = 1
-;map = "fatal"
-;value = 1
-;ignorehitpause = 1
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
 
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
@@ -6334,8 +6336,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S,SA
 animtype  = Medium
-;damage    = ifelse(enemy,movetype = A,ifelse(parent,stateno=462,160,120),ifelse(parent,stateno=462,80,60))
-damage = ifelse(parent,stateno=462,70,50)
+damage    = ifelse(enemy,movetype = A,ifelse(parent,stateno=462,160,120),ifelse(parent,stateno=462,80,60))
 hitflag = MAFD
 guardflag =  MA
 sparkno = 0
