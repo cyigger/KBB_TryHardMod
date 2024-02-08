@@ -481,7 +481,7 @@ y = 0.6
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = time <= 20 && !movecontact
+triggerall = time <= 15 && !movecontact
 trigger1 = 1
 attr = A, SA
 animtype  = Heavy
@@ -509,7 +509,7 @@ Envshake.time = 25
 [State 200, 1]
 type = HitDef
 getpower = 0
-triggerall = AnimElem = 14
+triggerall = AnimElem = 12
 trigger1 = 1
 attr = A, SA
 animtype  = Heavy

@@ -1,0 +1,126 @@
+<#f0f000>:UNIQUE NORMALS:</>
+
+FELINE _F_F^B
+
+BATON _B^B
+
+<#f0f000>:EX ATTACKS!:</>
+
+Stance Shift (1/10 Bar)				_D^C
+	"James changes his stance and begins to fight
+	differently. These stances are on a cycle."
+	
+Jump Kick (1/10 Bar)				PHOENIX ^C
+	"James unleashes a fast flying kick at
+	the opponent."
+
+Fade Back (1/10 Bar)				PHOENIX _B^C
+	"James quickly dashes back and turns his back
+	on his opponent. He gains unique moves once
+	he is facing away
+	The dash back has evasive properties"
+	
+Ground Smash (1/10 Bar)						FELINE ^C
+	"James smashes the ground, causing a shockwave"
+
+Peekaboo (1/5 Bar)							FELINE _F^C
+	"James rushes at the opponent,
+	gaining access to unique moves
+	Puts the opponent in feline stance"
+	
+_! Gut Punch - (Follow Up)							^A
+	"James unleashes a quick punch to the gut"
+	
+_! Coming Through! - (Follow Up)					^B
+	"James smashes the opponent with a powerful
+	uppercut."
+	
+_! Dash into Punch Flip - (Follor Up)				^C
+	"See The 'Air Flip' Section"
+
+Gun (1/5 Bar)							BATON ^C
+	"For his c special, he wields a gun.
+	This move is repeatable."
+
+Baton Wind-up (1/10 Bar)							BATON _B^C
+	"James prepares for to perform a strong attack
+	This move switches you into baton stance
+	Dash cancellable"
+	
+_! Horizontal Smack - (Follow Up)					^A
+	"James unleashes a wide horizontal smack"
+	
+_! Diagonal Smack - (Follow Up)						^B
+	"James aims above him to unleash a wide
+	diagonal smack"
+	
+_! Sky Smack - (Follow Up)							^C
+	"James aims as high as possible to unleash
+	a fully vertical smack"
+	
+
+	
+Air Flip (PHOENIX) (1/5 Bar)						PHOENIX _AIR^C
+	"James flips backwards in the air and gains
+	access to three different dive kicks
+	This has evasive properties"
+	
+_! Straight Down! - (Follow Up)						^A
+	"James drops straight down with a kick"
+	
+_! Close Dive - (Follow Up)							^B
+	"James dive kicks aiming closer to him"
+	
+_! Far Dive - (Follor Up)							^C
+	"James dive kicks aiming far away from him"
+	
+Air Flip (BOXER) (1/5 Bar)							FELINE _AIR^C
+	"James flips forward in the air 
+	This has evasive properties"
+	
+_! Smash! - (Follow Up)								^A or ^B or ^C
+	"James smashes the opponent straight down.
+	Delayable"
+	
+Air Baton Wind-up (1/10 Bar)						BATON _AIR^C
+	"James prepares for to perform a strong attack
+	Dash cancellable"
+	
+_! Downwards Smack - (Follow Up)					^A
+	"James aims below him to unleash a wide
+	diagonal smack"
+	
+_! Straight Smack - (Follow Up)						^B
+	"James unleashes a wide horizontal smack"
+
+<#f0f000>:STAR STRIKES!:</>
+
+Weave - (1/2 Bar)    						_D_DF_F^A
+	"James starts to quickly weave towards the
+	opponent, evading any attacks in the process.
+	Shifts to Feline Stance"
+
+_!	Keep Weaving - (1/4 Bar, Follow Up)					^A
+	"James will keep going if you keep pressing A."
+	
+_!	Go! - (Follow Up)
+	"James takes the momentum from weaving to claw
+	at the opponent over and over."
+
+Dragon Kick (1 Bar)							_D_DB_B^A
+	"Totally not a rip off. James does a 
+	very damaging uppercut.
+	This move has start-up invulerability.
+	Shifts to Phoenix Stance"
+
+Cat Fight (1 Bar)    						_D_DF_F^B
+	"Anti-air, Grab; this move will not exist
+	in the future"
+
+To be determined (1/2 Bar, _AIR OK)				 	_D_DB_B^B
+	"This move doesn't exist"
+
+Killer Combo (1 1/2 Bar)							_D_DF_F^C
+	"James unleashes a flurry of powerful attacks.
+	The combo changes based on what stance james
+	is on."

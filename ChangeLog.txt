@@ -1,5 +1,21 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.5.0 Changes:                    /
+|---------------------------------------------------/
+
+Star Cancel was fun, but it was frankly broken. This updates revamps him as well as a few characters that were underwhelming last patch.
+
+Universal:
+1. Star Cancel Revamped:
+	* You can no longer star cancel out of comboes, however...
+	* You can now influence your trajectory when using star cancel.
+
+
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.4.0 Changes:                    /
 |---------------------------------------------------/
 

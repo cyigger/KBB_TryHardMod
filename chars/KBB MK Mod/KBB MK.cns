@@ -2512,7 +2512,7 @@ x = -12
 type = StateTypeSet
 trigger1 = AnimElem = 6
 statetype = S
-movetype = I
+movetype = A
 physics = S
 
 [State 0, Speed Cap Back]
@@ -2691,7 +2691,7 @@ sprpriority = 2
 
 [State 200, End]
 type = Destroyself
-trigger1 = Time = 20
+trigger1 = Time = 40
 
 ; Wavedash C
 ;-------------------------------------------------------------------------------
@@ -3412,14 +3412,6 @@ value = 22000
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 625
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
 trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
@@ -4023,14 +4015,6 @@ value = 605
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 625
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
 trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
@@ -4444,14 +4428,6 @@ ctrl = 1
 [State 0, ChangeState]
 type = ChangeState
 triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 625
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
 trigger1 = command = "c" && var(12) < const(movement.airjump.num)
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 620
@@ -4588,14 +4564,6 @@ trigger1 = command = "b"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 600
 ctrl = 1
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "holdfwd"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 625
 
 [State 0, ChangeState]
 type = ChangeState
@@ -4776,14 +4744,6 @@ type = ChangeState
 triggerall = movecontact
 trigger1 = command = "b"
 value = 600
-
-[State 0, ChangeState]
-type = ChangeState
-triggerall = movecontact
-trigger1 = command = "holddown"
-trigger1 = command = "c"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 625
 
 [State 0, ChangeState]
 type = ChangeState

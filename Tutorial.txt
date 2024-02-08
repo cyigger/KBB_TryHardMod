@@ -17,7 +17,7 @@ You can:
 	* dash out of wavedash
 	* wavedash a little bit after the start of a wavedash
 	* not do supers while wavedashing
-	* **NEW** Wavedash Cancel During Starburst.
+	* ]Wavedash Cancel During Starburst.
 
 You can consistently do QCF supers by inputing them as Halfcircles instead.
 
