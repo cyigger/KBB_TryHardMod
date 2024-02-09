@@ -259,14 +259,14 @@ value = 35
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "a"
-value = 290 + var(10)
+value = 290 + var(10) * 3
 ctrl = 0
 
 [State 200, End]
 type = ChangeState
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "b"
-value = 390 + var(10)
+value = 390 + var(10) * 3
 ctrl = 0
 
 [State 200, C]
@@ -274,7 +274,7 @@ type = ChangeState
 triggerall = power >= 200
 triggerall = prevstateno != 52 || time > 3
 trigger1 = command = "c"
-value = 490 + var(10)
+value = 490 + var(10) * 3
 
 [State 200, End]
 type = ChangeState

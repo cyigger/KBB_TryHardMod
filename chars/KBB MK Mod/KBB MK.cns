@@ -359,7 +359,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
-value = 100
+value = 75
 
 [State 0, Voice - 0]
 type = PlaySnd
@@ -514,7 +514,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
-value = 100
+value = 75
 
 [State 0, Voice - 0]
 type = PlaySnd
@@ -1518,7 +1518,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 3
+value = 8
 
 [State 0, PosAdd]
 type = PosAdd
@@ -1546,7 +1546,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
-value = 100
+value = 75
 
 [State 0, Voice - 0]
 type = PlaySnd
@@ -1569,7 +1569,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 30
+damage    = 25
 guardflag = MAF
 hitflag = MAF
 pausetime = 16,16
@@ -2234,7 +2234,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 anim = 420
-poweradd = -100
+poweradd = -200
 sprpriority = 3
 
 [State 0, Helper]
@@ -2457,7 +2457,7 @@ physics = N
 juggle  = 0
 ctrl = 0
 anim = 440
-poweradd = -200
+poweradd = -250
 sprpriority = 2
 
 [State 0, AttackDist]
@@ -2568,7 +2568,7 @@ physics = N
 juggle  = 0
 ctrl = 0
 anim = 440
-poweradd = -200
+poweradd = -250
 sprpriority = 2
 
 
@@ -2691,7 +2691,7 @@ sprpriority = 2
 
 [State 200, End]
 type = Destroyself
-trigger1 = Time = 40
+trigger1 = Time = 30
 
 ; Wavedash C
 ;-------------------------------------------------------------------------------
@@ -3012,7 +3012,7 @@ value = 1
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Time < 16
+trigger1 = Time < 20
 x = 1.5
 
 [State 0, VelSet]
@@ -3465,7 +3465,7 @@ y = -3.8
 [State 0, VelSet]
 type = VelSet
 trigger1 = Time = 16
-x = 1.5
+x = 1.75
 y = 0
 
 [State 0, VelAdd]
@@ -3901,7 +3901,7 @@ triggerall = numhelper(51000) = 0
 triggerall = numhelper(55000) = 0
 triggerall = numhelper(56000) = 0
 trigger1 = movecontact = 1
-value = 50
+value = 25
 persistent = 0
 
 [State 0, Voice - 0]
@@ -3944,6 +3944,14 @@ trigger1 = time = 0 && prevstateno = 615
 ;trigger1 =  movecontact = 1
 ;y = -0.44
 
+[State 0, TargetBind]
+type = TargetBind
+triggerall = target,pos y - pos y < 0
+trigger1 = movecontact = 1
+time = 1
+id = -1
+pos = facing * (target,pos x - pos x), -15
+
 [State 200, 1]
 type = HitDef
 getpower = 25
@@ -3953,7 +3961,7 @@ triggerall = movecontact != 1
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 8
+damage    = 7
 hitflag = MAF
 guardflag = HAF
 pausetime = 2,2
@@ -4515,7 +4523,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Up
-damage    = 15
+damage    = 10
 hitflag = MAF
 guardflag = HAF
 pausetime = 8,8
