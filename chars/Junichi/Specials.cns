@@ -974,6 +974,7 @@ value = 20021
 type = ChangeState
 trigger1 = !movehit && AnimTime = 0
 value = 0
+ctrl = 1
 
 
 ;Shoot em Dead
@@ -1038,6 +1039,7 @@ Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 type = ChangeState
 trigger1 = !movehit && time >= 25
 value = 0
+ctrl = 1
 
 [State 200, End]
 type = ChangeState
@@ -2634,7 +2636,7 @@ triggerall = AnimElem = 3 || AnimElem = 9
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 20, 5
+damage    = 20
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -2662,7 +2664,7 @@ triggerall = AnimElem = 6 || AnimElem = 12
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 20, 5
+damage    = 20
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -2690,7 +2692,7 @@ triggerall = AnimElem = 15
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 40, 10
+damage    = 40
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
