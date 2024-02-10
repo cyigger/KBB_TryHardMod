@@ -256,6 +256,12 @@ Clsn2: 1
   Clsn2[0] = -21, -36, 22, 0
 0,47, 0,0, 5
 
+; Jump Land Backturned
+[Begin Action 48]
+Clsn2: 1
+  Clsn2[0] = -16, -36, 21, 0
+1,42, 0,0, 5, , , 1.2,0.8
+
 ;--------------------------------------------------
 ; Run forwards
 [Begin Action 100]
@@ -1291,10 +1297,10 @@ Clsn2: 1
 1,84, 4,0, 3
 Clsn2: 1
   Clsn2[0] = -17, -44, 21, 0
-1,85, 0,0, 5
+1,85, 0,0, 4
 Clsn2: 1
   Clsn2[0] = -17, -37, 18, 0
-1,86, 0,0, 5, , , 1.1,0.9
+1,86, 0,0, 4, , , 1.1,0.9
 
 ; Kicks - Forward + C
 [Begin Action -1]
@@ -1745,42 +1751,26 @@ Clsn2Default: 1
 2,44, 0,0, 3, , , 1.2,0.8
 2,44, 0,0, 3
 
-;Wavedash C Baton
-[Begin Action -1]
-Clsn2Default: 1
-  Clsn2[0] = -20, -31, 30, 0
-7,57, 0,0, 5, , , 1,0.9
-7,58, 0,0, 4, , , 1.1,0.9
-Clsn1: 3
-  Clsn1[0] = 37, -77, 71, -56
-  Clsn1[1] = 15, -65, 58, -40
-  Clsn1[2] = -10, -53, 47, -29
-7,59, 2,0, 3, , , 0.9,1.1
-Clsn2Default: 1
-  Clsn2[0] = -19, -50, 30, 0
-7,60, 0,0, 2
-7,61, -2,0, 2, , , 1.1,0.9
-7,61, 0,0, 10
-
-; Baton Stance 2 Old
+; Baton Stance 3
 [Begin Action 496]
 Clsn2Default: 1
   Clsn2[0] = -20, -31, 30, 0
-7,35, 0,0, 4, , , 1,0.9
-7,57, 0,0, 3, , , 1.1,0.9
+7,57, 0,0, 5, , , 1,0.9
+7,45, 6,0, 3, , , 1.2,0.8
 Clsn2Default: 1
-  Clsn2[0] = -19, -28, 30, 0
-7,58, 0,0, 2
-Clsn1: 2
-  Clsn1[0] = 1, -61, 57, -36
-  Clsn1[1] = -1, -52, 45, -29
-7,59, 2,0, 3
+  Clsn2[0] = -21, -51, 15, -1
+7,67, 0,0, 2
+Clsn1: 3
+  Clsn1[0] = 17, -70, 29, -17
+  Clsn1[1] = 3, -119, 11, -94
+  Clsn1[2] = 2, -93, 20, -48
+7,68, 2,0, 3, , , 0.9,1.2
 
-7,60, -2,0, 2, , , 1.1,0.9
-7,61, 0,0, 6
-7,61, 0,0, 3, , , 1.1,0.9
-7,41, 0,0, 3
-7,18, 0,0, 2
+7,69, -2,0, 2, , , 1.1,0.9
+7,69, 0,0, 6
+7,46, 0,0, 3
+7,50, 0,0, 3
+7,49, 0,0, 2
 
 ; Power Charge - Start
 [Begin Action 500]
@@ -3163,33 +3153,6 @@ Clsn2: 1
 
 ;--------------------------------------------------
 
-; Stance Display - Phoenix
-[Begin Action 6000]
-8,1, 0,0, 6, , , 0,0
-Interpolate Scale
-8,1, 0,0, 4, , , 1.2,1.2
-Interpolate Scale
-LoopStart
-8,1, 0,0, 10
-
-; Stance Display - Feline
-[Begin Action 6001]
-8,0, 0,0, 6, , , 0,0
-Interpolate Scale
-8,0, 0,0, 4, , , 1.2,1.2
-Interpolate Scale
-LoopStart
-8,0, 0,0, 10
-
-; Stance Display - Weapon
-[Begin Action 6002]
-8,2, 0,0, 6, , , 0,0
-Interpolate Scale
-8,2, 0,0, 4, , , 1.2,1.2
-Interpolate Scale
-LoopStart
-8,2, 0,0, 10
-
 [Begin Action 9999]
 -1,0, 0,0, 10
 ; ClawSwing FX1
@@ -3972,6 +3935,18 @@ Clsn1: 1
   Clsn1[0] = -120, -134, 120, 106
 0,44, 0,0, 2
 0,44, 0,0, 28
+
+; Indicator Phoenix
+[Begin Action 6000]
+6000,0, 0,-20, 10, V
+
+; Indicator Feline
+[Begin Action 6001]
+6000,1, 0,-20, 10, V
+
+; Indicator Arsenal
+[Begin Action 6002]
+6000,2, 0,-20, 10, V
 
 [Begin Action 9050]
 9000,3, 0,0, 10

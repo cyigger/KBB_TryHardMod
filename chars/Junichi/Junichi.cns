@@ -1754,7 +1754,7 @@ ctrl = 1
 
 
 ;-------------------------------------------------------------------------------
-; Kicks Wavedash A - Hellsweep Spin
+; Kicks Wavedash A - Hellsweep
 [Statedef 290]
 type    = S
 movetype= A
@@ -1909,7 +1909,7 @@ value = 410
 ctrl = 1
 
 ;===============================================================================
-; Peekaboo A
+; Punch Wavedash B: Gutter
 ;-------------------------------------------------------------------------------
 [Statedef 293]
 type    = S
@@ -3826,7 +3826,7 @@ volumescale = 500
 
 [State 0, CtrlSet]
 type = CtrlSet
-trigger1 = AnimElem = 6
+trigger1 = AnimElem = 5
 value = 1
 
 [State 200, Jump]
@@ -3845,7 +3845,7 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 trigger1 = pos Y >= 0 && Vel Y > 0
-value = 410
+value = 53
 ctrl = 1
 
 
@@ -5044,7 +5044,7 @@ value = 66
 [State 200, End]
 type = ChangeState
 trigger1 = pos Y >= 0 && Vel Y > 0
-value = 50
+value = 53
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
@@ -5265,7 +5265,7 @@ physics = S
 juggle  = 2
 ctrl = 0
 anim = 417
-poweradd = -250
+poweradd = -200
 sprpriority = 2
 
 [State 0, Juggle Map]
@@ -5291,13 +5291,13 @@ ignorehitpause = 1
 persistent = 0
 value = 5
 
-[State 210, PowerAdd]
-type = PowerAdd
-triggerall = numhelper(51000) = 0
-triggerall = numhelper(55000) = 0
-triggerall = numhelper(56000) = 0
-trigger1 = movecontact = 1
-value = 100
+;[State 210, PowerAdd]
+;type = PowerAdd
+;triggerall = numhelper(51000) = 0
+;triggerall = numhelper(55000) = 0
+;triggerall = numhelper(56000) = 0
+;trigger1 = movecontact = 1
+;value = 100
 
 [State 210, PlaySnd]
 type = PlaySnd
@@ -5317,7 +5317,7 @@ value = 0
 ;x = 8
 [State 210, VelSet]
 type = VelSet
-trigger1 = time = [0, 1]
+trigger1 = time = [0, 3]
 x = 6
 
 [State 210, VelSet]
@@ -5461,7 +5461,7 @@ volumescale = 500
 
 [State 0, Dash Velocity]
 type = VelSet
-trigger1 = time = [2, 4]
+trigger1 = time = [2, 6]
 x = 8
 
 ;[State 0, Dash Velocity]
@@ -7803,7 +7803,7 @@ ctrl = 1
 type    = S
 movetype= A
 physics = S
-juggle  = 0
+juggle  = 2
 ctrl = 0
 anim = 465
 poweradd = 0
@@ -7899,8 +7899,6 @@ ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2, 0
 air.velocity = -2, 0
-forcenofall = 1
-p2getp1state = 0
 Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 envshake.time = 5
 guard.cornerpush.veloff = -5
@@ -7969,15 +7967,15 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Baton Sky Scraper
+; Baton Up Smack
 [Statedef 466]
 type    = S
 movetype= A
 physics = S
-juggle  = 1
+juggle  = 2
 ctrl = 0
 anim = 466
-poweradd = -200
+poweradd = 0
 sprpriority = 2
 velset = 4, 0
 
@@ -8704,10 +8702,10 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -8
-ground.velocity = -2.5,-5
-air.velocity = -2.5,-4
+ground.velocity = -2.25,-5
+air.velocity = -2.25,-4
 Fall = 1
-Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
 envshake.time = 10
 guard.cornerpush.veloff = -10
 airguard.cornerpush.veloff = -8
@@ -9017,8 +9015,8 @@ volumescale = 500
 
 [State 0, Dash Velocity]
 type = VelSet
-trigger1 = time = [4, 8]
-x = 10
+trigger1 = time = [4, 6]
+x = 12
 
 ;[State 0, Dash Velocity]
 ;type = VelSet
@@ -9134,6 +9132,215 @@ ctrl = 1
 ;trigger1 = command = "c"
 ;value = 630
 ;ctrl = 1
+
+
+
+
+
+;-------------------------------------------------------------------------------
+; Baton Sky Scraper
+[Statedef 496]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 496
+poweradd = -200
+sprpriority = 2
+velset = 4, 0
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+;[State 0, PlaySnd]
+;type = PlaySnd
+;triggerall = random < 600
+;trigger1 = AnimElem = 1
+;value = S200,0+(random<500)*1+(random<500)*1+(random<500)*1
+;volumescale = 200
+;channel = 0
+
+[State 200, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+;[State 200, Power Gain]
+;type = PowerAdd
+;triggerall = numhelper(51000) = 0
+;triggerall = numhelper(55000) = 0
+;triggerall = numhelper(56000) = 0
+;trigger1 = movecontact = 1
+;value = 100
+
+[State 200, Woosh]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S1,1
+volumescale = 50
+
+[State 200, Move Forward]
+type = VelSet
+trigger1 = animelem = 2
+x = 4
+
+[State 200, Explod]
+type = Explod
+trigger1 = movecontact 
+anim = 40000
+ID = 40000
+pos = -10,-100
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -2
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+[State 200, Attack!]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = enemy,movetype != A
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Heavy
+damage    = 40
+hitflag = MAF
+guardflag = MA
+pausetime = 16,18
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -1,-8
+air.velocity = -1,-7
+Fall = 1
+Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
+envshake.time = 10
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 200, Fatal!]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = enemy,movetype = A
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Heavy
+damage    = 80
+hitflag = MAF
+guardflag = MA
+pausetime = 30,30
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 8,0
+guardsound = 6,0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -1,-14
+air.velocity = -1,-14
+Fall = 1
+Fall.recover = 0
+envshake.time = 30
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movehit
+;trigger1 = command = "up"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 40
+
+[State 200, Special 2 - Big Kick]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1500
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+value = 20010
+
+[State 200, Special 2 - Weave]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 500
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+value = 23000
+
+[State 200, Special 2 - Skyfall Kick]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+value = 21000
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;trigger1 = command = "holddown"
+;trigger1 = command = "a"
+;value = 950
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;trigger1 = command = "b"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 370
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;triggerall = power >= 100
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "holddown"
+;trigger1 = command = "c"
+;value = 403
+;ctrl = 1
+
+[State 210, Cancel into 5C]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 100
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown" && command = "c"
+value = 400
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
 
 
 
@@ -13724,6 +13931,8 @@ removeongethit = 1
 persistent = 1
 ignorehitpause = 1
 
+
+
 ;------------------------------------------------------------------------
 ;Power Charge
 ;------------------------------------------------------------------------
@@ -13874,17 +14083,19 @@ value = 0
 
 ;-------Stance Display-----------------------------
 
+;--Player 1 Side
 [State -3, Stance Display - Phoenix ]
 type = Explod
 triggerall = teammode = single || (teammode = tag && roundstate > 1)
 triggerall = stateno != 5610 && stateno != 5611
+triggerall = teamside = 1
 triggerall = var(10) = 0 ;If on fireball
 triggerall = numexplod(6000) = 0 ;If this explod doesn't exist already
 trigger1 = 1
 anim = 6000
 ID = 6000
-pos = 0,-22
-postype = p1 ;p2,front,back,left,right
+pos = 44,157
+postype = left ;p2,front,back,left,right
 facing = 1
 vfacing = 1
 bindtime = -1
@@ -13904,13 +14115,14 @@ removeongethit = 0
 type = Explod
 triggerall = teammode = single || (teammode = tag && roundstate > 1)
 triggerall = stateno != 5610 && stateno != 5611
+triggerall = teamside = 1
 triggerall = var(10) = 1 ;If on fireball
 triggerall = numexplod(6001) = 0 ;If this explod doesn't exist already
 trigger1 = 1
 anim = 6001
 ID = 6001
-pos = 0,-22
-postype = p1 ;p2,front,back,left,right
+pos = 44,157
+postype = left ;p2,front,back,left,right
 facing = 1
 vfacing = 1
 bindtime = -1
@@ -13930,13 +14142,96 @@ removeongethit = 0
 type = Explod
 triggerall = teammode = single || (teammode = tag && roundstate > 1)
 triggerall = stateno != 5610 && stateno != 5611
+triggerall = teamside = 1
 triggerall = var(10) = 2 ;If on fireball
 triggerall = numexplod(6002) = 0 ;If this explod doesn't exist already
 trigger1 = 1
 anim = 6002
 ID = 6002
-pos = 0,-22
-postype = p1 ;p2,front,back,left,right
+pos = 44,157
+postype = left ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 0.8,0.8
+sprpriority = -5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+;--Player 2 Side
+[State -3, Stance Display - Phoenix ]
+type = Explod
+triggerall = teammode = single || (teammode = tag && roundstate > 1)
+triggerall = stateno != 5610 && stateno != 5611
+triggerall = teamside = 2
+triggerall = var(10) = 0 ;If on fireball
+triggerall = numexplod(6000) = 0 ;If this explod doesn't exist already
+trigger1 = 1
+anim = 6000
+ID = 6000
+pos = -45,157
+postype = right ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 0.8,0.8
+sprpriority = -5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State -3, Stance Display - Feline ]
+type = Explod
+triggerall = teammode = single || (teammode = tag && roundstate > 1)
+triggerall = stateno != 5610 && stateno != 5611
+triggerall = teamside = 2
+triggerall = var(10) = 1 ;If on fireball
+triggerall = numexplod(6001) = 0 ;If this explod doesn't exist already
+trigger1 = 1
+anim = 6001
+ID = 6001
+pos = -45,157
+postype = right ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -1
+pausemovetime = 0
+scale = 0.8,0.8
+sprpriority = -5
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State -3, Stance Display - Weapon ]
+type = Explod
+triggerall = teammode = single || (teammode = tag && roundstate > 1)
+triggerall = stateno != 5610 && stateno != 5611
+triggerall = teamside = 2
+triggerall = var(10) = 2 ;If on fireball
+triggerall = numexplod(6002) = 0 ;If this explod doesn't exist already
+trigger1 = 1
+anim = 6002
+ID = 6002
+pos = -45,157
+postype = right ;p2,front,back,left,right
 facing = 1
 vfacing = 1
 bindtime = -1
