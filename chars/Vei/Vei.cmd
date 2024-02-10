@@ -607,6 +607,7 @@ trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
 trigger2 = stateno = [200, 499] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
+trigger3 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2
 [State -1, SPECIAL 2]
@@ -622,6 +623,7 @@ trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
 trigger2 = stateno = [200, 499] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
+trigger3 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3
 ;[State -1, SPECIAL 3]
@@ -660,6 +662,7 @@ trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
 trigger2 = stateno = [200, 499] || stateno = [600, 639] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
+trigger3 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5
 [State -1, SPECIAL 5]
@@ -674,6 +677,7 @@ trigger2 = !isHelper
 trigger2 = movecontact || helper(31),movecontact
 trigger2 = stateno = [200, 499] || stateno = [900, 950]
 ;trigger2 = stateno != [291, 292] && stateno != 301 && stateno != 311 && stateno != 321
+trigger3 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;===========================================================================
 
 ;---------------------------------------------------------------------------

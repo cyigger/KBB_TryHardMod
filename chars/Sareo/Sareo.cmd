@@ -605,7 +605,8 @@ value = 26000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = power >= 2000
-trigger1 = ctrl || stateno = 30
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - SPEEEEEN
 [State -1, SPECIAL 2]
@@ -614,7 +615,8 @@ value = 22000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 2"
 Triggerall = power >= 1000
-trigger1 = ctrl || stateno = 30
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 - SHOCKA!
 [State -1, SPECIAL 3]
@@ -624,7 +626,8 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl || stateno = 30
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 4 - CURE
 [State -1, SPECIAL 4]
@@ -636,7 +639,8 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl || stateno = 30
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5 - Cosmic Speed
 [State -1, SPECIAL 5]
@@ -645,7 +649,8 @@ value = 21000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 5"
 Triggerall = power >= 2000
-trigger1 = ctrl || stateno = 30
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 6 - REFLECT
 [State -1, SPECIAL 5]
@@ -655,7 +660,8 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 6"
 Triggerall = statetype != A
 Triggerall = power >= 1000
-trigger1 = ctrl || stateno = 30
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 
 
 ;===========================================================================

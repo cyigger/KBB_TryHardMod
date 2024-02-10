@@ -704,6 +704,7 @@ triggerall = numhelper(24001) = 0
 Triggerall = statetype != A
 Triggerall = power >=1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 1 - AIR Gatling
 [State -1, Special 1 - AIR Gatling]
@@ -717,6 +718,7 @@ triggerall = numhelper(21101) = 0
 Triggerall = statetype = A
 Triggerall = power >=1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - BOMBS!?
 [State -1, Special 2 - BOMBS!?]
@@ -729,6 +731,7 @@ triggerall = numhelper(22001) = 0
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 - YEET
 [State -1, SPECIAL 3 - YEET]
@@ -741,6 +744,7 @@ triggerall = numhelper(23001) = 0
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 4 - Grabby
 [State -1, SPECIAL 4]
@@ -753,6 +757,7 @@ triggerall = numhelper(24001) = 0
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5 - PROTON FUCKHEAD
 [State -1, SPECIAL 5 - PROTON FUCKHEAD]
@@ -763,6 +768,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 2000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;===========================================================================
 ;--------------------------------Normal Attacks---------------------------
 ;---------------------------------------------------------------------------

@@ -606,6 +606,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - Activation
 [State -1, Pyromaniac]
@@ -617,6 +618,7 @@ triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - Deactivation
 [State -1, Law Abiding Citizen]
@@ -627,6 +629,7 @@ triggerall = var(22) = 1
 triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 - Setup
 [State -1, Spicy Shatter Step]
@@ -639,6 +642,7 @@ triggerall = command = "SPECIAL 3"
 Triggerall = statetype != A
 Triggerall = power >= 500
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 4
 [State -1, Shiny Shatter Step]
@@ -651,6 +655,7 @@ triggerall = command = "SPECIAL 4"
 Triggerall = statetype != A
 Triggerall = power >= 500
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5
 [State -1, Booby Trap]
@@ -661,6 +666,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 triggerall = power >= 2000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5
 [State -1, 8 Bombs 64 Explosions]
@@ -671,6 +677,7 @@ triggerall = command = "SPECIAL 6"
 Triggerall = statetype != A
 Triggerall = power >= 2000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ; Power Charge

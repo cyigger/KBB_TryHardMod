@@ -244,22 +244,15 @@ trigger4 = command = "b" && time > 0
 trigger5 = command = "c" && time > 0
 y = 0
 
-
-[State 200, Special 2 - Rapidslash DP]
+;---------------------------------------------------------------------------
+; Special 3
+[State -1, SPECIAL 3 - Spinner Cutters]
 type = ChangeState
-Triggerall = time >= 5
+value = 23000
 triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 2"
-trigger1 = power >= 1000
-value = 22000
-
-[State 200, SPECIAL 4 - Sleeper Move]
-type = ChangeState
-triggerall = time >= 5
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 4"
-Trigger1 = power >= 1000
-value = 24000
+triggerall = command = "SPECIAL 3"
+Triggerall = power >= 1000
+trigger1 = command = "holdfwd"
 
 ;[State 200, End]
 ;type = ChangeState

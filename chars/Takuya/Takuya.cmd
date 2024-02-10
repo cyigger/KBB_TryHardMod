@@ -607,6 +607,7 @@ triggerall = command = "SPECIAL 1"
 Triggerall = power >= 1000
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;;---------------------------------------------------------------------------
 ; Special 2 - Lunar thingy
 [State -1, SPECIAL 2]
@@ -616,6 +617,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 2"
 Triggerall = power >= 500
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;;---------------------------------------------------------------------------
 ; Special 4 - Dash Slash
 [State -1, SPECIAL 3]
@@ -626,6 +628,7 @@ triggerall = command = "SPECIAL 3"
 Triggerall = power >= 1000
 Triggerall = statetype = A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;;---------------------------------------------------------------------------
 ; Special 4 - "Pay Attention!"/Crossup
 [State -1, SPECIAL 4]
@@ -635,6 +638,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;;---------------------------------------------------------------------------
 ; Special 5 - Lightning Smash 
 [State -1, SPECIAL 5]
@@ -645,6 +649,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 2000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;-------------------------------------------------------------------------------
 ; Special 6
 ;[State -1, SPECIAL 6] ; Archived...

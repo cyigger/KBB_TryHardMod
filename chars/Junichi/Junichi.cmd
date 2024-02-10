@@ -601,8 +601,9 @@ value = 23000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = statetype != A
-Triggerall = power >= 500
+Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2
 [State -1, SPECIAL 2]
@@ -613,6 +614,7 @@ triggerall = command = "SPECIAL 2"
 ;Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3
 [State -1, SPECIAL 3]
@@ -625,6 +627,7 @@ Triggerall = power >= 1000
 trigger1 = ctrl
 trigger2 = movehit
 trigger2 = stateno = [600, 650]
+trigger3 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 (Ground)
 ;[State -1, SPECIAL 3]
@@ -655,6 +658,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 1500
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 
 ;===========================================================================
 ;---------------------------------------------------------------------------
@@ -794,7 +798,7 @@ trigger2 = stateno != 201 && stateno != 210
 type = ChangeState
 value = 409
 triggerall = var(10) = 0
-Triggerall = power >= 200
+Triggerall = power >= 100
 triggerall = numhelper(3500) = 0
 triggerall = command = "holdback"
 triggerall = command = "c"
@@ -907,7 +911,7 @@ type = ChangeState
 value = 420
 triggerall = var(10) = 1
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 200
+Triggerall = power >= 100
 triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
@@ -992,13 +996,13 @@ type = ChangeState
 value = 460
 triggerall = var(10) = 2
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 200
+Triggerall = power >= 100
 triggerall = command = "holdback"
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = [200, 399] || stateno = 461 || stateno = [900, 999]
+trigger2 = stateno = [200, 399] || stateno = [900, 999]
 
 ;---------------------------------------------------------------------------
 ; C
@@ -1013,7 +1017,7 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = [200, 399] || stateno = 461 || stateno = [900, 999]
+trigger2 = stateno = [200, 399] || stateno = [900, 999]
 ;---------------------------------------------------------------------------
 ; Down + C
 ;[State -1, Down + C]
@@ -1059,7 +1063,7 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl || stateno = 410
 trigger2 = movecontact
-trigger2 = stateno = [412, 415] || stateno = 201
+trigger2 = stateno = [412, 414] || stateno = 201
 
 ;---------------------------------------------------------------------------
 ; Punch C
@@ -1083,11 +1087,11 @@ value = 470
 triggerall = var(10) = 2
 Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
-triggerall = command = "holdfwd"
+;triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = stateno = 460
+trigger1 = movecontact
+trigger1 = stateno = [461, 469]
 ;---------------------------------------------------------------------------
 ;Starburst in Neutral
 [State -1, StarBurst In Neutral ChangeState]

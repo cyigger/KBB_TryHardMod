@@ -618,6 +618,7 @@ Triggerall = statetype = A
 Triggerall = numhelper(21003)<1
 Triggerall = power >= 500
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - 5 Strikes with a side of Fries
 [State -1, SPECIAL 2]
@@ -628,6 +629,7 @@ triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 - Dash Slash
 [State -1, SPECIAL 3]
@@ -637,6 +639,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
 Triggerall = power >= 500
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 4 - "Pay Attention!"/Crossup
 [State -1, SPECIAL 4]
@@ -646,6 +649,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 4"
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5 - Lightning Smash 
 [State -1, SPECIAL 5]
@@ -656,6 +660,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 2000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 6 - 60 Seconds.
 [State -1, SPECIAL 6]
@@ -668,6 +673,7 @@ Triggerall = statetype != A
 Triggerall = power >= 3000
 Triggerall = life > 1
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 6  - 60 Seconds - Deactivation
 [State -1, SPECIAL 6]
@@ -677,6 +683,7 @@ triggerall = var(15) = 1
 triggerall = command = "SPECIAL 6"
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ; Power Charge

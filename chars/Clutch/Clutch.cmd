@@ -639,6 +639,7 @@ triggerall = command = "SPECIAL 1"
 Triggerall = statetype = A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 1 - BLAST
 [State -1, SPECIAL 1]
@@ -649,6 +650,7 @@ triggerall = command = "SPECIAL 1"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - Lingering Sphere
 [State -1, SPECIAL 2]
@@ -660,6 +662,7 @@ triggerall = numhelper(22500) < 2
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 - Teleport
 [State -1, SPECIAL 3]
@@ -669,6 +672,7 @@ triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 
 ;---------------------------------------------------------------------------
 ; Special 4 - Burst Charge (Air.OK)
@@ -680,6 +684,7 @@ triggerall = numexplod(451) = 0
 triggerall = command = "SPECIAL 4"
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5 - Stun trap - Start
 [State -1, SPECIAL 5]
@@ -691,6 +696,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5 - Stun trap - Activation.
 [State -1, SPECIAL 5]
@@ -701,6 +707,7 @@ triggerall = numhelper(25500) > 0
 triggerall = helper(25500),stateno = 25500
 triggerall = command = "SPECIAL 5"
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;===========================================================================
 ;---------------------------------------------------------------------------
 ; Power Charge

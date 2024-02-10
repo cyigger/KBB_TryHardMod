@@ -1906,7 +1906,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 ;anim = 24000
-poweradd = ifelse(prevstateno != [23000, 23999], -500, -250)
+poweradd = ifelse(prevstateno != [23000, 23999], -1000, -250)
 velset = ifelse(prevstateno != 24050,6,8),0
 sprpriority = ifelse(anim != 24000, 4, -1)
 

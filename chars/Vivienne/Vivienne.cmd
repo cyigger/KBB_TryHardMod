@@ -621,6 +621,7 @@ Triggerall = statetype != A
 Triggerall = power >= 3000 ; ALL METER
 Triggerall = var(53) >=100 ; MAX PLASMA PASSIVE
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 1 - GEYSER
 [State -1, SPECIAL 1 - GEYSER]
@@ -631,6 +632,7 @@ triggerall = command = "SPECIAL 1"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 2 - LAZUR
 [State -1, SPECIAL 2 - LAZUR]
@@ -641,6 +643,7 @@ triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 - Air Kick
 [State -1, SPECIAL 3 - Air Kick]
@@ -651,6 +654,7 @@ triggerall = command = "SPECIAL 3"
 Triggerall = power >= 1000
 triggerall = numhelper(2105) < 1
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 4 - Overhead
 [State -1, SPECIAL 4 - Overhead]
@@ -661,6 +665,7 @@ triggerall = command = "SPECIAL 4"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 5 - Bubbling Rage
 [State -1, SPECIAL 4 - Overhead]
@@ -671,6 +676,7 @@ triggerall = command = "SPECIAL 5"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 6 - "Say that again."
 [State -1, SPECIAL 4 - Overhead]
@@ -681,6 +687,7 @@ triggerall = command = "SPECIAL 6"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
+trigger2 = stateno = [290, 291] && command = "holdback" && !ishelper
 
 ;---------------------------------------------------------------------------
 ; Special 8 - "Vivienne Piledriver"
@@ -695,6 +702,7 @@ trigger1 = command = "SPECIAL 8"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel **3)
 trigger2 = P2BodyDist X < 10
 trigger2 = p2statetype = S
+trigger3 = stateno = [290, 291] && command = "holdfwd" && !ishelper
 
 ;===========================================================================
 ;---------------------------------------------------------------------------

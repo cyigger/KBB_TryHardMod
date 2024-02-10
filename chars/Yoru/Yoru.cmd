@@ -709,6 +709,7 @@ triggerall = numhelper(421) = 0
 triggerall = command = "SPECIAL 1"
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 
 [State -1, SPECIAL 2]
 type = ChangeState
@@ -718,6 +719,7 @@ Triggerall = power >= 1000
 triggerall = command = "SPECIAL 2"
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 
 [State -1, SPECIAL 3]
 type = ChangeState
@@ -727,6 +729,7 @@ Triggerall = power >= 500
 triggerall = command = "SPECIAL 3"
 Triggerall = statetype = A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 
 [State -1, SPECIAL 4]
 type = ChangeState
@@ -744,6 +747,7 @@ triggerall = numhelper(26516) < 1
 triggerall = command = "SPECIAL 4"
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 
 [State -1, SPECIAL 5]
 type = ChangeState
@@ -755,6 +759,7 @@ Triggerall = Power >= 2000
 Triggerall = var(17) < 1
 Triggerall = statetype != A
 trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;===========================================================================
 ;--------------------------------Normal Attacks---------------------------
 ;---------------------------------------------------------------------------
