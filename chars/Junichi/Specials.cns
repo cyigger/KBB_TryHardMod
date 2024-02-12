@@ -1435,7 +1435,7 @@ y = -5
 [State 21000, VelSet]
 type = VelSet
 trigger1 = AnimElem = 1
-x = 3
+x = 2
 y = -5
 
 [State 21000, VelSet]
@@ -1533,367 +1533,175 @@ value = 410
 ctrl = 1
 
 
-; Air Grab Start
-;-------------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; Suber Dash
 [Statedef 22000]
-type    = A
-movetype= A
+type    = S
+movetype = I
 physics = S
-juggle  = 0
-ctrl = 0
 anim = 22000
-velset = 0,0
-sprpriority = 2
+sprpriority = 1
+ctrl = 0
 poweradd = -1000
-
-[State 0, Busterable]
-type = MapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
-
-[State 0, enableDHC] ; Enables DHC and disables tag
-type = MapSet
-triggerall = teammode = tag
-trigger1 = movecontact
-map = "enableDHC"
-value = 1
-
-[State 0, reversalMove]
-type = MapSet
-trigger1 = 1
-map = "reversalMove"
-value = 1
-ignorehitpause = 1
-
-;[State 0, VarSet]
-;type = VarSet
-;trigger1 = AnimElem = 1
-;v = 10
-;value = 1
-
-
-[State 0, NotHitBy]
-type = NotHitBy
-trigger1 = time > 6
-value = A, AA, AP
-time = 1
-
-[State 0, VelSet]
-type = VelSet
-trigger1 = AnimElem = 3
-x = 3
-y = -6
-
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = AnimElem = 3
-statetype = A
-movetype = A
-physics = N
-
-[State 0, VelSet]
-type = VelAdd
-trigger1 = time > 6
-y = 0.44
 
 [State 0, SuperPause]
 type = SuperPause
 trigger1 = Time = 1
 anim = 92006
 time = 10
-sound = 20,0
+sound = S5,0
 pos = 0,-20
-movetime = 0
+movetime = 10
 darken = 1
 p2defmul = 1
 poweradd = 0
 endcmdbuftime = 7
 
-[State 200, 1]
-type = HitDef
-getpower = 0
-Triggerall = !movecontact
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 3
+time = 20
+trans = add
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = F100,0
+volumescale = 700
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time = 10
+value = 1
+
+[State 100, 1]
+type = VelSet
+trigger1 = time = [10, 30]
+x = 16
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = F16000
+ID = 16000
+pos = -40,0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1.25,1.25
+sprpriority = 2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
 trigger1 = 1
-attr = A, ST
-animtype  = Heavy
-damage    = 0
-hitflag = AFD
-guardflag = 
-pausetime = 0,100
-sparkno = 0
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 9,0
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-ground.velocity = -2,-2
-air.velocity = -2,-2
-Fall = 0
-getpower = 0
-Envshake.time = 30
-fall.recover = 0
-p1stateno = 22010
+flag = NoWalk
 
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
 
-[State 0, ChangeState]
+[State 100, 4]
 type = ChangeState
-trigger1 = pos y >= 0 && vel y > 0.1
-value = 22020
-ctrl = 1
-
-; Air Grab Succeed
-;-------------------------------------------------------------------------------
-[Statedef 22010]
-type    = A
-movetype= A
-physics = N
-juggle  = 0
-ctrl = 0
-anim = 22010
-velset = 2,-8
-sprpriority = 4
-
-[State 0, Busterable]
-type = MapSet
-trigger1 = 1
-map = "busterable"
-value = 1
-ignorehitpause = 1
-
-[State 0, enableDHC] ; Enables DHC and disables tag
-type = MapSet
-triggerall = teammode = tag
-trigger1 = movecontact
-map = "enableDHC"
-value = 1
-
-[State 0, reversalMove]
-type = MapSet
-trigger1 = 1
-map = "reversalMove"
-value = 1
-ignorehitpause = 1
-
-[State 0, VelSet]
-type = VelAdd
-trigger1 = 1
-y = 0.44
-
-[State 0, VelSet]
-type = PlayerPush
-trigger1 = movecontact
+triggerall = ailevel = 0
+triggerall = time >= 20
+trigger1 = command = "holdback"
 value = 0
 
-[State 0, NotHitBy]
-type = NotHitBy
-triggerall = movecontact
-trigger1 = 1
-value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
-time = 1
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 3
-trigger1 = movecontact
-time = 1
-id = -1
-pos = 0,25
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 4
-trigger1 = movecontact
-time = 1
-id = -1
-pos = -15,15
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 5
-trigger1 = movecontact
-time = 1
-id = -1
-pos = -25,0
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 6
-trigger1 = movecontact
-time = 1
-id = -1
-pos = -15,-15
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 7
-trigger1 = movecontact
-time = 1
-id = -1
-pos = 0,-25
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 8
-trigger1 = movecontact
-time = 1
-id = -1
-pos = 15,-15
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 9
-trigger1 = movecontact
-time = 1
-id = -1
-pos = 25,-5
-
-[State 0, TargetBind]
-type = TargetBind
-triggerall = enemy,stateno != 4100
-trigger1 = AnimElem = 10
-trigger1 = movecontact
-time = 1
-id = -1
-pos = 25,15
-
-[State 0, Helper]
-type = Helper
+[State 100, 4]
+type = ChangeState
 trigger1 = AnimTime = 0
-helpertype = normal ;player
-name = "Power Delay"
-ID = 56000
-stateno = 56000
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Super Dash Jump
+[Statedef 22001]
+type    = S
+physics = S
+anim = 40
+ctrl = 0
+sprpriority = 1
+facep2 = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 5
+anim = F17000
+ID = 17000
+pos = 0,10
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 0.5,0.5
+sprpriority = 2
+
+[State 40, Disable Jump Block Helper]
+type = helper
+name = "Disable Jump Block"
+trigger1 = time = 0
+ID = 4200
+stateno = 4200
 pos = 9999,9999
 postype = p1    ;p2,front,back,left,right
 facing = 1
 keyctrl = 0
-ownpal = 0
 supermovetime = 0
 pausemovetime = 0
 
-[State 200, 1]
-type = HitDef
-getpower = 0
-Triggerall = AnimElem = 1
-trigger1 = 1
-attr = S, SA
-animtype  = Hard
-damage    = 0
-hitflag = MAFD
-guardflag = MAFD
-pausetime = 0,100
-sparkno = 0
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 5,2
-guardsound = 6,10
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -1,-1
-air.velocity = -1,-1
-Envshake.time = 10
-Fall = 1
-fall.recover = 0
-fall.yvelocity = -5
-getpower = 0
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0 && ailevel = 0
+trigger2 = abs(P2Bodydist X) <= 30 
+trigger2 = ailevel > 0 && time = 0 && random < 200 && p2movetype != H
+sysvar(1) = 0
 
-[State 200, 1]
-type = HitDef
-getpower = 0
-Triggerall = AnimElem = 10
-trigger1 = 1
-attr = S, SA
-animtype  = Hard
-damage    = 80
-hitflag = MAFD
-guardflag = MAFD
-pausetime = 8,8
-sparkno = 0
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 5,2
-guardsound = 6,10
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,12
-air.velocity = -2,12
-Envshake.time = 10
-Fall = 1
-fall.recover = 0
-fall.yvelocity = -6
-fall.xvelocity = -1
-getpower = 0
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd" && ailevel = 0
+trigger2 = abs(P2Bodydist X) > 100 
+trigger2 = ailevel > 0 && time = 0 && random < 300 && random >= 200 && p2movetype != H
+sysvar(1) = 1
 
-[State 0, ChangeState]
-type = ChangeState
-trigger1 = pos y >= 0 && vel y >= 0
-value = 22020
-ctrl = 1
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback" && ailevel = 0
+trigger2 = p2movetype = A && abs(P2Bodydist X) < 50 
+trigger2 = ailevel > 0 && time = 0 && random < 400 && random >= 300 && p2movetype != H
+sysvar(1) = -1
 
-
-;---------------------------------------------------------------------------
-; Air Grab Jump Land
-[Statedef 22020]
-type    = S
-movetype = A
-physics = S
-ctrl = 0
-anim = 22020
-facep2 = 1
-attackdist = 0
-
-[State 52, 1]
+[State 40, 4]
 type = VelSet
-trigger1 = Time = 0
-y = 0
-
-[State 52, 2]
-type = PosSet
-trigger1 = Time = 0
-y = 0
-
-[State 52, 4]
-type = VelSet
-trigger1 = abs(vel x) < Const(movement.stand.friction.threshold)
-x = 0
+trigger1 = AnimTime = 0
+x = 10
+y = const(velocity.jump.y)
 
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = AnimElem = 1
-value = S3,3
+value = S7,0
 volumescale = 100
 
-[State 0, Helper]
-type = Helper
-trigger1 = time = 0
-helpertype = normal ;player
-name = "Power Delay"
-ID = 56000
-stateno = 56000
-pos = 9999,9999
-postype = p1    ;p2,front,back,left,right
-facing = 1
-keyctrl = 0
-ownpal = 0
-supermovetime = 0
-pausemovetime = 0
-
-[State 52, 5]
+[State 40, 6]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 50
 ctrl = 1
 
 
@@ -1906,7 +1714,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 ;anim = 24000
-poweradd = ifelse(prevstateno != [23000, 23999], -1000, -250)
+poweradd = ifelse(prevstateno != [23000, 23999], -500, -250)
 velset = ifelse(prevstateno != 24050,6,8),0
 sprpriority = ifelse(anim != 24000, 4, -1)
 
@@ -2004,8 +1812,17 @@ pausemovetime = 0
 type = HitOverride
 trigger1 = prevstateno = 23000 && time = [0, 15]
 trigger2 =  time = [2,15]
-attr = SCA,NA,SA,NP,SP
+attr = SCA,NA,SA
 slot = 1
+stateno = 23050
+time = 1
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = prevstateno = 23000 && time = [0, 15]
+trigger2 =  time = [2,15]
+attr = SCA,NP,SP
+slot = 2
 stateno = 23051
 time = 1
 
@@ -2166,11 +1983,12 @@ triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = AnimElem = 4 || AnimElem = 10 
 trigger1 = 1
 attr = S, NA
-animtype  = Medium
+animtype  = Hard
 damage    = 20
-hitflag = MAF
+guard.kill = 0
+hitflag = MAFD
 guardflag = MAF
-pausetime = 4,8
+pausetime = 4,12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2193,9 +2011,10 @@ triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = AnimElem = 7 || AnimElem = 13
 trigger1 = 1
 attr = S, NA
-animtype  = Medium
+animtype  = Hard
 damage    = 20
-hitflag = MAF
+guard.kill = 0
+hitflag = MAFD
 guardflag = MAF
 pausetime = 4,8
 sparkno = 1
@@ -2220,12 +2039,13 @@ triggerall = map(juggle) < 100 || hitcount != 0
 triggerall = AnimElem = 16
 trigger1 = 1
 attr = S, NA
-animtype  = Medium
+animtype  = Hard
 damage    = 40
-hitflag = MAF
+guard.kill = 0
+hitflag = MAFD
 guardflag = MAF
 pausetime = 12,12
-guard.pausetime = 12,14
+guard.pausetime = 12,9
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2235,9 +2055,9 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -10
-ground.velocity = -6,-3
-air.velocity = -6,-4
-Envshake.time = 10
+ground.velocity = -5,-3
+air.velocity = -5,-4
+Envshake.time = 15
 Fall = 1
 Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5

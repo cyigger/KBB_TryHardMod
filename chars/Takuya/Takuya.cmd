@@ -607,7 +607,7 @@ trigger1 = ctrl
 ;SPECIALS:
 ;===========================================================================
 ;---------------------------------------------------------------------------
- ;Special 1 - Kickety Kicky
+ ;Special 1 - Space Dandy Assist
 [State -1, SPECIAL 1]
 type = ChangeState
 value = 20000
@@ -618,7 +618,7 @@ Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;;---------------------------------------------------------------------------
-; Special 2 - Lunar thingy
+; Special 2 - Lunar Ascension
 [State -1, SPECIAL 2]
 type = ChangeState
 value = 21000
@@ -628,7 +628,7 @@ Triggerall = power >= 500
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;;---------------------------------------------------------------------------
-; Special 4 - Dash Slash
+; Special 3 - Strike a Pose-uya
 [State -1, SPECIAL 3]
 type = ChangeState
 value = 22000
@@ -639,7 +639,7 @@ Triggerall = statetype = A
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;;---------------------------------------------------------------------------
-; Special 4 - "Pay Attention!"/Crossup
+; Special 4 - Nova Mote
 [State -1, SPECIAL 4]
 type = ChangeState
 value = 23000
@@ -649,7 +649,7 @@ Triggerall = power >= 1000
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;;---------------------------------------------------------------------------
-; Special 5 - Lightning Smash 
+; Special 5 - Starslammer
 [State -1, SPECIAL 5]
 type = ChangeState
 value = 24000
@@ -660,7 +660,7 @@ Triggerall = power >= 2000
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;-------------------------------------------------------------------------------
-; Special 6
+; Special 6 - Space Daniel.
 ;[State -1, SPECIAL 6] ; Archived...
 ;type = ChangeState
 ;value = 25000
@@ -670,26 +670,6 @@ trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;Triggerall = power >= 3000
 ;trigger1 = ctrl
 ;;---------------------------------------------------------------------------
-;; Special 6 - 60 Seconds.
-;[State -1, SPECIAL 6]
-;type = ChangeState
-;value = 26000
-;triggerall = numhelper(3500) = 0
-;triggerall = var(15) = 0
-;triggerall = command = "SPECIAL 6"
-;Triggerall = statetype != A
-;Triggerall = power >= 3000
-;Triggerall = life > 1
-;trigger1 = ctrl
-;---------------------------------------------------------------------------
-; Special 6  - 60 Seconds - Deactivation
-;[State -1, SPECIAL 6]
-;type = ChangeState
-;value = 26500
-;triggerall = var(15) = 1
-;triggerall = command = "SPECIAL 6"
-;Triggerall = statetype != A
-;trigger1 = ctrl
 ;;===========================================================================
 ;---------------------------------------------------------------------------
 ; Run Fwd

@@ -2880,6 +2880,12 @@ physics = N
 sprpriority = -3
 ctrl = 0
 
+[State 0, Juggle Map]
+type = MapSet
+trigger1 = time = 0
+map = "charge"
+value = 0
+
 [State 5150, 1] ;Normal anim
 type = ChangeAnim
 triggerall = Time = 0

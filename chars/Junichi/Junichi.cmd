@@ -623,7 +623,7 @@ type = ChangeState
 value = 22000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
-;Triggerall = statetype != A
+Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
 trigger2 = movehit
@@ -749,6 +749,17 @@ trigger2 = movecontact
 trigger2 = stateno = [200, 499] || stateno = [900, 999]
 
 ;---------------------------------------------------------------------------
+; Stance Switch Down C - Round Start
+[State -1, C]
+type = ChangeState
+value = 405
+triggerall = command = "holddown"
+triggerall = command = "c"
+Triggerall = statetype != A
+trigger1 = roundstate = 1
+trigger1 = stateno = 0
+
+;---------------------------------------------------------------------------
 ;Kicks Stance
 
 ;---------------------------------------------------------------------------
@@ -760,6 +771,7 @@ triggerall = var(10) = 0
 triggerall = command = "holddown"
 triggerall = command = "a"
 Triggerall = statetype != A
+triggerall = numhelper(315) = 0
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Kick A

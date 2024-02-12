@@ -64,20 +64,20 @@ _! Charged								[^C]
 
 _! Release								^C
 	"The shadow ball gets thrown, with more charge it has
-	 more hitstun, more damage, and more chip damage."
+	 more hitstun, and more damage."
 
 
 <#f0f000>:STAR STRIKES!:</>
 
-"Space Dandy Assist" (1 Bar)						_D_DF_F^A
-	"Takuya punches alot n Space Dandy slams the opp aganist
-	the wall."
+"Space Daniel Assist" (1 Bar)						_D_DF_F^A
+	"Takuya throws a barrage of punches, and Space Daniel
+	flies past."
 
 "Lunar Ascension" (1/2 Bar, AIR OK)						_D_DF_F^A
 	"Takuya kicks upward, and shapeshifts into a missile."
 
 "Strike a Pose-uya" (1 Bar, AIR OK)						_D_DB_B^B
-	"Takuya super taunts."
+	"Takuya does a super taunt."
 
 _! Charged								[^B]
 	"Takuya creates spikes with the taunt aswell.
@@ -92,10 +92,11 @@ _! Charged								[^B]
 	If a 6[C] is touched, Takuya bounces up." 
 
 "Starslammer" (2 Bars)						_D_DF_F^C
-	"im lazy 4"
+	"Takuya uppercuts the opponent, then teleports next
+	to them to grab n' throw them."
 
 _! Charged								[^C]
 	"Takuya morphs his arm into a hammer and SLAMS the
 	opponent.
-	If a 6[C] is active, Space Dandy flips it up and 
-	it falls ontop of the opponent."
+	If a 6[C] is active, Space Daniel flips the spike up and 
+	it lands ontop of the opponent."
