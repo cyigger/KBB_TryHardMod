@@ -1893,14 +1893,19 @@ channel = 0
 type = SuperPause
 trigger1 = Time = 1
 anim = 9999
-time = 10
+time = 15
 sound = S9999,0
 pos = 0,-20
-movetime = 10
+movetime = 15
 darken = 1
 p2defmul = 1
 poweradd = 0
 endcmdbuftime = 7
+
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time <= 15
 
 [State 0, DP INVINCIBILLITY BABY]
 type = NotHitBy
@@ -2062,6 +2067,16 @@ Fall = 1
 Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
+
+[State -1, Fwd C]
+type = ChangeState
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 100
+Triggerall = movecontact
+triggerall = time >= 55
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+value = 420
 
 [State 200, End]
 type = ChangeState
@@ -2302,6 +2317,11 @@ type = AttackDist
 trigger1 = 1
 value = -1
 
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = time <= 15
+
 [State 0, DP INVINCIBILLITY BABY]
 type = NotHitBy
 trigger1 = 1 
@@ -2534,6 +2554,16 @@ Fall = 1
 Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
+
+[State -1, Fwd C]
+type = ChangeState
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 100
+Triggerall = movecontact
+triggerall = time >= 46
+trigger1 = command = "holdfwd"
+trigger1 = command = "c"
+value = 420
 
 [State 200, End]
 type = ChangeState

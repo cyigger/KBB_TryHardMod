@@ -4366,7 +4366,7 @@ value = 2
 ;triggerall = prevstateno != 430
 ;triggerall = var(10) = 0
 ;trigger1 = time = 0
-;value = 409
+;value = 415
 ;ctrl = 1
 ;
 ;[State 1000, 6]
@@ -4375,7 +4375,7 @@ value = 2
 ;triggerall = prevstateno != 430
 ;triggerall = var(10) = 1
 ;trigger1 = time = 0
-;value = 420
+;value = 423
 ;ctrl = 1
 ;
 ;[State 1000, 6]
@@ -4384,7 +4384,7 @@ value = 2
 ;triggerall = prevstateno != 430
 ;triggerall = var(10) = 2
 ;trigger1 = time = 0
-;value = 460
+;value = 480
 ;ctrl = 1
 
 [State 1000, 6]
@@ -4484,6 +4484,21 @@ trigger1 = AnimElem = 1
 v = 10
 value = 0
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 10,68,256
+trans = add 
+
+
+[State 1020, Blink Blue]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 0,32,72
+
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = AnimElem = 1
@@ -4520,6 +4535,20 @@ trigger1 = AnimElem = 1
 v = 10
 value = 1
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 256,20,20
+trans = add 
+
+[State 1020, Blink Red]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 82,0,0
+
 [State 1000, 6]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -4550,6 +4579,20 @@ trigger1 = AnimElem = 1
 value = S0,6
 volumescale = 100
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 20,256,20
+trans = add 
+
+[State 1020, Blink Green]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 10,82,10
+
 [State 1000, 6]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -4579,6 +4622,20 @@ type = PlaySnd
 trigger1 = AnimElem = 1
 value = F100,0
 volumescale = 100
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 10,68,256
+trans = add 
+
+[State 1020, Blink Blue]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 0,32,72
 
 [State 0, Dash Velocity]
 type = VelSet
@@ -4729,11 +4786,6 @@ trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 201
 ctrl = 0
-;[State 200, B]
-;type = ChangeState
-;trigger1 = command = "b" && command = "holdback"
-;value = 415
-;ctrl = 0
 [State 200, B]
 type = ChangeState
 trigger1 = command = "b" && command = "holddown"
@@ -4744,21 +4796,13 @@ type = ChangeState
 trigger1 = command = "b"
 value = 414
 ctrl = 0
-;[State 200, End]
-;type = ChangeState
-;triggerall = power >= 150
-;triggerall = numhelper(3500) = 0
-;trigger1 = command = "holdfwd"
-;trigger1 = command = "c"
-;value = 420
 
-;[State 200, End]
-;type = ChangeState
-;triggerall = power >= 200
-;triggerall = numhelper(3500) = 0
-;trigger1 = command = "c"
-;value = 460
-;ctrl = 1
+[State 200, End]
+type = ChangeState
+triggerall = power >= 100
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holdback" && command = "c"
+value = 409
 
 [State -1, Punch C]
 type = ChangeState
@@ -4766,16 +4810,6 @@ Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
 value = 450
-
-[State 200, End]
-type = ChangeState
-triggerall = prevstateno != 401 || time >= 5
-triggerall = power >= 200
-triggerall = time >= 5
-triggerall = numhelper(3500) = 0
-trigger1 = command = "holdback" && command = "c"
-value = 409
-ctrl = 1
 
 [State 0, 4] ; Time period ran out.
 type = ChangeState
@@ -5386,6 +5420,21 @@ value = S200,2
 volumescale = 200
 channel = 0
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 10,68,256
+trans = add 
+
+
+[State 1020, Blink Blue]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 0,32,72
+
 [State 210, Damage Proration]
 type = VarAdd
 trigger1 = movehit
@@ -5562,6 +5611,20 @@ trigger1 = time = 0
 value = F100,0
 volumescale = 500
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 256,20,20
+trans = add 
+
+[State 1020, Blink Red]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 82,0,0
+
 [State 0, Dash Velocity]
 type = VelSet
 trigger1 = time = [2, 6]
@@ -5600,7 +5663,7 @@ ctrl = 1
 
 [State 200, SPRINT]
 type = ChangeState
-triggerall = time >= 6
+triggerall = time >= 5
 trigger1 = command = "WD" && command != "NotWD"
 value = 30
 ctrl = 1
@@ -5618,7 +5681,7 @@ ctrl = 1
 
 [State 200, AA]
 type = ChangeState
-triggerall = time >= 8
+triggerall = time >= 5
 triggerall = command = "holddown"
 trigger1 = command = "a"
 trigger2 = command = "hold_a"
@@ -5629,7 +5692,7 @@ ctrl = 1
 [State 200, AA]
 type = ChangeState
 triggerall = prevstateno != 421
-triggerall = time >= 8
+triggerall = time >= 5
 trigger1 = command = "a"
 trigger2 = command = "hold_a"
 trigger3 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -5638,7 +5701,7 @@ ctrl = 1
 
 [State 200, B]
 type = ChangeState
-triggerall = time >= 8
+triggerall = time >= 5
 triggerall = command = "holddown"
 trigger1 = command = "b"
 trigger2 = command = "hold_b"
@@ -5647,19 +5710,19 @@ ctrl = 1
 
 [State 200, B]
 type = ChangeState
-triggerall = time >= 8
+triggerall = time >= 5
 trigger1 = command = "b"
 trigger2 = command = "hold_b"
 value = 431
 ctrl = 1
 
-;[State 210, Cancel into 5C]
-;type = ChangeState
-;Triggerall = time >= 5
-;triggerall = power >= 200
-;triggerall = numhelper(3500) = 0
-;trigger1 = command = "c"
-;value = 440
+[State 210, Cancel into 5C]
+type = ChangeState
+Triggerall = time >= 5
+triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 440
 
 ;[State 200, End]
 ;type = ChangeState
@@ -5858,7 +5921,7 @@ juggle  = 0
 ctrl = 0
 anim = 423
 poweradd = -250
-velset = -1, 0
+velset = 2, 0
 
 [State 0, VarSet]
 type = VarSet
@@ -5879,10 +5942,24 @@ trigger1 = time = 0
 value = F100,0
 volumescale = 500
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 256,20,20
+trans = add 
+
+[State 1020, Blink Red]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 82,0,0
+
 [State 0, Dash Velocity]
 type = VelSet
 trigger1 = AnimElem = 4
-x = -4
+x = -2
 
 [State 0, Damage Proration]
 type = VarAdd
@@ -7716,6 +7793,20 @@ trigger1 = AnimElem = 1
 v = 10
 value = 2
 
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 20,256,20
+trans = add 
+
+[State 1020, Blink Green]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 10,82,10
+
 ;[State 0, PlaySnd]
 ;type = PlaySnd
 ;trigger1 = AnimElem = 1
@@ -8766,6 +8857,20 @@ type = PlaySnd
 trigger1 = AnimElem = 2
 value = S1,1
 volumescale = 50
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 20,256,20
+trans = add 
+
+[State 1020, Blink Green]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 10,82,10
 
 [State 200, Move Forward]
 type = VelSet
@@ -12278,9 +12383,16 @@ channel = 0
 [State 0, AfterImage]
 type = AfterImage
 triggerall = numhelper(51000) = 0
-trigger1 = AnimElem = 1
+trigger1 = AnimElem = 2
 time = 10
-trans = add
+paladd = 10,68,256
+trans = add 
+
+[State 1020, Blink Blue]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 0,32,72
 
 [State 0, DP Projectile Inful]
 type = NotHitBy
@@ -12435,8 +12547,14 @@ airguard.cornerpush.veloff = -1
 [State 200, End]
 type = ChangeState
 trigger1 = pos Y >= 0 && Vel Y > 0
-value = ifelse(movehit,52,624)
+value = 52
 ctrl = 1
+
+;[State 200, End]
+;type = ChangeState
+;trigger1 = pos Y >= 0 && Vel Y > 0
+;value = ifelse(movehit,52,624)
+;ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; C B - Aire
@@ -12526,8 +12644,14 @@ airguard.cornerpush.veloff = -1
 [State 200, End]
 type = ChangeState
 trigger1 = pos Y >= 0 && Vel Y > 0
-value = ifelse(movehit,52,624)
+value = 52
 ctrl = 1
+
+;[State 200, End]
+;type = ChangeState
+;trigger1 = pos Y >= 0 && Vel Y > 0
+;value = ifelse(movehit,52,624)
+;ctrl = 1
 
 ;-------------------------------------------------------------------------------
 ; C C - Aire
@@ -12632,8 +12756,14 @@ ctrl = 1
 [State 200, End]
 type = ChangeState
 trigger1 = pos Y >= 0 && Vel Y > 0
-value = ifelse(movehit,52,624)
+value = 52
 ctrl = 1
+
+;[State 200, End]
+;type = ChangeState
+;trigger1 = pos Y >= 0 && Vel Y > 0
+;value = ifelse(movehit,52,624)
+;ctrl = 1
 
 ;---------------------------------------------------------------------------
 ; Jump Land
@@ -12687,9 +12817,16 @@ sprpriority = 2
 [State 0, AfterImage]
 type = AfterImage
 triggerall = numhelper(51000) = 0
-trigger1 = AnimElem = 1
+trigger1 = AnimElem = 2
 time = 10
-trans = add
+paladd = 256,20,20
+trans = add 
+
+[State 1020, Blink Red]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 82,0,0
 
 ;[State 0, DP Projectile Inful]
 ;type = NotHitBy
@@ -12850,7 +12987,7 @@ air.velocity = -1,10
 Fall = 1
 Envshake.time = 20
 Fall.recover = 0
-Fall.yvelocity = -6
+Fall.yvelocity = -4
 guard.cornerpush.veloff = -2
 airguard.cornerpush.veloff = -1
 
@@ -12914,6 +13051,20 @@ velset = 3.5, -3
 ;trigger1 = AnimElem = 1
 ;value = S0,6
 ;volumescale = 100
+
+[State 0, AfterImage]
+type = AfterImage
+triggerall = numhelper(51000) = 0
+trigger1 = AnimElem = 2
+time = 10
+paladd = 20,256,20
+trans = add 
+
+[State 1020, Blink Green]
+type = PalFX
+trigger1 = Time = 0
+time = 10
+add = 0,82,0
 
 [State 0, PlaySnd]
 type = PlaySnd

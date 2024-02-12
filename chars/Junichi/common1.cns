@@ -441,6 +441,11 @@ trigger1 = AnimElem = 1
 value = S7,0
 volumescale = 100
 
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = AnimTime = 0
+
 [State 40, 6]
 type = ChangeState
 trigger1 = AnimTime = 0
@@ -817,6 +822,11 @@ type = PlaySnd
 trigger1 = AnimElem = 1
 value = S3,3
 volumescale = 100
+
+[State 0, Turn]
+type = Turn
+triggerall = p2dist x < 0
+trigger1 = AnimTime = 0
 
 [State 52, 5]
 type = ChangeState

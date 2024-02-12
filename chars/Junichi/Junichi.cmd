@@ -819,6 +819,7 @@ Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
 trigger2 = stateno = [200, 399] || stateno = [412, 414] || stateno = [900, 999]
+trigger3 = stateno = 410
 
 ;---------------------------------------------------------------------------
 ; Fwd C
@@ -1090,7 +1091,7 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl || stateno = 421
 trigger2 = movecontact
-trigger2 = stateno = [423, 429]
+trigger2 = stateno = [420, 429]
 
 ;---------------------------------------------------------------------------
 ; Baton C
