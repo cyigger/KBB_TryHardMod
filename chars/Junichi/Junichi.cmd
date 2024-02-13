@@ -626,9 +626,7 @@ triggerall = command = "SPECIAL 3"
 Triggerall = statetype != A
 Triggerall = power >= 1000
 trigger1 = ctrl
-trigger2 = movehit
-trigger2 = stateno = [600, 650]
-trigger3 = stateno = [30, 39] && command = "holdfwd" && !ishelper
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
 ; Special 3 (Ground)
 ;[State -1, SPECIAL 3]
@@ -925,15 +923,13 @@ type = ChangeState
 value = 420
 triggerall = var(10) = 1
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 100
+Triggerall = power >= 200
 triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl || (stateno = 423 && time >= 10)
 trigger2 = movecontact
 trigger2 = stateno = [200, 399] || stateno = [900, 999]
-trigger3 = movehit
-trigger3 = stateno = 440
 
 ;---------------------------------------------------------------------------
 ; Back C

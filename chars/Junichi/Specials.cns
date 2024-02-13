@@ -1409,7 +1409,7 @@ value = 0
 
 [State 0, DP INVINCIBILLITY BABY]
 type = NotHitBy
-trigger1 = time = [0, 8] 
+trigger1 = time = [0, 15] 
 value = C,NA,SA,NP,SP,NT,ST
 time = 1
 
@@ -1578,7 +1578,7 @@ value = 1
 [State 100, 1]
 type = VelSet
 trigger1 = time = [10, 30]
-x = 16
+x = 18
 
 [State 0, Explod]
 type = Explod
@@ -1689,7 +1689,7 @@ sysvar(1) = -1
 [State 40, 4]
 type = VelSet
 trigger1 = AnimTime = 0
-x = 10
+x = 12
 y = const(velocity.jump.y)
 
 [State 0, PlaySnd]
@@ -1715,7 +1715,7 @@ juggle  = 0
 ctrl = 0
 ;anim = 24000
 poweradd = ifelse(prevstateno != [23000, 23999], -500, -250)
-velset = ifelse(prevstateno != 24050,6,8),0
+velset = 8,0
 sprpriority = ifelse(anim != 24000, 4, -1)
 
 [State 0, AttackDist]

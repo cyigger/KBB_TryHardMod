@@ -3235,11 +3235,11 @@ ground.slidetime = 10
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 air.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -2
-ground.velocity = -3,-3.25
-air.velocity = -3,-2.25
+ground.velocity = -3,-3.5
+air.velocity = -3,-2.5
 Fall = 1
 Envshake.time = 20
-Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 35 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
@@ -4366,7 +4366,7 @@ value = 2
 ;triggerall = prevstateno != 430
 ;triggerall = var(10) = 0
 ;trigger1 = time = 0
-;value = 415
+;value = 450
 ;ctrl = 1
 ;
 ;[State 1000, 6]
@@ -4375,7 +4375,7 @@ value = 2
 ;triggerall = prevstateno != 430
 ;triggerall = var(10) = 1
 ;trigger1 = time = 0
-;value = 423
+;value = 440
 ;ctrl = 1
 ;
 ;[State 1000, 6]
@@ -4458,6 +4458,12 @@ value = 2
 ;trigger1 = time = 0
 ;value = 460
 ;ctrl = 1
+
+[State 0, RemapPal]
+type = RemapPal
+trigger1 = 1
+source = 1,1
+dest = 1,var(52)
 
 [State 1000, 6]
 type = ChangeState
@@ -5412,6 +5418,14 @@ map = "juggle"
 value = 10
 persistent = 0
 
+[State 210, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 8
+
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = random < 600
@@ -5434,14 +5448,6 @@ type = PalFX
 trigger1 = Time = 0
 time = 10
 add = 0,32,72
-
-[State 210, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 5
 
 ;[State 210, PowerAdd]
 ;type = PowerAdd
@@ -5521,11 +5527,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -1.5,-5
-air.velocity = -1.5,-4
+ground.velocity = -1.5,-6
+air.velocity = -1.5,-5
 Envshake.time = 10
 Fall = 1
-Fall.recovertime = 36
+Fall.recovertime = 38 + floor(-enemy,pos y * 0.25)
 guard.cornerpush.veloff = -7
 airguard.cornerpush.veloff = -7
 
@@ -5628,7 +5634,7 @@ add = 82,0,0
 [State 0, Dash Velocity]
 type = VelSet
 trigger1 = time = [2, 6]
-x = 8
+x = 9
 
 ;[State 0, Dash Velocity]
 ;type = VelSet
@@ -6035,8 +6041,8 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -1
-ground.velocity = -2
-air.velocity = -1,-4
+ground.velocity = -1,-4
+air.velocity = -1,-3
 Envshake.time = 10
 Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
@@ -6448,7 +6454,7 @@ ground.slidetime = 12
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -4
 ground.velocity = -6
-air.velocity = -3,3
+air.velocity = -3,-1
 Envshake.time = 10
 Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
@@ -6835,7 +6841,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 10
 
 [State 200, Woosh]
 type = PlaySnd
@@ -6934,8 +6940,8 @@ ground.type = High
 ground.slidetime = 13
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -8
-ground.velocity = -1,-9
-air.velocity = -1,-8
+ground.velocity = -0.8,-9
+air.velocity = -0.8,-8
 Fall = 1
 Envshake.time = 20
 Fall.recovertime = 65 + ifelse(enemy,movetype = A, 7,0)
@@ -7023,7 +7029,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 8
 
 [State 0, Wallbounce prevent]
 type = VarAdd
@@ -7105,7 +7111,7 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 13
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-guard.velocity = -6
+guard.velocity = -10
 ground.velocity = 12,5
 air.velocity = 12,4
 Fall = 1
@@ -7453,7 +7459,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 8
+value = 12
 
 [State 0, VarSet]
 type = VarSet
@@ -7521,12 +7527,12 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 20 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 0.5,-5.7
-air.velocity = 0.8,-5.2
-down.velocity = 0.8,-5.7
+ground.velocity = -0.5,-5.7
+air.velocity = -0.8,-5.2
+down.velocity = -0.8,-5.7
 Envshake.time = 20
 Fall = 1
-Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0) + floor(-enemy,pos y * 0.25)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
@@ -8842,7 +8848,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 8
 
 ;[State 200, Power Gain]
 ;type = PowerAdd
@@ -10596,11 +10602,11 @@ hitsound   = 5,1
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
-ground.hittime  = 10 + ifelse(enemy,movetype = A, 7,0)
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2
 air.velocity = -2,-2
 Fall = 0
-Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 25 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
