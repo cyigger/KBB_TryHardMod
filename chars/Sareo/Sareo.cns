@@ -5642,8 +5642,8 @@ hitsound  = s0,5
 guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
-ground.velocity = -4,-5
-air.velocity = -4,-4.5
+ground.velocity = -4,-3
+air.velocity = -4,-2.5
 Envshake.time = 25
 
 [State 300, SPEEEEEEEN]

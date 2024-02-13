@@ -991,8 +991,15 @@ Clsn1Default: 3
 18,2, 0,0, 3, , , 0.7,0.7
 18,3, 0,0, 3, , , 0.7,0.7
 
-; Wavedash C Teleport
+; Wavedash C Proj No Hit
 [Begin Action 492]
+18,0, 0,0, 3, , , 0.7,0.7
+18,1, 0,0, 3, , , 0.7,0.7
+18,2, 0,0, 3, , , 0.7,0.7
+18,3, 0,0, 3, , , 0.7,0.7
+
+; Wavedash C Teleport
+[Begin Action 495]
 Clsn2: 1
   Clsn2[0] = -21, -37, 16, 1
 2,24, 0,0, 2

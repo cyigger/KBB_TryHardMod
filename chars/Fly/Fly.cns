@@ -2401,6 +2401,16 @@ y = root, map(posy)
 ignorehitpause = 1
 persistent = 0
 
+[State 0, Disable Hitbox]
+type = ChangeAnim
+trigger1 = root,AnimElemTime(5) >= 2 && root,stateno = 452
+value = 492
+
+[State 0, Reenable Hitbox]
+type = ChangeAnim
+trigger1 = anim = 492 && AnimTime = 0
+value = 492
+
 [State 0, VelSet]
 type = VelSet
 trigger1 = root,AnimElemTime(5) >= 2 && root,stateno = 452
@@ -2473,7 +2483,7 @@ movetype= I
 physics = S
 juggle  = 0
 ctrl = 0
-anim = 492
+anim = 495
 poweradd = -200
 sprpriority = 1
 

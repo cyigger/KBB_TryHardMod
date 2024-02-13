@@ -2296,7 +2296,7 @@ juggle  = 0
 ctrl = 0
 anim = 24051
 poweradd = 0
-velset = 7,0
+velset = 8,0
 sprpriority = 5
 
 [State 0, SuperPause]
@@ -2324,9 +2324,14 @@ trigger1 = time <= 15
 
 [State 0, DP INVINCIBILLITY BABY]
 type = NotHitBy
-trigger1 = 1 
+trigger1 = time = 0 
 value = SCA,NA,SA,NP,SP,NT,ST
-time = 1
+time = 20
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = time = 15
+value = 1
 
 [State 200, End]
 type = ChangeState

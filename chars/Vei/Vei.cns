@@ -3625,7 +3625,7 @@ trigger6 = AnimElem = 11
 trigger7 = AnimElem = 13
 animtype  = Heavy
 attr = S, NP
-damage = 7
+damage = 6
 guard.kill = 0
 hitflag = MAFD
 guardflag = MA
