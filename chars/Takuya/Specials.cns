@@ -71,7 +71,7 @@ triggerall = AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10 || An
 trigger1 = 1
 attr = A, SA
 animtype  = Medium
-damage    = 4
+damage    = 3
 hitflag = MAF
 guardflag = MAFD
 pausetime = 3,50
@@ -1081,7 +1081,7 @@ type = HitDef
 trigger1 = !movecontact && !movereversed
 animtype  = Heavy
 attr = S, NP
-damage = 35
+damage = 45
 guard.kill = 0
 hitflag = MAFD
 guardflag = MA
@@ -1452,7 +1452,7 @@ y = .66
 
 [State 0, Explod]
 type = Explod
-trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-85,105] && pos y - helper(470),pos y = [-40,40]
+trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-80,80] && pos y - helper(470),pos y = [-40,40]
 anim = 6000
 ID = 6000
 pos = 0,-60
@@ -1476,28 +1476,28 @@ persistent = 0
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-85,105] && pos y - helper(470),pos y = [-40,40]
+trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-80,80] && pos y - helper(470),pos y = [-40,40]
 y = -10
 ;ignorehitpause = 
 persistent = 0
 
 [State 0, TargetBind]
 type = TargetBind
-trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-85,105] && pos y - helper(470),pos y = [-40,40] && movehit
+trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-80,80] && pos y - helper(470),pos y = [-40,40] && movehit
 time = 40
 pos = 30,20
 ignorehitpause = 1
 
 [State 0, PlayerPush]
 type = PlayerPush
-trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-85,105] && pos y - helper(470),pos y = [-40,40] && movehit
+trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-80,80] && pos y - helper(470),pos y = [-40,40] && movehit
 value = 0
 ;ignorehitpause = 
 ;persistent = 
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-85,105] && pos y - helper(470),pos y = [-40,40]
+trigger1 = time > 16 && (helper(470),anim = 462||helper(470),anim = 463||helper(470),anim = 466) && pos x - helper(470),pos x = [-80,80] && pos y - helper(470),pos y = [-40,40]
 value = S22000,1
 volumescale = 999
 persistent =  0
@@ -3722,7 +3722,7 @@ type = HitDef
 getpower = 0
 triggerall = AnimElem = 5 && anim = 24005 && !movecontact
 trigger1 = 1
-attr = S, HA
+attr = S, SA ; i did not know Hyper made the attack uncounterable
 animtype  = Heavy
 damage    = 30
 kill = 0 
