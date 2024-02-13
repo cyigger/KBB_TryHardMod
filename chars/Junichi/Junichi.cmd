@@ -744,7 +744,8 @@ triggerall = command = "c"
 Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = [200, 499] || stateno = [900, 999]
+trigger2 = stateno = [200, 499]
+trigger2 = stateno != 412
 
 ;---------------------------------------------------------------------------
 ; Stance Switch Down C - Round Start
@@ -914,7 +915,7 @@ triggerall = command = "b"
 Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = [200, 299] || stateno = [900, 999]
+trigger2 = stateno = [200, 299]
 
 ;---------------------------------------------------------------------------
 ; Fwd C
