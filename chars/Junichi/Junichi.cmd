@@ -617,14 +617,39 @@ Triggerall = power >= 1000
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdback" && !ishelper
 ;---------------------------------------------------------------------------
-; Special 3
+; Special 3 Kicks
 [State -1, SPECIAL 3]
 type = ChangeState
 value = 22000
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
+Triggerall = statetype = A
+Triggerall = power >= 1000
+triggerall = var(10) = 0
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
+;---------------------------------------------------------------------------
+; Special 3 Punch
+[State -1, SPECIAL 3]
+type = ChangeState
+value = 22010
+triggerall = numhelper(3500) = 0
+triggerall = command = "SPECIAL 3"
 Triggerall = statetype != A
 Triggerall = power >= 1000
+triggerall = var(10) = 1
+trigger1 = ctrl
+trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
+;---------------------------------------------------------------------------
+; Special 3 Baton
+[State -1, SPECIAL 3]
+type = ChangeState
+value = 22010
+triggerall = numhelper(3500) = 0
+triggerall = command = "SPECIAL 3"
+Triggerall = statetype != A
+Triggerall = power >= 1000
+triggerall = var(10) = 2
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ;---------------------------------------------------------------------------
