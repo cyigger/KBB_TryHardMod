@@ -644,10 +644,10 @@ trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
 ; Special 3 Baton
 [State -1, SPECIAL 3]
 type = ChangeState
-value = 22010
+value = 22020
 triggerall = numhelper(3500) = 0
 triggerall = command = "SPECIAL 3"
-Triggerall = statetype != A
+;Triggerall = statetype = A
 Triggerall = power >= 1000
 triggerall = var(10) = 2
 trigger1 = ctrl
@@ -851,7 +851,7 @@ trigger3 = stateno = 410
 type = ChangeState
 value = 415
 triggerall = var(10) = 0
-Triggerall = power >= 250
+Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
 ;triggerall = command = "holdfwd"
 triggerall = command = "c"
@@ -949,7 +949,7 @@ type = ChangeState
 value = 420
 triggerall = var(10) = 1
 triggerall = numhelper(3500) = 0
-Triggerall = power >= 200
+Triggerall = power >= 100
 triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
@@ -963,7 +963,7 @@ trigger2 = stateno = [200, 399] || stateno = [900, 999]
 type = ChangeState
 value = 423
 triggerall = var(10) = 1
-Triggerall = power >= 250
+Triggerall = power >= 200
 triggerall = numhelper(3500) = 0
 ;triggerall = command = "holdback"
 triggerall = command = "c"

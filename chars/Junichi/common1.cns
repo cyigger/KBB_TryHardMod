@@ -367,8 +367,8 @@ facep2 = 1
 ;Super Dash Jump
 [State 100, 4]
 type = ChangeState
-trigger1 = prevstateno = 22000
-value = 22001
+trigger1 = prevstateno = 22010
+value = 22011
 
 [State 0, Explod]
 type = Explod
