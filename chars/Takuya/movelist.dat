@@ -6,11 +6,12 @@ _D [^B]
 <#f0f000>:EX ATTACKS:</>
 
 "Maids Knife" (1/4 Bar)							^C
-	"Takuya throws 3 spikes."
+	"Takuya throws two spikes."
 
 _! Charged								[^C]
-	"Spikes stay stuck in the opponent and explode when
-	the combo is about to drop."
+	"Takuya throws an extra spike.
+	Spikes stay stuck in the opponent and explode when the 
+	combo is about to drop.
 	If a 6[C] is active, the explosions cause a 
 	wallbounce."
 
@@ -31,19 +32,27 @@ _! Redirection							_U
 	"Takuya summons spikes under the opponent."
 
 _! Charged								[^C]
-	"Takuya appears with the last spike."
+	"Takuya appears with the last spike.
 	If a 6[C] is active, Takuya does an airgrab upon
 	appearing with the last spike."
 
 "Gift For You" (1/2 Bar)							_AIR_D^C
 	"Takuya teleports infront of the opponent and
-	morphs his body into spikes.
- 	If a 6[C] is active, Takuya saves the usage and
-	doesn't teleport. Using it again uses the spike part
-	and doesn't teleport."
+	morphs his body into spikes."
 
 _! Charged								[^C]
-	"Takuya teleports behind the opponent"
+	"Takuya teleports behind the opponent instead.
+	If a 6[C] is active, Takuya saves the usage and
+	doesn't teleport. Using it again uses the usage
+	and doesn't teleport."
+
+"Takuhameha" (1/8 Bar, _AIR OK)							_B^C
+	"Takuya charges a shadow ball.
+	 If 6[C] is active, charge speed is increased."
+
+_! Release								^C
+	"The shadow ball gets thrown, with more charge it has
+	 more hitstun, and more damage."
 
 "Spike Body" (1/2 Bar, _AIR OK)							_F^C
 	"Takuya morphs his arms into a spike and thrusts 
@@ -57,14 +66,7 @@ _! Charged								[^C]
 	"Metercharge speed is increased"
 	"2[B] does a sideswitch instead"
 	"J.5[B] goes higher"
-	
-"Takuhameha" (1/8 Bar, _AIR OK)							_B^C
-	"Takuya charges a shadow ball.
-	 If 6[C] is active, charge speed is increased."
 
-_! Release								^C
-	"The shadow ball gets thrown, with more charge it has
-	 more hitstun, and more damage."
 
 
 <#f0f000>:STAR STRIKES!:</>
@@ -76,7 +78,7 @@ _! Release								^C
 "Lunar Ascension" (1/2 Bar, AIR OK)						_D_DF_F^A
 	"Takuya kicks upward, and shapeshifts into a missile."
 
-"Strike a Pose-uya" (1 Bar, AIR OK)						_D_DB_B^B
+"Strike a Pose-uya!" (1 Bar, AIR OK)						_D_DB_B^B
 	"Takuya does a super taunt."
 
 _! Charged								[^B]

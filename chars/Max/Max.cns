@@ -2477,35 +2477,13 @@ ctrl = 1
 ;Wavedash B
 ;-------------------------------------------------------------------------------
 [Statedef 390]
-type    = S
-movetype= A
-physics = S
-juggle  = 2
+type    = A
+movetype= I
+physics = N
+juggle  = 0
 ctrl = 0
 anim = 390
 sprpriority = 2
-
-[State 0, Juggle Map]
-type = MapAdd
-trigger1 = movehit && enemy,gethitvar(fall)
-map = "juggle"
-value = 10
-persistent = 0
-
-[State 0, Damage Proration]
-type = VarAdd
-trigger1 = movehit
-v = 11
-ignorehitpause = 1
-persistent = 0
-value = 10
-
-[State 0, FatalCounter]
-type = MapSet
-trigger1 = 1
-map = "fatal"
-value = 1
-ignorehitpause = 1
 
 [State 0, Voice]
 type = PlaySnd
@@ -2515,165 +2493,36 @@ value = S250,2+(random<500)*1+(random<500)*1+(random<500)*1+(random<500)*1
 volumescale = 200
 channel = 0
 
-[State 0, PowerAdd]
-type = PowerAdd
-triggerall = numhelper(51000) = 0
-triggerall = numhelper(55000) = 0
-triggerall = numhelper(56000) = 0
-trigger1 = movecontact = 1
-value = 100
-
 [State 0, PlaySnd]
 type = PlaySnd
 trigger1 = time = 0
 value = F66,0
-volumescale = 500
-
-;[State 0, PosAdd]
-;type = PosAdd
-;trigger1 = AnimElem = 7
-;x = 4
-[State 0, VelAdd]
-type = VelAdd
-trigger1 = AnimElem = 1 || AnimElem = 2
-x = 3.5
-
-;[State 0, VelAdd]
-;type = VelSet
-;trigger1 = time = 16
-;x = 3
-
-;[State 0, VarAdd]
-;type = VarAdd
-;trigger1 = Time = 1
-;v = 14   ;fv = 
-;value = 1
-
-[State 200, 1]
-type = HitDef
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 6
-trigger1 = 1
-attr = S, NA
-givepower = 0
-getpower = 0
-animtype  = Hard
-damage    = ifelse(enemy,movetype = A, 60, 30)
-hitflag = MAFD
-guardflag = HA
-pausetime = ifelse(enemy,movetype = A,14,8),ifelse(enemy,movetype = A,30,12)
-sparkno = 1
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = ifelse(enemy,movetype = A,8,5),ifelse(enemy,movetype = A,0,3)
-guardsound = 6,11
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 15
-ground.velocity = -2,15
-air.velocity = -2,20
-air.fall = 1
-Fall = 1
-fall.recovertime = ifelse (var(11) < 95,70,10)
-fall.xvelocity = ifelse (enemy,facing = facing,1.5,-1.5)
-fall.yvelocity = -10
-down.velocity = -1.5,-7.5
-down.bounce = 1
-Envshake.time = 10
-guard.cornerpush.veloff = -20
-airguard.cornerpush.veloff = -20
-ground.cornerpush.veloff = -3
-air.cornerpush.veloff = -3
-
-;Max is now in an airstate as of this swing
-[State 0, StateTypeSet]
-type = StateTypeSet
-trigger1 = AnimElem = 8
-statetype = A       ;S,A,C,L
-movetype = A        ;I,A,H
-physics = N         ;A,C,S,N
+volumescale = 500 
 
 [State 0, PosAdd] 		;Disconnects Max from the floor
 type = PosAdd
-trigger1 = AnimElem = 8
+trigger1 = AnimElem = 1
 x = ifelse(!movecontact,3,-1)
 y = -5
 
 [State 0, VelAdd]		;Adds velocity.
-type = VelAdd
-trigger1 = AnimElem = 8
-x = ifelse(!movecontact,3,-1)
+type = VelSet
+trigger1 = AnimElem = 1
+x = 2
 y = -2.5
 
 [State 0, VelAdd]		;Adds velocity.
 type = VelAdd
-trigger1 = AnimElem = 9
-x = ifelse(!movecontact,0.8,-0.8)
+trigger1 = AnimElem = 2
+x = 0.8
 y = -.8
 
 [State 0, StateTypeSet]	;Now back to Air State
 type = StateTypeSet
-trigger1 = AnimElem = 12
+trigger1 = AnimElem = 5
 statetype = A       ;S,A,C,L
 movetype = I        ;I,A,H
 physics = A        ;A,C,S,N
-
-[State 200, 1]
-type = HitDef
-triggerall = map(juggle) < 100 || hitcount != 0
-triggerall = AnimElem = 8
-trigger1 = 1
-attr = S, NA
-givepower = 0
-getpower = 0
-animtype  = Light
-damage    = 14
-hitflag = MAFD
-guardflag = MA
-pausetime = 5,6
-sparkno = 1
-guard.sparkno = 13000
-sparkxy = -8,-25
-hitsound   = 5,3
-guardsound = 6,10
-ground.type = High
-ground.slidetime = 12
-ground.hittime  = 35 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = 1.8,-7
-air.hittime  = 35 + ifelse(enemy,movetype = A, 7,0)
-air.velocity = 1.4,-6.5
-Envshake.time = 10
-fall = 1
-fall.recovertime = 40 + ifelse(enemy,movetype = A, 7,0)
-
-[State 200, GRENADE SPAWN AIR]
-type = ChangeState
-Triggerall = movehit
-triggerall = hitcount = 2
-triggerall = power >= 200
-triggerall = numhelper(452) = 0
-triggerall = numhelper(632) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-trigger1 = command = "holddown"
-value = 630
-[State 200, CANNON AIR]
-type = ChangeState
-Triggerall = movehit
-triggerall = hitcount = 2
-triggerall = power >= 200
-triggerall = numhelper(402) = 0
-triggerall = numhelper(622) = 0
-triggerall = numhelper(3500) = 0
-trigger1 = command = "c"
-value = 620
-
-[State 200, j5B]
-type = ChangeState
-Triggerall = movehit
-triggerall = hitcount = 2
-trigger1 = command = "b"
-value = 610
 
 [State 200, End]
 type = ChangeState
@@ -3272,7 +3121,7 @@ Envshake.time = 15
 type = DestroySelf
 trigger1 = animtime = 0
 
-; Wavedash C: Max tossing Grenade Up
+; Wavedash C: Bazooka
 ;-------------------------------------------------------------------------------
 [Statedef 490]
 type    = S
@@ -3281,22 +3130,17 @@ physics = S
 ctrl = 0
 anim = 490
 poweradd = -200
-sprpriority = 1
+sprpriority = 2
 
 [State 0, PlaySnd]
 type = PlaySnd
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 3
 value = S4,0
 
 [State 0, VelSet]
 type = VelSet
-trigger1 = Animelem = 2
-x = 3
-
-[State 0, VelSet if coming from wavedash]
-type = VelSet
-trigger1 = prevstateno = 30 && time = 0
-x = const(velocity.run.fwd.x)
+trigger1 = Animelem = 3
+x = 2
 
 [State 0, Swing]
 type = PlaySnd
@@ -3304,12 +3148,32 @@ trigger1 = time = 0
 value = S1,4
 volumescale = 100
 
+[State 0, Explod]
+type = Explod
+trigger1 = Animelem = 3
+anim = 491
+ID = 491
+pos = 0, 0
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+supermovetime = 0
+pausemovetime = 0
+scale = 1,1
+sprpriority = 1
+ontop = 0
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
 [State 0, Helper Summon]
 Type = Helper
-trigger1 = AnimElem = 2
+trigger1 = AnimElem = 7
 name = "Wavedash C Granade"
-ID = 491
-stateno = 491
+ID = 492
+stateno = 492
 pos = 25,-25
 postype = p1
 facing = 1
@@ -3324,14 +3188,67 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
-;Wavedash C: Waddle Dee Must Die
+;Wavedash C: Explosive
 ;------------------------------------------------------------------------------
-[Statedef 491]
+[Statedef 492]
 type = A
 movetype= A
 physics = N
-anim = 491
-sprpriority = 3
+anim = 492
+sprpriority = -1
+juggle = 2
+
+[State 0, Juggle Map]
+type = RootMapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, Damage Proration]
+type = RootVarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+[State 0, Helper Guarded]
+type = RootMapSet
+trigger1 = 1 
+map = "helperGuarded"
+value = moveguarded
+
+[State 0, Helper Hit]
+type = RootMapSet
+trigger1 = 1 
+map = "helperHit"
+value = movehit
+
+[State -2, Counterhit TSP]
+type = Helper
+Triggerall = numhelper(4020) = 0
+trigger1 = movecountered
+helpertype = normal 
+name = "Counterhit TSP"
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+persistent = 0
+ID = 4020
+stateno = 4020
+postype = p1    ;p2,front,back,left,right
+facing = 1
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
 
 ;[State 635, PosSet]
 ;type = PosSet
@@ -3347,13 +3264,53 @@ sprpriority = 3
 [State 490, VelSet]
 type = VelSet
 trigger1 = time = 0
-x = 4
-y = -5
+x = 3
+y = 0
 
 [State 490, VelAdd]
 type = VelAdd
-trigger1 = 1
-y = 0.44
+trigger1 = time >= 5
+x = 0.5
+
+[State 490, VelAdd]
+type = VelAdd
+trigger1 = time >= 5
+trigger1 = p2bodydist y < -10
+y = -0.11
+
+[State 490, VelAdd]
+type = VelAdd
+trigger1 = time >= 5
+trigger1 = p2bodydist y > 30
+y = 0.11
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = vel y / vel x <= -0.15
+trigger1 = time >= 5
+value = 492
+elem = ifelse(vel y / vel x <= -0.6, 3, 2)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = vel y / vel x >= 0.15
+trigger1 = time >= 5
+value = 492
+elem = ifelse(vel y / vel x >= 0.6, 5, 4)
+;ignorehitpause = 
+;persistent = 
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = abs(vel y / vel x) <= 0.15
+trigger1 = time >= 5
+value = 492
+elem = 1
+;ignorehitpause = 
+;persistent =
+
 
 ;[State 490, Land]
 ;type = VelSet
@@ -3378,14 +3335,14 @@ y = 0.44
 ;value = 1
 ;movecamera = 0,0
 
-[State 632, HitDef Code Going up] 
+[State 632, HitDef] 
 type = HitDef
 trigger1 = !movecontact
 attr = A, NP
-damage = 15
+damage = 0
 guardflag = MA
-hitflag = MAF
-pausetime = 8,8
+hitflag = MAFD
+pausetime = 0,8
 guard.pausetime= 0,4
 sparkxy = 10,-15
 sparkno = s6051
@@ -3393,15 +3350,16 @@ hitsound   = S4,8
 guardsound = 6,10
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7, 0)
-ground.velocity = -3,-3
-air.velocity = -2.5,-2
+ground.velocity = -3,-4
+air.velocity = -2.5,-3
 fall = 1
-fall.recovertime = 30 + ifelse(enemy,movetype = A, 7, 0)
+fall.recovertime = 60 + ifelse(enemy,movetype = A, 7, 0)
+p1stateno = 493
 
 [State 632, VelSet]
-type = VelSet
+type = ChangeState
 trigger1 = movecontact = 1
-y = -2
+value = 493
 
 ;[State 632, End]
 ;type = ChangeState
@@ -3416,7 +3374,75 @@ y = -2
 [State 491, End]
 type = DestroySelf
 trigger1 = pos y > 40
-trigger2 = time > 90
+trigger2 = time > 60
+
+;Bomba Explosion
+;------------------------------------------------------------------------------
+[Statedef 493]
+type    = A
+movetype= A
+physics = N
+anim = 493
+sprpriority = 2
+velset = 0,0
+
+[State 1010, Helper Attack Scale]
+type = AttackMulSet
+trigger1 = 1
+value = 1 * 0.99**root,var(11)
+ignorehitpause = 1
+
+[State 0, PosAdd]
+type = PosAdd
+trigger1 = time = 0
+x = 25
+y = -25
+
+[State 0, Explosion]
+type = PlaySnd
+trigger1 = time = 0
+value = S4,5
+volumescale = 100
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = time = 0
+time = 15
+freq = 80
+ampl = -2
+
+
+[State 635, StateTypeSet]
+type = StateTypeSet
+trigger1 =  pos y >= 0
+statetype = S       ;S,A,C,L
+movetype = A        ;I,A,H
+physics = S         ;A,C,S,N
+
+[State 458, HitDef Code] 
+type = HitDef
+trigger1 = AnimElem = 1		
+attr = S, NP
+damage = 55
+guardflag = MAFD
+hitflag = MAFD 
+pausetime = 5,10
+guard.pausetime= 0,12
+sparkxy = 10,-15
+sparkno = 9999
+hitsound   = 5,4
+guardsound = 6,10
+ground.slidetime = 2
+ground.hittime  = 35 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -3, -5
+air.hittime  = 35 + ifelse(enemy,movetype = A, 7,0)
+air.velocity = -3, -4 
+fall = 1
+fall.recover = 0
+Envshake.time = 20
+
+[State 0, Helper Die]
+type = DestroySelf
+trigger1 = animtime = 0
 
 ;-----------------------------------------------------------------
 ;===============================================================================
