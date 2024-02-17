@@ -4653,6 +4653,18 @@ trigger2 = command = "holdup"
 value = 40
 ctrl = 0
 
+;---------------------------------------------------------------------------
+; Power Charge
+[State -1, Power Charge]
+type = ChangeState
+Triggerall = power < 3000
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = command = "s"
+value = 510
+
+
 ;[State 200, SPRINT]
 ;type = ChangeState
 ;trigger1 = command = "down" && command = "back"
@@ -7927,7 +7939,7 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -2
-air.velocity = -2,-2
+air.velocity = -2,1
 Fall = 0
 Fall.recovertime = 22 + ifelse(enemy,movetype = A, 7,0)
 Envshake.time = 10
@@ -8851,13 +8863,13 @@ x = -1
 
 [State 200, Move Forward]
 type = VelSet
-trigger1 = time = [2, 10]
+trigger1 = time = [2, 9]
 x = 5
 
-;[State 200, Move Forward]
-;type = VelSet
-;trigger1 = AnimElem = 4
-;x = 1
+[State 200, Move Forward]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 1
 ;
 ;[State 200, Move Forward]
 ;type = VelSet
@@ -9667,6 +9679,123 @@ type = ChangeState
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Backturned Power Charge - Start
+[Statedef 510]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 510
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = F4,0
+volumescale = 200
+channel = 6
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = F66,0
+volumescale = 500
+
+[State 0, Viento]
+type = Explod
+triggerall = numexplod(130) = 0
+trigger1 = time = 7
+anim = F130
+ID = 130
+pos = 0,-100
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = .7,.7
+vel = 0,0
+sprpriority = 3
+ontop = 0
+ownpal = 1
+removeongethit = 1
+trans = add
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = time >= 7
+trigger1 = time%5 = 0
+time = 5
+ampl = -4
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = time >= 7
+triggerall = numhelper(9999) = 0
+trigger1 = 1
+value = 10
+
+[State 200, End]
+type = ChangeState
+triggerall = ailevel = 0
+triggerall = time >= 12
+trigger1 = command != "hold_s"
+trigger2 = power = 3000
+value = 511
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 12
+triggerall = ailevel > 0
+trigger1 = inguarddist
+trigger2 = power = 3000
+trigger3 = p2bodydist x < 60
+value = 511
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 12
+triggerall = ailevel > 0
+triggerall = enemy, ailevel = 0 
+trigger1 = Time > 110
+value = 511
+
+[State 200, End]
+type = ChangeState
+triggerall = time >= 12
+triggerall = ailevel > 0
+triggerall = enemy, ailevel > 0 
+trigger1 = Time > 80
+value = 511
+
+
+;-------------------------------------------------------------------------------
+; Backturned Power Charge
+[Statedef 511]
+type    = S
+movetype= I
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 511
+sprpriority = 2
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = Time = 0
+channel = 6
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 410
+ctrl = 1
+
 
 ;===============================================================================
 ; Grab
@@ -12422,7 +12551,7 @@ volumescale = 500
 [State 0, Dash Velocity]
 type = VelSet
 trigger1 = time = 2
-x = (vel x * 0.5) - 2
+x = ifelse(vel x > 0, 2, ifelse(vel x < 0, -3, 0))
 y = -6.5
 
 [State 200, Return to Idle]
@@ -14262,7 +14391,7 @@ ignorehitpause = 1
 [State 0, ModifyExplod]
 type = ModifyExplod
 triggerall = Time = 3
-trigger1 = anim != 500
+trigger1 = anim != 500 && anim != 510
 ID = 130
 trans = addalpha
 alpha = 128,256
@@ -14270,7 +14399,7 @@ alpha = 128,256
 [State 0, ModifyExplod]
 type = ModifyExplod
 triggerall = Time = 6
-trigger1 = anim != 500
+trigger1 = anim != 500 && anim != 510
 ID = 130
 trans = addalpha
 alpha = 64,256
@@ -14278,7 +14407,7 @@ alpha = 64,256
 [State 0, RemoveExplod]
 type = RemoveExplod
 triggerall = Time = 8
-trigger1 = anim != 500
+trigger1 = anim != 500 && anim != 510
 id = 130
 ;------------------------------------------------------------------------
 

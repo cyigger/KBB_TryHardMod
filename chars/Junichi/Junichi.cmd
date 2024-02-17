@@ -953,9 +953,9 @@ Triggerall = power >= 100
 triggerall = command = "holdfwd"
 triggerall = command = "c"
 Triggerall = statetype != A
-trigger1 = ctrl || (stateno = 423 && time >= 10)
+trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = [200, 399] || stateno = [900, 999]
+trigger2 = stateno = [200, 399] || stateno = [900, 999] || stateno = 423
 
 ;---------------------------------------------------------------------------
 ; Back C
@@ -971,8 +971,6 @@ Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
 trigger2 = stateno = [200, 399] || stateno = [900, 999]
-trigger4 = stateno = [150,155]
-trigger4 = Time >= GetHitVar(ctrltime) - 2
 
 
 ;---------------------------------------------------------------------------
