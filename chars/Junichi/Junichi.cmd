@@ -683,6 +683,8 @@ Triggerall = statetype != A
 Triggerall = power >= 1500
 trigger1 = ctrl
 trigger2 = stateno = [30, 39] && command = "holdfwd" && !ishelper
+trigger3 = movecontact
+trigger3 = stateno = [200, 499] || stateno = [900, 999]
 
 ;===========================================================================
 ;---------------------------------------------------------------------------
@@ -826,7 +828,7 @@ triggerall = command = "b"
 Triggerall = statetype != A
 trigger1 = ctrl
 trigger2 = movecontact
-trigger2 = stateno = [200, 299] || stateno = [900, 999]
+trigger2 = stateno = [200, 289] || stateno = [900, 999]
 trigger2 = stateno != 201 && stateno != 210
 
 ;---------------------------------------------------------------------------
@@ -897,7 +899,7 @@ trigger2 = stateno != 201
 type = ChangeState
 value = 971
 triggerall = var(10) = 1
-triggerall = stateno = 100
+triggerall = stateno = 100 || stateno = 22010
 triggerall = command = "b"
 Triggerall = statetype != A
 trigger1 = ctrl
