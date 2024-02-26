@@ -4896,7 +4896,7 @@ persistent = 0
 [State 0, ScreenBound]
 type = ScreenBound
 trigger1 = 1
-value = 1
+value = 0
 movecamera = 0,0
 [State 0, ScreenBound]
 type = ScreenBound
@@ -4908,31 +4908,15 @@ type = AssertSpecial
 trigger1 = 1
 flag = noshadow
 
-[State 0, VarSet]
-type = VarSet
-trigger1 = time = 0
-v = 10
-value = 0
-
-[State 0, VarSet]
-type = VarSet
-trigger1 = backedgedist - (root,backedgedist) > 80 && var(10) = 0
-v = 10
-value = 1
-
 [state 450]
 type = velset
 trigger1 = time = 0
 x = -12
 [state 450]
 type = veladd
-trigger1 = time >= 15 && vel x < 16 && var(10) = 0
+triggerall = vel x < 16
+trigger1 = time >= 15 && vel x < 16
 x = 2
-
-[state 450]
-type = veladd
-trigger1 = var(10) = 1
-x = -2
 
 [State 0, Guard Count Reset]
 type = MapSet
@@ -4945,7 +4929,7 @@ value = 0
 type = MapAdd
 trigger1 = moveguarded = 1
 map = "guardCount"
-value = 1
+value = 4
 ;ignorehitpause = 
 ;persistent =
 
