@@ -1696,6 +1696,7 @@ ownpal = 1
 
 [State 200, Jump]
 type = ChangeState
+triggerall = time >= 12
 trigger1 = command = "up"
 trigger2 = command = "holdup"
 trigger3 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && enemy,pos y <= -10
@@ -1904,7 +1905,7 @@ ampl = -6
 
 [State 200, End]
 type = DestroySelf
-trigger1 = time = 60
+trigger1 = root,prevstateno != [22010,22011] && root,stateno != [22010,22011]
 trigger2 = root,movecontact
 
 

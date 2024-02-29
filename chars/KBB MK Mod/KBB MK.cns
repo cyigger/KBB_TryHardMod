@@ -5310,12 +5310,6 @@ persistent = 0
 
 [Statedef -3]
 
-[State 0, PosSet]
-type = PosSet
-triggerall = time = 0
-trigger1 = pos y >= 0
-y = 0
-
 ;----------------------------------------------------------
 ;Metergain
 

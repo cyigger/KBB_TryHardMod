@@ -6075,7 +6075,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 40
+damage    = ifelse(prevstateno = 22010, 100, 40)
 hitflag = MAF
 guardflag = MAF
 pausetime = 16,16
@@ -6106,7 +6106,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 80
+damage    = ifelse(prevstateno = 22010, 200, 80)
 hitflag = MAF
 guardflag = MAF
 pausetime = 12,30
@@ -6512,11 +6512,11 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 25
+damage    = ifelse(prevstateno = 22010, 60, 25)
 hitflag = MAF
 guardflag = MAF
-pausetime = 10,10
-guard.pausetime = 10,8
+pausetime = 10 + 4 * (prevstateno = 22011),10 + 4 * (prevstateno = 22011)
+guard.pausetime = 10 + 4 * (prevstateno = 22011),8 + 4 * (prevstateno = 22011)
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -6543,11 +6543,11 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 50
+damage    = ifelse(prevstateno = 22010, 120, 50)
 hitflag = MAF
 guardflag = MAF
-pausetime = 12,18
-guard.pausetime = 12,10
+pausetime = 12 + 4 * (prevstateno = 22011),18 + 4 * (prevstateno = 22011)
+guard.pausetime = 12 + 4 * (prevstateno = 22011),10 + 4 * (prevstateno = 22011)
 sparkno = 2
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -7184,11 +7184,11 @@ triggerall = var(31) <= 0
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 35
+damage    = ifelse(prevstateno = 22010, 80, 35)
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 16 + 4 * (prevstateno = 22011),16 + 4 * (prevstateno = 22011)
+guard.pausetime = 16 + 4 * (prevstateno = 22011),14 + 4 * (prevstateno = 22011)
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -7222,7 +7222,7 @@ trigger2 = var(31) >= 1
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 35
+damage    = ifelse(prevstateno = 22010, 80, 35)
 hitflag = MAF
 guardflag = MAF
 pausetime = 16,16
@@ -9369,7 +9369,7 @@ ctrl = 1
 ;Planted Bomb
 ;------------------------------------------------------------------------------
 [Statedef 475]
-movetype= A
+movetype= I
 physics = S
 anim = 475
 sprpriority = 2
@@ -9377,8 +9377,8 @@ sprpriority = 2
 [State 200, End]
 type = ChangeState
 triggerall = time >= 15
-trigger1 = time >= 120
-trigger2 = abs(p2bodydist x) <= 20 && abs(p2bodydist y) <= 20
+trigger1 = time >= 90
+trigger2 = abs(p2bodydist x) <= 15 && abs(p2bodydist y) <= 15
 value = 476
 ctrl = 1
 
@@ -13985,6 +13985,11 @@ ontop = 1
 shadow = 0,0,0
 ownpal = 1
 
+[State 0, On Hit Velocity]
+type = VelSet
+trigger1 = movecontact = 1
+x = 5
+
 [State 200, 1]
 type = HitDef
 getpower = 0
@@ -13994,11 +13999,11 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 55
+damage    = ifelse(prevstateno = 22011, 125, 55)
 hitflag = MAF
 guardflag = HA
-pausetime = 16,18
-guard.pausetime = 16,10
+pausetime = 16 + 4 * (prevstateno = 22011),18 + 4 * (prevstateno = 22011)
+guard.pausetime = 16 + 4 * (prevstateno = 22011),10 + 4 * (prevstateno = 22011)
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -14028,7 +14033,7 @@ triggerall = !movecontact
 trigger1 = 1
 attr = S, NA
 animtype  = Heavy
-damage    = 90
+damage    = ifelse(prevstateno = 22011, 175, 90)
 hitflag = MAF
 guardflag = HA
 pausetime = 30,30
@@ -15662,7 +15667,7 @@ ignorehitpause = 1
 [State -2, Attack Scale]
 type = AttackMulSet
 trigger1 = 1
-value = 1 * 0.99**var(11) * ifelse(numhelper(22012) != 0, 2.2, 1)
+value = 1 * 0.99**var(11)
 ignorehitpause = 1
 
 [State -2, Counterhit TSP]

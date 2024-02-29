@@ -2498,7 +2498,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 5
+value = 15
 
 [State 0, Voice]
 type = PlaySnd
@@ -2571,7 +2571,7 @@ triggerall = enemy,movetype = A
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 160
+damage    = 140
 hitflag = MAFD
 guardflag = MA
 pausetime = 30,38
@@ -2599,7 +2599,7 @@ triggerall = enemy,movetype != A
 trigger1 = 1
 attr = S, NA
 animtype  = Medium
-damage    = 80
+damage    = 70
 hitflag = MAFD
 guardflag = MA
 pausetime = 10,12
@@ -2616,7 +2616,7 @@ air.velocity = -1,-6
 guard.velocity = -2
 airguard.velocity = -2, -3.5
 fall = 1
-fall.recovertime = 50
+fall.recovertime = 40
 Envshake.time = 10
 
 
