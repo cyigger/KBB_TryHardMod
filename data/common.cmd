@@ -163,6 +163,11 @@ command = B, B
 time = 10
 
 [Command]
+name = "ss"
+command = s, s
+time = 10
+
+[Command]
 name = "WD"
 command = ~F, D, F, F, D, DF
 time = 30

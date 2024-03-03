@@ -79,22 +79,9 @@
 
  }
 
- if prevstateno = [5000, 5999] || prevstateno = [1000,1039]
- {
-    if time = 20 {
-        MapSet {map:"defence"; value: 0}
-        CtrlSet{value: 1;}
-     }
- } else if prevstateno = [150, 155] {
-    if time = 4 {
-        MapSet {map:"defence"; value: 0}
-        CtrlSet{value: 1;}
-     }
- } else {
-    if time = 2 {
-        MapSet {map:"defence"; value: 0}
-        CtrlSet{value: 1;}
-     }
+ if time = 2 {
+    MapSet {map:"defence"; value: 0}
+    CtrlSet{value: 1;}
  }
 
 
@@ -2295,17 +2282,23 @@ if Const(KBB_Playable) = 1 {
         }
     }
 
+    #archived exceptions
+    #!(statetype = S && movetype = I)
     #Star Cancel Command
-    if (power >= 1000 || numhelper(51000) != 0) && (command = "s" && (command = "hold_a" || command = "hold_b" || command = "hold_c")) {
-        if alive && !ctrl && movetype != H && !(statetype = S && movetype = I) && !ishelper && roundstate != 1 && time >= 3 {
+    if (power >= 1000 || numhelper(51000) != 0) && command = "ss" {
+        if alive && !ctrl && movetype != H && !ishelper && roundstate != 1 && time >= 3 {
             #The exceptions
             if stateno != [700, 709] && stateno != 800 && stateno != 810 && stateno != [820, 829] && stateno != 830 &&
-            stateno != 150 && stateno != 152 && stateno != 154 {
+            stateno != [150, 155] {
+                #No Character Specific Exceptions
+                ChangeState{value: 67}
+
                 #Character exceptions
                 if !(name = "Leon" && stateno = [26000, 26999]) && 
                 !(name = "Jodie" && ((stateno = 611 && movehit) || ((stateno = 401 || stateno = 292) && movecontact))) &&
-                !(name != "Noll" && stateno = 900 && movehit) &&
-                !(name = "Saito" && stateno = 300) {
+                !(name != "Noll" && stateno = [900, 909] && movehit) &&
+                !(name = "Saito" && stateno = 300) &&
+                !(name = "Junichi" && stateno = 413){
                     ChangeState{value: 67}
                 }
             }
