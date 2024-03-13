@@ -701,7 +701,7 @@ trigger1 = ctrl
 [State -1, Run Fwd]
 type = ChangeState
 value = 100
-trigger1 = command = "FF" || (command = "z" && command != "holddown")
+trigger1 = command = "FF"
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -742,7 +742,7 @@ triggerall = stateno != 60
 triggerall = stateno != 65
 triggerall = stateno != 70
 value = ifelse(pos y >= 0,52,65)
-trigger1 = command = "FF" || command = "z"
+trigger1 = command = "FF"
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Air Dash - Backwards
@@ -759,27 +759,12 @@ trigger1 = ctrl
 ;===========================================================================
 ;--------------------------------Normal Attacks---------------------------
 
-
-;---------------------------------------------------------------------------
-; Stance Switch Down C
-[State -1, C]
-type = ChangeState
-value = 400
-triggerall = numhelper(3500) = 0
-Triggerall = power >= 100
-triggerall = command = "holddown"
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = movecontact
-trigger2 = stateno = [200, 499]
-trigger2 = stateno != 412
-
 ;---------------------------------------------------------------------------
 ; Stance Switch Down C - Round Start
 [State -1, C]
 type = ChangeState
 value = 405
+Triggerall = power >= 100
 triggerall = command = "holddown"
 triggerall = command = "c"
 Triggerall = statetype != A
@@ -861,33 +846,7 @@ trigger1 = movecontact
 trigger1 = stateno = [200, 399] || stateno = [412, 414] || stateno = [900, 999]
 trigger1 = stateno = 410
 
-;---------------------------------------------------------------------------
-; Fwd C
-[State -1, C]
-type = ChangeState
-value = 415
-triggerall = var(10) = 0
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = movecontact
-trigger2 = stateno = [200, 399] || stateno = [900, 999]
-trigger2 = stateno != 201
 
-;For AI in Comboes
-[State -1, C]
-type = ChangeState
-value = 415
-triggerall = var(10) = 0
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-Triggerall = statetype != A
-trigger1 = movecontact
-trigger1 = stateno = [200, 399] || stateno = [900, 999]
-trigger1 = stateno != 201
 
 
 
@@ -1000,31 +959,7 @@ Triggerall = statetype != A
 trigger1 = movecontact
 trigger1 = stateno = [200, 399] || stateno = [900, 999] || stateno = 423
 
-;---------------------------------------------------------------------------
-; C
-[State -1, C]
-type = ChangeState
-value = 423
-triggerall = var(10) = 1
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = command = "c"
-Triggerall = statetype != A
-trigger1 = ctrl
-trigger2 = movecontact
-trigger2 = stateno = [200, 399] || stateno = [900, 999]
 
-;For AI in Comboes
-[State -1, C]
-type = ChangeState
-value = 423
-triggerall = var(10) = 1
-Triggerall = power >= 200
-triggerall = numhelper(3500) = 0
-triggerall = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-Triggerall = statetype != A
-trigger1 = movecontact
-trigger1 = stateno = [200, 399] || stateno = [900, 999]
 
 
 ;---------------------------------------------------------------------------
@@ -1104,8 +1039,97 @@ Triggerall = statetype != A
 trigger1 = movecontact
 trigger1 = stateno = [200, 399] || stateno = [900, 999]
 
+
 ;---------------------------------------------------------------------------
-; C
+; Down + C
+;[State -1, Down + C]
+;type = ChangeState
+;value = 450
+;triggerall = var(10) = 1
+;Triggerall = power >= 200
+;triggerall = numhelper(3500) = 0
+;triggerall = command = "holddown"
+;triggerall = command = "c"
+;Triggerall = statetype != A
+;trigger1 = ctrl
+
+
+;----------------------------------------------------------------------------
+;For All Stances
+
+
+
+;---------------------------------------------------------------------------
+; Stance Switch Down C
+[State -1, C]
+type = ChangeState
+value = 400
+triggerall = numhelper(3500) = 0
+Triggerall = power >= 100
+triggerall = command = "holddown"
+triggerall = command = "c"
+Triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = movecontact
+trigger2 = stateno = [200, 499]
+trigger2 = stateno != 412
+
+;---------------------------------------------------------------------------
+; Neutral C
+[State -1, C]
+type = ChangeState
+value = 415
+triggerall = var(10) = 0
+Triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+triggerall = command = "c"
+Triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = movecontact
+trigger2 = stateno = [200, 399] || stateno = [900, 999]
+trigger2 = stateno != 201
+
+;For AI in Comboes
+[State -1, C]
+type = ChangeState
+value = 415
+triggerall = var(10) = 0
+Triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+triggerall = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+Triggerall = statetype != A
+trigger1 = movecontact
+trigger1 = stateno = [200, 399] || stateno = [900, 999]
+trigger1 = stateno != 201
+
+;---------------------------------------------------------------------------
+; Punch C
+[State -1, C]
+type = ChangeState
+value = 423
+triggerall = var(10) = 1
+Triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+triggerall = command = "c"
+Triggerall = statetype != A
+trigger1 = ctrl
+trigger2 = movecontact
+trigger2 = stateno = [200, 399] || stateno = [900, 999]
+
+;For AI in Comboes
+[State -1, C]
+type = ChangeState
+value = 423
+triggerall = var(10) = 1
+Triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+triggerall = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+Triggerall = statetype != A
+trigger1 = movecontact
+trigger1 = stateno = [200, 399] || stateno = [900, 999]
+
+;---------------------------------------------------------------------------
+; Baton C
 [State -1, C]
 type = ChangeState
 value = 480
@@ -1130,38 +1154,7 @@ Triggerall = statetype != A
 trigger1 = movecontact
 trigger1 = stateno = [200, 399] || stateno = [900, 999]
 ;---------------------------------------------------------------------------
-; Down + C
-;[State -1, Down + C]
-;type = ChangeState
-;value = 450
-;triggerall = var(10) = 1
-;Triggerall = power >= 200
-;triggerall = numhelper(3500) = 0
-;triggerall = command = "holddown"
-;triggerall = command = "c"
-;Triggerall = statetype != A
-;trigger1 = ctrl
-
-
-;----------------------------------------------------------------------------
-;For All Stances
-
-
-
-;---------------------------------------------------------------------------
-; DownBack C
-;[State -1, C]
-;type = ChangeState
-;value = 403
-;Triggerall = power >= 100
-;triggerall = numhelper(3500) = 0
-;triggerall = command = "holddownback"
-;triggerall = command = "c"
-;Triggerall = statetype != A
-;trigger1 = ctrl
-
-
-
+;For All Stances Conditional C Moves
 ;---------------------------------------------------------------------------
 ; Kick C
 [State -1, Kick C]

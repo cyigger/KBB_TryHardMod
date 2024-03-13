@@ -2217,7 +2217,8 @@ inheritjuggle = 1
 
 [State 200, End]
 type = ChangeState
-triggerall = helper(455),movehit || time >= 20
+;triggerall = helper(455),movehit
+triggerall = time = [26, 34] 
 trigger1 = command = "c"
 value = 452
 ctrl = 1
@@ -2349,7 +2350,7 @@ y = -0.9
 [state 450]
 type = veladd
 trigger1 = time > 6
-x = -0.70
+x = -0.6
 y = ifelse(pos y - root,pos y > -15, -0.1, 0.1)
 
 ;[State 0, TargetBind]
@@ -2434,6 +2435,7 @@ persistent = 0
 type = HitDef
 getpower = 0
 triggerall = root,map(juggle) < 100 || hitcount != 0
+triggerall = root,movetype != H
 triggerall = AnimElem = 1 || AnimElem = 2 || AnimElem = 3 || AnimElem = 4
 triggerall = time < 40
 trigger1 = 1
@@ -2443,7 +2445,7 @@ damage    = 8
 guard.kill = 0
 Hitflag = MAFD
 guardflag = MAF
-pausetime = 2,2
+pausetime = 0,2
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,0
@@ -2452,10 +2454,10 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 10 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = ifelse(vel x > 0, -3,3),-3
+ground.velocity = ifelse(vel x > 0, -3,3),-3.5
 ground.hittime  = 20
 air.hittime  = 25 + ifelse(enemy,movetype = A, 7,0)
-air.velocity = ifelse(vel x > 0, -3,3),ifelse(enemy,pos y < -10, -2.5, -3)
+air.velocity = ifelse(vel x > 0, -3,3),ifelse(enemy,pos y < -10, -3, -3.5)
 Fall = 1
 Fall.recovertime = 25
 Envshake.time = 5
@@ -3354,7 +3356,7 @@ value = 750
 
 [State 200, End]
 type = ChangeState
-triggerall = command = "FF" || (command = "z" && command != "holddown")
+triggerall = command = "FF"
 trigger1 = Time >= 49
 value = 100
 ctrl = 1

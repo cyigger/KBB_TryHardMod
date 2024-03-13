@@ -4096,8 +4096,8 @@ value = 0
 
 [State 0, SelfState]
 type = SelfState
-trigger1 = time = 80
-value = 5080
+trigger1 = time = 50
+value = 5030
 
 ;===============================================================================
 ; Starslammer Charged Pt.2

@@ -659,13 +659,40 @@ Clsn2: 1
 Clsn2Default: 1
   Clsn2[0] = -17, -41, 19, 1
 0,90, 0,0, 3
-0,91, 0,0, 3
-0,92, 0,0, 4
-0,93, 0,0, 5
-0,94, 0,0, 8
+0,91, 0,0, 4
+LoopStart
+0,92, 0,0, 8
+Interpolate Offset
+Interpolate Scale
+0,92, -1,0, 8, , , 1.05,0.95
+
+; C - 2
+[Begin Action 401]
+Clsn2Default: 1
+  Clsn2[0] = -17, -41, 19, 1
+0,92, 0,0, 2, , , 1.1,0.9
+0,93, 0,0, 3
+0,94, 0,0, 3, , , 1.1,0.9
+0,94, 0,0, 7
+
+; Potential Portal
+[Begin Action 405]
+Interpolate Blend
+Clsn1Default: 1
+  Clsn1[0] = -9, -4, 3, 2
+0,85, 0,0, 10, H, AS0D256, 0.5,0.5, 90
+Interpolate Blend
+0,85, 0,0, 8, H, AS172D256, 0.5,0.5, 90
+LoopStart
+Interpolate Blend
+Interpolate Offset
+0,85, 0,1, 5, H, AS216D256, 0.5,0.5, 90
+Interpolate Blend
+Interpolate Offset
+0,85, 0,-1, 5, H, A, 0.5,0.5, 90
 
 ; Glitch Bomb
-[Begin Action 401]
+[Begin Action 406]
 0,82, 0,1, 2, H, , 0.2,0.2
 0,83, 0,0, 3, H, , 0.6,0.6
 0,84, 0,0, 4, H, , 0.8,0.8
@@ -675,10 +702,10 @@ LoopStart
 0,79, 0,0, 5, H
 0,80, 0,0, 5, H
 0,81, 0,0, 5, H
-0,82, 0,0, 5, H, , 0.85,0.85
-0,83, 0,0, 5, H, , 0.7,0.7
-0,84, 0,0, 5, H, , 0.65,0.65
-0,77, 0,0, 5, H, , 1.1,1.1
+0,82, 0,0, 5, H
+0,83, 0,0, 5, H
+0,84, 0,0, 5, H
+0,77, 0,0, 5, H
 0,78, 0,0, 5, H
 0,79, 0,0, 5, H
 0,80, 0,0, 5, H
@@ -688,22 +715,22 @@ LoopStart
 0,84, 0,0, 5, H
 
 ; Glitch Bomb - Explosion
-[Begin Action 402]
+[Begin Action 407]
 0,84, 0,0, 5, H, , 0.8,0.8
 0,83, 0,0, 3, H, , 0.6,0.6
 0,82, 0,1, 2, H, , 0.2,0.2
 
 ; Charged Glitch Bomb
-[Begin Action 403]
+[Begin Action 410]
 Clsn1Default: 1
-  Clsn1[0] = -10, -13, 27, 13
+  Clsn1[0] = -10, -18, 34, 9
 0,86, 0,34, 3, H
 0,87, -16,39, 3, H
 0,88, -15,40, 3, H
 0,89, -23,40, 3, H
 
 ; Glitch Bomb - Explosion
-[Begin Action 404]
+[Begin Action 411]
 1000,42, 0,0, 2, , A
 1000,43, 0,0, 2, , A
 1000,44, 0,0, 2, , A
@@ -717,16 +744,23 @@ Clsn1Default: 1
 [Begin Action 450]
 Clsn2: 1
   Clsn2[0] = -18, -41, 21, 0
-0,68, 0,0, 3
+0,72, 0,0, 3
 Clsn2: 1
-  Clsn2[0] = -16, -41, 23, 0
-0,32, 0,0, 3
+  Clsn2[0] = -18, -41, 21, 0
+0,73, 0,0, 3, , A1
 Clsn2: 1
-  Clsn2[0] = -22, -41, 17, 0
-0,19, 0,0, 4
+  Clsn2[0] = -18, -41, 21, 0
+0,73, 0,0, 2, , AS176D256
+-1,0, 0,0, 5
 Clsn2: 1
-  Clsn2[0] = -21, -40, 24, 1
-0,20, 0,0, 7
+  Clsn2[0] = -14, -45, 25, -4
+0,63, 0,0, 2, , AS176D256
+Clsn2: 1
+  Clsn2[0] = -14, -45, 25, -4
+0,63, 0,0, 2, , A1
+Clsn2: 1
+  Clsn2[0] = -14, -45, 25, -4
+0,63, 0,0, 2
 
 
 ; Down c part 2
@@ -767,14 +801,22 @@ Clsn2: 1
 [Begin Action 480]
 Clsn2Default: 1
   Clsn2[0] = -18, -36, 24, 0
+0,107, 0,0, 30
+LoopStart
+Interpolate Scale
 0,107, 0,0, 8, , , 0.9,1.1
+
+; new down c release
+[Begin Action 481]
+Clsn2Default: 1
+  Clsn2[0] = -18, -36, 24, 0
 0,109, 0,0, 4
 0,64, 0,0, 3, , , 1.1,0.9
 0,65, 0,0, 3
 0,66, 0,0, 15
 
 ; new down c portal
-[Begin Action 481]
+[Begin Action 485]
 0,82, 1,0, 3, H, , 0.2,0.2, 90
 0,83, 2,0, 3, H, , 0.4,0.4, 90
 0,84, 5,0, 5, H, , 0.8,0.8, 90
@@ -791,7 +833,7 @@ Clsn2Default: 1
 0,78, 1,0, 3, H, , 0.2,0.2, 90
 
 ;  down c fire
-[Begin Action 482]
+[Begin Action 486]
 Clsn1: 1
   Clsn1[0] = -12, -34, 10, 4
 0,211, 0,0, 3, , , 0.6,0.2

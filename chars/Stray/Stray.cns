@@ -1874,7 +1874,7 @@ ctrl = 0
 type = ChangeState
 triggerall = helper(410), movehit >=1
 triggerall = numhelper(422) <= 0
-trigger1 = command = "FF" || (command = "z" && command != "holddown")
+trigger1 = command = "FF"
 value = 100
 ctrl = 1
 
@@ -2011,7 +2011,7 @@ ctrl = 0
 [State 200, Dash cancel I guess]
 type = ChangeState
 triggerall = time >= 20
-trigger1 = command = "FF" || (command = "z" && command != "holddown")
+trigger1 = command = "FF"
 value = 100 
 ctrl = 1
 
@@ -3029,7 +3029,7 @@ fall.recover = 0
 [State 200, End]
 type = ChangeState
 triggerall = movehit
-trigger1 = command = "FF" || command = "z"
+trigger1 = command = "FF"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 ctrl = 1

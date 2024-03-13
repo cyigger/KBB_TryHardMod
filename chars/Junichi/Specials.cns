@@ -1359,7 +1359,7 @@ value = 0
 
 [State 0, DP INVINCIBILLITY BABY]
 type = NotHitBy
-trigger1 = time = [0, 25] 
+trigger1 = time = [0, 15] 
 value = C,NA,SA,NP,SP,NT,ST
 time = 1
 
@@ -1386,12 +1386,12 @@ y = -5
 type = VelSet
 trigger1 = AnimElem = 1
 x = 1.5 + ifelse(p2bodydist x * 0.01 <= 2, p2bodydist x * 0.01, 2)
-y = -7
+y = -7.5
 
 [State 21000, VelSet]
 type = VelAdd
 trigger1 = 1
-y = 0.5
+y = 0.55
 
 [State 200, End]
 type = ChangeState
@@ -2112,7 +2112,7 @@ physics = S
 juggle  = 0
 ctrl = 0
 ;anim = 24000
-poweradd = ifelse(prevstateno != [23000, 23999], -500, -250)
+poweradd = ifelse(prevstateno != [23000, 23999], -1000, -200)
 velset = 8,0
 sprpriority = ifelse(anim != 24000, 4, -1)
 
@@ -2229,7 +2229,7 @@ value = 0
 
 [State 200, End]
 type = ChangeState
-triggerall = power >= 250
+triggerall = power >= 200
 triggerall = time >= 10
 trigger1 = command = "a"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -2380,7 +2380,7 @@ triggerall = AnimElem = 4 || AnimElem = 10
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 10
+damage    = 15
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -2408,7 +2408,7 @@ triggerall = AnimElem = 7 || AnimElem = 13
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 10
+damage    = 15
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -2727,7 +2727,7 @@ value = 1
 
 [State 200, End]
 type = ChangeState
-trigger1 = power >= 250
+trigger1 = power >= 200
 trigger1 = time >= 8
 trigger1 = command = "a"
 value = 23000
@@ -2873,7 +2873,7 @@ triggerall = AnimElem = 3 || AnimElem = 9
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 10
+damage    = 15
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -2901,7 +2901,7 @@ triggerall = AnimElem = 6 || AnimElem = 12
 trigger1 = 1
 attr = S, NA
 animtype  = Hard
-damage    = 10
+damage    = 15
 guard.kill = 0
 hitflag = MAFD
 guardflag = MAF
@@ -3270,7 +3270,7 @@ pos = 40,-30
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
-bindtime = -2
+bindtime = 0
 vel = 0,0
 accel = 0,0
 random = 0,0
@@ -3299,8 +3299,8 @@ triggerall = animelem = 7 || AnimElem = 9 || AnimElem = 11 || AnimElem = 13
 trigger1 = 1
 attr = S, NP
 animtype  = Hard
-damage    = 28,5
-hitflag = MAF
+damage    = 30,5
+hitflag = MAFD
 guardflag = MA
 pausetime = 4,8
 sparkno = 3
@@ -3311,8 +3311,8 @@ guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -3,-2.5
-air.velocity = -3,-1.5
+ground.velocity = -2,-2.5
+air.velocity = -2,-1.5
 Fall = 1
 Fall.recover = 0
 envshake.time = 10

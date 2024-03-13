@@ -693,7 +693,7 @@ trigger1 = ctrl
 [State -1, Run Fwd]
 type = ChangeState
 value = 100
-trigger1 = command = "FF" || (command = "z" && command != "holddown")
+trigger1 = command = "FF"
 trigger1 = statetype = S
 trigger1 = ctrl
 
@@ -735,7 +735,7 @@ triggerall = stateno != 60
 triggerall = stateno != 65
 triggerall = stateno != 70
 value = ifelse(pos y >= 0,52,65)
-trigger1 = command = "FF" || command = "z"
+trigger1 = command = "FF"
 trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; Air Dash - Backwards
@@ -819,13 +819,24 @@ trigger1 = ctrl
 ;triggerall = command = "c"
 ;Triggerall = statetype != A
 ;trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+; Back C
+[State -1, C]
+type = ChangeState
+value = 450
+triggerall = numhelper(3500) = 0
+triggerall = numhelper(405) != 0
+;Triggerall = power >= 250
+triggerall = command = "holdback"
+triggerall = command = "c"
+trigger1 = ctrl
 ;---------------------------------------------------------------------------
 ; C
 [State -1, C]
 type = ChangeState
 value = 400
 triggerall = numhelper(3500) = 0
-triggerall = numhelper(410) < 2
 Triggerall = power >= 250
 triggerall = command = "c"
 Triggerall = statetype != A

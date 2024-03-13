@@ -128,11 +128,17 @@ burn = 0 ; Tracks how many burn stacks this character has (Inflicted by Jay)
 ; ...
 
 [Quotes]
-victory0 = "WOAH! That was AWESOME!"
-victory1 = "Are you alright? Maybe I should've held back more..."
-victory2 = "I'm glad I didn't lose control again, it's way more fun this way!"
-victory3 = "Wait... You don't have my Fragment? ... oops."
+victory0 = "You have the right to remain defeated, bozo."
+victory1 = "Phew! You really are something, aren't ya."
+victory2 = "You should try more next time..."
+victory3 = "Damn... That's it?"
 victory4 = "You shouldn't be so cocky, ya know?"
+
+;Bill Victory Quote
+victory5 = "No more of your explosions!"
+
+;Max Victory Quote
+victory6 = "Somehow I don't you'll stop stealing after this..."
 ;---------------------------------------------------------------------------
 ; Lose by Time Over
 ; CNS difficulty: basic
@@ -173,6 +179,18 @@ type = S
 ctrl = 0
 anim = 180
 velset = 0,0
+
+[State 0, VictoryQuote]
+type = VictoryQuote
+triggerall = random > 500
+trigger1 = enemy,name = "Bill"
+value = 5
+
+[State 0, VictoryQuote]
+type = VictoryQuote
+triggerall = random > 500
+trigger1 = enemy,name = "Max"
+value = 6
 
 [State 0, PlaySnd]
 type = PlaySnd
@@ -502,7 +520,7 @@ animtype  = Light
 damage    = 10
 hitflag = MAF
 guardflag = M
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -645,7 +663,7 @@ animtype  = Light
 damage    = 15
 hitflag = MAF
 guardflag = MA
-pausetime = 10,10
+pausetime = 8,8
 guard.pausetime = 8, 8
 sparkno = 0
 guard.sparkno = 13000
@@ -674,7 +692,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -816,8 +834,8 @@ animtype  = Light
 damage    = 10
 hitflag = MAF
 guardflag = MAF
-pausetime = 5,5
-guard.pausetime = 5, 5
+pausetime = 4,4
+guard.pausetime = 4, 4
 guard.hittime = 15
 sparkno = 0
 guard.sparkno = 13000
@@ -846,8 +864,8 @@ animtype  = Light
 damage    = 10
 hitflag = MAF
 guardflag = MAF
-pausetime = 5,5
-guard.pausetime = 5, 5
+pausetime = 4,4
+guard.pausetime = 4, 4
 guard.hittime = 15
 sparkno = 0
 guard.sparkno = 13000
@@ -876,7 +894,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -1010,7 +1028,7 @@ animtype  = Light
 damage    = 15
 hitflag = MAF
 guardflag = M
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1036,7 +1054,7 @@ ctrl = 1
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -1199,8 +1217,8 @@ animtype  = Light
 damage    = 15
 hitflag = MAF
 guardflag = MAF
-pausetime = 10,10
-guard.pausetime = 10, 10
+pausetime = 8,8
+guard.pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1383,7 +1401,7 @@ ctrl = 1
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -1559,7 +1577,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -1686,8 +1704,8 @@ animtype  = Medium
 damage    = 25
 hitflag = MAFD
 guardflag = LAF
-pausetime = 10,10
-guard.pausetime = 10, 8
+pausetime = 8,8
+guard.pausetime = 8, 8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1715,7 +1733,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -1849,8 +1867,8 @@ animtype  = Medium
 damage    = 20
 hitflag = MAF
 guardflag = MAF
-pausetime = 10,12
-guard.pausetime = 10,12
+pausetime = 8,10
+guard.pausetime = 8,10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1880,7 +1898,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -2061,7 +2079,7 @@ airguard.cornerpush.veloff = -4
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -2185,8 +2203,8 @@ animtype  = Medium
 damage    = 15
 hitflag = MAF
 guardflag = MAF
-pausetime = 10,12 
-guard.pausetime = 10,10
+pausetime = 8,10 
+guard.pausetime = 8,8
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2214,7 +2232,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -2508,8 +2526,8 @@ animtype  = Hard
 damage    = 25
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 12,12
+guard.pausetime = 12,10
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -2549,7 +2567,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -2699,8 +2717,8 @@ animtype  = Medium
 damage    = 20
 hitflag = MAF
 guardflag = MAF
-pausetime = 10,10
-guard.pausetime = 10,8
+pausetime = 8,8
+guard.pausetime = 8,6
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2728,7 +2746,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -3135,8 +3153,8 @@ animtype  = Heavy
 damage    = 25
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 12,12
+guard.pausetime = 12,10
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -3168,7 +3186,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -3347,7 +3365,7 @@ value = 20020
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -3489,7 +3507,7 @@ animtype  = Medium
 damage    = 25
 hitflag = MAF
 guardflag = MA
-pausetime = 16,14
+pausetime = 10,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -3517,7 +3535,7 @@ value = 20020
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -3691,7 +3709,7 @@ value = 20020
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -3923,8 +3941,8 @@ animtype  = Heavy
 damage    = 25
 hitflag = MAF
 guardflag = HAF
-pausetime = 16,16
-guard.pausetime = 16,12
+pausetime = 12,12
+guard.pausetime = 12,8
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -4187,7 +4205,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -5018,8 +5036,8 @@ animtype  = Medium
 damage    = 35
 hitflag = MAFD
 guardflag = LAF
-pausetime = 10,10
-guard.pausetime = 10,8
+pausetime = 8,8
+guard.pausetime = 8,6
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -5048,7 +5066,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -5164,7 +5182,7 @@ animtype  = Medium
 damage    = 35
 hitflag = MAFD
 guardflag = HA
-pausetime = 16,16
+pausetime = 12,12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -5323,8 +5341,8 @@ animtype  = Medium
 damage    = 40
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16, 14
+pausetime = 12,12
+guard.pausetime = 12, 10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -5396,7 +5414,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -5552,8 +5570,8 @@ animtype  = Medium
 damage    = 20
 hitflag = MAFD
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16, 18
+pausetime = 12,12
+guard.pausetime = 12, 14
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -5582,7 +5600,7 @@ value = 20000
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -5722,7 +5740,7 @@ ctrl = 1
 
 [State 200, AA]
 type = ChangeState
-triggerall = time >= 5
+triggerall = time >= 3
 triggerall = command = "holddown"
 trigger1 = command = "a"
 trigger2 = command = "hold_a"
@@ -5733,7 +5751,7 @@ ctrl = 1
 [State 200, AA]
 type = ChangeState
 triggerall = prevstateno != 421
-triggerall = time >= 5
+triggerall = time >= 3
 trigger1 = command = "a"
 trigger2 = command = "hold_a"
 trigger3 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
@@ -5751,7 +5769,7 @@ ctrl = 1
 
 [State 200, B]
 type = ChangeState
-triggerall = time >= 5
+triggerall = time >= 3
 trigger1 = command = "b"
 trigger2 = command = "hold_b"
 value = 431
@@ -5759,7 +5777,7 @@ ctrl = 1
 
 [State 210, Cancel into 5C]
 type = ChangeState
-Triggerall = time >= 5
+Triggerall = time >= 3
 triggerall = power >= 200
 triggerall = numhelper(3500) = 0
 trigger1 = command = "c"
@@ -5887,7 +5905,7 @@ value = 20010
 
 [State 200, Special 2 - Weave]
 type = ChangeState
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -6078,8 +6096,8 @@ animtype  = Medium
 damage    = ifelse(prevstateno = 22010, 100, 40)
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,16
+pausetime = 12,12
+guard.pausetime = 12,12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -6138,7 +6156,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -6334,8 +6352,8 @@ animtype  = Medium
 damage    = 20
 hitflag = MAFD
 guardflag = LAF
-pausetime = 10,12
-guard.pausetime = 10,12
+pausetime = 8,10
+guard.pausetime = 8,10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -6365,7 +6383,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -6515,8 +6533,8 @@ animtype  = Medium
 damage    = ifelse(prevstateno = 22010, 60, 25)
 hitflag = MAF
 guardflag = MAF
-pausetime = 10 + 4 * (prevstateno = 22011),10 + 4 * (prevstateno = 22011)
-guard.pausetime = 10 + 4 * (prevstateno = 22011),8 + 4 * (prevstateno = 22011)
+pausetime = 8 + 4 * (prevstateno = 22011),8 + 4 * (prevstateno = 22011)
+guard.pausetime = 8 + 4 * (prevstateno = 22011),6 + 4 * (prevstateno = 22011)
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -6616,7 +6634,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -7008,8 +7026,8 @@ animtype  = Heavy
 damage    = 30
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 12,12
+guard.pausetime = 12,10
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -7040,7 +7058,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -7187,8 +7205,8 @@ animtype  = Heavy
 damage    = ifelse(prevstateno = 22010, 80, 35)
 hitflag = MAF
 guardflag = MAF
-pausetime = 16 + 4 * (prevstateno = 22011),16 + 4 * (prevstateno = 22011)
-guard.pausetime = 16 + 4 * (prevstateno = 22011),14 + 4 * (prevstateno = 22011)
+pausetime = 12 + 4 * (prevstateno = 22011),12 + 4 * (prevstateno = 22011)
+guard.pausetime = 12 + 4 * (prevstateno = 22011),12 + 4 * (prevstateno = 22011)
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -7225,7 +7243,7 @@ animtype  = Heavy
 damage    = ifelse(prevstateno = 22010, 80, 35)
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
+pausetime = 12,12
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -7254,7 +7272,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -7624,8 +7642,8 @@ animtype  = Heavy
 damage    = 50
 hitflag = MAFD
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,16
+pausetime = 12,12
+guard.pausetime = 12,12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -7689,7 +7707,7 @@ ctrl = 1
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -7800,17 +7818,17 @@ volumescale = 50
 type = VelSet
 trigger1 = time = 6
 x = 3
-y = -2
+y = -3
 
 [State 200, Move Forward]
 type = VelSet
 trigger1 = time = [9, 15]
-x = 6.5
+x = 8
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = time >= 9
-y = 0.3
+y = 0.44
 
 [State 200, 1]
 type = HitDef
@@ -7823,8 +7841,8 @@ animtype  = Heavy
 damage    = 25
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,16
+pausetime = 12,12
+guard.pausetime = 12,10
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -8163,7 +8181,7 @@ ctrl = 1
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && ailevel > 5
@@ -8514,7 +8532,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -8733,7 +8751,7 @@ value = 20020
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100) && ailevel > 5
@@ -8895,7 +8913,7 @@ airguard.cornerpush.veloff = -3
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -9105,7 +9123,7 @@ envshake.time = 10
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -9217,14 +9235,14 @@ volumescale = 80
 
 [State 200, Explod]
 type = Explod
-trigger1 = animelem = 5
+trigger1 = animelem = 2
 anim = 14000
 ID = 14000
 pos = 40,-30
 postype = p1  ;p2,front,back,left,right
 facing = 1
 vfacing = 1
-bindtime = -2
+bindtime = 0
 vel = 0,0
 accel = 0,0
 random = 0,0
@@ -9267,7 +9285,7 @@ envshake.time = 10
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -9715,7 +9733,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -10258,7 +10276,7 @@ value = 20010
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -10920,7 +10938,7 @@ animtype  = Light
 damage    = 10
 hitflag = MAF
 guardflag = HAFD
-pausetime = 16,22
+pausetime = 12,18
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -11020,7 +11038,7 @@ animtype  = Light
 damage    = 25
 hitflag = MAF
 guardflag = HAFD
-pausetime = 16,20
+pausetime = 12,16
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-55
@@ -11240,8 +11258,8 @@ animtype  = Medium
 damage    = 10
 hitflag = MAFD
 guardflag = LA
-pausetime = 10,10
-guard.pausetime = 10,10
+pausetime = 8,8
+guard.pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -11262,7 +11280,7 @@ airguard.cornerpush.veloff = -10
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -11472,7 +11490,7 @@ animtype  = Light
 damage    = 15
 hitflag = MAFD
 guardflag = LAF
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -11491,7 +11509,7 @@ airguard.cornerpush.veloff = -4
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -11681,7 +11699,7 @@ airguard.cornerpush.veloff = -10
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -11867,8 +11885,8 @@ animtype  = Heavy
 damage    = 30
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 12,12
+guard.pausetime = 12,10
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -11900,8 +11918,8 @@ animtype  = Medium
 damage    = 60
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 12,12
+guard.pausetime = 12,10
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -11921,7 +11939,7 @@ airguard.cornerpush.veloff = -4
 [State 200, Special 2 - Weave]
 type = ChangeState
 Triggerall = movecontact
-triggerall = power >= 500
+triggerall = power >= 1000
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 1"
 value = 23000
@@ -12075,7 +12093,7 @@ animtype  = Light
 damage    = 15
 hitflag = MAFD
 guardflag = HAF
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -12216,7 +12234,7 @@ attr = A, NA
 animtype  = Light
 damage    = 15
 guardflag = HAF
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -12352,7 +12370,7 @@ animtype  = Light
 damage    = 10
 hitflag = MAF
 guardflag = MA
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -12634,7 +12652,7 @@ animtype  = Medium
 damage    = 15
 hitflag = MAF
 guardflag = HA
-pausetime = 10,10
+pausetime = 8,8
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -12798,8 +12816,8 @@ animtype  = Medium
 damage    = 20
 hitflag = MAF
 guardflag = HA
-pausetime = 10,10
-guard.pausetime = 10,10
+pausetime = 8,8
+guard.pausetime = 8,8
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -12986,8 +13004,8 @@ animtype  = Medium
 damage    = 30
 hitflag = MAF
 guardflag = HA
-pausetime = 16,16
-guard.pausetime = 16,16
+pausetime = 8,8
+guard.pausetime = 8,8
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -13551,8 +13569,8 @@ animtype  = Heavy
 damage    = 45
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,9
+pausetime = 12,14
+guard.pausetime = 12,8
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -13648,8 +13666,8 @@ animtype  = Heavy
 damage    = 35
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,10
+pausetime = 12,12
+guard.pausetime = 12,6
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -13754,8 +13772,8 @@ animtype  = Heavy
 damage    = 30
 hitflag = MAF
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,12
+pausetime = 12,12
+guard.pausetime = 12,4
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -14002,8 +14020,8 @@ animtype  = Heavy
 damage    = ifelse(prevstateno = 22011, 125, 55)
 hitflag = MAF
 guardflag = HA
-pausetime = 16 + 4 * (prevstateno = 22011),18 + 4 * (prevstateno = 22011)
-guard.pausetime = 16 + 4 * (prevstateno = 22011),10 + 4 * (prevstateno = 22011)
+pausetime = 12 + 4 * (prevstateno = 22011),14 + 4 * (prevstateno = 22011)
+guard.pausetime = 12 + 4 * (prevstateno = 22011),8 + 4 * (prevstateno = 22011)
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -14167,6 +14185,13 @@ persistent = 0
 ;value = S200,0+(random<500)*1+(random<500)*1+(random<500)*1
 ;volumescale = 200
 ;channel = 0
+
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
 
 [State 200, Damage Proration]
 type = VarAdd
@@ -14348,6 +14373,13 @@ persistent = 0
 ;value = S200,0+(random<500)*1+(random<500)*1+(random<500)*1
 ;volumescale = 200
 ;channel = 0
+
+[State 0, FatalCounter]
+type = MapSet
+trigger1 = 1
+map = "fatal"
+value = 1
+ignorehitpause = 1
 
 [State 200, Damage Proration]
 type = VarAdd

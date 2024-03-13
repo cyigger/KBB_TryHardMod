@@ -1,5 +1,76 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.6.3 Changes:                    /
+|---------------------------------------------------/
+
+Thanks to people showing me what the dash macro was truly capable of, I've made the executive desicion that it is not part of my vision for this mod. Cry about it.
+Some Characters have seen some decent adjustments and bug fixes
+
+Universal:
+1. Dash Cancel Removed from the game.
+
+
+Bubbla:
+The bubble master pops in to say hi
+
+
+Glitch:
+1. j.2c reworked to have cancels on wiff rather than being fully actionable:
+	* Attacks and wavedash can be done normally.
+	* Dashing and jumping can only be done after a delay.
+
+
+Vivienne:
+1. Wavedash B: Now only hits OTG.
+	* Damage drastically reduced
+2. Wavedash C: Made easier to combo out of by a little
+	* Damage drastically reduced
+
+
+Fly:
+1. 236B: In-neutral hitbox: reverted horizontal reach.
+
+
+Junichi:
+1. 236A: 
+	* Damage Increase by 20
+	* Cost increased to one bar
+2. 214A:
+	* Reduced "Start-up"
+	* Reduced invul
+3. 214B:
+	* Increased Damage
+	* Now hits OTG
+4. Phoenix 5c Animation Reworked
+	* Recovery slightly reduced
+5. Overall Reduced Hitpause of his moves.
+6. Redistributed frame data of all versions of Phoenix j.c
+	* j.c.a now is the most plus, while j.c.c is the most negative.
+	* None of them are punichable
+7. Feline 6c is now actionable 2 frames sooner
+
+
+Takuya:
+1. 5A, 5[B], 5BB and 4C all have wavedash cancels
+2. Wavedash A is less plus
+3. 2[B] (w/o spike) is slower f13 -> f17
+4. 2[B] (all versions) is now -6
+5. 2[B] (all versions) cannot cancel on block anymore
+6. 4C does more damage 2 -> 4
+7. 4C hits less now
+
+Watanabe:
+1. 5c Phantom Blade Reworked.
+
+Vei: This update sees a complete rework of his portals.
+1. 5c now sets up a portal based on how long you hold it.
+2. New move: 4c - Vei teleports to the portal that was on screen.
+3. 2c reworked to be a held move.
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.6.2 Changes:                    /
 |---------------------------------------------------/
 

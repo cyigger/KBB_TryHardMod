@@ -198,11 +198,6 @@ time = 12
 buffer.time = 5
 
 [Command]
-name = "WD"
-command = /$D,z
-time = 1
-
-[Command]
 name = "NotWD"
 command = B, D, DF
 time = 12

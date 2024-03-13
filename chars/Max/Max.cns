@@ -1411,7 +1411,7 @@ value = 610
 
 [State 200, Airdash fwd]
 type = ChangeState
-Trigger1 = command = "FF" || command = "z"
+Trigger1 = command = "FF"
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 65
 ctrl = 0
