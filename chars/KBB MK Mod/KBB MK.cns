@@ -3929,15 +3929,18 @@ type = Turn
 triggerall = p2dist x < 0
 trigger1 = time = 0 && prevstateno = 615
 
-;[State 0, VelSet]
-;type = VelSet
-;trigger1 = Animelem = 1
-;y = vel y * 0.75
+[State 0, VelSet]
+type = ChangeAnim2
+triggerall = prevstateno = [600,639]
+trigger1 = Animelem = 1
+value = 600
+elem = 3
 
-;[State 0, VelAdd]	;The Swing gives extra momentum forward.
-;type = VelAdd
-;trigger1 = Animelem = 1
-;y = -1
+[State 0, VelAdd]	;The Swing gives extra momentum forward.
+type = VelSet
+triggerall = vel y > -2
+trigger1 = Animelem = 1
+y = -2
 
 ;[State 0, VelSet]
 ;type = VelAdd

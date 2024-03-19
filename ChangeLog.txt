@@ -1,5 +1,61 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.6.4 Changes:                    /
+|---------------------------------------------------/
+
+In this update, a few characters newer characters have received substantial changes and reworks, while some others have received slight balance changes for a more fun experience.
+
+Universal:
+1. Soft Fastfall has been made more leniant and permissive. There are more things you can fastfall, and you can fastfall sooner than before. Go crazy with this.
+
+
+Bubbla:
+The bubble master pops in.
+
+Junichi:
+1. Most Wavedash Moves Replaced and reworked.
+2. Backturned 5b no longer wavedash cancellable on block.
+3. Backturned 2a is now wavedash cancellable.
+4. 236A, 214A, 214B, and all 236Cs are no longer Star Burstable.
+5. 236A now has less invul on success.
+
+
+Metaknight:
+1. j.b nerfed:
+	* Increased startup
+	* This move now has upwards velocity at the start.
+2. j.2c cannot be fastfalled.
+
+
+Vei:
+1. 214A Projectiles Reworked Visually.
+2. Improved hitboxes of 5b, 4b, j.5a, and j.5b
+3. j.5c buffed:
+	* Now retains some horizontal velocity.
+	* Portal also retains the player's velocity.
+	* Increased Gravity while setting portal
+	* Reduced Recovery after placing portal.
+	* Now land cancellable after setting portal.
+4. Fixed 4c bug - You can no longer double dip on your portal.
+5. 4c Startup Reduced
+6. Bug Fix: Portals in the edge of the stage will now face towards the edge of the opponent is also at the edge.
+	* Portals are now properly usable at the corner.
+
+
+Watanabe:
+1. Phantom Blade Rework has been completed.
+2. Hitpause 5a and 5b adjusted.
+2. Movelist updated
+
+
+
+
+
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.6.3 Changes:                    /
 |---------------------------------------------------/
 
@@ -8,10 +64,6 @@ Some Characters have seen some decent adjustments and bug fixes
 
 Universal:
 1. Dash Cancel Removed from the game.
-
-
-Bubbla:
-The bubble master pops in to say hi
 
 
 Glitch:

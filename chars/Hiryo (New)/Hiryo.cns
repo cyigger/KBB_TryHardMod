@@ -4215,7 +4215,7 @@ ctrl = 0
 ;-------------------------------------------------------------------------------
 ; Down+B Air 02 - SLASH
 [Statedef 617]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 2

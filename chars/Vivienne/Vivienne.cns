@@ -10753,7 +10753,7 @@ ctrl = 0
 ;-------------------------------------------------------------------------------
 ;SPECIAL 04 - Haymaker
 [Statedef 24000]
-type    = A
+type    = S
 movetype= A
 physics = S
 ctrl = 0

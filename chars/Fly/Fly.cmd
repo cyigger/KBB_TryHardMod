@@ -589,7 +589,7 @@ type = VelSet
 triggerall = statetype = A && movetype != H
 triggerall = stateno != 390 && stateno != 900 ;Moves that have been nerfed to not allow fastfall during them
 triggerall = command = "down"
-triggerall = vel y > 0 && vel y < 6
+triggerall = vel y > -1 && vel y < 6
 trigger1 = 1
 y = 6
 

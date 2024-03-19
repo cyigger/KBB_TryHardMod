@@ -3042,6 +3042,7 @@ Envshake.time = 20
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
+trigger2 = pos y > 1
 value = 50
 ctrl = 1
 [State 200, Jump]
@@ -5388,6 +5389,7 @@ Envshake.time = 20
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
+trigger2 = pos y > 1
 value = 50
 ctrl = 1
 

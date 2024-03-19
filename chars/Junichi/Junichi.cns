@@ -1614,7 +1614,7 @@ ctrl = 1
 
 
 ;-------------------------------------------------------------------------------
-; Kicks Wavedash A - Hellsweep
+; Kicks Wavedash A - Swipe
 [Statedef 290]
 type    = S
 movetype= A
@@ -1702,8 +1702,8 @@ trigger1 = 1
 attr = S, NA
 animtype  = Medium
 damage    = 25
-hitflag = MAFD
-guardflag = LAF
+hitflag = MAF
+guardflag = MAF
 pausetime = 8,8
 guard.pausetime = 8, 8
 sparkno = 0
@@ -1714,11 +1714,11 @@ guardsound = 6,11
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
-ground.velocity = -2,-3
-air.velocity = -2,-3
+ground.velocity = -1,-2
+air.velocity = -1,-2
 Fall = 0
 Envshake.time = 10
-Fall.recovertime = 20
+Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -7
 airguard.cornerpush.veloff = -7
 
@@ -1780,11 +1780,11 @@ value = 414
 [State 210, End]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 410
+value = 0
 ctrl = 1
 
 ;===============================================================================
-; Punch Wavedash B: Gutter
+; Punch Wavedash B: Bash
 ;-------------------------------------------------------------------------------
 [Statedef 293]
 type    = S
@@ -1828,33 +1828,7 @@ volumescale = 50
 [State 0, VelSet]
 type = VelSet
 trigger1 = Animelem = 3
-x = 2
-
-[State 0, EnvShake]
-type = EnvShake
-trigger1 = AnimElem = 3
-time = 5
-
-[State 0, Explod]
-type = Explod
-trigger1 = AnimElem = 2
-anim = 10006
-ID = 10006
-pos = 15,-20
-postype = p1  ;p2,front,back,left,right
-facing = 1
-vfacing = 1
-bindtime = 1
-vel = 0,0
-accel = 0,0
-random = 0,0
-removetime = -2
-pausemovetime = 9999
-scale = 0.13,0.13
-sprpriority = 2
-ontop = 1
-shadow = 0,0,0
-ownpal = 1
+x = 6
 
 [State 200, 1]
 type = HitDef
@@ -1872,16 +1846,16 @@ guard.pausetime = 8,10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = S0,9
+hitsound   = 5,2
 guardsound = 6,10
 ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 ground.velocity = -4
-air.velocity = -1,-3
+air.velocity = -3,-1
 guard.velocity = -3
 Envshake.time = 15
-Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+Fall.recovertime = 20 + ifelse(enemy,movetype = A, 7,0)
 ;forcenofall = 1
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
@@ -1933,7 +1907,7 @@ value = 0
 ctrl = 1
 
 ;-------------------------------------------------------------------------------
-; Baton Wavedash A: Thrust
+; Baton Wavedash A: Twirl
 [Statedef 296]
 type    = S
 movetype= A
@@ -1941,6 +1915,212 @@ physics = S
 juggle  = 1
 ctrl = 0
 anim = 296
+poweradd = 0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = hitcount >= 2 && enemy,gethitvar(fall)
+map = "juggle"
+value = 5
+persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = random < 600
+trigger1 = AnimElem = 1
+value = S200,0+(random<500)*1
+volumescale = 200
+channel = 0
+
+[State 210, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 3
+
+[State 210, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 75
+
+[State 210, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,2
+volumescale = 50
+
+;[State 210, PosAdd]
+;type = PosAdd
+;trigger1 = animelem = 2
+;x = 8
+[State 210, VelSet]
+type = VelSet
+trigger1 = animelem = 2
+x = 4
+
+[State 210, Explod]
+type = Explod
+trigger1 = movecontact 
+anim = 40000
+ID = 40000
+pos = -10,-100
+postype = p1  ;p2,front,back,left,right
+facing = 1
+vfacing = 1
+bindtime = -2
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+pausemovetime = 0
+scale = 1,1
+sprpriority = 0
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+ignorehitpause = 1
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = AnimElem = 4
+trigger1 = 1
+attr = S, NA
+animtype  = Light
+damage    = 15
+hitflag = MAF
+guardflag = MAF
+pausetime = 5,5
+guard.pausetime = 5, 5
+guard.hittime = 15
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,1
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -1
+air.velocity = -1,-1
+Fall = 0
+Envshake.time = 10
+Fall.recovertime = 30
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 210, Attack]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = AnimElem = 7
+trigger1 = 1
+attr = S, NA
+animtype  = Light
+damage    = 15
+hitflag = MAF
+guardflag = MAF
+pausetime = 5,5
+guard.pausetime = 5, 5
+guard.hittime = 15
+sparkno = 0
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,3
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -2
+air.velocity = -2,-3
+Fall = 0
+Envshake.time = 10
+Fall.recovertime = 20
+guard.cornerpush.veloff = -7
+airguard.cornerpush.veloff = -7
+
+[State 200, Special 2 - Big Kick]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1500
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 5"
+value = 20000
+
+[State 200, Special 2 - Weave]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 1"
+value = 23000
+
+[State 200, Special 2 - Skyfall Kick]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 21000
+
+[State 200, Special 4 - Gundown]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 4"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 24000
+
+[State 210, Cancel into 5AA]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "a"
+triggerall = time >= 14
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 270
+
+[State 210, Cancel into 5B]
+type = ChangeState
+Triggerall = movecontact
+trigger1 = command = "b"
+triggerall = time >= 14
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 360
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "holddown"
+;trigger1 = command = "c"
+;value = 400
+
+[State 210, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+;-------------------------------------------------------------------------------
+; Baton Wavedash A: Thrust
+[Statedef 297]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 297
 poweradd = 0
 sprpriority = 2
 
@@ -2103,12 +2283,14 @@ value = 24000
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+triggerall = time >= 16
 trigger1 = command = "a"
 value = 270
 
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
+triggerall = time >= 16
 trigger1 = command = "b"
 value = 360
 ;
@@ -2551,7 +2733,7 @@ airguard.cornerpush.veloff = -4
 [State 200, Wavedash Cancel]
 type = ChangeState
 Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movecontact
+trigger1 = movehit
 trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 value = 30
 ctrl = 1
@@ -3767,11 +3949,196 @@ trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
 
-
-
 ;-------------------------------------------------------------------------------
 ; Kicks Wavedash B
 [Statedef 390]
+type    = A
+movetype= A
+physics = N
+juggle  = 2
+ctrl = 0
+anim = 390
+poweradd = 0
+sprpriority = 2
+
+[State 0, Juggle Map]
+type = MapAdd
+trigger1 = movehit && enemy,gethitvar(fall)
+map = "juggle"
+value = 10
+persistent = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = random < 600
+trigger1 = AnimElem = 1
+value = S200,4
+volumescale = 200
+channel = 0
+
+[State 0, VelAdd]
+type = VelSet
+trigger1 = time = 0
+x = 4.2
+
+[State 0, PosAdd]
+type = VelSet
+trigger1 = time = 10
+y = -5
+
+[State 0, VelAdd]
+type = VelSet
+trigger1 = time = 10
+y = -3
+
+[State 0, VelAdd]
+type = VelAdd
+trigger1 = time > 10
+y = 0.33
+
+
+
+[State 0, Damage Proration]
+type = VarAdd
+trigger1 = movehit
+v = 11
+ignorehitpause = 1
+persistent = 0
+value = 5
+
+[State 0, PowerAdd]
+type = PowerAdd
+triggerall = numhelper(51000) = 0
+triggerall = numhelper(55000) = 0
+triggerall = numhelper(56000) = 0
+trigger1 = movecontact = 1
+value = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = S1,2
+volumescale = 50
+
+[State 200, 1]
+type = HitDef
+getpower = 0
+triggerall = map(juggle) < 100 || hitcount != 0
+triggerall = !movecontact
+trigger1 = 1
+attr = S, NA
+animtype  = Heavy
+damage    = 35
+hitflag = MAFD
+guardflag = MAF
+pausetime = 12,14
+guard.pausetime = 12,10
+guard.hittime = 15
+airguard.hittime = 15
+sparkno = 2
+guard.sparkno = 13000
+sparkxy = -8,-25
+hitsound   = 5,4
+guardsound = 6,11
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
+air.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
+ground.velocity = -3.5,-6
+air.velocity = -3.5,-5
+Fall = 1
+Envshake.time = 20
+Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
+guard.cornerpush.veloff = -5
+airguard.cornerpush.veloff = -4
+
+[State 200, Special 2 - Skyfall Kick]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 2"
+value = 21000
+
+[State 200, Special 4 - Gundown]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 1000
+triggerall = numhelper(3500) = 0
+trigger1 = command = "SPECIAL 4"
+value = 24000
+
+[State -1, SPECIAL 3]
+type = ChangeState
+value = 22000
+triggerall = numhelper(3500) = 0
+triggerall = command = "SPECIAL 3"
+Triggerall = power >= 1000
+trigger1 = movecontact
+
+[State 200, End]
+type = ChangeState
+Triggerall = movehit
+trigger1 = command = "up"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 40
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movehit
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "holdfwd"
+;trigger1 = command = "c"
+;value = 420
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+trigger1 = command = "c"
+value = 450
+ctrl = 1
+
+;[State 210, Cancel into 5C]
+;type = ChangeState
+;Triggerall = movecontact
+;triggerall = power >= 100
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "holddown" && command = "c"
+;value = 400
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;triggerall = power >= 200
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "holdback" && command = "c"
+;value = 409
+;ctrl = 1
+
+;[State 200, End]
+;type = ChangeState
+;Triggerall = movecontact
+;triggerall = numhelper(3500) = 0
+;trigger1 = command = "c"
+;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+;value = 620
+
+[State 0, PosSet]
+type = PosSet
+trigger1 = pos y > 0 && vel y > 0
+y = 0
+
+[State 200, End]
+type = ChangeState
+trigger1 = AnimTime = 0
+trigger2 = pos y > 0 && vel y > 0
+value = ifelse(pos y > 0, 52, 50)
+ctrl = 1
+
+;-------------------------------------------------------------------------------
+; Kicks Wavedash B
+[Statedef 391]
 type    = A
 movetype= I
 physics = N
@@ -4082,7 +4449,7 @@ volumescale = 50
 [State 200, Move Forward]
 type = VelSet
 trigger1 = time = [2, 14]
-x = 4.5
+x = 3.75
 
 ;Jump
 [State 310, VelSet]
@@ -4100,40 +4467,22 @@ physics = N
 [State 310, VelSet]
 type = VelSet
 trigger1 = AnimElem = 2
-y = -4
+y = -5
 
 [State 310, VelSet]
 type = VelAdd
 trigger1 = statetype = A
-y = 0.5
-
-[State 310, End]
-type = ChangeAnim2
-trigger1 = statetype = A
-value = anim
-elem = 4
-
-;Land
-[State 310, End]
-type = ChangeAnim
-triggerall = statetype = A
-trigger1 = pos y > 0 && vel y > 0
-value = anim
-elem = 5
-
-[State 0, StateTypeSet]
-type = StateTypeSet
-triggerall = statetype = A
-trigger1 = pos y > 0 && vel y > 0
-statetype = S
-movetype = A
-physics = S
+y = 0.44
 
 [State 310, VelSet]
 type = VelSet
 trigger1 = statetype != A
 y = 0
 
+[State 310, VelSet]
+type = VelSet
+trigger1 = movecontact = 1
+y = -2
 
 [State 200, Explod]
 type = Explod
@@ -4168,7 +4517,7 @@ attr = S, NA
 animtype  = Heavy
 damage    = 30
 hitflag = MAF
-guardflag = MA
+guardflag = HA
 pausetime = 16,18
 sparkno = 2
 guard.sparkno = 13000
@@ -4179,8 +4528,8 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime  = 15 + ifelse(enemy,movetype = A, 7,0)
 guard.velocity = -8
-ground.velocity = -3,-6
-air.velocity = -3,-5
+ground.velocity = -3,6
+air.velocity = -3,7
 Fall = 1
 Fall.recovertime = 60 + ifelse(enemy,movetype = A, 7,0)
 envshake.time = 10
@@ -4194,22 +4543,6 @@ airguard.cornerpush.veloff = -8
 ;trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
 ;value = 40
 
-[State 200, Special 2 - Big Kick]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 1500
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 5"
-value = 20010
-
-[State 200, Special 2 - Weave]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 1000
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 1"
-value = 23000
-
 [State 200, Special 2 - Skyfall Kick]
 type = ChangeState
 Triggerall = movecontact
@@ -4218,14 +4551,6 @@ triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 2"
 value = 21000
 
-[State 200, Special 4 - Gundown]
-type = ChangeState
-Triggerall = movecontact
-triggerall = power >= 1000
-triggerall = numhelper(3500) = 0
-trigger1 = command = "SPECIAL 4"
-value = 24000
-
 [State -1, SPECIAL 3 - Super Smack]
 type = ChangeState
 Triggerall = movecontact
@@ -4233,13 +4558,6 @@ triggerall = numhelper(3500) = 0
 Triggerall = power >= 1000
 trigger1 = command = "SPECIAL 3"
 value = 22020
-
-[State 200, End]
-type = ChangeState
-Triggerall = movehit
-trigger1 = command = "up"
-trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
-value = 40
 
 ;[State 200, End]
 ;type = ChangeState
@@ -4281,10 +4599,17 @@ value = 40
 ;trigger1 = command = "holdback" && command = "c"
 ;value = 460
 
+[State 0, StateTypeSet]
+type = ChangeState
+triggerall = statetype = A
+trigger1 = pos y > 0 && vel y > 0
+value = 52
+ctrl = 1
+
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 50
 ctrl = 1
 
 
@@ -5055,6 +5380,13 @@ Fall.recovertime = 30 + ifelse(enemy,movetype = A, 7,0)
 guard.cornerpush.veloff = -5
 airguard.cornerpush.veloff = -4
 
+[State 200, Wavedash Cancel]
+type = ChangeState
+Triggerall = command = "WD" && command != "NotWD"
+trigger1 = movecontact
+value = 30
+ctrl = 1
+
 [State 200, Special 2 - Big Kick]
 type = ChangeState
 Triggerall = movecontact
@@ -5372,7 +5704,7 @@ damage    = 60
 hitflag = MAF
 guardflag = MAF
 pausetime = 30,30
-guard.pausetime = 16, 14
+guard.pausetime = 12, 10
 sparkno = 0
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -5392,7 +5724,7 @@ airguard.cornerpush.veloff = -7
 [State 200, Wavedash Cancel]
 type = ChangeState
 Triggerall = command = "WD" && command != "NotWD"
-trigger1 = movecontact
+trigger1 = movehit
 value = 30
 ctrl = 1
 
@@ -9859,8 +10191,8 @@ x = 2
 [State 0, VelSet]
 type = VelSet
 trigger1 = AnimElem = 4
-y = -6
-x = ifelse(movecontact, -2, 1)
+y = -7
+x = 3
 
 [State 0, StateTypeSet]
 type = StateTypeSet
@@ -9880,8 +10212,8 @@ animtype  = Hard
 damage    = 40
 hitflag = MAFD
 guardflag = MAF
-pausetime = 16,16
-guard.pausetime = 16,14
+pausetime = 12,12
+guard.pausetime = 12,12
 guard.hittime = 15
 airguard.hittime = 15
 sparkno = 2
@@ -14921,7 +15253,7 @@ value = 0
 
 [State 0, Failed to block an overhead!]
 type = Explod
-triggerall = stateno = [600, 640] || stateno = [900,910] || Stateno = 413 || Stateno = [21000, 21005] || stateno = 393
+triggerall = stateno = [600, 640] || stateno = [900,910] || Stateno = 413 || Stateno = [21000, 21005] || stateno = 393 || stateno = 396
 triggerall = enemy, prevstateno = [120,160] && numexplod(31000) = 0
 trigger1 = enemy, movetype = H && enemy, stateno != [120,160]
 anim = F35000

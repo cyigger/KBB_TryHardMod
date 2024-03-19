@@ -17,6 +17,13 @@ velset = 0,0
 sprpriority = 2
 ignorehitpause = 1
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 ;[State 0, PlaySnd]
 ;type = PlaySnd
 ;triggerall = random < 600
@@ -423,6 +430,13 @@ anim = 20010
 poweradd = -1500
 velset = 0,0
 sprpriority = 2
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
 ignorehitpause = 1
 
 ;[State 0, PlaySnd]
@@ -1025,6 +1039,13 @@ velset = 0,0
 sprpriority = 2
 ignorehitpause = 1
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 200, VelSet]
 type = VelSet
 trigger1 = 1
@@ -1096,6 +1117,13 @@ anim = 20022
 poweradd = 0
 velset = 0,0
 sprpriority = 2
+ignorehitpause = 1
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
 ignorehitpause = 1
 
 ;[State 200, VelSet]
@@ -2272,6 +2300,13 @@ map = "juggle"
 value = 5
 persistent = 0
 
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
+
 [State 0, PlaySnd]
 type = PlaySnd
 triggerall = 1
@@ -2300,7 +2335,7 @@ trigger1 = time <= 15
 
 [State 0, DP INVINCIBILLITY BABY]
 type = NotHitBy
-trigger1 = time = [0, 38] 
+trigger1 = time = [0, 16] 
 value = SCA,NA,SA,NP,SP,NT,ST
 time = 1
 
@@ -2703,6 +2738,13 @@ darken = 1
 p2defmul = 1
 poweradd = 0
 endcmdbuftime = 7
+
+[State 0, Busterable]
+type = MapSet
+trigger1 = 1
+map = "busterable"
+value = 1
+ignorehitpause = 1
 
 [State 0, AttackDist]
 type = AttackDist

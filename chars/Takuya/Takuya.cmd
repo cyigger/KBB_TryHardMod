@@ -590,19 +590,19 @@ type = VelSet
 triggerall = statetype = A && movetype != H
 triggerall = stateno != [900,910] && stateno != 390 ;Moves that have been nerfed to not allow fastfall during them
 triggerall = command = "down" 
-triggerall = vel y > 0 && vel y < 6
+triggerall = vel y > -1 && vel y < 6
 trigger1 = 1
 y = 6
 ;---------------------------------------------------------------------------
 ; SUPER:
 ;[State -1, Fly Final Dash]
-type = ChangeState
-value = 30000
-triggerall = numhelper(3500) = 0
-triggerall = command = "SUPER1"
-Triggerall = Power = 3000
-Triggerall = statetype != A
-trigger1 = ctrl
+;type = ChangeState
+;value = 30000
+;triggerall = numhelper(3500) = 0
+;triggerall = command = "SUPER1"
+;Triggerall = Power = 3000
+;Triggerall = statetype != A
+;trigger1 = ctrl
 ;===========================================================================
 ;SPECIALS:
 ;===========================================================================

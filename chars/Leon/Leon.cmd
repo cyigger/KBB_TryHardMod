@@ -626,8 +626,8 @@ flag3=nostandguard
 type = VelSet
 triggerall = statetype = A && movetype != H
 triggerall = command = "down"
-triggerall = vel y > 0 && vel y < 6
-triggerall = stateno != 900
+triggerall = vel y > -1 && vel y < 6
+triggerall = stateno != 900 
 trigger1 = 1
 y = 6
 

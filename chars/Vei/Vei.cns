@@ -1865,30 +1865,30 @@ volumescale = 50
 
 [State 0, PosAdd]
 type = PosAdd
-trigger1 = AnimElem = 4
-x = 5
+trigger1 = AnimElem = 3
+x = 4
 y = -5
 
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1 
-y = 0.44
+y = 0.66
 
 [State 0, VelAdd]
 type = VelSet
-trigger1 = time < 12
-x = 3
+trigger1 = time < 10
+x = 2
 y = 0
 
 [State 0, VelAdd]
 type = VelSet
-trigger1 = time = [12,13]
-x = 1.5
-y = -7
+trigger1 = time = [10,12]
+x = 1
+y = -10
 
 [State 0, VelAdd]
 type = VelSet
-trigger1 = time >= 13
+trigger1 = time >= 12
 trigger1 = movecontact
 x = 1
 y = -2
@@ -2538,7 +2538,7 @@ value = movehit
 [State 0 , VelSet]
 type = VelSet
 trigger1 = time = 0
-x = 6
+x = 6 + root,vel x
 
 [State 0 , VelSet]
 type = VelAdd
@@ -2553,7 +2553,7 @@ y = ifelse(root,command = "holdup", -5, ifelse(root,command = "holddown", 5, 0))
 [State 0, PosSet]
 type = PosSet
 trigger1 = pos y > -20
-y = -20
+y = -25
 
 [State 0, PosSet]
 type = PosSet
@@ -2567,8 +2567,8 @@ x = 0
 
 [State 0 , VelSet]
 type = PosAdd
-trigger1 = frontedgebodydist <= 10
-x = frontedgebodydist + 10
+trigger1 = frontedgebodydist <= -20
+x = frontedgebodydist - 20
 
 [State 1010, Helper Attack Scale]
 type = AttackMulSet
@@ -4914,7 +4914,7 @@ inheritJuggle = 1
 
 [State 200, Special 3 - Air Kick]
 type = ChangeState
-Triggerall = helper(612),movecontact
+Triggerall = numhelper(612) != 0
 triggerall = power >= 500
 triggerall = numhelper(3500) = 0
 trigger1 = command = "SPECIAL 3"
@@ -4922,7 +4922,7 @@ value = 22000
 
 [State 200, End]
 type = ChangeState
-Triggerall = helper(612),movecontact
+Triggerall = numhelper(612) != 0
 triggerall = power >= 200
 triggerall = command = "holddown"
 trigger1 = command = "c"
@@ -5656,7 +5656,7 @@ juggle  = 0
 ctrl = 0
 anim = 400
 poweradd = -250
-velset = -1,-1
+velset = vel x * 0.75,-1
 sprpriority = 1
 attackdist = 0
 
@@ -5680,7 +5680,7 @@ inheritJuggle = 1
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = 1
-y = 0.11
+y = 0.22
 ;ignorehitpause = 
 ;persistent = 
 
@@ -5721,7 +5721,7 @@ y = 0
 [Statedef 621]
 type    = A
 movetype= A
-physics = U
+physics = A
 juggle  = 0
 ctrl = 0
 anim = 401

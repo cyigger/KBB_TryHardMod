@@ -3587,7 +3587,7 @@ ctrl = 1
 ; Wavedash C B 2
 ;-------------------------------------------------------------------------------
 [Statedef 2025]
-type    = A
+type    = S
 movetype = A
 physics = S
 juggle  = 1
