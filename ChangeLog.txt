@@ -1,5 +1,33 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.6.4 Hotfix 1 Changes:           /
+|---------------------------------------------------/
+
+Just some quick bugs that slid past me.
+
+Bill:
+1. Wavedash A Startup Increased (+1)
+2. 5c can no longer be fastfalled.
+
+
+Noll:
+1. Adjusted the trajectory of wavedash.
+
+
+Bubbla:
+1. j.2c recovery increased drastically.
+
+
+Watanabe:
+1. Phantom Sword:
+	* Can now go into a hurtstate when watanabe gets attacked.
+	* Sword 5b 1 blockstun increased and startup increased.
+2. Wavedash A made less active (-4 frames)
+3. Wavedash C Bug Removed.
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.6.4 Changes:                    /
 |---------------------------------------------------/
 
