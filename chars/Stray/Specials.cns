@@ -971,7 +971,7 @@ ctrl = 1
 ; Slam Blast Land!:
 ;-------------------------------------------------------------------------------
 [Statedef 24500]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0

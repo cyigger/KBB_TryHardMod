@@ -1736,6 +1736,7 @@ anim = 390
 poweradd = 0
 velset = 5,0
 sprpriority = 2
+attackdist = 50
 
 [State 0, Juggle Map]
 type = MapAdd
@@ -2081,7 +2082,7 @@ ground.type = High
 ground.slidetime = 12
 ground.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
 air.hittime = 15 + ifelse(enemy,movetype = A, 7,0)
-guard.pausetime = 12, 24
+guard.pausetime = 12, 20
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -2129,7 +2130,7 @@ animtype = Heavy
 damage  = 30 + ifelse(var(8) != 0, 30, 0)
 hitflag = MAF
 guardflag = MA
-pausetime = 12,30 + ifelse(var(8) != 0, 10, 0)
+pausetime = 12,24 + ifelse(var(8) != 0, 10, 0)
 ground.type = High
 ground.slidetime = 12
 ground.hittime = 15 + ifelse(enemy,movetype = A, 7,0)

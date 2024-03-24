@@ -2781,7 +2781,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState 
-triggerall = root,command = "hold_c" && root,command = "holddown" && root,movetype != H && root,stateno != [120,140] 
+triggerall = root,command = "hold_c" && root,command = "holddown" && root,movetype != H && root,stateno != [120,140] && root,stateno != 54000
 trigger1 = numhelper(5465) = 0 && root,stateno != [5040,5210]  && map(Main) = 1 && command != "hold_s"
 trigger2 = numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
 trigger3 = root,command != "holdfwd" && numhelper(5465) = 0 && root,command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
@@ -2792,7 +2792,7 @@ ctrl = 0
 
 [State 0, ChangeState]
 type = ChangeState
-triggerall = root,command = "hold_c" && root,movetype != H && root,stateno != [120,140] && numhelper(4444) = 0 && root,stateno != [500,501]
+triggerall = root,command = "hold_c" && root,movetype != H && root,stateno != [120,140] && numhelper(4444) = 0 && root,stateno != [500,501] && root,stateno != 54000
 trigger1 = numhelper(5465) = 0 && root,stateno != [5040,5210]  && map(Main) = 1 && command != "hold_s"
 trigger2 = numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
 trigger3 = root,command != "holdfwd" && numhelper(5465) = 0 && root,command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
@@ -2805,7 +2805,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(BUsed) = 1
-triggerall = root,command = "hold_b" && root,movetype != H && root,stateno != [120,140] && numhelper(4445) = 0 && root,stateno != [500,501]
+triggerall = root,command = "hold_b" && root,movetype != H && root,stateno != [120,140] && numhelper(4445) = 0 && root,stateno != [500,501] && root,stateno != 54000
 trigger1 = numhelper(5465) = 0 && root,stateno != [5040,5210]  && map(Main) = 0 && command != "hold_s"
 trigger2 = numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 0 && command != "hold_s"
 trigger3 = root,command != "holdfwd" && numhelper(5465) = 0 && root,command != "SPECIAL 5" && map(Main) = 1 && command = "hold_s"
@@ -2817,7 +2817,7 @@ ctrl = 0
 [State 0, ChangeState]
 type = ChangeState
 triggerall = map(BUsed) = 0
-triggerall = root,command = "hold_b" && root,movetype != H && root,stateno != [120,140] && numhelper(4445) = 0 && root,stateno != [500,501]
+triggerall = root,command = "hold_b" && root,movetype != H && root,stateno != [120,140] && numhelper(4445) = 0 && root,stateno != [500,501] && root,stateno != 54000
 trigger1 = numhelper(5465) = 0 && root,stateno != [5040,5210]  && map(Main) = 1 && command != "hold_s"
 trigger2 = numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
 trigger3 = root,command != "holdfwd" && numhelper(5465) = 0 && root,command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
@@ -6458,6 +6458,7 @@ down.bounce = 1
 
 [State 0, ChangeState]
 type = ChangeState
+triggerall = root,stateno != 54000
 trigger1 = root,command = "hold_c" && root,command = "holddown" && root,movetype != H  && root,stateno != [120,140] && root,command != "holdfwd" && numhelper(5465) = 0 && root,stateno != [5040,5210]  && map(Main) = 1 && command != "hold_s"
 trigger2 = root,command = "hold_c" && root,command = "holddown" && root,movetype != H  && root,stateno != [120,140] && numhelper(5465) > 0 && root,stateno != [5040,5210] && map(Main) = 1 && command != "hold_s"
 trigger3 = root,command = "hold_c" && root,command = "holddown" && root,movetype != H  && root,stateno != [120,140] && root,command != "holdfwd" && root,stateno != [5040,5210] && numhelper(5465) = 0 && root,command != "SPECIAL 5" && map(Main) = 0 && command = "hold_s"
@@ -7025,7 +7026,7 @@ value = time
 
 [State 200, End]
 type = ChangeState
-trigger1 = root,command = "b" && root,movetype != H  && root,stateno != [120,140] && root,stateno != [500,501] && root,stateno != [5040,5210]
+trigger1 = root,command = "b" && root,movetype != H  && root,stateno != [120,140] && root,stateno != [500,501] && root,stateno != [5040,5210] && root,stateno != 54000
 value = 468
 
 ;===============================================================================
@@ -7165,13 +7166,13 @@ keyctrl = 0
 
 [State 0, Juggle Map]
 type = MapSet
-trigger1 = root,command = "b" && root,movetype != H  && root,stateno != [120,140] && root,stateno != [500,501] && root,stateno != [5040,5210] && time >= 16
+trigger1 = root,command = "b" && root,movetype != H  && root,stateno != [120,140] && root,stateno != [500,501] && root,stateno != [5040,5210] && root,stateno != 54000 && time >= 16
 map = "ThunderTime"
 value = time
 
 [State 200, End]
 type = ChangeState
-trigger1 = root,command = "b" && root,movetype != H  && root,stateno != [120,140] && root,stateno != [500,501] && root,stateno != [5040,5210] && time >= 16
+trigger1 = root,command = "b" && root,movetype != H  && root,stateno != [120,140] && root,stateno != [500,501] && root,stateno != [5040,5210] && root,stateno != 54000 && time >= 16
 value = 466
 
 

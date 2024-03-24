@@ -910,7 +910,7 @@ ctrl = 1
 ; Wavedash A V2
 ;-------------------------------------------------------------------------------
 [Statedef 291]
-type    = A
+type    = S
 movetype= A
 physics = N 
 ctrl = 0

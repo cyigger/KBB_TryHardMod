@@ -968,6 +968,7 @@ ctrl = 0
 anim = 290
 poweradd = 0
 sprpriority = 1
+attackdist = 40
 
 [State 0, Juggle Map]
 type = MapAdd
@@ -1054,9 +1055,9 @@ getpower = 0
 animtype  = Light
 damage    = 20
 hitflag = MAFD
-guardflag = LA
-pausetime = 5,12
-guard.pausetime = 12,5
+guardflag = MA
+pausetime = 10,12
+guard.pausetime = 10,12
 sparkno = 1
 guard.sparkno = 13000
 sparkxy = -8,-25
@@ -1078,9 +1079,26 @@ air.cornerpush.veloff = 0
 [State 200, End]
 type = ChangeState
 Triggerall = movecontact
-trigger1 = time = 25
-value = 0
-ctrl = 1
+trigger1 = command = "b"
+trigger2 = roundstate = 2 && ailevel > 0 && random < (ailevel * 100)
+value = 320
+
+[State 200, 2C Cancel]
+type = ChangeState
+Triggerall = movecontact
+triggerall = power >= 200
+triggerall = numhelper(3500) = 0
+trigger1 = command = "holddown"
+trigger1 = command = "c"
+value = ifelse(var(21) > 0, 450, 451)
+
+[State 200, End]
+type = ChangeState
+Triggerall = movecontact
+triggerall = numhelper(3500) = 0
+triggerall = power >= 200
+trigger1 = command = "c"
+value = 400
 
 [State 1000, 6]
 type = ChangeState
@@ -1810,7 +1828,7 @@ value = 625
 [State 200, End]
 type = ChangeState
 trigger1 = AnimTime = 0
-value = 0
+value = 50
 ctrl = 1
 
 ;===============================================================================
@@ -4552,7 +4570,7 @@ damage    = 10
 hitflag = MAF
 guardflag = HAFD
 pausetime = 16,22
-guard.pausetime = 22, 16
+guard.pausetime = 16, 12
 sparkno = 1
 guard.sparkno = s13000
 sparkxy = -8,-55
@@ -5103,8 +5121,8 @@ attr = S, NA
 animtype  = Medium
 damage    = 5
 guardflag = HA
-pausetime = 12,12
-guard.pausetime = 12,6
+pausetime = 10,10
+guard.pausetime = 10,6
 sparkno = 0
 guard.sparkno = s13000
 sparkxy = -8,-25
@@ -5216,7 +5234,7 @@ damage    = 20
 hitflag = MAF
 guardflag = MAF
 pausetime = 1,11
-guard.pausetime = 11, 1
+guard.pausetime = 10, 1
 sparkno = 0
 numhits = 0
 guard.sparkno = s13000

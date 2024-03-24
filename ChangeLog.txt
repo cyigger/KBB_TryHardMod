@@ -1,29 +1,81 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
-| Try-Hard Version 0.6.4 Hotfix 1 Changes:           /
+| Try-Hard Version 0.6.4 Hotfix Changes:             /
 |---------------------------------------------------/
 
-Just some quick bugs that slid past me.
+Just some not so quick bugs that slid past me.
+
+
+Aege:
+1. You can no longer fastfall during 214B
+
+
+Bubbla:
+1. Fixed Bug where wavedash A was counted as a low
+2. Wavedash A:
+	* now has cancels
+	* has a normal amount of hitpause now.
+3. Fixed bug where wavedash B's vertical momentum was weird.
+4. Adjusted Hitpause of moves to be more consistent.\
+5. j.2c recovery increased drastically.
+
 
 Bill:
 1. Wavedash A Startup Increased (+1)
 2. 5c can no longer be fastfalled.
 
 
+Fly:
+1. YOu can no longer fastfall during j.236A and 214B
+
+
+Glitch:
+1. You can no longer fastfall during 236A and j.236B
+
+
+Jodie:
+1. You can no longer fastfall during j.236C
+
+
+Saito:
+1. Fixed bug with fastfalling during 5c
+2. You can no longer fastfall during a successful j.2c
+
+
+Sareo:
+1. Wavedash B:
+	* Reduced Blockstun Overall
+	* Fixed Bug Where it was sometimes impossible to block the move
+2. Wavedash C:
+	* Increased Recovery (+4)
+
+
+Stray:
+1. Fixed Bug where you could fast fall during the landing of j.236B
+2. Wavedash A startup increased (+4)
+
+
 Noll:
 1. Adjusted the trajectory of wavedash.
-
-
-Bubbla:
-1. j.2c recovery increased drastically.
 
 
 Watanabe:
 1. Phantom Sword:
 	* Can now go into a hurtstate when watanabe gets attacked.
 	* Sword 5b 1 blockstun increased and startup increased.
+	* Can no longer be used during Starburster (defensive burst)
 2. Wavedash A made less active (-4 frames)
 3. Wavedash C Bug Removed.
+
+
+ Violet:
+1. Can no longer fastfall during any of here supers.
+
+
+Vivienne:
+1. Can no longer fastfall during j.5y, 2y, and 4y
+2. Reduced speed of fastfall to match other characters.
+
 
 
 ===================================================================================================================================

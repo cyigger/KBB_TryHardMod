@@ -587,7 +587,7 @@ flag3=nostandguard
 [State -1, Soft Fast Fall]
 type = VelSet
 triggerall = statetype = A && movetype != H
-triggerall = stateno != 390 && stateno != 900 ;Moves that have been nerfed to not allow fastfall during them
+triggerall = stateno != 390 && stateno != 900 && stateno != [21000, 21010] && stateno != [24000, 24099] ;Moves that have been nerfed to not allow fastfall during them
 triggerall = command = "down"
 triggerall = vel y > -1 && vel y < 6
 trigger1 = 1

@@ -1822,8 +1822,8 @@ value = 55
 [State 200, Land]
 type = ChangeState
 trigger1 = vel y > 0 && pos y >= 0
-value = 0
-ctrl = 0
+value = 493
+ctrl = 1
 
 ; Down+C:
 ;-------------------------------------------------------------------------------

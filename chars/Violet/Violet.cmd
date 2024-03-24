@@ -588,6 +588,7 @@ flag3=nostandguard
 [State -1, Soft Fast Fall]
 type = VelSet
 triggerall = statetype = A && movetype != H
+triggerall = stateno != [21000, 25999]
 triggerall = command = "down"
 triggerall = vel y > -1 && vel y < 6
 trigger1 = 1
