@@ -26,7 +26,7 @@ Bill:
 
 
 Fly:
-1. YOu can no longer fastfall during j.236A and 214B
+1. YOu can no longer fastfall during 2c, j.236A and 214B
 
 
 Glitch:
@@ -52,6 +52,7 @@ Sareo:
 
 Stray:
 1. Fixed Bug where you could fast fall during the landing of j.236B
+2. Can no longer fastfall during startup of Wavedash A and 2c2c
 2. Wavedash A startup increased (+4)
 
 
