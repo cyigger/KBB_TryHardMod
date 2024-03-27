@@ -26,7 +26,7 @@ Bill:
 
 
 Fly:
-1. YOu can no longer fastfall during 2c, j.236A and 214B
+1. You can no longer fastfall during 2c, j.236A and 214B
 
 
 Glitch:
@@ -144,7 +144,7 @@ Thanks to people showing me what the dash macro was truly capable of, I've made 
 Some Characters have seen some decent adjustments and bug fixes
 
 Universal:
-1. Dash Cancel Removed from the game.
+1. Dash Macro Removed from the game.
 
 
 Glitch:
