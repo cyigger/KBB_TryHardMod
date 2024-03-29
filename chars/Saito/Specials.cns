@@ -4,7 +4,7 @@
 ;-------------------------------------------------------------------------------
 ; "Wind Ball"
 [Statedef 21000]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
@@ -485,7 +485,7 @@ value = 470
 ;-------------------------------------------------------------------------------
 ; "Burst Off!"
 [Statedef 22000]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
@@ -712,7 +712,7 @@ ctrl = 0
 ;-------------------------------------------------------------------------------
 ; "Wind Slasher"
 [Statedef 23000]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
@@ -832,7 +832,7 @@ ctrl = 1
 ;-------------------------------------------------------------------------------
 ; "Wind Slasher"
 [Statedef 23100]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
@@ -1023,7 +1023,7 @@ ctrl = 1
 ;-------------------------------------------------------------------------------
 ; "Wind Slash"
 [Statedef 23600]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
@@ -1155,7 +1155,7 @@ trigger1 = frontedgebodydist < -40
 ;-------------------------------------------------------------------------------
 ; "Wind Slash"
 [Statedef 23700]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
@@ -1250,7 +1250,7 @@ trigger1 = frontedgebodydist < -40
 ;-------------------------------------------------------------------------------
 ; "Wind Slash"
 [Statedef 23800]
-type    = A
+type    = S
 movetype= A
 physics = S
 juggle  = 0
