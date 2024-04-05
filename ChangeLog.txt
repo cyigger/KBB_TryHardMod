@@ -51,6 +51,14 @@ Junichi: Previously this character was too weak to be viable due to his flaws ou
 5. Overall improved hitboxes accross the board.
 
 
+MetaKnight: Just some small changes to integrate this character better with the try-hard mod mechanics.
+1. 5c animation adjusted.
+2. 5c is can now be cancelled with wavedash.
+3. Wavedash A animation adjusted, hitbox improved.
+4. 5a can now cancel into 2a.
+5. 236C hitstun drastically increased.
+
+
 Saito:
 1. Removed wavedash cancel from 2a
 2. Wavedash A: Improved Hitbox.
