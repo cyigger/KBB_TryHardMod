@@ -1,5 +1,91 @@
 ===================================================================================================================================
 |-----------------------------------------------------/
+| Try-Hard Version 0.6.5 Changes:                    /
+|---------------------------------------------------/
+
+In this update, some crazy moves get knocked down a peg or two, and low-tier modded characters rise up.
+
+
+Bill:
+1. Wavedash A:
+	* startup increased (+1)
+	* reach decreased
+
+
+Bubbla: One simple flaw was holding this character back severely.
+1. 5aa, 5aaa, 5b, 5bb proration reduced (5 -> 3)
+2. 2a proration reduced (8 -> 5)
+3. 2a juggle reduced (10 -> 5)
+4. j.b proration reduced drastically (30 -> 15)
+5. j.b juggle increased (5 -> 10)
+6. j.b damage increased (5 -> 25)
+7. 236A damage increased (55 -> 90)
+	* Both hits will more consistently connect.
+8. 236B damage increased (30 -> 40 per bubble)
+
+
+Fly:
+1. Wavedash A:
+	* Startup increased (+2)
+	* Recovery increased (+2)
+	* Added extra subtle effect.
+
+
+Clutch: Some much needed polish for his wavedash moves
+1. Wavedash A:
+	* Now puts the opponent in a high groundbounce
+	* Sends Clutch slightly lower.
+2. Wavedash C:
+	* Now jump cancellable, but he will not gain charge if he does this.
+	* Now sends opponets closer and higher.
+
+
+Junichi: Previously this character was too weak to be viable due to his flaws outweighting his strenghts significantly. I've aimed to revitalize some strengths while also reducing some of his overwhelming flaws.
+1. Phoenix 4c invulnerability period increased (from frames 1 to 3 -> from frames 0 to 4)
+	* Added a short effect to show the invulnerability.
+2. Phonix Backturned can transition to crouch block by pressing down-back during it.
+3. Phoenix j.5c - All Followups: Reduced Startup (2 - 3 frames less)
+4. Feline 6c initial speed increased, overall distance remains somewhat similar.
+	* Now immune to projetiles for a short moment.
+5. 236A is now juggleless.
+5. Overall improved hitboxes accross the board.
+
+
+Saito:
+1. Removed wavedash cancel from 2a
+2. Wavedash A: Improved Hitbox.
+
+
+Vei: As one of the weakest character in the mod, Vei received some heavy adjustments and even two small reworks.
+1. 5b has been revamped:
+	* Now can be cancelled on wiff
+	* Two new cancels: 5b > 4b and 5b > 2b
+2. 5c has been revamped:
+	* Portals can now be placed in face-up and face-down positions depending on the direction being held.
+3. 2c has been revamped:
+	* This move now spawns a face-up portals upon use.
+	* If used when a portal exist, flames will come out of the existing portal.
+	* Can be help to reset any already existing portal.
+	* Cost reduced to 1/4 bar
+	* If used during it's cooldown, a short failure animation plays.
+4. j.2c hitbox slightly improved
+5. j.5bb hitpause on hit reduced to be consistent.
+6. 5c and 2c portal speed made faster and more consistent.
+7. Wavedash B: Temporarily reverted to clone divekick.
+8. 5b hitstun slightly increased.
+9. 4b hitstun increased.
+
+
+Yoru:
+1. Wavedash A Reverted to Quick Slash
+	* With extra polish.
+
+
+
+
+
+===================================================================================================================================
+|-----------------------------------------------------/
 | Try-Hard Version 0.6.4 Hotfix Changes:             /
 |---------------------------------------------------/
 
