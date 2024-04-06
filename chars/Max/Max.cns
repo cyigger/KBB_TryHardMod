@@ -2536,7 +2536,7 @@ volumescale = 150
 [State 0, VelAdd]
 type = VelAdd
 trigger1 = Animelem = 4
-x = 5
+x = 4
 
 
 [State 0, Explod]
