@@ -48,7 +48,8 @@ _! Charged								[^C]
 
 "Takuhameha" (1/8 Bar, _AIR OK)							_B^C
 	"Takuya charges a shadow ball.
-	 If 6[C] is active, charge speed is increased."
+	 If 6[C] is active, charge speed is increased and
+	you can charge for longer."
 
 _! Release								^C
 	"The shadow ball gets thrown, with more charge it has

@@ -435,7 +435,7 @@ type = HitDef
 trigger1 = !movecontact
 animtype  = Heavy
 attr = S, NA
-damage = 100
+damage = 120
 hitflag = MAFD
 guardflag = MA
 ground.hittime = 120
@@ -2202,7 +2202,7 @@ Fall.recovertime = 60
 
 [State 200, End]
 type = ChangeState
-triggerall = pos y = 0
+triggerall = pos y >= 0
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
@@ -2409,7 +2409,7 @@ Fall.recovertime = 60
 
 [State 200, End]
 type = ChangeState
-triggerall = pos y = 0
+triggerall = pos y >= 0
 trigger1 = AnimTime = 0
 value = 0
 ctrl = 1
@@ -4096,7 +4096,12 @@ value = 0
 
 [State 0, SelfState]
 type = SelfState
-trigger1 = time = 50
+trigger1 = pos y >= 0 ; FUCK U
+value = 5030
+
+[State 0, SelfState]
+type = SelfState
+trigger1 = time = 25
 value = 5030
 
 ;===============================================================================
@@ -4139,7 +4144,7 @@ y = 0
 type = MapAdd
 trigger1 = movehit 
 map = "juggle"
-value = 75
+value = 50
 persistent = 0
 ignorehitpause = 1
 
@@ -4149,7 +4154,7 @@ trigger1 = movehit
 v = 11
 ignorehitpause = 1
 persistent = 0
-value = 75
+value = 50
 
 [State 0, Explod]
 type = Explod

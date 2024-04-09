@@ -48,7 +48,7 @@ Junichi: Previously this character was too weak to be viable due to his flaws ou
 4. Feline 6c initial speed increased, overall distance remains somewhat similar.
 	* Now immune to projetiles for a short moment.
 5. 236A is now juggleless.
-5. Overall improved hitboxes accross the board.
+6. Overall improved hitboxes accross the board.
 
 
 Max: One move ended up being a little too good. Just a small nerf was needed
@@ -95,6 +95,33 @@ Vei: As one of the weakest character in the mod, Vei received some heavy adjustm
 Yoru:
 1. Wavedash A Reverted to Quick Slash
 	* With extra polish.
+
+
+(Recent) Takuya:
+1. Grab sends at a lower velocity, and doesn't go as far
+2. J.5BB can now cancel back into J.5B
+3. Increased J5[B] damage - 40 -> 48
+4. 4C now can be charged for longer if a 6[C] is up [100 max charge -> 200 max charge]
+	* is now fastfall-able
+5. 5[C] no longer gives power delay
+6. Increased 236A damage - 119 -> 149
+7. Spiked 236[C] only removes 50 proration & juggle instead of 75
+8. Because of this, spiked 236[C] damage was increased slightly - 423 -> 436
+9. 5A has slightly increased range
+10. 2A has slightly increased range
+11. 5B:
+	* has increased range
+	* does slightly more damage [10 -> 15]
+12. 5[B] no longer cancels into Wavedash
+13. Wavedash A now is slower and has slightly less range
+14. Wavedash A and Wavedash B no longer hit over juggle
+15. J5C and J5[C] 
+	* do slightly more damage [30 -> 40], [50 -> 60]
+	* J5[C]6 and J5[C]4 move faster
+16. 5BB does slightly more damage [15 -> 20]
+17. 4C buffed
+	* goes slightly faster the more it is charged
+	* takes less juggle
 
 
 
