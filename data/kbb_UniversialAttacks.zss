@@ -1861,11 +1861,26 @@ if teammode = tag && time = 0 {
     TeamMapSet{map: "tagStarburst"; value: 1; redirectID: root,id}
 }
 
+ignorehitpause if 1 {
+ assertspecial{flag: nomusic}
+
+}
+ignorehitpause persistent(0) if 1 {
+  PlaySnd{value: F32,3; volumescale: 999; channel: 32; lowpriority: 1}
+}
+
+ignorehitpause persistent(0) if parent, numhelper(52000) = 1 {
+  StopSnd{channel: 32}
+}
+
+ignorehitpause persistent(0) if parent, numhelper(52000) = 1 {
+  PlaySnd{value: F32,4; volumescale: 999}
+}
+
 ignorehitpause persistent(0) if parent, numhelper(52000) = 1 {
     parent, var(11) := parent, var(11) + 30;
     DestroySelf{}
 }
-
 #===============================================================================
 #StarBurst Cooldown
 #===============================================================================
