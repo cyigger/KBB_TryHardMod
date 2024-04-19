@@ -321,7 +321,7 @@ guard.kill = 0		;no chipkills
 pausetime = 18,24
 sparkno = 9999
 sparkxy = -8,-25
-hitsound = S0,3
+hitsound = S8,4
 guardsound = S2,0
 guard.sparkno = 9999
 ground.type = High
@@ -330,7 +330,7 @@ ground.hittime  = 15
 ground.velocity  = -3.5,-7
 air.velocity  = -3.5,-6
 Fall = 1
-Fall.recovertime = 50 + ifelse(enemy,movetype = A, 7, 0)
+Fall.recovertime = 70 + ifelse(enemy,movetype = A, 7, 0)
 
 [State 0, EnvShake]
 type = EnvShake
@@ -494,7 +494,7 @@ pausetime = 8,8
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = S0,3
+hitsound   = S5,4
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
@@ -522,7 +522,7 @@ pausetime = 15,15
 sparkno = 15000
 guard.sparkno = 13000
 sparkxy = -8,-25
-hitsound   = S0,3
+hitsound   = S8,4
 guardsound = S2,0
 ground.type = High
 ground.slidetime = 12
