@@ -1635,6 +1635,7 @@ if AnimElem = 2 {
     PlaySnd{value: F32,1; volumescale: 999}
     PlaySnd{value: F32,2; volumescale: 999}
     PlaySnd{value: F32,2; volumescale: 999}
+    PlaySnd{value: F32,3; volumescale: 999; loop: 1; channel: 32;}
 
     Helper{
         helpertype: normal;
@@ -1865,16 +1866,13 @@ ignorehitpause if 1 {
  assertspecial{flag: nomusic}
 
 }
-ignorehitpause persistent(0) if 1 {
-  PlaySnd{value: F32,3; volumescale: 999; channel: 32; lowpriority: 1}
-}
 
 ignorehitpause persistent(0) if parent, numhelper(52000) = 1 {
   StopSnd{channel: 32}
 }
 
 ignorehitpause persistent(0) if parent, numhelper(52000) = 1 {
-  PlaySnd{value: F32,4; volumescale: 999}
+  PlaySnd{value: F32,4; volumescale: 999;}
 }
 
 ignorehitpause persistent(0) if parent, numhelper(52000) = 1 {
